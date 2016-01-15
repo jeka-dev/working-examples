@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="BE_FORTIS_KQWS-pr01.war">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/JavaSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/BE_FORTIS_KQWS-co01.jar/BE_FORTIS_KQWS-co01.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/BE_FORTIS_KQWS-ap03.jar/BE_FORTIS_KQWS-ap03.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/BE_FORTIS_KQWS-ap01.jar/BE_FORTIS_KQWS-ap01.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/BE_FORTIS_KQWS-ap02.jar/BE_FORTIS_KQWS-ap02.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="BE_FORTIS_KQWS-ui01.jar.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/BE_FORTIS_KQWS-ui01.jar/BE_FORTIS_KQWS-ui01.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="WebContent/WEB-INF/classes"/>
+        <property name="context-root" value="CINQ"/>
+    </wb-module>
+</project-modules>

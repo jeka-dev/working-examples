@@ -6,15 +6,23 @@ module.exports = function(grunt) {
     concat: {
     	dist: {
     		src: [
-    		      'src/js/*.js', // tous les JS dans libs
-    		      'libs/*.js'  // ce fichier là
+    		      'src/js/*.js',
+    		      'libs/*.js'
     	    ],
     	    dest: 'build/all.js'
     	}
-    }
+    },
+    copy: {
+    	  main: {
+    	    files: [
+    	      {expand: false, src: ['src/style/*'], dest: 'build/', filter: 'isFile'}
+    	    ],
+    	  },
+    	},
   });
   
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.registerTask('default', ['concat']);
+  grunt.registerTask('default', ['concat', 'copy']);
 
 };

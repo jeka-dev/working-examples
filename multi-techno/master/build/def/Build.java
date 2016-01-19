@@ -9,11 +9,11 @@ import org.jerkar.tool.builtins.javabuild.JkJavaBuild;
 
 class Build extends JkBuildDependencySupport {
 	
-	@JkProject("../bar")
-	BarBuild barBuild;
+	@JkProject("../web")
+	WebBuild webBuild;
 	
-	@JkProject("../foo")
-	FooBuild fooBuild;
+	@JkProject("../client-swing")
+	SwingBuild fooBuild;
 	
 	File distribFolder = ouputDir("distrib");
 	
@@ -29,19 +29,19 @@ class Build extends JkBuildDependencySupport {
 	
 	private void fatJar() {
 		JkZipper.of(
-				barBuild.packer().jarFile(), 
+				webBuild.packer().jarFile(), 
 				fooBuild.packer().jarFile())
-				.merge(barBuild.depsFor(JkJavaBuild.RUNTIME))
+				.merge(webBuild.depsFor(JkJavaBuild.RUNTIME))
 				.merge(fooBuild.depsFor(JkJavaBuild.RUNTIME)).to(fatJar);
 	}
 	
 	private void copyJars() {
 		JkFileTree.of(distribFolder).importFiles(
-				barBuild.packer().jarFile(), 
+				webBuild.packer().jarFile(), 
 				fooBuild.packer().jarFile(),
 				fooBuild.coreBuild.packer().jarFile(),
-				barBuild.jarFromLegacyProject,
-				barBuild.coreBuild.packer().jarFile());
+				webBuild.html5Folder,
+				webBuild.coreBuild.packer().jarFile());
 	}
 	
 	public static void main(String[] args) {

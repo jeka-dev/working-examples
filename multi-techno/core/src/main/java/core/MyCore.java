@@ -4,10 +4,11 @@ import utility.MyUtility;
 
 public class MyCore {
 	
-	private final MyUtility myUtility = new MyUtility();
-
-	public int minusCount() {
-		return -myUtility.count();
+	public int magicFormula(int input) {
+		if (input < 0) {
+			input = - input;
+		}
+		return MyUtility.sequence(input + 6) - (18 * input);
 	}
 
 }

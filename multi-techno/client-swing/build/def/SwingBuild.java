@@ -3,7 +3,7 @@ import org.jerkar.tool.JkProject;
 /**
  * @formatter:off
  */
-class FooBuild extends AbstractBuild {
+class SwingBuild extends AbstractBuild {
 
 	@JkProject("../core")
     CoreBuild coreBuild;

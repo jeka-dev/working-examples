@@ -1,4 +1,4 @@
-# Multi-techno project
+# Multi-techno HTML5 project
 
 This project aims at computing a number from a given input number according a "magic formula".
 

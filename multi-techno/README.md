@@ -6,7 +6,7 @@ Note that is not the only way to build such project with Jerkar : you could buil
 
 The functionality of this showcase project is a "magic formula" : it just computes a number according an hard-coded function (called "magic formula") and an input number. 
 
-* [core](./core) project actually do compute the "magic formula". Ituses in turn the [utility](./utility) project to accomplish some parts of the computing.
+* [core](./core) project actually do compute the "magic formula". It uses in turn the [utility](./utility) project to accomplish some parts of the computing.
 
 * [client-swing](./client-swing) project offers a Swing graphical interface for computing magic formula.
 

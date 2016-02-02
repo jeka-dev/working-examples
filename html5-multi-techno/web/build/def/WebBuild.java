@@ -1,16 +1,18 @@
-import static org.jerkar.api.depmanagement.JkPopularModules.*;
+import static org.jerkar.api.depmanagement.JkPopularModules.GUAVA;
+import static org.jerkar.api.depmanagement.JkPopularModules.JAVAX_SERVLET_API;
 
 import java.io.File;
 
 import org.jerkar.api.depmanagement.JkDependencies;
+import org.jerkar.api.system.JkLog;
 import org.jerkar.api.system.JkProcess;
 import org.jerkar.tool.JkDoc;
 import org.jerkar.tool.JkImport;
 import org.jerkar.tool.JkInit;
 import org.jerkar.tool.JkProject;
 import org.jerkar.tool.builtins.javabuild.jee.JkBuildPluginWar;
-//import org.mortbay.jetty.Server;
-//import org.mortbay.jetty.handler.ContextHandler;
+import org.mortbay.jetty.Server;
+import org.mortbay.jetty.webapp.WebAppContext;
 
 @JkImport("org.mortbay.jetty:jetty:6.1.25")
 class WebBuild extends AbstractBuild {
@@ -21,13 +23,13 @@ class WebBuild extends AbstractBuild {
 	@JkProject("../core")
     CoreBuild coreBuild;
 	
-	File html5ProjectDir = file("../client-html5");  
+	private File html5ProjectDir = file("../client-html5");  
 	
 	File html5Folder = new File(html5ProjectDir, "build/prod");
 	
-	JkProcess grunt = JkProcess.ofWinOrUx("grunt.cmd", "grunt").withWorkingDir(html5ProjectDir);
+	private JkProcess grunt = JkProcess.ofWinOrUx("grunt.cmd", "grunt").withWorkingDir(html5ProjectDir);
 	
-	JkBuildPluginWar pluginWar = new JkBuildPluginWar();
+	private JkBuildPluginWar pluginWar = new JkBuildPluginWar();
 	
 	public WebBuild() {
 		this.plugins.activate(pluginWar);
@@ -54,11 +56,16 @@ class WebBuild extends AbstractBuild {
 		super.pack();
 	}
 	
-//	public void jetty() {
-//		Server server = new Server();
-//		ContextHandler context = new ContextHandler();
-//		context.setHandler(arg0);
-//	}
+	public void jetty() throws Exception {
+		Server server = new Server(8080);
+		WebAppContext webAppContext = new WebAppContext();
+		webAppContext.setContextPath("/");
+		webAppContext.setWar(this.pluginWar.warFile().getPath());
+		server.setHandler(webAppContext);
+		server.start();
+		JkLog.info("server started");
+		server.join();	
+	}
 	
 	public static void main(String[] args) {
 		JkInit.instanceOf(WebBuild.class).doDefault();

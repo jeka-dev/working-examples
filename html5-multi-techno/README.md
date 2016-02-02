@@ -12,7 +12,7 @@ The functionality of this showcase project is a "magic formula" : it just comput
 
 * [web](./web) project exposes the "magic formula" on http server.
 
-* [client-html5](./client-html5) project offers an web2 interface for computing magic formula. 
+* [client-html5](./client-html5) project offers an Html5 interface. This project is built with *Grunt*. 
 
 * [master](./master) project is a project containing build instruction to build all together.
 

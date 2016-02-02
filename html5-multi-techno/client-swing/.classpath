@@ -5,5 +5,5 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="var" path="JERKAR_HOME/org.jerkar.core-all.jar" sourcepath="JERKAR_HOME/libs-sources/org.jerkar.core-all-sources.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="build/output/classes"/>
 </classpath>

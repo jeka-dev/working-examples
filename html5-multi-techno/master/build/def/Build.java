@@ -13,33 +13,25 @@ class Build extends JkBuildDependencySupport {
 	WebBuild webBuild;
 	
 	@JkProject("../client-swing")
-	SwingBuild fooBuild;
+	SwingBuild swingBuild;
 	
 	File distribFolder = ouputDir("distrib");
 	
-	File fatJar = new File(distribFolder, "example-fat.jar");
+	File fatJar = new File(distribFolder, "magic-fat.jar");
 	
 	@Override
 	public void doDefault() {
+		clean();
 		this.slaves().invokeDoDefaultMethodOnAll();
 		distribFolder.mkdirs();
-		fatJar();
 		copyJars();
-	}
-	
-	private void fatJar() {
-		JkZipper.of(
-				webBuild.packer().jarFile(), 
-				fooBuild.packer().jarFile())
-				.merge(webBuild.depsFor(JkJavaBuild.RUNTIME))
-				.merge(fooBuild.depsFor(JkJavaBuild.RUNTIME)).to(fatJar);
 	}
 	
 	private void copyJars() {
 		JkFileTree.of(distribFolder).importFiles(
-				webBuild.packer().jarFile(), 
-				fooBuild.packer().jarFile(),
-				fooBuild.coreBuild.packer().jarFile(),
+				webBuild.pluginWar.warFile(), 
+				swingBuild.packer().fatJarFile(),
+				swingBuild.coreBuild.packer().jarFile(),
 				webBuild.html5Folder,
 				webBuild.coreBuild.packer().jarFile());
 	}

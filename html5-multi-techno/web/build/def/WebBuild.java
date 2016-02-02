@@ -29,7 +29,7 @@ class WebBuild extends AbstractBuild {
 	
 	private JkProcess grunt = JkProcess.ofWinOrUx("grunt.cmd", "grunt").withWorkingDir(html5ProjectDir);
 	
-	private JkBuildPluginWar pluginWar = new JkBuildPluginWar();
+	JkBuildPluginWar pluginWar = new JkBuildPluginWar();
 	
 	public WebBuild() {
 		this.plugins.activate(pluginWar);

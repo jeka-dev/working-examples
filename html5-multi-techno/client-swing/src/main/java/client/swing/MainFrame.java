@@ -1,0 +1,51 @@
+package client.swing;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import core.MyCore;
+
+class MainFrame extends JFrame {
+
+	private final MyCore core = new MyCore();
+	
+	public MainFrame() {
+		setTitle("Magic Formula");
+		setSize(300, 100);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		createLayout();
+	}
+
+	private void createLayout() {
+		Container pane = getContentPane();
+		FlowLayout flowLayout = new FlowLayout();
+		pane.setLayout(flowLayout);
+		pane.add(new JLabel("Input number : "));
+		final JTextField textField = new JTextField(8);
+		pane.add(textField);
+		JButton go = new JButton("Go");
+		pane.add(go);
+		final JLabel result = new JLabel();
+		pane.add(result);
+		go.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String inputText = textField.getText();
+				int value = Integer.parseInt(inputText);
+				int magic = core.magicFormula(value);
+				result.setText(Integer.toString(magic));
+			}
+		});
+	}
+
+}

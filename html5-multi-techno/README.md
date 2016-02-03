@@ -18,3 +18,12 @@ The functionality of this showcase project is a "magic formula" : it just comput
 
 
 ![map](master/capture.png)
+
+## How to build
+
+### Command line
+Open a shell in [master](./master) project and execute `jerkar`. 
+If you don't want to build/include [client-html5](./client-html5) project, execute `jerkar -embbedHtml5=false´
+
+### Inside IDE
+Exectute the class ´Build´ found at [master/build/def/Build.java](./master/build/def/Build.java). 

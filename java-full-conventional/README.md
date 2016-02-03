@@ -17,7 +17,7 @@ This project respect fully convention so no build class is required :
 Open a shell at the root of the project execute `jerkar`. <br/>
 If you want to produce a fat jar, execute `jerkar -pack.fatJar=true`. <br/>
 If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute `jerkar jacoco#`. <br/>
-If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute `jerkar jacoco# sonar#verify -sonar.host.url=http://my.sonar.host:8080`.
+If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), <br/> execute `jerkar jacoco# sonar#verify -sonar.host.url=http://my.sonar.host:8080`.
 
 ### From IDE
 Exectute the class `org.jerkar.tool.Main` within this project. 

@@ -6,7 +6,7 @@ For now provided examples are :
 
 * [Java task based](./java-task-based) : A simple Java project with build class designed as a set of tasks (ala ANT).
 
-* [Java full conventional](./java-full-conventional) : Similar project as above but no build class is required as, here, the project respect fully conventions. 
+* [Java full conventional](./org.jerkar.examples-java-full-conventional) : Similar project as above but no build class is required as, here, the project respect fully conventions. 
 
 * [Java template](./java-template) : Similar project as above but providing a build class to declare transitive dependencies and force artifact naming.  
 

@@ -7,10 +7,12 @@ import org.jerkar.api.java.JkManifest;
 import org.jerkar.api.java.junit.JkUnit;
 import org.jerkar.api.java.junit.JkUnit.JunitReportDetail;
 import org.jerkar.tool.JkBuild;
+import org.jerkar.tool.JkDoc;
 import org.jerkar.tool.JkInit;
 
 class Build extends JkBuild {
 	
+	@JkDoc("Run test in a forked process if true.")
 	boolean forkTest;
 
 	private File src = file("src");

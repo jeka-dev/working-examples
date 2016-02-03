@@ -4,6 +4,8 @@ This project aims at providing a jar file library that capitalize entire strings
 
 The project has a dependency on *Guava* and on *Junit4* for testing.
 
+The [build class](./build/def/Build.java) declares transitive dependencies and specifies module naming.
+
 ## How to build
 
 ### From command line

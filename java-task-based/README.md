@@ -4,7 +4,7 @@ This project aims at providing a jar file library that capitalize entire strings
 
 The project has a dependency on *Guava* and on *Junit4* for testing.
 
-This project does not respect any layout convention. Its build class explicitly describes the whole build as we do with ANT.
+This project does not respect any layout convention. Its [build class](./build/def/Build.java) explicitly describes the whole build as we do with ANT.
 
 ## How to build
 

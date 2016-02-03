@@ -15,5 +15,5 @@ If you want to only produce the jar without running tests, execute `jerkar compi
 
 ### From IDE
 Exectute the class ´Build´ found at [build/def/Build.java](./build/def/Build.java) or <br/>
-exececute `org.jerkar.tool.Main`class within this project.
+execute `org.jerkar.tool.Main`class within this project.
 

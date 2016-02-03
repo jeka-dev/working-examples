@@ -26,7 +26,8 @@ class Build extends JkJavaBuild {
 
     @Override
     public JkDependencies dependencies() {
-        return JkDependencies.builder().on(GUAVA, "18.0")
+        return JkDependencies.builder()
+                .on(GUAVA, "18.0")
                 .on(JUNIT, "4.12", TEST).build();
     }
 

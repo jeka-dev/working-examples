@@ -14,9 +14,9 @@ This project respect fully convention so no build class is required :
 ## How to build
 
 ### From command line
-Open a shell at the root of the project execute `jerkar`. 
-If you want to produce a fat jar, execute `jerkar -pack.fatJar=true`.
-If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute `jerkar jacoco#`.
+Open a shell at the root of the project execute `jerkar`. <br/>
+If you want to produce a fat jar, execute `jerkar -pack.fatJar=true`. <br/>
+If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute `jerkar jacoco#`. <br/>
 If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute `jerkar jacoco# sonar#verify`.
 
 ### From IDE

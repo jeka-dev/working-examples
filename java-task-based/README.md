@@ -14,4 +14,6 @@ If you want the junit test to be run in a forked process, execute `jerkar -forkT
 If you want to only produce the jar without running tests, execute `jerkar compile jar`.
 
 ### From IDE
-Exectute the class ´Build´ found at [build/def/Build.java](./build/def/Build.java). 
+Exectute the class ´Build´ found at [build/def/Build.java](./build/def/Build.java) or <br/>
+Exececute `org.jerkar.tool.Main`class within this project.
+

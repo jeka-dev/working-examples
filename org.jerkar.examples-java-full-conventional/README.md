@@ -2,7 +2,7 @@
 
 This project aims at providing a jar file library that capitalize entire strings (all word of the input string are capitalized).
 
-The project has a dependency on *Guava* and on *Junit4* for testing.
+The project has a dependency on *Guava* and on *Junit4* for testing. Libraries are hosted in a folder locally in the project and are not managed by transitively. 
 
 This project respect fully convention so no build class is required :
 * sources lie under *src/main/java*

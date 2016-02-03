@@ -9,9 +9,6 @@ import org.jerkar.api.java.junit.JkUnit.JunitReportDetail;
 import org.jerkar.tool.JkBuild;
 import org.jerkar.tool.JkInit;
 
-/**
- * @formatter:off
- */
 class Build extends JkBuild {
 	
 	boolean forkTest;

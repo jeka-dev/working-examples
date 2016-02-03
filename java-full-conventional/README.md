@@ -20,4 +20,4 @@ If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/j
 If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute `jerkar jacoco# sonar#verify`.
 
 ### From IDE
-Exectute the class ´org.jerkar.tool.Main´ within this project. 
+Exectute the class `org.jerkar.tool.Main` within this project. 

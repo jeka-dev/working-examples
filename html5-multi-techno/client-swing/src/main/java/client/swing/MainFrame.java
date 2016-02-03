@@ -1,13 +1,12 @@
 package client.swing;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -16,6 +15,8 @@ import core.MyCore;
 
 class MainFrame extends JFrame {
 
+	private static final long serialVersionUID = 1L;
+	
 	private final MyCore core = new MyCore();
 	
 	public MainFrame() {
@@ -35,6 +36,7 @@ class MainFrame extends JFrame {
 		JButton go = new JButton("Go");
 		pane.add(go);
 		final JLabel result = new JLabel();
+		result.setPreferredSize(new Dimension(100, 30));
 		pane.add(result);
 		go.addActionListener(new ActionListener() {
 			

@@ -1,4 +1,4 @@
-# Simple Java project with build class designed as a set of tasks
+# Simple Java project with build class designed as a ANT file.
 
 This project aims at providing a jar file library that capitalize entire strings (all word of the input string are capitalized).
 
@@ -14,4 +14,4 @@ If you want the junit test to be run in a forked process, execute `jerkar -forkT
 If you want to only produce the jar without running tests, execute `jerkar compile jar`.
 
 ### From IDE
-Exectute the class ´Build´ found at [build/def/Build.java](./build/def/Build.java). 
+Exectute the class Â´BuildÂ´ found at [build/def/Build.java](./build/def/Build.java). 

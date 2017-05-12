@@ -33,7 +33,7 @@ class Build extends JkBuild {
 	}
 
 	public void compile() {
-		JkJavaCompiler.ofOutput(classDir).withClasspath(classpath)
+		JkJavaCompiler.outputtingIn(classDir).withClasspath(classpath)
 				.andSourceDir(src).compile();
 		JkFileTree.of(src).exclude("**/*.java").copyTo(classDir);
 	}
@@ -45,7 +45,7 @@ class Build extends JkBuild {
 	}
 	
 	private void compileTest() {
-		JkJavaCompiler.ofOutput(testClassDir).withClasspath(testClasspath.and(classDir))
+		JkJavaCompiler.outputtingIn(testClassDir).withClasspath(testClasspath.and(classDir))
 				.andSourceDir(testSrc).compile();
 		JkFileTree.of(testSrc).exclude("**/*.java").copyTo(testClassDir);
 	}

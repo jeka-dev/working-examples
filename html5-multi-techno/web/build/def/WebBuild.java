@@ -43,7 +43,7 @@ class WebBuild extends AbstractBuild {
 		return JkDependencies.builder()
 				.on(coreBuild.asJavaDependency())
 				.on(GUAVA)
-				.on(JAVAX_SERVLET_API, "2.5", PROVIDED).build();
+				.on(JAVAX_SERVLET_API, "3.1.0", PROVIDED).build();
 	}
 	
 	@Override

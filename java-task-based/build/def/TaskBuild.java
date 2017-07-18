@@ -10,7 +10,7 @@ import org.jerkar.tool.JkBuild;
 import org.jerkar.tool.JkDoc;
 import org.jerkar.tool.JkInit;
 
-class Build extends JkBuild {
+class TaskBuild extends JkBuild {
 	
 	@JkDoc("Run test in a forked process if true.")
 	boolean forkTest;
@@ -61,7 +61,7 @@ class Build extends JkBuild {
 
 
 	public static void main(String[] args) {
-		JkInit.instanceOf(Build.class, args).doDefault();
+		JkInit.instanceOf(TaskBuild.class, args).doDefault();
 	}
 
 }

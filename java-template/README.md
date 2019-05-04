@@ -4,7 +4,7 @@ This project aims at providing a jar file library that capitalize entire strings
 
 The project has a dependency on *Guava* and on *Junit4* for testing.
 
-The [build class](./build/def/Build.java) declares transitive dependencies and specifies module naming.
+The [build class](jerkar/def/Build.java) declares transitive dependencies and specifies module naming.
 
 ## How to build
 
@@ -14,5 +14,5 @@ If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/j
 If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute `jerkar jacoco# sonar#verify`.
 
 ### From IDE
-Execute `Build` class found at [build/def/Build.java](./build/def/Build.java) or <br/>
+Execute `Build` class found at [build/def/Build.java](jerkar/def/Build.java) or <br/>
 execute `org.jerkar.tool.Main`class within this project.. 

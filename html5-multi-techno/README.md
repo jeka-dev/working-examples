@@ -29,5 +29,5 @@ If you don't want to build/include [client-html5](./client-html5) project, execu
 
 
 ### From IDE
-Exectute the class ´Build´ found at [master/build/def/Build.java](./master/build/def/Build.java) or <br/>
+Exectute the class ´Build´ found at [master/build/def/Build.java](master/jerkar/def/Build.java) or <br/>
 execute `org.jerkar.tool.Main`class within the *master* project.

@@ -1,15 +1,18 @@
-import org.jerkar.api.depmanagement.JkDependencies;
-import org.jerkar.api.depmanagement.JkPopularModules;
+import org.jerkar.api.depmanagement.JkDependencySet;
+import org.jerkar.tool.JkRun;
+import org.jerkar.tool.builtins.java.JkPluginJava;
 
 /**
  * @formatter:off
  */
-class UtilityBuild extends AbstractBuild {
+class UtilityBuild extends JkRun {
 
-    @Override
-    public JkDependencies dependencies() {
-        return JkDependencies.builder()
-        		.on(JkPopularModules.GUAVA,"18.0", COMPILE).build();
+    final JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
+
+    UtilityBuild() {
+        javaPlugin.getProject().setDependencies(JkDependencySet.of()
+            .and("com.google.guava:guava:jar:23.0"));
     }
+
  
 }

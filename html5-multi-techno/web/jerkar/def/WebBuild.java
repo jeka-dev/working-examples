@@ -2,24 +2,27 @@ import static org.jerkar.api.depmanagement.JkPopularModules.GUAVA;
 import static org.jerkar.api.depmanagement.JkPopularModules.JAVAX_SERVLET_API;
 
 import java.io.File;
+import java.nio.file.Path;
 
 import org.jerkar.api.depmanagement.JkDependencies;
 import org.jerkar.api.system.JkProcess;
 import org.jerkar.tool.JkDoc;
+import org.jerkar.tool.JkImportRun;
 import org.jerkar.tool.JkInit;
 import org.jerkar.tool.JkProject;
+import org.jerkar.tool.JkRun;
 import org.jerkar.tool.builtins.javabuild.jee.JkBuildPluginWar;
 
 
-class WebBuild extends AbstractBuild {
+class WebBuild extends JkRun {
 	
 	@JkDoc("Build html5 project and embed it in produced WAR file.")
 	boolean embbedHtml5 = true;
 
-	@JkProject("../core")
+	@JkImportRun("../core")
     CoreBuild coreBuild;
 	
-	private File html5ProjectDir = file("../client-html5");  
+	private Path html5ProjectDir = getBaseDir().resolve("../client-html5");
 	
 	File html5Folder = new File(html5ProjectDir, "build/prod");
 	

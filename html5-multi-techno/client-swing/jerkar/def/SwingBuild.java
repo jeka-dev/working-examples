@@ -1,27 +1,31 @@
-import org.jerkar.api.depmanagement.JkDependencies;
+import org.jerkar.api.depmanagement.JkDependencySet;
+import org.jerkar.tool.JkImportRun;
 import org.jerkar.tool.JkInit;
-import org.jerkar.tool.JkProject;
+import org.jerkar.tool.JkRun;
+import org.jerkar.tool.builtins.java.JkPluginJava;
 
 /**
  * @formatter:off
  */
-class SwingBuild extends AbstractBuild {
-	
-	{
-		pack.fatJar = true;
-		manifest.mainClass = "auto";
-	}
+class SwingBuild extends JkRun {
 
-	@JkProject("../core")
-    CoreBuild coreBuild;
-	
+	JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
+
+	@JkImportRun("../core")
+	CoreBuild coreBuild;
+
+
 	@Override
-	protected JkDependencies dependencies() {
-		return JkDependencies.builder().on(coreBuild.asJavaDependency()).build();
-	}
+    protected void setup() {
+        javaPlugin.getProject().getMaker().defineMainArtifactAsFatJar(true);
+        javaPlugin.getProject().getManifest().addMainClass("auto");
+
+        // depends on core project
+        javaPlugin.getProject().addDependencies(JkDependencySet.of().and(coreBuild.pluginJava.getProject()));
+    }
 	
 	public static void main(String[] args) {
-		JkInit.instanceOf(SwingBuild.class, args).doDefault();
+		JkInit.instanceOf(SwingBuild.class, args).javaPlugin.getProject().getMaker().makeAllArtifacts();
 	}
 
 }

@@ -3,16 +3,21 @@ import java.io.File;
 import org.jerkar.api.file.JkFileTree;
 import org.jerkar.api.file.JkZipper;
 import org.jerkar.tool.JkBuildDependencySupport;
+import org.jerkar.tool.JkImportRun;
 import org.jerkar.tool.JkInit;
 import org.jerkar.tool.JkProject;
+import org.jerkar.tool.JkRun;
+import org.jerkar.tool.builtins.java.JkPluginJava;
 import org.jerkar.tool.builtins.javabuild.JkJavaBuild;
 
 /**
  * @formatter:off
  */
-class Build extends JkBuildDependencySupport {
+class Build extends JkRun {
 
-	@JkProject("../web")
+	JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
+
+	@JkImportRun("../web")
 	WebBuild webBuild;
 
 	@JkProject("../client-swing")

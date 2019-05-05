@@ -1,16 +1,19 @@
-import org.jerkar.api.depmanagement.JkDependencies;
-import org.jerkar.tool.JkProject;
+import org.jerkar.api.depmanagement.JkDependencySet;
+import org.jerkar.tool.JkImport;
+import org.jerkar.tool.JkImportRun;
+import org.jerkar.tool.JkRun;
+import org.jerkar.tool.builtins.java.JkPluginJava;
 
-class CoreBuild extends AbstractBuild {
+class CoreBuild extends JkRun {
 	
-	@JkProject("../utility")
+	@JkImportRun("../utility")
 	UtilityBuild utilityBuild;
-	
-	@Override
-	protected JkDependencies dependencies() {
-		return JkDependencies.builder()
-				.on(utilityBuild.asJavaDependency())
-				.build();
+
+	JkPluginJava pluginJava = getPlugin(JkPluginJava.class);
+
+	CoreBuild() {
+		pluginJava.getProject().setDependencies(JkDependencySet.of()
+				.and(utilityBuild.javaPlugin.getProject()));
 	}
 
 }

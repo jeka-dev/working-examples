@@ -1,7 +1,7 @@
 # Multi-techno Html5 project
 
 This project aims at giving an example of how to build a project containing both Java and HTML5 projects.<br/><br/>
-The idea is that all sub-projects are built with tooling that fits naturally with project technology (Jerkar for Java projects, [Grunt](gruntjs.com) for Html5), and the overall build is achieved with Jerkar.<br/> <br/>
+Tng that fits naturallhe idea is that all sub-projects are built with tooliy with project technology (Jerkar for Java projects, [Grunt](gruntjs.com) for Html5), and the overall build is achieved with Jerkar.<br/> <br/>
 Note that is not the only way to build such project with Jerkar : you could build HTML5 project with Jerkar as well, but we want to showcase how external build technology can be integrated with Jerkar.
 
 The functionality of this showcase project is a "magic formula" : it just computes a number according an hard-coded function (called "magic formula") and an input number. 

@@ -1,15 +1,13 @@
 package web;
 
-import java.io.IOException;
+import com.google.common.primitives.Ints;
+import core.MyCore;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.google.common.primitives.Ints;
-
-import core.MyCore;
+import java.io.IOException;
 
 public class MainServlet extends HttpServlet {
 

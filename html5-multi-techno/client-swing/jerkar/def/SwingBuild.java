@@ -21,7 +21,7 @@ class SwingBuild extends JkRun {
         javaPlugin.getProject().getManifest().addMainClass("auto");
 
         // depends on core project
-        javaPlugin.getProject().addDependencies(JkDependencySet.of().and(coreBuild.pluginJava.getProject()));
+        javaPlugin.getProject().addDependencies(JkDependencySet.of().and(coreBuild.javaPlugin.getProject()));
     }
 	
 	public static void main(String[] args) {

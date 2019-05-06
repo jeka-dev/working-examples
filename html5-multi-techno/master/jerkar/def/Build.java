@@ -1,14 +1,12 @@
-import java.io.File;
-
-import org.jerkar.api.file.JkFileTree;
-import org.jerkar.api.file.JkZipper;
-import org.jerkar.tool.JkBuildDependencySupport;
+import org.jerkar.api.file.JkPathTree;
+import org.jerkar.api.java.project.JkJavaProject;
 import org.jerkar.tool.JkImportRun;
 import org.jerkar.tool.JkInit;
-import org.jerkar.tool.JkProject;
 import org.jerkar.tool.JkRun;
 import org.jerkar.tool.builtins.java.JkPluginJava;
-import org.jerkar.tool.builtins.javabuild.JkJavaBuild;
+
+import java.io.File;
+import java.nio.file.Path;
 
 /**
  * @formatter:off
@@ -20,25 +18,24 @@ class Build extends JkRun {
 	@JkImportRun("../web")
 	WebBuild webBuild;
 
-	@JkProject("../client-swing")
+	@JkImportRun("../client-swing")
 	SwingBuild swingBuild;
 
-	File distribFolder = ouputDir("distrib");
+	Path distribFolder = getOutputDir().resolve("distrib");
 
-	@Override
+
 	public void doDefault() {
 		clean();
-		this.slaves().invokeDoDefaultMethodOnAll();
-		distribFolder.mkdirs();
+		webBuild.javaPlugin.pack();
+		swingBuild.javaPlugin.pack();
 		copyJars();
 	}
 
 	private void copyJars() {
-		JkFileTree.of(distribFolder).importFiles(
-				webBuild.pluginWar.warFile(),
-				swingBuild.packer().fatJarFile(),
-				swingBuild.coreBuild.packer().jarFile(),
-				webBuild.html5Folder);
+		JkJavaProject swingProject = swingBuild.javaPlugin.getProject();
+		JkPathTree.of(distribFolder)
+				.bring(webBuild.warPlugin.getWarFile())
+				.bring(swingProject.getMaker().getArtifactPath(swingProject.getMaker().getMainArtifactId()));
 	}
 
 	public static void main(String[] args) {

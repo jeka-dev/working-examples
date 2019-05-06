@@ -1,17 +1,11 @@
 package client.swing;
 
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import core.MyCore;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-import core.MyCore;
 
 class MainFrame extends JFrame {
 

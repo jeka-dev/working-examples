@@ -16,13 +16,12 @@
         <CLASSES>
           <root url="jar://$JERKAR_HOME$/org.jerkar.core.jar!/"/>
         </CLASSES>
-        <JAVADOC>
-          <root url="jar://$JERKAR_HOME$/libs-javadoc/org.jerkar.core-javadoc.jar!/"/>
-        </JAVADOC>
+        <JAVADOC/>
         <SOURCES>
           <root url="jar://$JERKAR_HOME$/libs-sources/org.jerkar.core-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module" scope="COMPILE" module-name="core" exported=""/>
   </component>
 </module>

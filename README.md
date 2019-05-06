@@ -1,6 +1,6 @@
 # jerkar-examples
 
-This repository holds examples of projects built with Jerkar.
+This repository holds examples of projects built with Jerkar 0.7-SNAPSHOT
 
 For now provided examples are :
 

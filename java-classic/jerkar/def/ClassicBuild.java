@@ -15,7 +15,7 @@ class ClassicBuild extends JkRun {
     @Override
     protected void setup() {
         JkJavaProject project = javaPlugin.getProject();
-        project.setVersionedModule("org.jerkar:examples-java-template", "1.0");
+        project.setVersionedModule("org.jerkar:examples-java-classic", "1.0");
         project.getCompileSpec().setSourceAndTargetVersion(JkJavaVersion.V8);
         project.addDependencies(JkDependencySet.of()
                 .and("com.google.guava:guava:18.0")

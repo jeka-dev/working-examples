@@ -20,7 +20,7 @@ class Build extends JkRun {
 	Path distribFolder = getOutputDir().resolve("distrib");
 
 
-	public void doDefault() {
+	public void run() {
 		clean();
 		webBuild.javaPlugin.pack();
 		swingBuild.javaPlugin.pack();
@@ -35,7 +35,7 @@ class Build extends JkRun {
 	}
 
 	public static void main(String[] args) {
-		JkInit.instanceOf(Build.class, args).doDefault();
+		JkInit.instanceOf(Build.class, args).run();
 	}
 
 }

@@ -1,6 +1,9 @@
 # jerkar-examples
 
-This repository holds examples of projects built with Jerkar 0.7.0.RC1
+This repository holds examples of projects built with Jerkar 0.7.0-SNAPSHOT
+
+You can import it directly in your IDE. For Intellij user, all the metafiles are already present in VCS so all comes 
+configured out-of-the-box.
 
 For now provided examples are :
 
@@ -18,7 +21,7 @@ To make it works on Intellij, execute `jerkar idea#generateFiles` at the root of
 
 You'll find other example by watching projects built with Jerkar :
 
-* [Jerkar itself](https://github.com/jerkar/jerkar) : This project demonstrate how you can embedds jar libs in source repositories, build HTML documentation based on markdown files, deploy on OSSRH repositories. Also this project contains sample module containing sveral build classes.
+* [Jerkar itself](https://github.com/jerkar/jerkar) : This project demonstrate how you can embedds jar libs in source repositories, build HTML documentation based on markdown files, deploy on OSSRH repositories. This project contains also sample module containing several Jerkar build classes.
 
 * [jerkar.github.io-source](https://github.com/jerkar/jerkar.github.io-sources) : Not a Java project. This project aims at building the [Jerkar HTML site](http://project.jerkar.org/) from templates using [JBake](https://jbake.org/). It also involve Git tasks automation.
 

@@ -1,6 +1,6 @@
 import org.jerkar.api.file.JkPathTree;
 import org.jerkar.api.java.project.JkJavaProjectMaker;
-import org.jerkar.tool.JkImportRun;
+import org.jerkar.tool.JkImportProject;
 import org.jerkar.tool.JkInit;
 import org.jerkar.tool.JkRun;
 
@@ -11,10 +11,10 @@ import java.nio.file.Path;
  */
 class Build extends JkRun {
 
-	@JkImportRun("../web")
+	@JkImportProject("../web")
 	WebBuild webBuild;
 
-	@JkImportRun("../client-swing")
+	@JkImportProject("../client-swing")
 	SwingBuild swingBuild;
 
 	Path distribFolder = getOutputDir().resolve("distrib");

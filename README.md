@@ -11,8 +11,6 @@ For now provided examples are :
 
 * [Java full conventional](./org.jerkar.examples-java-full-conventional) : Similar project as above but no build class is required as, here, the project respect fully conventions. 
 
-* [Java template](./java-template) : Similar project as above but providing a build class to declare transitive dependencies and force artifact naming.  
-
 * [Html5 multi-techno](./html5-multi-techno) : A multi-project containing Java jar projects, Java web project and an HTML5 project.
 
 To make it works on Intellij, execute `jerkar idea#generateFiles` at the root of the project. This will generate iml files along modules.xml.

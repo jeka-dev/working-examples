@@ -1,7 +1,6 @@
-import org.jerkar.api.depmanagement.JkPopularModules;
-import org.jerkar.api.depmanagement.JkVersion;
-import org.jerkar.api.depmanagement.JkVersionProvider;
-
+import dev.jeka.core.api.depmanagement.JkPopularModules;
+import dev.jeka.core.api.depmanagement.JkVersion;
+import dev.jeka.core.api.depmanagement.JkVersionProvider;
 
 abstract class Common {
 	

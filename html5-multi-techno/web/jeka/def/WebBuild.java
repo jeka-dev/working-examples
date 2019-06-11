@@ -1,21 +1,20 @@
-import org.jerkar.api.depmanagement.JkDependencySet;
-import org.jerkar.api.depmanagement.JkJavaDepScopes;
-import org.jerkar.api.java.project.JkJavaProject;
-import org.jerkar.api.system.JkProcess;
-import org.jerkar.tool.JkDoc;
-import org.jerkar.tool.JkImportProject;
-import org.jerkar.tool.JkInit;
-import org.jerkar.tool.JkRun;
-import org.jerkar.tool.builtins.java.JkPluginJava;
-import org.jerkar.tool.builtins.java.JkPluginWar;
+import dev.jeka.core.api.depmanagement.JkDependencySet;
+import dev.jeka.core.api.depmanagement.JkJavaDepScopes;
+import dev.jeka.core.api.depmanagement.JkPopularModules;
+import dev.jeka.core.api.java.project.JkJavaProject;
+import dev.jeka.core.api.system.JkProcess;
+import dev.jeka.core.tool.JkCommands;
+import dev.jeka.core.tool.JkDoc;
+import dev.jeka.core.tool.JkImportProject;
+import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.builtins.java.JkPluginWar;
 
 import java.nio.file.Path;
 
-import static org.jerkar.api.depmanagement.JkPopularModules.GUAVA;
-import static org.jerkar.api.depmanagement.JkPopularModules.JAVAX_SERVLET_API;
+import static dev.jeka.core.api.depmanagement.JkJavaDepScopes.PROVIDED;
 
-
-class WebBuild extends JkRun {
+class WebBuild extends JkCommands {
 	
 	@JkDoc("Build html5 project and embed it in produced WAR file.")
 	boolean embbedHtml5 = true;
@@ -42,8 +41,8 @@ class WebBuild extends JkRun {
 		JkJavaProject project = javaPlugin.getProject();
 		project.addDependencies(JkDependencySet.of()
 				.and(coreBuild.javaPlugin.getProject())
-				.and(GUAVA, "22.0")
-				.and(JAVAX_SERVLET_API, "3.1.0", JkJavaDepScopes.PROVIDED)
+				.and(JkPopularModules.GUAVA, "22.0")
+				.and(JkPopularModules.JAVAX_SERVLET_API, "3.1.0", PROVIDED)
 		);
 		warPlugin.getStaticResouceComputation().chain(grunt);
 	}

@@ -1,9 +1,9 @@
-import org.jerkar.api.depmanagement.JkDependencySet;
-import org.jerkar.tool.JkImportProject;
-import org.jerkar.tool.JkRun;
-import org.jerkar.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.api.depmanagement.JkDependencySet;
+import dev.jeka.core.tool.JkCommands;
+import dev.jeka.core.tool.JkImportProject;
+import dev.jeka.core.tool.builtins.java.JkPluginJava;
 
-class CoreBuild extends JkRun {
+class CoreBuild extends JkCommands {
 	
 	@JkImportProject("../utility")
 	UtilityBuild utilityBuild;

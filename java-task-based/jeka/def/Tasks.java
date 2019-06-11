@@ -1,18 +1,16 @@
 import java.nio.file.Path;
 
-import org.jerkar.api.file.JkPathTree;
-import org.jerkar.api.java.JkClasspath;
-import org.jerkar.api.java.JkJavaCompileSpec;
-import org.jerkar.api.java.JkJavaCompiler;
-import org.jerkar.api.java.JkManifest;
-import org.jerkar.api.java.junit.JkUnit;
-import org.jerkar.api.java.junit.JkUnit.JunitReportDetail;
+import dev.jeka.core.api.file.JkPathTree;
+import dev.jeka.core.api.java.JkJavaCompileSpec;
+import dev.jeka.core.api.java.JkJavaCompiler;
+import dev.jeka.core.tool.JkCommands;
+import dev.jeka.core.tool.JkDoc;
+import dev.jeka.core.api.java.junit.JkUnit;
+import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.api.java.JkClasspath;
+import dev.jeka.core.api.java.JkManifest;
 
-import org.jerkar.tool.JkDoc;
-import org.jerkar.tool.JkInit;
-import org.jerkar.tool.JkRun;
-
-class TaskBuild extends JkRun {
+class Tasks extends JkCommands {
 	
 	@JkDoc("Run test in a forked process if true.")
 	boolean forkTest;
@@ -35,7 +33,7 @@ class TaskBuild extends JkRun {
 
 	public void compile() {
 		JkJavaCompiler.ofJdk().compile(
-				JkJavaCompileSpec.of().setClasspath(classpath).addSources(src).setOutputDir(classDir));
+				JkJavaCompileSpec.of().of().setClasspath(classpath).addSources(src).setOutputDir(classDir));
 		src.andMatching(false,"**/*.java").copyTo(classDir);  /// copy resources
 	}
 
@@ -53,14 +51,14 @@ class TaskBuild extends JkRun {
 	public void junit() {
 		compileTest();
 		JkUnit.of()
-				.withReportDir(reportDir).withReport(JunitReportDetail.FULL)
+				.withReportDir(reportDir).withReport(JkUnit.JunitReportDetail.FULL)
 				.withForking(forkTest)
 				.run(testClasspath.and(classDir), JkPathTree.of(testClassDir));
 	}
 
 
 	public static void main(String[] args) {
-		JkInit.instanceOf(TaskBuild.class, args).doDefault();
+		JkInit.instanceOf(Tasks.class, args).doDefault();
 	}
 
 }

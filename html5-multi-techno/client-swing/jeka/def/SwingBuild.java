@@ -1,13 +1,14 @@
-import org.jerkar.api.depmanagement.JkDependencySet;
-import org.jerkar.tool.JkImportProject;
-import org.jerkar.tool.JkInit;
-import org.jerkar.tool.JkRun;
-import org.jerkar.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.api.depmanagement.JkDependencySet;
+import dev.jeka.core.tool.JkCommands;
+import dev.jeka.core.tool.JkImportProject;
+import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.builtins.java.JkPluginJava;
+
 
 /**
  * @formatter:off
  */
-class SwingBuild extends JkRun {
+class SwingBuild extends JkCommands {
 
 	JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
 

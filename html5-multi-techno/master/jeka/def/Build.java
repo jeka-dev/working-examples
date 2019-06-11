@@ -1,15 +1,15 @@
-import org.jerkar.api.file.JkPathTree;
-import org.jerkar.api.java.project.JkJavaProjectMaker;
-import org.jerkar.tool.JkImportProject;
-import org.jerkar.tool.JkInit;
-import org.jerkar.tool.JkRun;
+import dev.jeka.core.api.file.JkPathTree;
+import dev.jeka.core.api.java.project.JkJavaProjectMaker;
+import dev.jeka.core.tool.JkCommands;
+import dev.jeka.core.tool.JkImportProject;
+import dev.jeka.core.tool.JkInit;
 
 import java.nio.file.Path;
 
 /**
  * @formatter:off
  */
-class Build extends JkRun {
+class Build extends JkCommands {
 
 	@JkImportProject("../web")
 	WebBuild webBuild;

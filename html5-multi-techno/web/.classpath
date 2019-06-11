@@ -3,16 +3,16 @@
 	<classpathentry kind="src" output="build/output/def-bin" path="build/def"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="var" path="JERKAR_REPO/com.google.guava/guava/bundles/guava-18.0.jar" sourcepath="JERKAR_REPO/com.google.guava/guava/sources/guava-18.0-sources.jar">
+	<classpathentry kind="var" path="JEKA_REPO/com.google.guava/guava/bundles/guava-18.0.jar" sourcepath="JEKA_REPO/com.google.guava/guava/sources/guava-18.0-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/H:/AppData.W7/Sun/.jerkar/cache/repo/com.google.guava/guava/javadocs/guava-18.0-javadoc.jar"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="JERKAR_REPO/javax.servlet/servlet-api/jars/servlet-api-2.5.jar" sourcepath="JERKAR_REPO/javax.servlet/servlet-api/sources/servlet-api-2.5-sources.jar"/>
-	<classpathentry kind="var" path="JERKAR_REPO/org.mortbay.jetty/servlet-api/jars/servlet-api-2.5-20081211.jar"/>
-	<classpathentry kind="var" path="JERKAR_REPO/org.mortbay.jetty/jetty-util/jars/jetty-util-6.1.25.jar"/>
-	<classpathentry kind="var" path="JERKAR_REPO/org.mortbay.jetty/jetty/jars/jetty-6.1.25.jar"/>
-	<classpathentry kind="var" path="JERKAR_HOME/org.jerkar.core-all.jar" sourcepath="JERKAR_HOME/libs-sources/org.jerkar.core-all-sources.jar"/>
+	<classpathentry kind="var" path="JEKA_REPO/javax.servlet/servlet-api/jars/servlet-api-2.5.jar" sourcepath="JEKA_REPO/javax.servlet/servlet-api/sources/servlet-api-2.5-sources.jar"/>
+	<classpathentry kind="var" path="JEKA_REPO/org.mortbay.jetty/servlet-api/jars/servlet-api-2.5-20081211.jar"/>
+	<classpathentry kind="var" path="JEKA_REPO/org.mortbay.jetty/jetty-util/jars/jetty-util-6.1.25.jar"/>
+	<classpathentry kind="var" path="JEKA_REPO/org.mortbay.jetty/jetty/jars/jetty-6.1.25.jar"/>
+	<classpathentry kind="var" path="JEKA_HOME/org.jerkar.core-all.jar" sourcepath="JEKA_HOME/libs-sources/org.jerkar.core-all-sources.jar"/>
 	<classpathentry exported="true" kind="src" path="/core"/>
 	<classpathentry kind="output" path="build/output/classes"/>
 </classpath>

@@ -1,11 +1,11 @@
-import org.jerkar.api.depmanagement.JkDependencySet;
-import org.jerkar.tool.JkRun;
-import org.jerkar.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.api.depmanagement.JkDependencySet;
+import dev.jeka.core.tool.JkCommands;
+import dev.jeka.core.tool.builtins.java.JkPluginJava;
 
 /**
  * @formatter:off
  */
-class UtilityBuild extends JkRun {
+class UtilityBuild extends JkCommands {
 
     final JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
 

@@ -1,4 +1,4 @@
-# jerkar-examples
+# Jeka Examples
 
 This repository holds examples of projects built with Jeka 0.8.0.RC1
 

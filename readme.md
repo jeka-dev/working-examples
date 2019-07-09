@@ -1,8 +1,9 @@
 # Jeka Examples
 
-This repository holds examples of projects built with Jeka 0.8.0.RC1
+This repository holds examples of projects built with Jeka 0.8.4.RELEASE. It uses a Jeka wrapper so you don't need 
+to install Jeka on your machine.
 
-You can import it directly in your IDE. For Intellij user, all the metafiles are already present in VCS so all comes 
+You can import it directly in your IDE. For Intellij user, all the metadata files are already present in VCS so all comes 
 configured out-of-the-box.
 
 For now provided examples are :

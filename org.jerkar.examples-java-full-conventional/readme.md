@@ -14,10 +14,10 @@ This project respect fully convention so no build class is required :
 ## How to build
 
 ### From command line
-Open a shell at the root of the project execute `jerkar`. <br/>
-To produce a fat jar, execute `jerkar -pack.fatJar=true`. <br/>
-To produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute `jerkar jacoco#`. <br/>
-To produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), <br/> execute `jerkar jacoco# sonar#verify -sonar.host.url=http://my.sonar.host:8080`.
+Open a shell at the root of the project execute `jekaw`. <br/>
+To produce a fat jar, execute `jekaw java#pack -java#pack.fatJar=true`. <br/>
+To produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute `jekaw java#test jacoco#`. <br/>
+To produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), <br/> execute `jekaw java#test java#test jacoco# sonar#verify -sonar.host.url=http://my.sonar.host:8080`.
 
 ### From IDE
-Exectute the class `org.jerkar.tool.Main` within this project. 
+Exectute the class `dev.jeka.core.tool.Main` within this project. 

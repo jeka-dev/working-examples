@@ -30,8 +30,8 @@ class Build extends JkCommands {
 	private void copyJars() {
 		JkJavaProjectMaker swingMaker = swingBuild.javaPlugin.getProject().getMaker();
 		JkPathTree.of(distribFolder)
-				.bring(webBuild.warPlugin.getWarFile())
-				.bring(swingMaker.getArtifactPath(swingMaker.getMainArtifactId()));
+				.importFiles(webBuild.warPlugin.getWarFile())
+				.importFiles(swingMaker.getArtifactPath(swingMaker.getMainArtifactId()));
 	}
 
 	public static void main(String[] args) {

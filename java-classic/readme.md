@@ -10,9 +10,9 @@ The [build class](jeka/def/Build.java) declares transitive dependencies and spec
 
 ### From command line
 Open a shell at the root of the project execute `jekaw`. <br/>
-If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute `jekaw jacoco#`. <br/>
-If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute `jekaw jacoco# sonar#verify`.
+If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute `jekaw java#test jacoco#`. <br/>
+If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute `jekaw java#tesy jacoco# sonar#verify`.
 
 ### From IDE
-Execute `Build` class found at [build/def/Build.java](jeka/def/Build.java) or <br/>
+Execute `Build` class found at [build/def/Build.java](jeka/def/Build.java).
 

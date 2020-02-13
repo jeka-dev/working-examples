@@ -10,7 +10,9 @@
       <module fileurl="file://$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" filepath="$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" filepath="$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jeka-examples.iml" filepath="$PROJECT_DIR$/.idea/jeka-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kotlin-module/kotlin-module.iml" filepath="$PROJECT_DIR$/kotlin-module/kotlin-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/master/.idea/master.iml" filepath="$PROJECT_DIR$/html5-multi-techno/master/.idea/master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-module/toto.iml" filepath="$PROJECT_DIR$/my-module/toto.iml" />
       <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/utility/.idea/utility.iml" filepath="$PROJECT_DIR$/html5-multi-techno/utility/.idea/utility.iml" />
       <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/web/.idea/web.iml" filepath="$PROJECT_DIR$/html5-multi-techno/web/.idea/web.iml" />
     </modules>

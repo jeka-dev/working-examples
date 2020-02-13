@@ -11,10 +11,50 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/output" />
+      <excludeFolder url="file://$MODULE_DIR$/jeka/.work" />
       <excludeFolder url="file://$MODULE_DIR$/jeka/output" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.7.0-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.7.0-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-pool2/jars/commons-pool2-2.7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-pool2/jars/commons-pool2-2.7.0-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-pool2/jars/commons-pool2-2.7.0-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/commons-logging/commons-logging/jars/commons-logging-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/commons-logging/commons-logging/jars/commons-logging-1.2-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/commons-logging/commons-logging/jars/commons-logging-1.2-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntry type="module-library" exported="" scope="TEST">
       <library>
         <CLASSES>
@@ -31,14 +71,10 @@
     <orderEntry type="module-library" exported="" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.8.4.RELEASE/dev.jeka.jeka-core.jar!/" />
+          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.8.13.RELEASE/dev.jeka.jeka-core.jar!/" />
         </CLASSES>
-        <JAVADOC>
-          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.8.4.RELEASE/libs-javadoc/dev.jeka.jeka-core-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.8.4.RELEASE/libs-sources/dev.jeka.jeka-core-sources.jar!/" />
-        </SOURCES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>

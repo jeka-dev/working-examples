@@ -1,4 +1,4 @@
-package org.jerkar.examples.capitalizer;
+package dev.jeka.examples.capitalizer;
 
 import org.junit.Assert;
 import org.junit.Test;

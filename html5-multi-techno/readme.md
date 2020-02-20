@@ -19,7 +19,7 @@ The functionality of this showcase project is a "magic formula" : it just comput
 * [master](./master) project contains build instruction to build all together.
 
 
-![map](master/capture.png)
+![map](capture.png)
 
 ## How to build
 
@@ -37,4 +37,4 @@ jerkar-examples/html5-multi-techno/client-swing>../master/jekaw clean java#pack
 
 
 ### From IDE
-Exectute the main method of _Build_ class found at [master/build/def/Build.java](master/jerkar/def/Build.java).
+Exectute the main method of _Build_ class found at [master/build/def/MasterBuild.java](master/jerkar/def/MasterBuild.java).

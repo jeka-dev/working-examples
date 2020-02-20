@@ -21,15 +21,9 @@ class Tasks extends JkCommands {
 	private JkClasspath classpath = JkClasspath.of(getBaseTree().andMatching("libs/compile/*.jar").getFiles());
 	private Path testSrc = getBaseDir().resolve("test");
 	private Path testClassDir = getOutputDir().resolve("test-classes");
-	private JkClasspath testClasspath = classpath.and(getBaseTree().andMatching("libs/test/*.jar").getFiles());
+	private JkClasspath testClasspath = classpath.and(classDir)
+			.and(getBaseTree().andMatching("libs/test/*.jar").getFiles());
 	private Path reportDir = getOutputDir().resolve("junitRreport");
-
-	public void doDefault() {
-		clean();
-		compile();
-		junit();
-		jar();
-	}
 
 	public void compile() {
 		JkJavaCompiler.ofJdk().compile(
@@ -54,6 +48,10 @@ class Tasks extends JkCommands {
 				.withReportDir(reportDir).withReport(JkUnit.JunitReportDetail.FULL)
 				.withForking(forkTest)
 				.run(testClasspath.and(classDir), JkPathTree.of(testClassDir));
+	}
+
+	public void doDefault() {
+		clean(); compile(); junit(); jar();
 	}
 
 

@@ -4,7 +4,7 @@ This project aims at providing a jar file library that capitalize entire strings
 
 The project has a dependency on *Guava* and on *Junit4* for testing.
 
-This project does not respect any layout convention. Its [build class](jeka/def/Build.java) explicitly describes the whole build as we do with ANT.
+This project does not respect any layout convention. Its [build class](jeka/def/MasterBuild.java) explicitly describes the whole build as we do with ANT.
 
 ## How to build
 
@@ -14,5 +14,5 @@ If you want the junit test to be run in a forked process, execute `jekaw compile
 If you want to only produce the jar without running tests, execute `jekaw compile jar`.
 
 ### From IDE
-Execute `Build` class found at [build/def/Build.java](jeka/def/Build.java) or <br/>
+Execute `MasterBuild` class found at [build/def/MasterBuild.java](jeka/def/MasterBuild.java) or <br/>
 

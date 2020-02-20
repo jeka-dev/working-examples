@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: core
+Implementation-Vendor: core
+Implementation-Version: UNSPECIFIED-SNAPSHOT
+

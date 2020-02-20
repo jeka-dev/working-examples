@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/build-commons/build-commons.iml" filepath="$PROJECT_DIR$/html5-multi-techno/build-commons/build-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/build-master/build-master.iml" filepath="$PROJECT_DIR$/html5-multi-techno/build-master/build-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/client-swing/.idea/client-swing.iml" filepath="$PROJECT_DIR$/html5-multi-techno/client-swing/.idea/client-swing.iml" />
       <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/core/.idea/core.iml" filepath="$PROJECT_DIR$/html5-multi-techno/core/.idea/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/.idea/html5-multi-techno.iml" filepath="$PROJECT_DIR$/html5-multi-techno/.idea/html5-multi-techno.iml" />
@@ -10,11 +12,9 @@
       <module fileurl="file://$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" filepath="$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" filepath="$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jeka-examples.iml" filepath="$PROJECT_DIR$/.idea/jeka-examples.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin-module/kotlin-module.iml" filepath="$PROJECT_DIR$/kotlin-module/kotlin-module.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/master/.idea/master.iml" filepath="$PROJECT_DIR$/html5-multi-techno/master/.idea/master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/my-module/toto.iml" filepath="$PROJECT_DIR$/my-module/toto.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/utility/.idea/utility.iml" filepath="$PROJECT_DIR$/html5-multi-techno/utility/.idea/utility.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/web/.idea/web.iml" filepath="$PROJECT_DIR$/html5-multi-techno/web/.idea/web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/utility/utility.iml" filepath="$PROJECT_DIR$/html5-multi-techno/utility/utility.iml" />
+      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/web/web.iml" filepath="$PROJECT_DIR$/html5-multi-techno/web/web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wrapper-common/wrapper-common.iml" filepath="$PROJECT_DIR$/wrapper-common/wrapper-common.iml" />
     </modules>
   </component>
 </project>

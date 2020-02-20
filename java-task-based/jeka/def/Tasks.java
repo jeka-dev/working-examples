@@ -21,7 +21,8 @@ class Tasks extends JkCommands {
 	private JkClasspath classpath = JkClasspath.of(getBaseTree().andMatching("libs/compile/*.jar").getFiles());
 	private Path testSrc = getBaseDir().resolve("test");
 	private Path testClassDir = getOutputDir().resolve("test-classes");
-	private JkClasspath testClasspath = classpath.and(classDir).and(getBaseTree().andMatching("libs/test/*.jar").getFiles());
+	private JkClasspath testClasspath = classpath.and(classDir)
+			.and(getBaseTree().andMatching("libs/test/*.jar").getFiles());
 	private Path reportDir = getOutputDir().resolve("junitRreport");
 
 	public void compile() {

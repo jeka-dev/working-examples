@@ -1,0 +1,3 @@
+#!/bin/sh
+
+../../wrapper-common/jekaw $@

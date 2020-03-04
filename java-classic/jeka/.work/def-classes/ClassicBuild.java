@@ -1,16 +1,14 @@
-
 import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.api.java.JkJavaVersion;
 import dev.jeka.core.api.java.project.JkJavaProject;
-import dev.jeka.core.tool.JkCommands;
-
+import dev.jeka.core.tool.JkCommandSet;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.java.JkPluginJava;
 
 /**
  * @formatter:off
  */
-class ClassicBuild extends JkCommands {
+class ClassicBuild extends JkCommandSet {
 
     JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
 

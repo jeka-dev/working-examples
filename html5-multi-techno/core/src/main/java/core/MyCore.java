@@ -1,6 +1,6 @@
 package core;
 
-import utility.MyUtility;
+import utility.MyUtils;
 
 public class MyCore {
 	
@@ -8,7 +8,7 @@ public class MyCore {
 		if (input < 0) {
 			input = - input;
 		}
-		return MyUtility.sequence(input + 6) - (18 * input);
+		return MyUtils.sequence(input + 6) - (18 * input);
 	}
 
 }

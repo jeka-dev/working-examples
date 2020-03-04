@@ -12,20 +12,8 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
     </content>
     <orderEntry type="sourceFolder" forTests="false"/>
-    <orderEntry type="module-library" scope="TEST" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core.jar!/"/>
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core-javadoc.jar!/"/>
-        </JAVADOC>
-        <SOURCES>
-          <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core-sources.jar!/"/>
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module" scope="COMPILE" module-name="web" exported=""/>
-    <orderEntry type="module" scope="COMPILE" module-name="client-swing" exported=""/>
+    <orderEntry type="module" scope="TEST" module-name="springbootapp" exported=""/>
+    <orderEntry type="module" scope="TEST" module-name="swingapp" exported=""/>
+    <orderEntry type="module" scope="TEST" module-name="build-commons" exported=""/>
   </component>
 </module>

@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/build-commons/build-commons.iml" filepath="$PROJECT_DIR$/html5-multi-techno/build-commons/build-commons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/build-master/build-master.iml" filepath="$PROJECT_DIR$/html5-multi-techno/build-master/build-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/core/.idea/core.iml" filepath="$PROJECT_DIR$/html5-multi-techno/core/.idea/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/.idea/html5-multi-techno.iml" filepath="$PROJECT_DIR$/html5-multi-techno/.idea/html5-multi-techno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-techno/build-commons/build-commons.iml" filepath="$PROJECT_DIR$/multi-techno/build-commons/build-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-techno/build-master/build-master.iml" filepath="$PROJECT_DIR$/multi-techno/build-master/build-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-techno/core/.idea/core.iml" filepath="$PROJECT_DIR$/multi-techno/core/.idea/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-classic/.idea/java-classic.iml" filepath="$PROJECT_DIR$/java-classic/.idea/java-classic.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-external-compiler-build/.idea/java-external-compiler-build.iml" filepath="$PROJECT_DIR$/java-external-compiler-build/.idea/java-external-compiler-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" filepath="$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" filepath="$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jeka-examples.iml" filepath="$PROJECT_DIR$/.idea/jeka-examples.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/springbootapp/springbootapp.iml" filepath="$PROJECT_DIR$/html5-multi-techno/springbootapp/springbootapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/swingapp/.idea/swingapp.iml" filepath="$PROJECT_DIR$/html5-multi-techno/swingapp/.idea/swingapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/html5-multi-techno/utils/utils.iml" filepath="$PROJECT_DIR$/html5-multi-techno/utils/utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-techno/.idea/multi-techno.iml" filepath="$PROJECT_DIR$/multi-techno/.idea/multi-techno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-techno/springbootapp/springbootapp.iml" filepath="$PROJECT_DIR$/multi-techno/springbootapp/springbootapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-techno/swingapp/.idea/swingapp.iml" filepath="$PROJECT_DIR$/multi-techno/swingapp/.idea/swingapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-techno/utils/utils.iml" filepath="$PROJECT_DIR$/multi-techno/utils/utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/wrapper-common/wrapper-common.iml" filepath="$PROJECT_DIR$/wrapper-common/wrapper-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/zozo/zozo.iml" filepath="$PROJECT_DIR$/zozo/zozo.iml" />
     </modules>
   </component>
 </project>

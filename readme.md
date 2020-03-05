@@ -1,6 +1,7 @@
-This is a set of Jeka project examples.
+# A set of Jeka project examples.
 
-This is recommended to fetch it in a IntelliJ IDE with [Jeka Plugin](https://plugins.jetbrains.com/plugin/13489-jeka) installed on.
+__Note :__ This is recommended to fetch this repo IntelliJ IDE with [Jeka Plugin](https://plugins.jetbrains.com/plugin/13489-jeka) installed on.
 
-It stands for several independent projects built with a Jeka wrapper where the version is defined in a single place (within _wrapper-common_ module)
+It stands for several independent projects built with Jeka. 
+A common Jeka wrapper (hosted in _wrapper-common_ module) is used for for all projects from this repository.
 

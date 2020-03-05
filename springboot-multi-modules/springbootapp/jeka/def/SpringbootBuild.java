@@ -13,7 +13,7 @@ import java.nio.file.StandardCopyOption;
 
 import static dev.jeka.core.api.depmanagement.JkJavaDepScopes.TEST;
 
-@JkDefClasspath("../../../../IdeaProjects/springboot-plugin/dev.jeka.plugins.spring-boot/jeka/output/dev.jeka.springboot-plugin.jar")
+@JkDefClasspath("dev.jeka:springboot-plugin:2.3.2.RELEASE")
 class SpringbootBuild extends JkCommandSet {
 
     final JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);

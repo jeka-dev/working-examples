@@ -33,7 +33,7 @@ class SpringbootBuild extends JkCommandSet {
                 .and(Boot.STARTER_TEST, TEST)
                 .and(coreBuild.javaPlugin.getProject())
         );
-        javaPlugin.getProject().getMaker().getTasksForCompilation().getPostActions().chain(this::packWeb);
+        project.getMaker().getTasksForCompilation().getPostActions().chain(this::packWeb);
     }
 
     public void cleanPack() {

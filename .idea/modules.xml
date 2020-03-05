@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/build-master/build-master.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/build-master/build-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/core/.idea/core.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/core/.idea/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-classic/.idea/java-classic.iml" filepath="$PROJECT_DIR$/java-classic/.idea/java-classic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-external-compiler-build/.idea/java-external-compiler-build.iml" filepath="$PROJECT_DIR$/java-external-compiler-build/.idea/java-external-compiler-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-external-compiler/.idea/java-external-compiler.iml" filepath="$PROJECT_DIR$/java-external-compiler/.idea/java-external-compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" filepath="$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" filepath="$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jeka-examples.iml" filepath="$PROJECT_DIR$/.idea/jeka-examples.iml" />

@@ -1,6 +1,7 @@
 import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.api.java.JkJavaVersion;
 import dev.jeka.core.api.java.project.JkJavaProject;
+import dev.jeka.core.api.tooling.JkGitWrapper;
 import dev.jeka.core.tool.JkCommandSet;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.java.JkPluginJava;
@@ -10,20 +11,25 @@ import dev.jeka.core.tool.builtins.java.JkPluginJava;
  */
 class ClassicBuild extends JkCommandSet {
 
-    JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
+    JkPluginJava java = getPlugin(JkPluginJava.class);
 
     @Override
     protected void setup() {
-        JkJavaProject project = javaPlugin.getProject();
-        project.setVersionedModule("org.jerkar:examples-java-classic", "1.0");
-        project.getCompileSpec().setSourceAndTargetVersion(JkJavaVersion.V8);
-        project.addDependencies(JkDependencySet.of()
-                .and("com.google.guava:guava:18.0")
-                .and("junit:junit::4.12"));
+        java.getProject()
+            .getDependencyManagement()
+                .addDependencies(JkDependencySet.of()
+                        .and("com.google.guava:guava:18.0")
+                        .and("junit:junit::4.12")).__
+            .getProduction()
+                .getCompilation()
+                    .setJavaVersion(JkJavaVersion.V8).__.__
+            .getPublication()
+                .setModuleId("org.jerkar:examples-java-classic")
+                .setVersion(JkGitWrapper.of(getBaseDir()).getVersionFromTags());
     }
 
     public void cleanPack() {
-        clean(); javaPlugin.pack();
+        clean(); java.pack();
     }
 
     public static void main(String[] args) {

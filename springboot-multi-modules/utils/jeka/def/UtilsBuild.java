@@ -10,18 +10,19 @@ import dev.jeka.core.tool.builtins.java.JkPluginJava;
 @JkDefImport("../build-commons")
 class UtilsBuild extends JkCommandSet {
 
-    final JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
+    final JkPluginJava java = getPlugin(JkPluginJava.class);
 
     UtilsBuild() {
-        BuildCommon.setup(javaPlugin.getProject());
-        javaPlugin.getProject().setDependencies(JkDependencySet.of()
-                .and("com.google.guava:guava")
-                .withVersionProvider(BuildCommon.VERSION_PROVIDER)
-        );
+        java.getProject()
+            .apply(BuildCommon::setup)
+            .getDependencyManagement()
+                .addDependencies(JkDependencySet.of()
+                    .and("com.google.guava:guava")
+                    .withVersionProvider(BuildCommon.VERSION_PROVIDER));
     }
 
     public void cleanPack() {
-        clean(); javaPlugin.pack();
+        clean(); java.pack();
     }
 
     public static void main(String[] args) {

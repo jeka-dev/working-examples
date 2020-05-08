@@ -9,16 +9,18 @@ class CoreBuild extends JkCommandSet {
 	@JkDefImport("../utils")
 	UtilsBuild utilsBuild;
 
-	JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
+	JkPluginJava java = getPlugin(JkPluginJava.class);
 
 	CoreBuild() {
-		BuildCommon.setup(javaPlugin.getProject());
-		javaPlugin.getProject().setDependencies(JkDependencySet.of()
-				.and(utilsBuild.javaPlugin.getProject()));
+		BuildCommon.setup(java.getProject());
+		java.getProject()
+				.getDependencyManagement()
+					.addDependencies(JkDependencySet.of()
+						.and(utilsBuild.java.getProject().toDependency()));
 	}
 
 	public void cleanPack() {
-		clean(); javaPlugin.pack();
+		clean(); java.pack();
 	}
 
 	public static void main(String[] args) {

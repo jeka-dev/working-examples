@@ -1,6 +1,5 @@
 import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.api.java.JkJavaProcess;
-import dev.jeka.core.api.java.project.JkJavaProject;
 import dev.jeka.core.tool.JkCommandSet;
 import dev.jeka.core.tool.JkDefImport;
 import dev.jeka.core.tool.JkInit;
@@ -11,28 +10,31 @@ import dev.jeka.core.tool.builtins.java.JkPluginJava;
  */
 class SwingBuild extends JkCommandSet {
 
-	JkPluginJava javaPlugin = getPlugin(JkPluginJava.class);
+	JkPluginJava java = getPlugin(JkPluginJava.class);
 
 	@JkDefImport("../core")
 	CoreBuild coreBuild;
 
 	@Override
     protected void setup() {
-		JkJavaProject project = javaPlugin.getProject();
-		BuildCommon.setup(project);
-        project.getMaker().defineMainArtifactAsFatJar(true);
-        project.getManifest().addMainClass("swing.Main");
-        project.addDependencies(JkDependencySet.of()
-				.and(coreBuild.javaPlugin.getProject())
-		);
+		java.getProject()
+			.getDependencyManagement()
+				.addDependencies(JkDependencySet.of()
+						.and(coreBuild.java.getProject().toDependency())).__
+			.getProduction()
+				.getManifest()
+					.addMainClass("swing.Main").__.__
+			.getPublication()
+				.getArtifactProducer()
+					.putMainArtifact(java.getProject().getProduction()::createFatJar);
     }
 
     public void cleanPack() {
-		clean(); javaPlugin.pack();
+		clean(); java.pack();
 	}
 
     public void run() {
-		JkJavaProcess.of().runJarSync(javaPlugin.getProject().getMaker().getMainArtifactPath());
+		JkJavaProcess.of().runJarSync(java.getProject().getPublication().getArtifactProducer().getMainArtifactPath());
 	}
 	
 	public static void main(String[] args) {

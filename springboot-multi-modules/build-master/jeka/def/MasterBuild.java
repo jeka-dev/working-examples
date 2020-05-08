@@ -1,12 +1,10 @@
 import dev.jeka.core.api.file.JkPathTree;
-import dev.jeka.core.api.java.project.JkJavaProjectMaker;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.tool.JkCommandSet;
 import dev.jeka.core.tool.JkDefImport;
 import dev.jeka.core.tool.JkInit;
 
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 
 /**
  * @formatter:off
@@ -28,8 +26,8 @@ class MasterBuild extends JkCommandSet {
 
 	public void build() {
 		clean();
-		springbootBuild.javaPlugin.pack();
-		swingBuild.javaPlugin.pack();
+		springbootBuild.java.pack();
+		swingBuild.java.pack();
 		copyJars();
 	}
 
@@ -40,10 +38,9 @@ class MasterBuild extends JkCommandSet {
 	}
 
 	private void copyJars() {
-		JkJavaProjectMaker swingMaker = swingBuild.javaPlugin.getProject().getMaker();
 		JkPathTree.of(distribFolder)
-				.importFiles(springbootBuild.javaPlugin.getProject().getMaker().getMainArtifactPath())
-				.importFiles(swingMaker.getMainArtifactPath());
+				.importFiles(springbootBuild.java.getProject().getPublication().getArtifactProducer().getMainArtifactPath())
+				.importFiles(swingBuild.java.getProject().getPublication().getArtifactProducer().getMainArtifactPath());
 		JkLog.info("Distrib jar files copied in " + distribFolder);
 	}
 

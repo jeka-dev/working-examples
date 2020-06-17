@@ -14,7 +14,7 @@ public abstract class BuildCommon {
 
     public static void setup(JkJavaProject project) {
         project
-            .getProduction()
+            .getJarProduction()
                 .getCompilation()
                     .setJavaVersion(JkJavaVersion.V8);
 

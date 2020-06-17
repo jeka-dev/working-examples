@@ -13,10 +13,10 @@ class CoreBuild extends JkCommandSet {
 
 	CoreBuild() {
 		BuildCommon.setup(java.getProject());
-		java.getProject()
-				.getDependencyManagement()
-					.addDependencies(JkDependencySet.of()
-						.and(utilsBuild.java.getProject().toDependency()));
+		java.getProject().getJarProduction()
+			.getDependencyManagement()
+				.addDependencies(JkDependencySet.of()
+					.and(utilsBuild.java.getProject().toDependency()));
 	}
 
 	public void cleanPack() {

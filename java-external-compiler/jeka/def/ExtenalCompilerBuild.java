@@ -1,6 +1,6 @@
 import dev.jeka.core.api.depmanagement.JkDependencySet;
-import dev.jeka.core.api.depmanagement.JkScope;
 import dev.jeka.core.api.java.JkJavaVersion;
+import dev.jeka.core.api.java.project.JkJavaProjectCompilation;
 import dev.jeka.core.tool.JkCommandSet;
 import dev.jeka.core.tool.JkDefClasspath;
 import dev.jeka.core.tool.JkInit;
@@ -15,26 +15,28 @@ class ExtenalCompilerBuild extends JkCommandSet {
 
     JkPluginJava java = getPlugin(JkPluginJava.class);
 
-    boolean eclipseCompiler = false;
+    boolean eclipseCompiler = true;
 
     @Override
     protected void setup() {
-        if (eclipseCompiler) {
-            java.getProject()
-                    .getProduction()
-                        .getCompilation()
-                            .getCompiler()
-                                .setCompilerTool(new EclipseCompiler()).__
-                            .getComputedCompileSpec()
-                                .addOptions("-warn:nullDereference,unusedPrivate"); //  ecj specific options
-        }
         java.getProject()
-            .getDependencyManagement()
-                .addDependencies(JkDependencySet.of().
+            .getJarProduction()
+                .getDependencyManagement()
+                    .addDependencies(JkDependencySet.of().
                         and("org.apache.commons:commons-dbcp2:2.7.0", PROVIDED)).__
-            .getProduction()
                 .getCompilation()
+                    .apply(this::setCompiler)
                     .setJavaVersion(JkJavaVersion.V8);
+    }
+
+    private void setCompiler(JkJavaProjectCompilation<?> compilation) {
+        if (eclipseCompiler) {
+            compilation
+                .getCompiler()
+                    .setCompilerTool(new EclipseCompiler()).__
+                .getComputedCompileSpec()
+                    .addOptions("-warn:nullDereference,unusedPrivate"); //  ecj specific options
+        }
     }
 
     public void cleanPack() {

@@ -18,15 +18,15 @@ class SwingBuild extends JkCommandSet {
 	@Override
     protected void setup() {
 		java.getProject()
-			.getDependencyManagement()
-				.addDependencies(JkDependencySet.of()
-						.and(coreBuild.java.getProject().toDependency())).__
-			.getProduction()
+			.getJarProduction()
 				.getManifest()
-					.addMainClass("swing.Main").__.__
+					.addMainClass("swing.Main").__
+				.getDependencyManagement()
+					.addDependencies(JkDependencySet.of()
+						.and(coreBuild.java.getProject().toDependency())).__.__
 			.getPublication()
 				.getArtifactProducer()
-					.putMainArtifact(java.getProject().getProduction()::createFatJar);
+					.putMainArtifact(java.getProject().getJarProduction()::createFatJar);
     }
 
     public void cleanPack() {

@@ -15,10 +15,11 @@ class UtilsBuild extends JkCommandSet {
     UtilsBuild() {
         java.getProject()
             .apply(BuildCommon::setup)
-            .getDependencyManagement()
-                .addDependencies(JkDependencySet.of()
-                    .and("com.google.guava:guava")
-                    .withVersionProvider(BuildCommon.VERSION_PROVIDER));
+            .getJarProduction()
+                .getDependencyManagement()
+                    .addDependencies(JkDependencySet.of()
+                        .and("com.google.guava:guava")
+                        .withVersionProvider(BuildCommon.VERSION_PROVIDER));
     }
 
     public void cleanPack() {

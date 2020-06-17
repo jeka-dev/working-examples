@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/bar/bar.iml" filepath="$PROJECT_DIR$/bar/bar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bar2/bar2.iml" filepath="$PROJECT_DIR$/bar2/bar2.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/build-commons/build-commons.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/build-commons/build-commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/build-master/build-master.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/build-master/build-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/conflict-resolution/conflict-resolution.iml" filepath="$PROJECT_DIR$/conflict-resolution/conflict-resolution.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/core/.idea/core.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/core/.idea/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foo/foo.iml" filepath="$PROJECT_DIR$/foo/foo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-classic/.idea/java-classic.iml" filepath="$PROJECT_DIR$/java-classic/.idea/java-classic.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-external-compiler/.idea/java-external-compiler.iml" filepath="$PROJECT_DIR$/java-external-compiler/.idea/java-external-compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" filepath="$PROJECT_DIR$/java-full-conventional/.idea/java-full-conventional.iml" />

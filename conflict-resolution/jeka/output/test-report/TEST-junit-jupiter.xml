@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.008" hostname="MacBook-Pro-de-jerome.local" timestamp="2020-05-20T17:15:40">
+<properties>
+<property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.encoding.pkg" value="sun.io"/>
+<property name="file.separator" value="/"/>
+<property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="gopherProxySet" value="false"/>
+<property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+<property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+<property name="java.class.path" value="/Users/jerome/IdeaProjects/jeka-examples/conflict-resolution/.idea/output/test:/Users/jerome/.jeka/cache/repo/com.google.guava/guava/bundles/guava-21.0.jar:/Users/jerome/.jeka/cache/repo/org.junit.jupiter/junit-jupiter/jars/junit-jupiter-5.6.2.jar:/Users/jerome/.jeka/cache/repo/org.junit.jupiter/junit-jupiter-api/jars/junit-jupiter-api-5.6.2.jar:/Users/jerome/.jeka/cache/repo/org.apiguardian/apiguardian-api/jars/apiguardian-api-1.1.0.jar:/Users/jerome/.jeka/cache/repo/org.opentest4j/opentest4j/jars/opentest4j-1.2.0.jar:/Users/jerome/.jeka/cache/repo/org.junit.platform/junit-platform-commons/jars/junit-platform-commons-1.6.2.jar:/Users/jerome/.jeka/cache/repo/org.junit.jupiter/junit-jupiter-params/jars/junit-jupiter-params-5.6.2.jar:/Users/jerome/.jeka/cache/repo/org.junit.jupiter/junit-jupiter-engine/jars/junit-jupiter-engine-5.6.2.jar:/Users/jerome/.jeka/cache/repo/org.junit.platform/junit-platform-engine/jars/junit-platform-engine-1.6.2.jar:/Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core.jar:/Users/jerome/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2020.1/cbeeb1f1aebd4c9ea8fb5ab990c5904a676fc41a/ideaIC-2020.1/lib/idea_rt.jar:/Users/jerome/.jeka/cache/url-content/jeka-embedded-c33cb77bfa4faeec48ffdc43c0506283.jar:/Users/jerome/IdeaProjects/jeka-examples/conflict-resolution/jeka/output/test-classes:/Users/jerome/IdeaProjects/jeka-examples/conflict-resolution/jeka/output/classes:/Users/jerome/.jeka/cache/repo/com.google.api-client/google-api-client/jars/google-api-client-1.30.7.jar:/Users/jerome/.jeka/cache/repo/com.google.oauth-client/google-oauth-client/jars/google-oauth-client-1.30.5.jar:/Users/jerome/.jeka/cache/repo/com.google.http-client/google-http-client/jars/google-http-client-1.32.1.jar:/Users/jerome/.jeka/cache/repo/com.google.code.findbugs/jsr305/jars/jsr305-3.0.2.jar:/Users/jerome/.jeka/cache/repo/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.10.jar:/Users/jerome/.jeka/cache/repo/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.12.jar:/Users/jerome/.jeka/cache/repo/commons-logging/commons-logging/jars/commons-logging-1.2.jar:/Users/jerome/.jeka/cache/repo/commons-codec/commons-codec/jars/commons-codec-1.13.jar:/Users/jerome/.jeka/cache/repo/com.google.j2objc/j2objc-annotations/jars/j2objc-annotations-1.3.jar:/Users/jerome/.jeka/cache/repo/io.opencensus/opencensus-api/jars/opencensus-api-0.24.0.jar:/Users/jerome/.jeka/cache/repo/io.grpc/grpc-context/jars/grpc-context-1.22.1.jar:/Users/jerome/.jeka/cache/repo/io.opencensus/opencensus-contrib-http-util/jars/opencensus-contrib-http-util-0.24.0.jar:/Users/jerome/.jeka/cache/repo/com.google.http-client/google-http-client-jackson2/jars/google-http-client-jackson2-1.32.1.jar:/Users/jerome/.jeka/cache/repo/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.9.9.jar:/Users/jerome/.jeka/cache/repo/com.google.guava/guava/bundles/guava-28.0-jre.jar:/Users/jerome/.jeka/cache/repo/com.google.guava/failureaccess/bundles/failureaccess-1.0.1.jar:/Users/jerome/.jeka/cache/repo/com.google.guava/listenablefuture/jars/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/Users/jerome/.jeka/cache/repo/org.checkerframework/checker-qual/jars/checker-qual-2.8.1.jar:/Users/jerome/.jeka/cache/repo/com.google.errorprone/error_prone_annotations/jars/error_prone_annotations-2.3.2.jar:/Users/jerome/.jeka/cache/repo/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.17.jar:/Users/jerome/.jeka/cache/repo/org.codehaus.plexus/plexus-container-default/jars/plexus-container-default-2.1.0.jar:/Users/jerome/.jeka/cache/repo/org.codehaus.plexus/plexus-utils/jars/plexus-utils-3.1.1.jar:/Users/jerome/.jeka/cache/repo/org.codehaus.plexus/plexus-classworlds/bundles/plexus-classworlds-2.6.0.jar:/Users/jerome/.jeka/cache/repo/org.apache.xbean/xbean-reflect/bundles/xbean-reflect-3.7.jar:/Users/jerome/.jeka/cache/repo/com.google.collections/google-collections/jars/google-collections-1.0.jar:/Users/jerome/.jeka/cache/url-content/junit-platform-launcher-1.6.0.jar:/Users/jerome/.jeka/cache/url-content/junit-platform-reporting-1.6.0.jar"/>
+<property name="java.class.version" value="52.0"/>
+<property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/endorsed"/>
+<property name="java.ext.dirs" value="/Users/jerome/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+<property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre"/>
+<property name="java.io.tmpdir" value="/var/folders/ld/xq1qbfv928z7r1qq587rtn9c0000gn/T/"/>
+<property name="java.library.path" value="/Users/jerome/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+<property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+<property name="java.runtime.version" value="1.8.0_151-b12"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="1.8"/>
+<property name="java.vendor" value="Oracle Corporation"/>
+<property name="java.vendor.url" value="http://java.oracle.com/"/>
+<property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+<property name="java.version" value="1.8.0_151"/>
+<property name="java.vm.info" value="mixed mode"/>
+<property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="1.8"/>
+<property name="java.vm.vendor" value="Oracle Corporation"/>
+<property name="java.vm.version" value="25.151-b12"/>
+<property name="line.separator" value="
+"/>
+<property name="os.arch" value="x86_64"/>
+<property name="os.name" value="Mac OS X"/>
+<property name="os.version" value="10.14.6"/>
+<property name="path.separator" value=":"/>
+<property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/classes"/>
+<property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/jre/lib"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.cpu.isalist" value=""/>
+<property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+<property name="sun.java.command" value="dev.jeka.core.api.java.testing.JkTestProcessor /var/folders/ld/xq1qbfv928z7r1qq587rtn9c0000gn/T/testArgs-4285637928269935939.ser"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="sun.os.patch.level" value="unknown"/>
+<property name="user.country" value="BE"/>
+<property name="user.dir" value="/Users/jerome/IdeaProjects/jeka-examples/conflict-resolution"/>
+<property name="user.home" value="/Users/jerome"/>
+<property name="user.language" value="fr"/>
+<property name="user.name" value="jerome"/>
+<property name="user.timezone" value="Europe/Brussels"/>
+</properties>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>

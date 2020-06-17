@@ -16,11 +16,11 @@ class ClassicBuild extends JkCommandSet {
     @Override
     protected void setup() {
         java.getProject()
-            .getDependencyManagement()
-                .addDependencies(JkDependencySet.of()
+            .getJarProduction()
+                .getDependencyManagement()
+                    .addDependencies(JkDependencySet.of()
                         .and("com.google.guava:guava:18.0")
                         .and("junit:junit::4.12")).__
-            .getProduction()
                 .getCompilation()
                     .setJavaVersion(JkJavaVersion.V8).__.__
             .getPublication()

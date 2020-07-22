@@ -32,8 +32,5 @@ class ClassicBuild extends JkCommandSet {
         clean(); java.pack();
     }
 
-    public static void main(String[] args) {
-        JkInit.instanceOf(ClassicBuild.class, args).cleanPack();
-    }
-
 }
+

@@ -25,11 +25,11 @@ class Build extends JkCommandSet {
                 .getResolver()
                     .getParams()
                         .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT).__.__
-                    .addDependencies(JkDependencySet.of()
-                        .and("com.google.api-client:google-api-client:1.30.7")
-                            .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict
-                        .and("com.google.guava:guava:28.0-jre")
-                        .and("org.codehaus.plexus:plexus-container-default:2.1.0")
+                .addDependencies(JkDependencySet.of()
+                    .and("com.google.api-client:google-api-client:1.30.7")
+                        .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict
+                    .and("com.google.guava:guava:28.0-jre")
+                    .and("org.codehaus.plexus:plexus-container-default:2.1.0")
                     ).__
             .getCompilation()
                 .setJavaVersion(JkJavaVersion.V8).__

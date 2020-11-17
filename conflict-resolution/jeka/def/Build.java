@@ -47,6 +47,11 @@ class Build extends JkCommandSet {
         clean(); java.pack();
     }
 
+    @Override
+    public void clean() {
+        super.clean();
+    }
+
     public static void main(String[] args) {
         JkInit.instanceOf(Build.class, args).cleanPack();
     }

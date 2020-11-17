@@ -14,7 +14,7 @@ import java.nio.file.StandardCopyOption;
 
 import static dev.jeka.core.api.depmanagement.JkScope.TEST;
 
-@JkDefClasspath("dev.jeka:springboot-plugin:2.4.0.RC7")
+@JkDefClasspath("dev.jeka:springboot-plugin:2.4.0.RC11")
 class SpringbootBuild extends JkCommandSet {
 
     final JkPluginJava java = getPlugin(JkPluginJava.class);

@@ -19,23 +19,15 @@ class ExtenalCompilerBuild extends JkCommandSet {
 
     @Override
     protected void setup() {
-        java.getProject()
-            .getJarProduction()
-                .getDependencyManagement()
-                    .addDependencies(JkDependencySet.of().
-                        and("org.apache.commons:commons-dbcp2:2.7.0", PROVIDED)).__
-                .getCompilation()
-                    .apply(this::setCompiler)
-                    .setJavaVersion(JkJavaVersion.V8);
-    }
-
-    private void setCompiler(JkJavaProjectCompilation<?> compilation) {
+        java.getProject().simpleFacade()
+            .setJavaVersion(JkJavaVersion.V8)
+            .addDependencies(JkDependencySet.of()
+                    .and("org.apache.commons:commons-dbcp2:2.7.0", PROVIDED));
         if (eclipseCompiler) {
-            compilation
-                .getCompiler()
-                    .setCompilerTool(new EclipseCompiler()).__
-                .getComputedCompileSpec()
-                    .addOptions("-warn:nullDereference,unusedPrivate"); //  ecj specific options
+            java.getProject().getConstruction().getCompilation()
+                    .getCompiler()
+                        .setCompilerTool(new EclipseCompiler()).__
+                    .addOptions("-warn:nullDereference,unusedPrivate");
         }
     }
 

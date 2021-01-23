@@ -12,8 +12,8 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
     </content>
     <orderEntry type="sourceFolder" forTests="false"/>
-    <orderEntry type="module" scope="TEST" module-name="springbootapp" exported=""/>
-    <orderEntry type="module" scope="TEST" module-name="swingapp" exported=""/>
-    <orderEntry type="module" scope="TEST" module-name="build-commons" exported=""/>
+    <orderEntry type="module" scope="TEST" module-name="build-commons" exported="" forJeka=""/>
+    <orderEntry type="module" scope="TEST" module-name="springbootapp" exported="" forJeka=""/>
+    <orderEntry type="module" scope="TEST" module-name="swingapp" exported="" forJeka=""/>
   </component>
 </module>

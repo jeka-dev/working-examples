@@ -15,22 +15,18 @@ class Build extends JkCommandSet {
 
     private final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
 
-    public boolean runIt = true;
+    public boolean runIT = true;
 
     @Override
     protected void setup() {
         springboot.setSpringbootVersion("2.2.6.RELEASE");
-        java.getProject().getJarProduction()
-            .getDependencyManagement()
-                .addDependencies(JkDependencySet.of()
-                    .and("org.springframework.boot:spring-boot-starter-web")
-                    .and("org.springframework.boot:spring-boot-starter-test", TEST)
-                        .withLocalExclusions("org.junit.vintage:junit-vintage-engine")
-                    ).__
-            .getTesting()
-                .getTestSelection()
-                    .addIncludeStandardPatterns()
-                    .addIncludePatternsIf(runIt, JkTestSelection.IT_INCLUDE_PATTERN);
+        java.getProject().simpleFacade()
+            .addDependencies(JkDependencySet.of()
+                .and("org.springframework.boot:spring-boot-starter-web")
+                .and("org.springframework.boot:spring-boot-starter-test", TEST)
+                    .withLocalExclusions("org.junit.vintage:junit-vintage-engine")
+                )
+            .includeTestSuffixedByIT(runIT);
     }
 
     public void cleanPack() {

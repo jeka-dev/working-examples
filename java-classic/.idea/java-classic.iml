@@ -29,7 +29,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="COMPILE" exported="">
+    <orderEntry type="module-library" scope="TEST" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/junit/junit/jars/junit-4.12.jar!/"/>
@@ -42,7 +42,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="COMPILE" exported="">
+    <orderEntry type="module-library" scope="TEST" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/org.hamcrest/hamcrest-core/jars/hamcrest-core-1.3.jar!/"/>
@@ -55,6 +55,6 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module" scope="TEST" module-name="wrapper-common" exported=""/>
+    <orderEntry type="module" scope="TEST" module-name="wrapper-common" exported="" forJeka=""/>
   </component>
 </module>

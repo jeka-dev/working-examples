@@ -18,7 +18,7 @@ class SwingBuild extends JkCommandSet {
 	@Override
     protected void setup() {
 		java.getProject()
-			.getJarProduction()
+			.getConstruction()
 				.getManifest()
 					.addMainClass("swing.Main").__
 				.getDependencyManagement()
@@ -26,7 +26,7 @@ class SwingBuild extends JkCommandSet {
 						.and(coreBuild.java.getProject().toDependency())).__.__
 			.getPublication()
 				.getArtifactProducer()
-					.putMainArtifact(java.getProject().getJarProduction()::createFatJar);
+					.putMainArtifact(java.getProject().getConstruction()::createFatJar);
     }
 
     public void cleanPack() {

@@ -14,6 +14,6 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
     </content>
     <orderEntry type="sourceFolder" forTests="false"/>
-    <orderEntry type="module" scope="TEST" module-name="wrapper-common" exported=""/>
+    <orderEntry type="module" scope="TEST" module-name="wrapper-common" exported="" forJeka=""/>
   </component>
 </module>

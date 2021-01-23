@@ -12,11 +12,10 @@ class CoreBuild extends JkCommandSet {
 	JkPluginJava java = getPlugin(JkPluginJava.class);
 
 	CoreBuild() {
-		BuildCommon.setup(java.getProject());
-		java.getProject().getJarProduction()
-			.getDependencyManagement()
-				.addDependencies(JkDependencySet.of()
-					.and(utilsBuild.java.getProject().toDependency()));
+		java.getProject().simpleFacade()
+			.applyOnProject(BuildCommon::setup)
+			.addDependencies(JkDependencySet.of()
+				.and(utilsBuild.java.getProject().toDependency()));
 	}
 
 	public void cleanPack() {

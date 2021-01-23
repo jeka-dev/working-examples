@@ -20,7 +20,7 @@ class Build extends JkCommandSet {
      */
     @Override
     protected void setup() {
-        java.getProject().getJarProduction()
+        java.getProject().getConstruction()
             .getDependencyManagement()
                 .getResolver()
                     .getParams()

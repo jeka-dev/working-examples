@@ -27,14 +27,14 @@ class SpringbootBuild extends JkCommandSet {
     @Override
     protected void setup() {
         springboot.setSpringbootVersion("2.2.4.RELEASE");
-        java.getProject().getJarProduction()
-            .getDependencyManagement()
+        java.getProject().simpleFacade()
+                .applyOnProject(BuildCommon::setup)
                 .addDependencies(JkDependencySet.of()
                     .and(Boot.STARTER_WEB)
                     .and(Boot.STARTER_TEST, TEST)
-                    .and(coreBuild.java.getProject().toDependency())).__
-            .getCompilation()
-                .getAfterCompile().append(this::packWeb);
+                    .and(coreBuild.java.getProject().toDependency()))
+                .getProject().getConstruction().getCompilation()
+                    .getAfterCompile().append(this::packWeb);
     }
 
     public void cleanPack() {
@@ -49,7 +49,7 @@ class SpringbootBuild extends JkCommandSet {
         JkLog.startTask("Packing web project");
         Path webDir = getBaseDir().resolve("../web");
         Path webDist = webDir.resolve("dist");
-        Path staticDir = java.getProject().getJarProduction().getCompilation().getLayout().resolveClassDir().resolve("static");
+        Path staticDir = java.getProject().getConstruction().getCompilation().getLayout().resolveClassDir().resolve("static");
         JkProcess.of("npm", "run", "build").withWorkingDir(webDir).runSync();
         JkPathTree.of(webDist).copyTo(staticDir, StandardCopyOption.REPLACE_EXISTING);
         JkLog.endTask();

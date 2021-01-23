@@ -337,6 +337,6 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module" scope="TEST" module-name="wrapper-common" exported=""/>
+    <orderEntry type="module" scope="TEST" module-name="wrapper-common" exported="" forJeka=""/>
   </component>
 </module>

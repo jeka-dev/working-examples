@@ -13,13 +13,11 @@ class UtilsBuild extends JkCommandSet {
     final JkPluginJava java = getPlugin(JkPluginJava.class);
 
     UtilsBuild() {
-        java.getProject()
-            .apply(BuildCommon::setup)
-            .getJarProduction()
-                .getDependencyManagement()
-                    .addDependencies(JkDependencySet.of()
-                        .and("com.google.guava:guava")
-                        .withVersionProvider(BuildCommon.VERSION_PROVIDER));
+        java.getProject().simpleFacade()
+            .applyOnProject(BuildCommon::setup)
+            .addDependencies(JkDependencySet.of()
+                .and("com.google.guava:guava")
+                .withVersionProvider(BuildCommon.VERSION_PROVIDER));
     }
 
     public void cleanPack() {

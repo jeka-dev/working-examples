@@ -13,11 +13,7 @@ public abstract class BuildCommon {
             JkVersionProvider.of(JkPopularModules.GUAVA, "22.0");
 
     public static void setup(JkJavaProject project) {
-        project
-            .getJarProduction()
-                .getCompilation()
-                    .setJavaVersion(JkJavaVersion.V8);
-
+        project.simpleFacade().setJavaVersion(JkJavaVersion.V8);
     }
 
 }

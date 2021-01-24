@@ -8,7 +8,7 @@ import dev.jeka.plugins.springboot.JkPluginSpringboot;
 
 import static dev.jeka.core.api.depmanagement.JkScope.TEST;
 
-@JkDefClasspath("dev.jeka:springboot-plugin:2.4.0.RC11")
+@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC4")
 class Build extends JkCommandSet {
 
     private final JkPluginJava java = getPlugin(JkPluginJava.class);

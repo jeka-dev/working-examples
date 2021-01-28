@@ -8,10 +8,8 @@ import dev.jeka.plugins.springboot.JkPluginSpringboot;
 
 import static dev.jeka.core.api.depmanagement.JkScope.TEST;
 
-@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC4")
+@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC5")
 class Build extends JkCommandSet {
-
-    private final JkPluginJava java = getPlugin(JkPluginJava.class);
 
     private final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
 
@@ -20,7 +18,7 @@ class Build extends JkCommandSet {
     @Override
     protected void setup() {
         springboot.setSpringbootVersion("2.2.6.RELEASE");
-        java.getProject().simpleFacade()
+        springboot.javaPlugin().getProject().simpleFacade()
             .addDependencies(JkDependencySet.of()
                 .and("org.springframework.boot:spring-boot-starter-web")
                 .and("org.springframework.boot:spring-boot-starter-test", TEST)

@@ -14,12 +14,10 @@ import java.nio.file.StandardCopyOption;
 
 import static dev.jeka.core.api.depmanagement.JkScope.TEST;
 
-@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC4")
+@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC5")
 class SpringbootBuild extends JkCommandSet {
 
-    final JkPluginJava java = getPlugin(JkPluginJava.class);
-
-    private final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
+    final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
 
     @JkDefImport("../core")
     private CoreBuild coreBuild;
@@ -27,7 +25,7 @@ class SpringbootBuild extends JkCommandSet {
     @Override
     protected void setup() {
         springboot.setSpringbootVersion("2.2.4.RELEASE");
-        java.getProject().simpleFacade()
+        springboot.javaPlugin().getProject().simpleFacade()
                 .applyOnProject(BuildCommon::setup)
                 .addDependencies(JkDependencySet.of()
                     .and(Boot.STARTER_WEB)
@@ -38,7 +36,7 @@ class SpringbootBuild extends JkCommandSet {
     }
 
     public void cleanPack() {
-        clean(); java.pack();
+        clean(); springboot.javaPlugin().pack();
     }
 
     public void run() {
@@ -49,7 +47,7 @@ class SpringbootBuild extends JkCommandSet {
         JkLog.startTask("Packing web project");
         Path webDir = getBaseDir().resolve("../web");
         Path webDist = webDir.resolve("dist");
-        Path staticDir = java.getProject().getConstruction().getCompilation().getLayout().resolveClassDir().resolve("static");
+        Path staticDir = springboot.javaPlugin().getProject().getConstruction().getCompilation().getLayout().resolveClassDir().resolve("static");
         JkProcess.of("npm", "run", "build").withWorkingDir(webDir).runSync();
         JkPathTree.of(webDist).copyTo(staticDir, StandardCopyOption.REPLACE_EXISTING);
         JkLog.endTask();

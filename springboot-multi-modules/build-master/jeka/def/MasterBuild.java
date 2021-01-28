@@ -26,7 +26,7 @@ class MasterBuild extends JkCommandSet {
 
 	public void build() {
 		clean();
-		springbootBuild.java.pack();
+		springbootBuild.springboot.javaPlugin().pack();
 		swingBuild.java.pack();
 		copyJars();
 	}
@@ -39,7 +39,7 @@ class MasterBuild extends JkCommandSet {
 
 	private void copyJars() {
 		JkPathTree.of(distribFolder)
-				.importFiles(springbootBuild.java.getProject().getPublication().getArtifactProducer().getMainArtifactPath())
+				.importFiles(springbootBuild.springboot.javaPlugin().getProject().getPublication().getArtifactProducer().getMainArtifactPath())
 				.importFiles(swingBuild.java.getProject().getPublication().getArtifactProducer().getMainArtifactPath());
 		JkLog.info("Distrib jar files copied in " + distribFolder);
 	}

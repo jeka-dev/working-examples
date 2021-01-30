@@ -1,10 +1,10 @@
 import dev.jeka.core.api.depmanagement.JkDependencySet;
-import dev.jeka.core.tool.JkCommandSet;
+import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefImport;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.java.JkPluginJava;
 
-class CoreBuild extends JkCommandSet {
+class CoreBuild extends JkClass {
 	
 	@JkDefImport("../utils")
 	UtilsBuild utilsBuild;

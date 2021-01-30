@@ -1,5 +1,5 @@
 import dev.jeka.core.api.depmanagement.JkDependencySet;
-import dev.jeka.core.tool.JkCommandSet;
+import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefImport;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.java.JkPluginJava;
@@ -8,7 +8,7 @@ import dev.jeka.core.tool.builtins.java.JkPluginJava;
  * @formatter:off
  */
 @JkDefImport("../build-commons")
-class UtilsBuild extends JkCommandSet {
+class UtilsBuild extends JkClass {
 
     final JkPluginJava java = getPlugin(JkPluginJava.class);
 

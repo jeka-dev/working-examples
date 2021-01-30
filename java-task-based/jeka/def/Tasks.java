@@ -5,13 +5,13 @@ import dev.jeka.core.api.java.JkJavaCompiler;
 import dev.jeka.core.api.java.JkManifest;
 import dev.jeka.core.api.java.testing.JkTestProcessor;
 import dev.jeka.core.api.java.testing.JkTestSelection;
-import dev.jeka.core.tool.JkCommandSet;
+import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInit;
 
 import java.nio.file.Path;
 
-class Tasks extends JkCommandSet {
+class Tasks extends JkClass {
 	
 	@JkDoc("Run test in a forked process if true.")
 	boolean forkTest;

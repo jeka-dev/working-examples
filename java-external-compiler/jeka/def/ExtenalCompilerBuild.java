@@ -1,7 +1,6 @@
 import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.api.java.JkJavaVersion;
-import dev.jeka.core.api.java.project.JkJavaProjectCompilation;
-import dev.jeka.core.tool.JkCommandSet;
+import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefClasspath;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.java.JkPluginJava;
@@ -11,7 +10,7 @@ import static dev.jeka.core.api.depmanagement.JkScope.PROVIDED;
 
 
 @JkDefClasspath("org.eclipse.jdt.core.compiler:ecj:4.6.1")
-class ExtenalCompilerBuild extends JkCommandSet {
+class ExtenalCompilerBuild extends JkClass {
 
     JkPluginJava java = getPlugin(JkPluginJava.class);
 

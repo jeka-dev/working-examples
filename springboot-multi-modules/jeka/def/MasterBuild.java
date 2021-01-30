@@ -1,6 +1,6 @@
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.tool.JkCommandSet;
+import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefImport;
 import dev.jeka.core.tool.JkInit;
 
@@ -9,20 +9,15 @@ import java.nio.file.Path;
 /**
  * @formatter:off
  */
-class MasterBuild extends JkCommandSet {
+class MasterBuild extends JkClass {
 
-	@JkDefImport("../springbootapp")
+	@JkDefImport("springbootapp")
 	SpringbootBuild springbootBuild;
 
-	@JkDefImport("../swingapp")
+	@JkDefImport("swingapp")
 	SwingBuild swingBuild;
 
 	Path distribFolder = getOutputDir();
-
-	@Override
-	protected void setup() {
-		//springbootBuild.embbedHtml5 = false;
-	}
 
 	public void build() {
 		clean();
@@ -34,7 +29,7 @@ class MasterBuild extends JkCommandSet {
 	@Override
 	public void clean() {
 		super.clean();
-		this.getImportedCommandSets().getAll().forEach(JkCommandSet::clean);
+		this.getImportedJkClasses().getAll().forEach(JkClass::clean);
 	}
 
 	private void copyJars() {

@@ -1,6 +1,6 @@
 import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.api.java.JkJavaProcess;
-import dev.jeka.core.tool.JkCommandSet;
+import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefImport;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.java.JkPluginJava;
@@ -8,7 +8,7 @@ import dev.jeka.core.tool.builtins.java.JkPluginJava;
 /**
  * @formatter:off
  */
-class SwingBuild extends JkCommandSet {
+class SwingBuild extends JkClass {
 
 	JkPluginJava java = getPlugin(JkPluginJava.class);
 

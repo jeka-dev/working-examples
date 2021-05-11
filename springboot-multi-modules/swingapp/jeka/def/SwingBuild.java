@@ -21,8 +21,8 @@ class SwingBuild extends JkClass {
 			.getConstruction()
 				.getManifest()
 					.addMainClass("swing.Main").__
-				.getDependencyManagement()
-					.addDependencies(JkDependencySet.of()
+				.getCompilation()
+					.setDependencies(deps -> deps
 						.and(coreBuild.java.getProject().toDependency())).__.__
 			.getPublication()
 				.getArtifactProducer()

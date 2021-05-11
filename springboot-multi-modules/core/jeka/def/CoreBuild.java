@@ -1,4 +1,3 @@
-import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefImport;
 import dev.jeka.core.tool.JkInit;
@@ -14,7 +13,7 @@ class CoreBuild extends JkClass {
 	CoreBuild() {
 		java.getProject().simpleFacade()
 			.applyOnProject(BuildCommon::setup)
-			.addDependencies(JkDependencySet.of()
+			.setCompileDependencies(deps -> deps
 				.and(utilsBuild.java.getProject().toDependency()));
 	}
 
@@ -25,7 +24,7 @@ class CoreBuild extends JkClass {
 	public static void main(String[] args) {
 		CoreBuild coreBuild = JkInit.instanceOf(CoreBuild.class);
 		coreBuild.cleanPack();
-		System.out.println("eeeghjkkjkhjg");
+		System.out.println("Hello Word");
 	}
 
 }

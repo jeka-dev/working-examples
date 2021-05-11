@@ -16,7 +16,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
     </content>
     <orderEntry type="sourceFolder" forTests="false"/>
-    <orderEntry type="module-library" scope="PROVIDED" exported="">
+    <orderEntry type="module-library" scope="COMPILE" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-dbcp2/jars/commons-dbcp2-2.7.0.jar!/"/>
@@ -29,7 +29,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="TEST" exported="">
+    <orderEntry type="module-library" scope="COMPILE" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/org.apache.commons/commons-pool2/jars/commons-pool2-2.7.0.jar!/"/>
@@ -42,7 +42,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="TEST" exported="">
+    <orderEntry type="module-library" scope="COMPILE" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/commons-logging/commons-logging/jars/commons-logging-1.2.jar!/"/>
@@ -65,6 +65,28 @@
         </JAVADOC>
         <SOURCES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/org.eclipse.jdt.core.compiler/ecj/jars/ecj-4.6.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST" exported="" forJeka="">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jerome/IdeaProjects/jeka-examples/wrapper-common/jeka/wrapper/dev.jeka.jeka-core-wrapper.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST" exported="" forJeka="">
+      <library>
+        <CLASSES>
+          <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core.jar!/"/>
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core-javadoc.jar!/"/>
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$JEKA_HOME$/libs-sources/dev.jeka.jeka-core-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>

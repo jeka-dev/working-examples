@@ -57,7 +57,6 @@ class Tasks extends JkClass {
 		clean(); compile(); junit(); jar();
 	}
 
-
 	public static void main(String[] args) {
 		JkInit.instanceOf(Tasks.class, args).doDefault();
 	}

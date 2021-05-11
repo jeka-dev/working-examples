@@ -15,7 +15,7 @@ class UtilsBuild extends JkClass {
     UtilsBuild() {
         java.getProject().simpleFacade()
             .applyOnProject(BuildCommon::setup)
-            .addDependencies(JkDependencySet.of()
+            .setCompileDependencies(deps -> deps
                 .and("com.google.guava:guava")
                 .withVersionProvider(BuildCommon.VERSION_PROVIDER));
     }

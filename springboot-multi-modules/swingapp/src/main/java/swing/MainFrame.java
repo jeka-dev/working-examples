@@ -1,7 +1,5 @@
 package swing;
 
-import core.MyCore;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,7 +8,7 @@ import java.awt.event.ActionListener;
 class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private final MyCore core = new MyCore();
 	
 	public MainFrame() {

@@ -1,5 +1,4 @@
-import dev.jeka.core.api.depmanagement.JkDependencySet;
-import dev.jeka.core.api.file.JkPathTree;
+;import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.tool.JkClass;
@@ -11,9 +10,7 @@ import dev.jeka.plugins.springboot.JkSpringModules.Boot;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-import static dev.jeka.core.api.depmanagement.JkScope.TEST;
-
-@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC6")
+@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC7")
 class SpringbootBuild extends JkClass {
 
     final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
@@ -23,13 +20,14 @@ class SpringbootBuild extends JkClass {
 
     @Override
     protected void setup() {
-        springboot.setSpringbootVersion("2.2.4.RELEASE");
+        springboot.setSpringbootVersion("2.2.6.RELEASE");
         springboot.javaPlugin().getProject().simpleFacade()
                 .applyOnProject(BuildCommon::setup)
-                .addDependencies(JkDependencySet.of()
+                .setCompileDependencies(deps -> deps
                     .and(Boot.STARTER_WEB)
-                    .and(Boot.STARTER_TEST, TEST)
                     .and(coreBuild.java.getProject().toDependency()))
+                .setTestDependencies(deps -> deps
+                        .and(Boot.STARTER_TEST))
                 .getProject().getConstruction().getCompilation()
                     .getAfterCompile().append(this::npmBuild);
     }

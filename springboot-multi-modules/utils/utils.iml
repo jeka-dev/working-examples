@@ -16,7 +16,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
     </content>
     <orderEntry type="sourceFolder" forTests="false"/>
-    <orderEntry type="module-library" scope="COMPILE" exported="">
+    <orderEntry type="module-library" scope="PROVIDED" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/com.google.guava/guava/bundles/guava-22.0.jar!/"/>
@@ -29,7 +29,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="COMPILE" exported="">
+    <orderEntry type="module-library" scope="PROVIDED" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/com.google.code.findbugs/jsr305/jars/jsr305-1.3.9.jar!/"/>
@@ -38,7 +38,7 @@
         <SOURCES/>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="COMPILE" exported="">
+    <orderEntry type="module-library" scope="PROVIDED" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/com.google.errorprone/error_prone_annotations/jars/error_prone_annotations-2.0.18.jar!/"/>
@@ -51,7 +51,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="COMPILE" exported="">
+    <orderEntry type="module-library" scope="PROVIDED" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/com.google.j2objc/j2objc-annotations/jars/j2objc-annotations-1.1.jar!/"/>
@@ -64,7 +64,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="COMPILE" exported="">
+    <orderEntry type="module-library" scope="PROVIDED" exported="">
       <library>
         <CLASSES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.14.jar!/"/>
@@ -74,6 +74,28 @@
         </JAVADOC>
         <SOURCES>
           <root url="jar://$JEKA_USER_HOME$/cache/repo/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.14-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST" exported="" forJeka="">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/jerome/IdeaProjects/jeka-examples/wrapper-common/jeka/wrapper/dev.jeka.jeka-core-wrapper.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST" exported="" forJeka="">
+      <library>
+        <CLASSES>
+          <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core.jar!/"/>
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core-javadoc.jar!/"/>
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$JEKA_HOME$/libs-sources/dev.jeka.jeka-core-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>

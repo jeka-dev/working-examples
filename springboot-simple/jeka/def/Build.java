@@ -1,4 +1,3 @@
-import dev.jeka.core.api.depmanagement.JkQualifiedDependencies;
 import dev.jeka.core.api.tooling.intellij.JkImlGenerator;
 import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefClasspath;
@@ -27,10 +26,14 @@ class Build extends JkClass {
 
     // For debugging purpose
     public void printIml() {
-        JkQualifiedDependencies qualifiedDependencies = springboot.javaPlugin().getProject().getJavaIdeSupport().getDependencies();
         JkImlGenerator imlGenerator = JkImlGenerator.of(this.springboot.javaPlugin().getJavaIdeSupport());
         String iml = imlGenerator.generate();
         System.out.println(iml);
+    }
+
+    public void cleanPack() {
+        clean();
+        springboot.javaPlugin().pack();
     }
 
 }

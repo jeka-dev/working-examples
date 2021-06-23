@@ -24,13 +24,6 @@ class Build extends JkClass {
             .addTestExcludeFilterSuffixedBy("IT", !runIT);
     }
 
-    // For debugging purpose
-    public void printIml() {
-        JkImlGenerator imlGenerator = JkImlGenerator.of(this.springboot.javaPlugin().getJavaIdeSupport());
-        String iml = imlGenerator.generate();
-        System.out.println(iml);
-    }
-
     public void cleanPack() {
         clean();
         springboot.javaPlugin().pack();

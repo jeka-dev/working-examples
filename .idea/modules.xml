@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/swingapp/.idea/swingapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/swingapp/.idea/swingapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/utils/utils.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/utils/utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/wrapper-common/wrapper-common.iml" filepath="$PROJECT_DIR$/wrapper-common/wrapper-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/migrate-from-maven/migrate-from-maven.iml" filepath="$PROJECT_DIR$/migrate-from-maven/migrate-from-maven.iml" />
     </modules>
   </component>
 </project>

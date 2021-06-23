@@ -29,7 +29,7 @@ class SpringbootBuild extends JkClass {
                 .setTestDependencies(deps -> deps
                         .and(Boot.STARTER_TEST))
                 .getProject().getConstruction().getCompilation()
-                    .getAfterCompile()
+                    .getPostCompileActions()
                         .append(this::npmBuild);
     }
 

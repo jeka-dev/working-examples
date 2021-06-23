@@ -6,7 +6,7 @@ import dev.jeka.core.tool.builtins.java.JkPluginJava;
 import org.eclipse.jdt.internal.compiler.tool.EclipseCompiler;
 
 
-@JkDefClasspath("org.eclipse.jdt.core.compiler:ecj:4.6.1")
+@JkDefClasspath("org.eclipse.jdt:ecj:3.25.0")
 class ExtenalCompilerBuild extends JkClass {
 
     JkPluginJava java = getPlugin(JkPluginJava.class);
@@ -22,9 +22,10 @@ class ExtenalCompilerBuild extends JkClass {
             .setRuntimeDependencies(deps -> deps
                     .minus("org.apache.commons:commons-dbcp2"));  // Only needed at compile time (provided)
         if (eclipseCompiler) {
-            java.getProject().getConstruction().getCompilation()
-                .getCompiler().setCompilerTool(new EclipseCompiler()).__
-                .addOptions("-warn:nullDereference,unusedPrivate");
+            java.getProject()
+                    .getConstruction()
+                        .getCompiler()
+                            .setCompileTool(new EclipseCompiler(), "-warn:nullDereference,unusedPrivate");
         }
     }
 

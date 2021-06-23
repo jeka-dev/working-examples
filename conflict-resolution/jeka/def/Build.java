@@ -17,11 +17,11 @@ class Build extends JkClass {
     @Override
     protected void setup() {
         java.getProject().getConstruction()
+                .setJavaVersion(JkJavaVersion.V8)
                 .getDependencyResolver()
                     .getParams()
                         .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT).__.__
                 .getCompilation()
-                    .setJavaVersion(JkJavaVersion.V8)
                     .setDependencies(deps -> deps
                         .and("com.google.api-client:google-api-client:1.30.7")
                             .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict

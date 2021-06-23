@@ -17,13 +17,14 @@ class ClassicBuild extends JkClass {
         java.getProject().simpleFacade()
             .setJavaVersion(JkJavaVersion.V8)
             .setCompileDependencies(deps -> deps
-                .and("com.google.guava:guava:18.0")
+                .and("com.google.guava:guava:22.0")
+                .and("com.github.djeang:vincer-dom:1.4.0")
             )
             .setTestDependencies(deps -> deps
                 .and("junit:junit::4.12")
             )
             .setPublishedMavenModuleId("org.jerkar:examples-java-classic")
-            .setPublishedMavenVersionFromGit();
+            .setPublishedMavenVersionFromGitTag();
     }
 
     public void cleanPack() {

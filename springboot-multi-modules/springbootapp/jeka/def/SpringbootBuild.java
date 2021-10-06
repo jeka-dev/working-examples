@@ -10,7 +10,7 @@ import dev.jeka.plugins.springboot.JkSpringModules.Boot;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC7")
+@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC10")
 class SpringbootBuild extends JkClass {
 
     final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
@@ -20,7 +20,7 @@ class SpringbootBuild extends JkClass {
 
     @Override
     protected void setup() {
-        springboot.setSpringbootVersion("2.2.6.RELEASE");
+        springboot.setSpringbootVersion("2.5.5");
         springboot.javaPlugin().getProject().simpleFacade()
                 .applyOnProject(BuildCommon::setup)
                 .setCompileDependencies(deps -> deps
@@ -47,7 +47,7 @@ class SpringbootBuild extends JkClass {
         Path webDist = webDir.resolve("dist");
         Path staticDir = springboot.javaPlugin().getProject().getConstruction().getCompilation()
                 .getLayout().resolveClassDir().resolve("static");
-        JkProcess.of("npm", "run", "build").withWorkingDir(webDir).runSync();
+        JkProcess.of("npm", "run", "build").setWorkingDir(webDir).exec();
         JkPathTree.of(webDist).copyTo(staticDir, StandardCopyOption.REPLACE_EXISTING);
         JkLog.endTask();
     }

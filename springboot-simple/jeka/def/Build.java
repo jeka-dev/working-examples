@@ -1,9 +1,8 @@
-import dev.jeka.core.api.tooling.intellij.JkImlGenerator;
 import dev.jeka.core.tool.JkClass;
 import dev.jeka.core.tool.JkDefClasspath;
 import dev.jeka.plugins.springboot.JkPluginSpringboot;
 
-@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC7")
+@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC10")
 class Build extends JkClass {
 
     private final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
@@ -12,7 +11,7 @@ class Build extends JkClass {
 
     @Override
     protected void setup() {
-        springboot.setSpringbootVersion("2.2.6.RELEASE");
+        springboot.setSpringbootVersion("2.5.5");
         springboot.javaPlugin().getProject().simpleFacade()
             .setCompileDependencies(deps -> deps
                 .and("org.springframework.boot:spring-boot-starter-web")

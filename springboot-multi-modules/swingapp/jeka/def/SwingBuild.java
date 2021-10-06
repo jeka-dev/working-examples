@@ -20,10 +20,13 @@ class SwingBuild extends JkClass {
 		java.getProject()
 			.getConstruction()
 				.getManifest()
-					.addMainClass("swing.Main").__
+					.addMainClass("swing.Main")
+				.__
 				.getCompilation()
 					.setDependencies(deps -> deps
-						.and(coreBuild.java.getProject().toDependency())).__.__
+						.and(coreBuild.java.getProject().toDependency()))
+					.__
+				.__
 			.getPublication()
 				.getArtifactProducer()
 					.putMainArtifact(java.getProject().getConstruction()::createFatJar);
@@ -34,7 +37,8 @@ class SwingBuild extends JkClass {
 	}
 
     public void run() {
-		JkJavaProcess.of().runJarSync(java.getProject().getPublication().getArtifactProducer().getMainArtifactPath());
+		JkJavaProcess.ofJavaJar(java.getProject().getPublication().getArtifactProducer().getMainArtifactPath(), null)
+				.exec();
 	}
 	
 	public static void main(String[] args) {

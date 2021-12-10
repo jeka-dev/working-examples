@@ -1,34 +1,36 @@
 import dev.jeka.core.api.java.JkJavaVersion;
-import dev.jeka.core.tool.JkClass;
-import dev.jeka.core.tool.builtins.git.JkPluginGit;
-import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.JkBean;
+import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 /**
  * @formatter:off
  */
-class ClassicBuild extends JkClass {
+class ClassicBuild extends JkBean {
 
-    JkPluginJava java = getPlugin(JkPluginJava.class);
-
-    JkPluginGit git = getPlugin(JkPluginGit.class);
+    ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
 
     @Override
-    protected void setup() {
-        java.getProject().simpleFacade()
-            .setJavaVersion(JkJavaVersion.V8)
-            .setCompileDependencies(deps -> deps
+    protected void init() {
+        projectJkBean.getProject().simpleFacade()
+            .setJvmTargetVersion(JkJavaVersion.V8)
+            .configureCompileDeps(deps -> deps
                 .and("com.google.guava:guava:22.0")
                 .and("com.github.djeang:vincer-dom:1.4.0")
             )
-            .setTestDependencies(deps -> deps
+            .configureTestDeps(deps -> deps
                 .and("junit:junit::4.12")
             )
-            .setPublishedMavenModuleId("org.jerkar:examples-java-classic")
-            .setPublishedMavenVersionFromGitTag();
+            .setPublishedModuleId("org.jerkar:examples-java-classic")
+            .setPublishedVersionFromGitTag();
     }
 
     public void cleanPack() {
-        clean(); java.pack();
+        clean(); projectJkBean.pack();
+    }
+
+    public static void main(String[] args) {
+        JkInit.instanceOf(ClassicBuild.class).cleanPack();
     }
 
 }

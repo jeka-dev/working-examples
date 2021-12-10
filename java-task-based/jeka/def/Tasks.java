@@ -1,34 +1,38 @@
 import dev.jeka.core.api.file.JkPathSequence;
 import dev.jeka.core.api.file.JkPathTree;
+import dev.jeka.core.api.file.JkPathTreeSet;
 import dev.jeka.core.api.java.JkJavaCompileSpec;
 import dev.jeka.core.api.java.JkJavaCompiler;
 import dev.jeka.core.api.java.JkManifest;
 import dev.jeka.core.api.java.testing.JkTestProcessor;
 import dev.jeka.core.api.java.testing.JkTestSelection;
-import dev.jeka.core.tool.JkClass;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInit;
 
 import java.nio.file.Path;
 
-class Tasks extends JkClass {
+class Tasks extends JkBean {
 	
 	@JkDoc("Run test in a forked process if true.")
 	boolean forkTest;
-
-	private JkPathTree src = getBaseTree().goTo("src");
+    JkPathTree baseTree = JkPathTree.of(getBaseDir());
+	private JkPathTree src = baseTree.goTo("src");
 	private Path classDir = getOutputDir().resolve("classes");
 	private Path jarFile = getOutputDir().resolve("capitalizer.jar");
-	private JkPathSequence classpath = JkPathSequence.of(getBaseTree().andMatching("libs/compile/*.jar").getFiles());
+	private JkPathSequence classpath = JkPathSequence.of(baseTree.andMatching("libs/compile/*.jar").getFiles());
 	private Path testSrc = getBaseDir().resolve("test");
 	private Path testClassDir = getOutputDir().resolve("test-classes");
 	private JkPathSequence testClasspath = classpath.and(classDir)
-			.and(getBaseTree().andMatching("libs/test/*.jar").getFiles());
+			.and(baseTree.andMatching("libs/test/*.jar").getFiles());
 	private Path reportDir = getOutputDir().resolve("junitRreport");
 
 	public void compile() {
 		JkJavaCompiler.of().compile(
-				JkJavaCompileSpec.of().of().setClasspath(classpath).addSources(src).setOutputDir(classDir));
+				JkJavaCompileSpec.of().of()
+						.setClasspath(classpath)
+						.setSources(src.toSet())
+						.setOutputDir(classDir));
 		src.andMatching(false,"**/*.java").copyTo(classDir);  /// copy resources
 	}
 
@@ -39,7 +43,10 @@ class Tasks extends JkClass {
 	
 	private void compileTest() {
 		JkJavaCompiler.of().compile(
-				JkJavaCompileSpec.of().setClasspath(testClasspath).addSources(testSrc).setOutputDir(testClassDir));
+				JkJavaCompileSpec.of()
+						.setClasspath(testClasspath)
+						.setSources(JkPathTreeSet.of(testSrc))
+						.setOutputDir(testClassDir));
 		src.andMatching(false,"**/*.java").copyTo(testClassDir);  /// copy test resources
 	}
 	

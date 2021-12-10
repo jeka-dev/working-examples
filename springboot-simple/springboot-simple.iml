@@ -779,7 +779,7 @@
     <orderEntry type="module-library" scope="TEST" exported="" forJeka="">
       <library>
         <CLASSES>
-          <root url="jar://C:/Users/m999jad/IdeaProjects/working-examples/wrapper-common/jeka/wrapper/dev.jeka.jeka-core-wrapper.jar!/"/>
+          <root url="file://C:/Dev/ideaProjects/working-examples/springboot-simple/jeka/.work/def-classes"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES/>
@@ -788,29 +788,22 @@
     <orderEntry type="module-library" scope="TEST" exported="" forJeka="">
       <library>
         <CLASSES>
-          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.9.15.M2/dev.jeka.jeka-core.jar!/"/>
+          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.9.20.RC2/dev.jeka.jeka-core.jar!/"/>
         </CLASSES>
         <JAVADOC>
-          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.9.15.M2/dev.jeka.jeka-core-javadoc.jar!/"/>
+          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.9.20.RC2/dev.jeka.jeka-core-javadoc.jar!/"/>
         </JAVADOC>
-        <SOURCES>
-          <root url="jar://$JEKA_USER_HOME$/cache/wrapper/0.9.15.M2/libs-sources/dev.jeka.jeka-core-sources.jar!/"/>
-        </SOURCES>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST" exported="" forJeka="">
       <library>
         <CLASSES>
-          <root url="jar://$JEKA_USER_HOME$/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-3.0.0.RC10.jar!/"/>
+          <root url="jar://$JEKA_USER_HOME$/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.9.20.RC2.jar!/"/>
         </CLASSES>
-        <JAVADOC>
-          <root url="jar://$JEKA_USER_HOME$/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-3.0.0.RC10-javadoc.jar!/"/>
-        </JAVADOC>
-        <SOURCES>
-          <root url="jar://$JEKA_USER_HOME$/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-3.0.0.RC10-sources.jar!/"/>
-        </SOURCES>
+        <JAVADOC/>
+        <SOURCES/>
       </library>
     </orderEntry>
-    <orderEntry type="module" scope="TEST" module-name="wrapper-common" exported="" forJeka=""/>
   </component>
 </module>

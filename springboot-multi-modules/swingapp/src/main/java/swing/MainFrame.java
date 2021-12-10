@@ -11,7 +11,7 @@ class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	private final MyCore core = new MyCore();
+	private final core.MyCore core = new MyCore();
 	
 	public MainFrame() {
 		setTitle("Magic Formula");

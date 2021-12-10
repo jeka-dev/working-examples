@@ -1,43 +1,41 @@
-import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.api.java.JkJavaProcess;
-import dev.jeka.core.tool.JkClass;
-import dev.jeka.core.tool.JkDefImport;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
-import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 /**
  * @formatter:off
  */
-class SwingBuild extends JkClass {
+public class SwingBuild extends JkBean {
 
-	JkPluginJava java = getPlugin(JkPluginJava.class);
+	ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
 
-	@JkDefImport("../core")
+	@JkInjectProject("../core")
 	CoreBuild coreBuild;
 
 	@Override
-    protected void setup() {
-		java.getProject()
+    protected void init() {
+		projectJkBean.getProject()
 			.getConstruction()
 				.getManifest()
 					.addMainClass("swing.Main")
 				.__
 				.getCompilation()
-					.setDependencies(deps -> deps
-						.and(coreBuild.java.getProject().toDependency()))
+					.configureDependencies(deps -> deps
+						.and(coreBuild.projectJkBean.getProject().toDependency()))
 					.__
 				.__
-			.getPublication()
-				.getArtifactProducer()
-					.putMainArtifact(java.getProject().getConstruction()::createFatJar);
+			.getArtifactProducer()
+				.putMainArtifact(projectJkBean.getProject().getConstruction()::createFatJar);
     }
 
     public void cleanPack() {
-		clean(); java.pack();
+		clean(); projectJkBean.pack();
 	}
 
     public void run() {
-		JkJavaProcess.ofJavaJar(java.getProject().getPublication().getArtifactProducer().getMainArtifactPath(), null)
+		JkJavaProcess.ofJavaJar(projectJkBean.getProject().getArtifactProducer().getMainArtifactPath(), null)
 				.exec();
 	}
 	

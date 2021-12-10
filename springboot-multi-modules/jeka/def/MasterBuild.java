@@ -1,41 +1,46 @@
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.tool.JkClass;
-import dev.jeka.core.tool.JkDefImport;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 import java.nio.file.Path;
 
 /**
  * @formatter:off
  */
-class MasterBuild extends JkClass {
+class MasterBuild extends JkBean {
 
-	@JkDefImport("springbootapp")
+	@JkInjectProject("springbootapp")
 	SpringbootBuild springbootBuild;
 
-	@JkDefImport("swingapp")
+	@JkInjectProject("swingapp")
 	SwingBuild swingBuild;
 
 	Path distribFolder = getOutputDir();
 
 	public void build() {
 		clean();
-		springbootBuild.springboot.javaPlugin().pack();
-		swingBuild.java.pack();
+		springbootBuild.springboot.projectBean().pack();
+		swingBuild.projectJkBean.pack();
 		copyJars();
 	}
 
 	@Override
 	public void clean() {
 		super.clean();
-		this.getImportedJkClasses().getAll().forEach(JkClass::clean);
+		this.getImportedJkBeans().get(true).stream()
+				.map(JkBean::getRuntime)
+				.distinct()
+				.map(runtime -> runtime.getBean(ProjectJkBean.class))
+				.forEach(JkBean::clean);
 	}
 
 	private void copyJars() {
 		JkPathTree.of(distribFolder)
-				.importFiles(springbootBuild.springboot.javaPlugin().getProject().getPublication().getArtifactProducer().getMainArtifactPath())
-				.importFiles(swingBuild.java.getProject().getPublication().getArtifactProducer().getMainArtifactPath());
+				.importFiles(springbootBuild.springboot.projectBean().getProject().getArtifactProducer().getMainArtifactPath())
+				.importFiles(swingBuild.projectJkBean.getProject().getArtifactProducer().getMainArtifactPath());
 		JkLog.info("Distrib jar files copied in " + distribFolder);
 	}
 

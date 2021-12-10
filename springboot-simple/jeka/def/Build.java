@@ -1,22 +1,24 @@
-import dev.jeka.core.tool.JkClass;
-import dev.jeka.core.tool.JkDefClasspath;
-import dev.jeka.plugins.springboot.JkPluginSpringboot;
 
-@JkDefClasspath("dev.jeka:springboot-plugin:3.0.0.RC10")
-class Build extends JkClass {
+import dev.jeka.core.tool.JkBean;
+import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.JkInjectClasspath;
+import dev.jeka.plugins.springboot.SpringbootJkBean;
 
-    private final JkPluginSpringboot springboot = getPlugin(JkPluginSpringboot.class);
+@JkInjectClasspath("dev.jeka:springboot-plugin")
+class Build extends JkBean {
+
+    private final SpringbootJkBean springboot = getRuntime().getBean(SpringbootJkBean.class);
 
     public boolean runIT = true;
 
     @Override
-    protected void setup() {
+    protected void init() {
         springboot.setSpringbootVersion("2.5.5");
-        springboot.javaPlugin().getProject().simpleFacade()
-            .setCompileDependencies(deps -> deps
+        springboot.projectBean().getProject().simpleFacade()
+            .configureCompileDeps(deps -> deps
                 .and("org.springframework.boot:spring-boot-starter-web")
             )
-            .setTestDependencies(deps -> deps
+            .configureTestDeps(deps -> deps
                 .and("org.springframework.boot:spring-boot-starter-test")
                     .withLocalExclusions("org.junit.vintage:junit-vintage-engine")
             )
@@ -25,7 +27,11 @@ class Build extends JkClass {
 
     public void cleanPack() {
         clean();
-        springboot.javaPlugin().pack();
+        springboot.projectBean().pack();
+    }
+
+    public static void main(String[] args) {
+        JkInit.instanceOf(Build.class).cleanPack();
     }
 
 }

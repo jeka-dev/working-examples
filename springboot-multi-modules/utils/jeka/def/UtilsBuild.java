@@ -1,27 +1,26 @@
-import dev.jeka.core.api.depmanagement.JkDependencySet;
-import dev.jeka.core.tool.JkClass;
-import dev.jeka.core.tool.JkDefImport;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
-import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 /**
  * @formatter:off
  */
-@JkDefImport("../build-commons")
-class UtilsBuild extends JkClass {
+@JkInjectProject("../build-commons")
+class UtilsBuild extends JkBean {
 
-    final JkPluginJava java = getPlugin(JkPluginJava.class);
+    final ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
 
     UtilsBuild() {
-        java.getProject().simpleFacade()
+        projectJkBean.getProject().simpleFacade()
             .applyOnProject(BuildCommon::setup)
-            .setCompileDependencies(deps -> deps
+            .configureCompileDeps(deps -> deps
                 .and("com.google.guava:guava")
                 .withVersionProvider(BuildCommon.VERSION_PROVIDER));
     }
 
     public void cleanPack() {
-        clean(); java.pack();
+        clean(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {

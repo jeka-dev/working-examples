@@ -1,24 +1,25 @@
-import dev.jeka.core.tool.JkClass;
-import dev.jeka.core.tool.JkDefImport;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
-import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
-class CoreBuild extends JkClass {
+class CoreBuild extends JkBean {
 	
-	@JkDefImport("../utils")
+	@JkInjectProject("../utils")
 	UtilsBuild utilsBuild;
 
-	JkPluginJava java = getPlugin(JkPluginJava.class);
+	ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
 
-	CoreBuild() {
-		java.getProject().simpleFacade()
-			.applyOnProject(BuildCommon::setup)
-			.setCompileDependencies(deps -> deps
-				.and(utilsBuild.java.getProject().toDependency()));
+	@Override
+	protected void init() {
+		projectJkBean.getProject().simpleFacade()
+				.applyOnProject(BuildCommon::setup)
+				.configureCompileDeps(deps -> deps
+						.and(utilsBuild.projectJkBean.getProject().toDependency()));
 	}
 
 	public void cleanPack() {
-		clean(); java.pack();
+		clean(); projectJkBean.pack();
 	}
 
 	public static void main(String[] args) {

@@ -1,28 +1,28 @@
 import dev.jeka.core.api.java.JkJavaVersion;
-import dev.jeka.core.tool.JkClass;
-import dev.jeka.core.tool.JkDefClasspath;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
-import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.JkInjectClasspath;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 import org.eclipse.jdt.internal.compiler.tool.EclipseCompiler;
 
 
-@JkDefClasspath("org.eclipse.jdt:ecj:3.25.0")
-class ExtenalCompilerBuild extends JkClass {
+@JkInjectClasspath("org.eclipse.jdt:ecj:3.25.0")
+class ExtenalCompilerBuild extends JkBean {
 
-    JkPluginJava java = getPlugin(JkPluginJava.class);
+    ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
 
     boolean eclipseCompiler = true;
 
     @Override
-    protected void setup() {
-        java.getProject().simpleFacade()
-            .setJavaVersion(JkJavaVersion.V8)
-            .setCompileDependencies(deps -> deps
+    protected void init() {
+        projectJkBean.getProject().simpleFacade()
+            .setJvmTargetVersion(JkJavaVersion.V8)
+            .configureCompileDeps(deps -> deps
                     .and("org.apache.commons:commons-dbcp2:2.7.0"))
-            .setRuntimeDependencies(deps -> deps
+            .configureCompileDeps(deps -> deps
                     .minus("org.apache.commons:commons-dbcp2"));  // Only needed at compile time (provided)
         if (eclipseCompiler) {
-            java.getProject()
+            projectJkBean.getProject()
                     .getConstruction()
                         .getCompiler()
                             .setCompileTool(new EclipseCompiler(), "-warn:nullDereference,unusedPrivate");
@@ -30,7 +30,7 @@ class ExtenalCompilerBuild extends JkClass {
     }
 
     public void cleanPack() {
-        clean(); java.pack();
+        clean(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {

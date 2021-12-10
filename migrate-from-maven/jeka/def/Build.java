@@ -1,32 +1,32 @@
 import dev.jeka.core.api.java.JkJavaVersion;
-import dev.jeka.core.tool.JkClass;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
-import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
-class Build extends JkClass {
+class Build extends JkBean {
 
-    final JkPluginJava java = getPlugin(JkPluginJava.class);
+    final ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
 
     /*
      * Configures plugins to be bound to this command class. When this method is called, option
      * fields have already been injected from command line.
      */
     @Override
-    protected void setup() {
-        java.getProject().simpleFacade()
-            .setJavaVersion(JkJavaVersion.V8)
-            .setCompileDependencies(deps -> deps
+    protected void init() {
+        projectJkBean.getProject().simpleFacade()
+            .setJvmTargetVersion(JkJavaVersion.V8)
+            .configureCompileDeps(deps -> deps
                 .and("com.google.guava:guava:21.0"))
-            .setTestDependencies(deps -> deps
+            .configureTestDeps(deps -> deps
                 .and("org.junit.jupiter:junit-jupiter:5.6.2"))
 
             // Only necessary if your project is published in a binary repository.
-            .setPublishedMavenModuleId("your.group:your.project")
-            .setPublishedMavenVersionFromGitTag();  // Version inferred from Git
+            .setPublishedModuleId("your.group:your.project")
+            .setPublishedVersionFromGitTag();  // Version inferred from Git
     }
 
     public void cleanPack() {
-        clean(); java.pack();
+        clean(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {

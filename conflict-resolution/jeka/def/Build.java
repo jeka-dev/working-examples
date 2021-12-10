@@ -1,30 +1,30 @@
 import dev.jeka.core.api.depmanagement.resolution.JkResolutionParameters;
 import dev.jeka.core.api.java.JkJavaVersion;
 import dev.jeka.core.api.java.testing.JkTestProcessor;
-import dev.jeka.core.api.java.testing.JkTestSelection;
-import dev.jeka.core.tool.JkClass;
+import dev.jeka.core.api.java.testing.JkTestSelection;;
+import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
-import dev.jeka.core.tool.builtins.java.JkPluginJava;
+import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
-class Build extends JkClass {
+class Build extends JkBean {
 
-    final JkPluginJava java = getPlugin(JkPluginJava.class);
+    final ProjectJkBean projectBean = getRuntime().getBean(ProjectJkBean.class);
 
     /*
      * Configures plugins to be bound to this command class. When this method is called, option
      * fields have already been injected from command line.
      */
     @Override
-    protected void setup() {
-        java.getProject().getConstruction()
-                .setJavaVersion(JkJavaVersion.V8)
+    protected void init() {
+        projectBean.getProject().getConstruction()
+                .setJvmTargetVersion(JkJavaVersion.V8)
                 .getDependencyResolver()
                     .getParams()
                         .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT)
                     .__
                 .__
                 .getCompilation()
-                    .setDependencies(deps -> deps
+                    .configureDependencies(deps -> deps
                         .and("com.google.api-client:google-api-client:1.30.7")
                             .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict
                         .and("com.google.guava:guava:28.0-jre")
@@ -43,7 +43,7 @@ class Build extends JkClass {
     }
 
     public void cleanPack() {
-        clean(); java.pack();
+        clean(); projectBean.pack();
     }
 
     @Override

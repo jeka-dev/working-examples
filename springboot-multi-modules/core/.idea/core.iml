@@ -22,7 +22,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_HOME$/sources/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>

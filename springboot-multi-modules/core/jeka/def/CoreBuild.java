@@ -1,3 +1,4 @@
+import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
@@ -8,11 +9,10 @@ class CoreBuild extends JkBean {
 	@JkInjectProject("../utils")
 	UtilsBuild utilsBuild;
 
-	ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
+	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
-	@Override
-	protected void init() {
-		projectJkBean.getProject().simpleFacade()
+	private void configure(JkProject project) {
+		project.simpleFacade()
 				.applyOnProject(BuildCommon::setup)
 				.configureCompileDeps(deps -> deps
 						.and(utilsBuild.projectJkBean.getProject().toDependency()));

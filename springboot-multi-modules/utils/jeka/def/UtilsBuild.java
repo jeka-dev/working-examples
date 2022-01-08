@@ -1,3 +1,4 @@
+import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
@@ -9,10 +10,10 @@ import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 @JkInjectProject("../build-commons")
 class UtilsBuild extends JkBean {
 
-    final ProjectJkBean projectJkBean = getRuntime().getBean(ProjectJkBean.class);
+    final ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
-    UtilsBuild() {
-        projectJkBean.getProject().simpleFacade()
+    private void configure(JkProject project) {
+        project.simpleFacade()
             .applyOnProject(BuildCommon::setup)
             .configureCompileDeps(deps -> deps
                 .and("com.google.guava:guava")

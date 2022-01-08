@@ -1,4 +1,5 @@
 import dev.jeka.core.api.file.JkPathTree;
+import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.tool.JkBean;
@@ -10,20 +11,22 @@ import dev.jeka.plugins.springboot.SpringbootJkBean;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-;
-
-@JkInjectClasspath("dev.jeka:springboot-plugin:0.9.20.RC2")
+@JkInjectClasspath("dev.jeka:springboot-plugin")
 class SpringbootBuild extends JkBean {
 
-    final SpringbootJkBean springboot = getRuntime().getBean(SpringbootJkBean.class);
+    final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
     @JkInjectProject("../core")
     private CoreBuild coreBuild;
 
-    @Override
-    protected void init() {
+    SpringbootBuild() {
         springboot.setSpringbootVersion("2.5.5");
-        springboot.projectBean().getProject().simpleFacade()
+        springboot.projectBean().configure(this::configure);
+    }
+
+    private void configure(JkProject project) {
+        springboot.setSpringbootVersion("2.5.5");
+        project.simpleFacade()
                 .applyOnProject(BuildCommon::setup)
                 .configureCompileDeps(deps -> deps
                     .and(Boot.STARTER_WEB)

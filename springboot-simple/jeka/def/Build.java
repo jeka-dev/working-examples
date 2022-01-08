@@ -4,7 +4,7 @@ import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 
-@JkInjectClasspath("dev.jeka:springboot-plugin")
+@JkInjectClasspath("dev.jeka:springboot-plugin:0.9.20.RC2")
 class Build extends JkBean {
 
     private final SpringbootJkBean springboot = getRuntime().getBean(SpringbootJkBean.class);

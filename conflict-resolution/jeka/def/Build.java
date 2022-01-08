@@ -2,13 +2,16 @@ import dev.jeka.core.api.depmanagement.resolution.JkResolutionParameters;
 import dev.jeka.core.api.java.JkJavaVersion;
 import dev.jeka.core.api.java.testing.JkTestProcessor;
 import dev.jeka.core.api.java.testing.JkTestSelection;;
+import dev.jeka.core.api.tooling.intellij.JkIml;
 import dev.jeka.core.tool.JkBean;
+import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 class Build extends JkBean {
 
-    final ProjectJkBean projectBean = getRuntime().getBean(ProjectJkBean.class);
+    ProjectJkBean projectBean = getRuntime().getBean(ProjectJkBean.class);
 
     /*
      * Configures plugins to be bound to this command class. When this method is called, option
@@ -40,10 +43,20 @@ class Build extends JkBean {
                         .setForkingProcess(true)
                         .getEngineBehavior()
                             .setProgressDisplayer(JkTestProcessor.JkProgressOutputStyle.TREE);
+
+
     }
 
     public void cleanPack() {
         clean(); projectBean.pack();
+    }
+
+    @JkDoc("Invoke this method prior intellij#iml to force intellij use wrapper-common module dependency instead of explicit Jeka lib")
+    public void useWrapperCommon() {
+        getRuntime().getBean(IntellijJkBean.class).configureImlGenerator(ig -> ig
+                .setSkipJeka(true)
+                .configureIml(iml -> iml.getComponent().addModuleOrderEntry("wrapper-common", JkIml.Scope.TEST))
+        );
     }
 
     @Override

@@ -3,6 +3,7 @@ import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 /**
@@ -14,6 +15,10 @@ public class SwingBuild extends JkBean {
 
 	@JkInjectProject("../core")
 	CoreBuild coreBuild;
+
+	SwingBuild(){
+		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+	}
 
     private void configure(JkProject project) {
 		project

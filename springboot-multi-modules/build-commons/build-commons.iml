@@ -17,9 +17,7 @@
                 <CLASSES>
                     <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
-                <JAVADOC>
-                    <root url="jar://$JEKA_HOME$/dev.jeka.jeka-core-javadoc.jar!/"/>
-                </JAVADOC>
+                <JAVADOC/>
                 <SOURCES>
                     <root url="jar://$JEKA_HOME$/sources/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>
@@ -28,7 +26,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_USER_HOME$/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-Rework_Kbeans-SNAPSHOT.jar!/"/>
+                    <root url="jar://$JEKA_USER_HOME$/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

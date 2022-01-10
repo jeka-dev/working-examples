@@ -2,6 +2,7 @@ import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 class CoreBuild extends JkBean {
@@ -10,6 +11,10 @@ class CoreBuild extends JkBean {
 	UtilsBuild utilsBuild;
 
 	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
+
+	CoreBuild() {
+		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+	}
 
 	private void configure(JkProject project) {
 		project.simpleFacade()

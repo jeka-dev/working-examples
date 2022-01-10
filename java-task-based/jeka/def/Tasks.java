@@ -60,12 +60,12 @@ class Tasks extends JkBean {
 					JkTestSelection.of().addTestClassRoots(testClassDir));
 	}
 
-	public void doDefault() {
+	public void build() {
 		clean(); compile(); junit(); jar();
 	}
 
 	public static void main(String[] args) {
-		JkInit.instanceOf(Tasks.class, args).doDefault();
+		JkInit.instanceOf(Tasks.class, args).build();
 	}
 
 }

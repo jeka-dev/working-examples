@@ -9,8 +9,6 @@ import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
-;
-
 class Build extends JkBean {
 
     ProjectJkBean projectBean = getBean(ProjectJkBean.class).configure(this::configure);

@@ -24,7 +24,6 @@ class Build extends JkBean {
         project.simpleFacade()
             .configureCompileDeps(deps -> deps
                 .and("org.springframework.boot:spring-boot-starter-web")
-                .and(JkSpringModules.Boot.STARTER_DATA_JPA)
             )
             .configureTestDeps(deps -> deps
                 .and("org.springframework.boot:spring-boot-starter-test")

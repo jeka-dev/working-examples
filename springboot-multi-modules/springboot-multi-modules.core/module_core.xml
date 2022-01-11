@@ -8,8 +8,8 @@
   
   <property name="compiler.args.core" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
   
-  <property name="core.output.dir" value="${module.core.basedir}/output/production"/>
-  <property name="core.testoutput.dir" value="${module.core.basedir}/output/test"/>
+  <property name="core.output.dir" value="//output/production"/>
+  <property name="core.testoutput.dir" value="//output/test"/>
   
   <path id="core.module.bootclasspath">
     <!-- Paths to be included in compilation bootclasspath -->
@@ -64,14 +64,14 @@
   </patternset>
   
   <path id="core.module.sourcepath">
-    <dirset dir="${module.core.basedir}/../../core">
+    <dirset dir="//../../core">
       <include name="src/main/java"/>
       <include name="src/main/resources"/>
     </dirset>
   </path>
   
   <path id="core.module.test.sourcepath">
-    <dirset dir="${module.core.basedir}/../../core">
+    <dirset dir="//../../core">
       <include name="jeka/def"/>
       <include name="src/test/java"/>
       <include name="src/test/resources"/>
@@ -92,11 +92,11 @@
     </javac2>
     
     <copy todir="${core.output.dir}">
-      <fileset dir="${module.core.basedir}/../src/main/java">
+      <fileset dir="//../src/main/java">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
-      <fileset dir="${module.core.basedir}/../src/main/resources">
+      <fileset dir="//../src/main/resources">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
@@ -114,15 +114,15 @@
     </javac2>
     
     <copy todir="${core.testoutput.dir}">
-      <fileset dir="${module.core.basedir}/../jeka/def">
+      <fileset dir="//../jeka/def">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
-      <fileset dir="${module.core.basedir}/../src/test/java">
+      <fileset dir="//../src/test/java">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
-      <fileset dir="${module.core.basedir}/../src/test/resources">
+      <fileset dir="//../src/test/resources">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>

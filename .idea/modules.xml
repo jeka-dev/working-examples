@@ -9,12 +9,12 @@
       <module fileurl="file://$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" filepath="$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jeka-examples.iml" filepath="$PROJECT_DIR$/.idea/jeka-examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/migrate-from-maven/migrate-from-maven.iml" filepath="$PROJECT_DIR$/migrate-from-maven/migrate-from-maven.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/springboot-multi-modules.build-commons.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/springboot-multi-modules.build-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/springboot-multi-modules.springbootapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/springboot-multi-modules.springbootapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/.idea/springboot-multi-modules.springbootapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/.idea/springboot-multi-modules.springbootapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/springboot-multi-modules.utils.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/springboot-multi-modules.utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-simple/springboot-simple.iml" filepath="$PROJECT_DIR$/springboot-simple/springboot-simple.iml" />
       <module fileurl="file://$PROJECT_DIR$/wrapper-common/wrapper-common.iml" filepath="$PROJECT_DIR$/wrapper-common/wrapper-common.iml" />
     </modules>

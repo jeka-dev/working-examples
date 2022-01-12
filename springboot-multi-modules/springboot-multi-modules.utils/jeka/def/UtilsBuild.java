@@ -8,14 +8,10 @@ import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 /**
  * @formatter:off
  */
-@JkInjectProject("../build-commons")
+@JkInjectProject("../springboot-multi-modules.build-commons")
 class UtilsBuild extends JkBean {
 
     final ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
-
-    UtilsBuild() {
-        getBean(IntellijJkBean.class).skipJeka();
-    }
 
     private void configure(JkProject project) {
         project.simpleFacade()

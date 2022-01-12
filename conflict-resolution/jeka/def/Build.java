@@ -14,9 +14,7 @@ class Build extends JkBean {
     ProjectJkBean projectBean = getBean(ProjectJkBean.class).configure(this::configure);
 
     Build() {
-        getBean(IntellijJkBean.class).configureImlGenerator(imlGenerator -> imlGenerator.setSkipJeka(true));
-        getBean(IntellijJkBean.class).configureIml(iml ->
-                iml.getComponent().addModuleOrderEntry("wrapper-common", JkIml.Scope.TEST));
+        getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
     }
 
     /*

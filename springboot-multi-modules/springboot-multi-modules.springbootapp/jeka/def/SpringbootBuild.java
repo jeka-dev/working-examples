@@ -17,18 +17,15 @@ class SpringbootBuild extends JkBean {
 
     final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
-    @JkInjectProject("../core")
+    @JkInjectProject("../springboot-multi-modules.core")
     private CoreBuild coreBuild;
 
     SpringbootBuild() {
         springboot.setSpringbootVersion("2.5.5");
         springboot.projectBean().configure(this::configure);
-        getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
-
     }
 
     private void configure(JkProject project) {
-        springboot.setSpringbootVersion("2.5.5");
         project.simpleFacade()
                 .applyOnProject(BuildCommon::setup)
                 .configureCompileDeps(deps -> deps

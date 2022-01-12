@@ -13,12 +13,8 @@ public class SwingBuild extends JkBean {
 
 	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
-	@JkInjectProject("../core")
+	@JkInjectProject("../springboot-multi-modules.core")
 	CoreBuild coreBuild;
-
-	SwingBuild(){
-		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
-	}
 
     private void configure(JkProject project) {
 		project

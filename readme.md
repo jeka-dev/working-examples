@@ -1,4 +1,4 @@
-# A set of Jeka project examples.
+# A set of Jeka project examples
 
 __Note :__ This is recommended to fetch this repo IntelliJ IDE with [Jeka Plugin](https://plugins.jetbrains.com/plugin/13489-jeka) installed on.
 

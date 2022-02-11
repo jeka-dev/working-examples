@@ -8,7 +8,7 @@ import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 class CoreBuild extends JkBean {
 	
 	@JkInjectProject("../springboot-multi-modules.utils")
-	UtilsBuild utilsBuild;
+	private UtilsBuild utilsBuild;
 
 	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 

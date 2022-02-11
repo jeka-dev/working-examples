@@ -1,30 +1,40 @@
+import dev.jeka.core.api.depmanagement.JkRepo;
+import dev.jeka.core.api.depmanagement.resolution.JkDependencyResolver;
 import dev.jeka.core.api.file.JkPathSequence;
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.file.JkPathTreeSet;
 import dev.jeka.core.api.java.JkJavaCompileSpec;
 import dev.jeka.core.api.java.JkJavaCompiler;
 import dev.jeka.core.api.java.JkManifest;
-import dev.jeka.core.api.java.testing.JkTestProcessor;
-import dev.jeka.core.api.java.testing.JkTestSelection;
+import dev.jeka.core.api.testing.JkTestProcessor;
+import dev.jeka.core.api.testing.JkTestSelection;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 
 import java.nio.file.Path;
 
 class Tasks extends JkBean {
+
+	Tasks() {
+		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+	}
 	
 	@JkDoc("Run test in a forked process if true.")
 	boolean forkTest;
     JkPathTree baseTree = JkPathTree.of(getBaseDir());
+    JkDependencyResolver dependencyResolver = JkDependencyResolver.of().addRepos(JkRepo.ofMavenCentral());
 	private JkPathTree src = baseTree.goTo("src");
 	private Path classDir = getOutputDir().resolve("classes");
 	private Path jarFile = getOutputDir().resolve("capitalizer.jar");
-	private JkPathSequence classpath = JkPathSequence.of(baseTree.andMatching("libs/compile/*.jar").getFiles());
+	private JkPathSequence classpath = JkPathSequence.of(baseTree.andMatching("libs/compile/**.jar").getFiles());
 	private Path testSrc = getBaseDir().resolve("test");
 	private Path testClassDir = getOutputDir().resolve("test-classes");
-	private JkPathSequence testClasspath = classpath.and(classDir)
-			.and(baseTree.andMatching("libs/test/*.jar").getFiles());
+	private JkPathSequence testClasspath = classpath
+			.and(dependencyResolver.resolve("org.junit.jupiter:junit-jupiter:5.8.1").getFiles()
+			.and(classDir)
+			.and(baseTree.andMatching("libs/test/*.jar").getFiles()));
 	private Path reportDir = getOutputDir().resolve("junitRreport");
 
 	public void compile() {
@@ -45,7 +55,7 @@ class Tasks extends JkBean {
 		JkJavaCompiler.of().compile(
 				JkJavaCompileSpec.of()
 						.setClasspath(testClasspath)
-						.setSources(JkPathTreeSet.of(testSrc))
+						.setSources(JkPathTreeSet.ofRoots(testSrc))
 						.setOutputDir(testClassDir));
 		src.andMatching(false,"**/*.java").copyTo(testClassDir);  /// copy test resources
 	}

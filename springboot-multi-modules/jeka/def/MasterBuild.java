@@ -14,10 +14,10 @@ import java.nio.file.Path;
 class MasterBuild extends JkBean {
 
 	@JkInjectProject("springboot-multi-modules.springbootapp")
-	SpringbootBuild springbootBuild;
+	private SpringbootBuild springbootBuild;
 
 	@JkInjectProject("springboot-multi-modules.swingapp")
-	SwingBuild swingBuild;
+	private SwingBuild swingBuild;
 
 	Path distribFolder = getOutputDir();
 

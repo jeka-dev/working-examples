@@ -1,1 +1,1 @@
-..\build-commons\jekaw %*
+..\..\wrapper-common\jekaw %*

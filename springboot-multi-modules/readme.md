@@ -5,6 +5,10 @@ This project showcases how to organise a multi-module project with Jeka and espe
 with pure client web application. It also demonstrates how to share common build features amongs multiple modules and how to 
 drive the whole build.
 
+__Note__ : This is not the only way to organize multi-module projects :
+* It's possible to have a "master" module at the same level than the other modules.
+* It's not necessary to have a 'build-common' module. It's possible to define the common builds into  module 'utils' for example.
+
 ## What is inside ?
 
 This project contains two applications providing the same functionality : compute a magic formula according an input number.
@@ -33,23 +37,23 @@ The formula computation is provided by _core_ modules that in turns depends on  
 
 ### Build all
 
+From _springboot-multi-modules_
 ```
-cd build-master
-jeka build
+jekaw build
 ```
 
 ### Build springbootapp only
 
 ```
-cd springbootapp
-jeka cleanPack
+cd springboot-multi-modules.springbootapp
+jekaw cleanPack
 ```
-To run the built instance : `jeka run`
+To run the built instance : `jekaw run`
 
 ### Build swingapp only
 
 ```
-cd swingapp
-jeka cleanPack
+cd springboot-multi-modules.swingapp
+jekaw cleanPack
 ```
-To run the built instance : `jeka run`
+To run the built instance : `jekaw run`

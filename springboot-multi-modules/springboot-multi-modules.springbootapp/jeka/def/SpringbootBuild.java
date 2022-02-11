@@ -23,6 +23,7 @@ class SpringbootBuild extends JkBean {
     SpringbootBuild() {
         springboot.setSpringbootVersion("2.5.5");
         springboot.projectBean().configure(this::configure);
+        getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
     }
 
     private void configure(JkProject project) {

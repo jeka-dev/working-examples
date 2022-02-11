@@ -9,12 +9,16 @@ import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 /**
  * @formatter:off
  */
-public class SwingBuild extends JkBean {
+class SwingBuild extends JkBean {
 
 	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
 	@JkInjectProject("../springboot-multi-modules.core")
-	CoreBuild coreBuild;
+	private CoreBuild coreBuild;
+
+	{
+		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+	}
 
     private void configure(JkProject project) {
 		project

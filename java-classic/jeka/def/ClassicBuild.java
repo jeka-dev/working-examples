@@ -1,3 +1,4 @@
+import dev.jeka.core.api.depmanagement.JkPopularModules;
 import dev.jeka.core.api.java.JkJavaVersion;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
@@ -19,7 +20,7 @@ class ClassicBuild extends JkBean {
                 .and("com.github.djeang:vincer-dom:1.4.0")
             )
             .configureTestDeps(deps -> deps
-                .and("junit:junit::4.12")
+                .and(JkPopularModules.JUNIT_5.version("5.8.1"))
             )
             .setPublishedModuleId("org.jerkar:examples-java-classic")
             .setPublishedVersionFromGitTag();

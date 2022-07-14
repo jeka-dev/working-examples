@@ -3,7 +3,6 @@ import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
-import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 import java.nio.file.Path;

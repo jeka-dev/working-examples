@@ -8,11 +8,11 @@ import org.eclipse.jdt.internal.compiler.tool.EclipseCompiler;
 
 
 @JkInjectClasspath("org.eclipse.jdt:ecj:3.25.0")
-class ExtenalCompilerBuild extends JkBean {
+class ExternalCompilerBuild extends JkBean {
 
     ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
-    boolean eclipseCompiler = true;
+    public boolean useEclipseCompiler = true;
 
     private void configure(JkProject project) {
         project.simpleFacade()
@@ -21,20 +21,20 @@ class ExtenalCompilerBuild extends JkBean {
                     .and("org.apache.commons:commons-dbcp2:2.7.0"))
             .configureCompileDeps(deps -> deps
                     .minus("org.apache.commons:commons-dbcp2"));  // Only needed at compile time (provided)
-        if (eclipseCompiler) {
+        if (useEclipseCompiler) {
             project
-                    .getConstruction()
-                        .getCompiler()
-                            .setCompileTool(new EclipseCompiler(), "-warn:nullDereference,unusedPrivate");
+                .getConstruction()
+                    .getCompiler()
+                        .setCompileTool(new EclipseCompiler(), "-warn:nullDereference,unusedPrivate");
         }
     }
 
-    public void cleanPack() {
+    public void cleanPacko() {
         clean(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {
-        JkInit.instanceOf(ExtenalCompilerBuild.class, args).cleanPack();
+        JkInit.instanceOf(ExternalCompilerBuild.class, args).cleanPacko();
     }
 
 }

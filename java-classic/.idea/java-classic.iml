@@ -7,9 +7,7 @@
         <content url="file://$MODULE_DIR$">
             <sourceFolder isTestSource="true" url="file://$MODULE_DIR$/jeka/def"/>
             <sourceFolder url="file://$MODULE_DIR$/src/main/java"/>
-            <sourceFolder type="java-resource" url="file://$MODULE_DIR$/src/main/resources"/>
-            <sourceFolder isTestSource="true" url="file://$MODULE_DIR$/src/test/java"/>
-            <sourceFolder url="file://$MODULE_DIR$/jeka/output/generated_sources/java"/>
+            <sourceFolder isTestSource="true" type="java-resource" url="file://$MODULE_DIR$/src/test/java"/>
             <excludeFolder url="file://$MODULE_DIR$/jeka/output"/>
             <excludeFolder url="file://$MODULE_DIR$/jeka/.work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
@@ -161,11 +159,11 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://C:/Dev/ideaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.9.20.RC23/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES>
-                    <root url="jar://C:/Dev/ideaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core-sources.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.9.20.RC23/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>
             </library>
         </orderEntry>

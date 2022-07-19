@@ -13,7 +13,9 @@ import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 
+import javax.swing.text.html.Option;
 import java.nio.file.Path;
+import java.util.Optional;
 
 class Tasks extends JkBean {
 
@@ -28,19 +30,31 @@ class Tasks extends JkBean {
 	private JkPathTree src = baseTree.goTo("src");
 	private Path classDir = getOutputDir().resolve("classes");
 	private Path jarFile = getOutputDir().resolve("capitalizer.jar");
-	private JkPathSequence classpath = JkPathSequence.of(baseTree.andMatching("libs/compile/**.jar").getFiles());
+
 	private Path testSrc = getBaseDir().resolve("test");
 	private Path testClassDir = getOutputDir().resolve("test-classes");
-	private JkPathSequence testClasspath = classpath
-			.and(dependencyResolver.resolve("org.junit.jupiter:junit-jupiter:5.8.1").getFiles()
-			.and(classDir)
-			.and(baseTree.andMatching("libs/test/*.jar").getFiles()));
 	private Path reportDir = getOutputDir().resolve("junitRreport");
+
+	private JkPathSequence classpath() {
+		return JkPathSequence.of(baseTree.andMatching("libs/compile/**.jar").getFiles());
+	}
+
+	private JkPathSequence cachedTestClasspath;
+
+	private JkPathSequence testClasspath() {
+		if (cachedTestClasspath == null) {
+			cachedTestClasspath = classpath()
+					.and(dependencyResolver.resolve("org.junit.jupiter:junit-jupiter:5.8.1").getFiles()
+					.and(classDir)
+					.and(baseTree.andMatching("libs/test/*.jar").getFiles()));
+		}
+		return cachedTestClasspath;
+	}
 
 	public void compile() {
 		JkJavaCompiler.of().compile(
 				JkJavaCompileSpec.of().of()
-						.setClasspath(classpath)
+						.setClasspath(classpath())
 						.setSources(src.toSet())
 						.setOutputDir(classDir));
 		src.andMatching(false,"**/*.java").copyTo(classDir);  /// copy resources
@@ -54,7 +68,7 @@ class Tasks extends JkBean {
 	private void compileTest() {
 		JkJavaCompiler.of().compile(
 				JkJavaCompileSpec.of()
-						.setClasspath(testClasspath)
+						.setClasspath(testClasspath())
 						.setSources(JkPathTreeSet.ofRoots(testSrc))
 						.setOutputDir(testClassDir));
 		src.andMatching(false,"**/*.java").copyTo(testClassDir);  /// copy test resources
@@ -66,7 +80,7 @@ class Tasks extends JkBean {
 			.setForkingProcess(forkTest)
 			.getEngineBehavior()
 				.setLegacyReportDir(reportDir).__
-			.launch(testClasspath.and(classDir).and(testClassDir),
+			.launch(testClasspath().and(classDir).and(testClassDir),
 					JkTestSelection.of().addTestClassRoots(testClassDir));
 	}
 

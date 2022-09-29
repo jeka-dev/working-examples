@@ -27,14 +27,14 @@ class MasterBuild extends JkBean {
 		copyJars();
 	}
 
-	@Override
 	public void clean() {
-		super.clean();
+		super.cleanOutput();
 		this.getImportedJkBeans().get(true).stream()
 				.map(JkBean::getRuntime)
 				.distinct()
 				.map(runtime -> runtime.getBean(ProjectJkBean.class))
-				.forEach(JkBean::clean);
+				.map(ProjectJkBean.class::cast)
+				.forEach(ProjectJkBean::clean);
 	}
 
 	private void copyJars() {
@@ -44,8 +44,6 @@ class MasterBuild extends JkBean {
 		JkLog.info("Distrib jar files copied in " + distribFolder);
 	}
 
-	public static void main(String[] args) {
-		JkInit.instanceOf(MasterBuild.class, args).build();
-	}
+
 
 }

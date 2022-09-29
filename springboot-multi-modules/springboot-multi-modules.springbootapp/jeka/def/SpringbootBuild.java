@@ -1,11 +1,11 @@
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.JkInjectProject;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
+import dev.jeka.plugins.nodejs.NodeJsJkBean;
 import dev.jeka.plugins.springboot.JkSpringModules.Boot;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 
@@ -13,17 +13,21 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
 @JkInjectClasspath("dev.jeka:springboot-plugin")
+@JkInjectClasspath("dev.jeka:nodejs-plugin")
 class SpringbootBuild extends JkBean {
 
     final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
+
+    final NodeJsJkBean nodeJs = getBean(NodeJsJkBean.class);
 
     @JkInjectProject("../springboot-multi-modules.core")
     private CoreBuild coreBuild;
 
     SpringbootBuild() {
-        springboot.setSpringbootVersion("2.5.5");
+        springboot.setSpringbootVersion("2.7.3");
         springboot.projectBean().configure(this::configure);
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+        nodeJs.setWorkingDir(getBaseDir().resolve("../web"));
     }
 
     private void configure(JkProject project) {
@@ -40,11 +44,11 @@ class SpringbootBuild extends JkBean {
     }
 
     public void cleanPack() {
-        clean(); springboot.projectBean().pack();
+        cleanOutput(); springboot.projectBean().pack();
     }
 
     public void run() {
-        this.springboot.run();
+        this.springboot.projectBean().runJar();
     }
 
     private void npmBuild() {
@@ -53,8 +57,10 @@ class SpringbootBuild extends JkBean {
         Path webDist = webDir.resolve("dist");
         Path staticDir = springboot.projectBean().getProject().getConstruction().getCompilation()
                 .getLayout().resolveClassDir().resolve("static");
-        JkProcess.of("npm", "run", "build").setWorkingDir(webDir).exec();
-        JkPathTree.of(webDist).copyTo(staticDir, StandardCopyOption.REPLACE_EXISTING);
+
+        nodeJs.npm("install --loglevel=error");
+        nodeJs.npm("run build");
+        JkPathTree.of(webDist).createIfNotExist().copyTo(staticDir, StandardCopyOption.REPLACE_EXISTING);
         JkLog.endTask();
     }
 

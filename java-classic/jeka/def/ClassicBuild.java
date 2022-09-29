@@ -20,14 +20,14 @@ class ClassicBuild extends JkBean {
                 .and("com.github.djeang:vincer-dom:1.4.0")
             )
             .configureTestDeps(deps -> deps
-                .and(JkPopularModules.JUNIT_5.version("5.8.1"))
+                .and(JkPopularModules.JUNIT_5.toCoordinate("5.8.1"))
             )
             .setPublishedModuleId("org.jerkar:examples-java-classic")
             .setPublishedVersionFromGitTag();
     }
 
     public void cleanPack() {
-        clean(); projectJkBean.pack();
+        cleanOutput(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {

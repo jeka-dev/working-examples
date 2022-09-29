@@ -33,7 +33,7 @@ class Build extends JkBean {
     }
 
     public void cleanPack() {
-        clean();
+        cleanOutput();
         springboot.projectBean().pack();
     }
 

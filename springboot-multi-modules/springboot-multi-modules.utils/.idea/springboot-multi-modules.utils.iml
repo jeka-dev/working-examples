@@ -19,7 +19,7 @@
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.guava/guava/bundles/guava-22.0.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.guava/guava/jars/guava-22.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

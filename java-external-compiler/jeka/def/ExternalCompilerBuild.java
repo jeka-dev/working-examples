@@ -30,7 +30,7 @@ class ExternalCompilerBuild extends JkBean {
     }
 
     public void cleanPacko() {
-        clean(); projectJkBean.pack();
+        cleanOutput(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {

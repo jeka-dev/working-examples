@@ -22,7 +22,7 @@ class UtilsBuild extends JkBean {
     }
 
     public void cleanPack() {
-        clean(); projectJkBean.pack();
+        cleanOutput(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {

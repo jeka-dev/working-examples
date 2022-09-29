@@ -1,3 +1,3 @@
 Build : `jeka cleanPack`
 
-Run : `jeka springboot#run`
+Run : `jeka project#run`

@@ -36,7 +36,7 @@ class SwingBuild extends JkBean {
     }
 
     public void cleanPack() {
-		clean(); projectJkBean.pack();
+		cleanOutput(); projectJkBean.pack();
 	}
 
     public void run() {

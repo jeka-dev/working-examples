@@ -85,7 +85,7 @@ class Tasks extends JkBean {
 	}
 
 	public void build() {
-		clean(); compile(); junit(); jar();
+		cleanOutput(); compile(); junit(); jar();
 	}
 
 	public static void main(String[] args) {

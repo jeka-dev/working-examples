@@ -51,9 +51,8 @@ class Build extends JkBean {
         clean(); projectBean.pack();
     }
 
-    @Override
     public void clean() {
-        super.clean();
+        super.cleanOutput();
     }
 
     public static void main(String[] args) {

@@ -149,7 +149,7 @@
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.guava/guava/bundles/guava-28.0-jre.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.guava/guava/jars/guava-28.0-jre.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

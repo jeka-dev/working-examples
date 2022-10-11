@@ -21,8 +21,12 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.guava/guava/jars/guava-22.0.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.guava/guava/jars/guava-22.0-javadoc.jar!/"/>
+                </JAVADOC>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.guava/guava/jars/guava-22.0-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -39,8 +43,12 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.errorprone/error_prone_annotations/jars/error_prone_annotations-2.0.18.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.errorprone/error_prone_annotations/jars/error_prone_annotations-2.0.18-javadoc.jar!/"/>
+                </JAVADOC>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.errorprone/error_prone_annotations/jars/error_prone_annotations-2.0.18-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -48,8 +56,12 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.j2objc/j2objc-annotations/jars/j2objc-annotations-1.1.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.j2objc/j2objc-annotations/jars/j2objc-annotations-1.1-javadoc.jar!/"/>
+                </JAVADOC>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.google.j2objc/j2objc-annotations/jars/j2objc-annotations-1.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -57,8 +69,12 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.14.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.14-javadoc.jar!/"/>
+                </JAVADOC>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.14-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -66,8 +82,12 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.github.djeang/vincer-dom/jars/vincer-dom-1.4.0.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.github.djeang/vincer-dom/jars/vincer-dom-1.4.0-javadoc.jar!/"/>
+                </JAVADOC>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.github.djeang/vincer-dom/jars/vincer-dom-1.4.0-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="TEST" type="module-library">
@@ -75,7 +95,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter/jars/junit-jupiter-5.8.1.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter/jars/junit-jupiter-5.8.1-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter/jars/junit-jupiter-5.8.1-sources.jar!/"/>
                 </SOURCES>
@@ -86,7 +108,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-api/jars/junit-jupiter-api-5.8.1.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-api/jars/junit-jupiter-api-5.8.1-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-api/jars/junit-jupiter-api-5.8.1-sources.jar!/"/>
                 </SOURCES>
@@ -97,7 +121,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.opentest4j/opentest4j/jars/opentest4j-1.2.0.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.opentest4j/opentest4j/jars/opentest4j-1.2.0-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.opentest4j/opentest4j/jars/opentest4j-1.2.0-sources.jar!/"/>
                 </SOURCES>
@@ -108,7 +134,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.platform/junit-platform-commons/jars/junit-platform-commons-1.8.1.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.platform/junit-platform-commons/jars/junit-platform-commons-1.8.1-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.platform/junit-platform-commons/jars/junit-platform-commons-1.8.1-sources.jar!/"/>
                 </SOURCES>
@@ -119,7 +147,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.apiguardian/apiguardian-api/jars/apiguardian-api-1.1.2.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.apiguardian/apiguardian-api/jars/apiguardian-api-1.1.2-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.apiguardian/apiguardian-api/jars/apiguardian-api-1.1.2-sources.jar!/"/>
                 </SOURCES>
@@ -130,7 +160,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-params/jars/junit-jupiter-params-5.8.1.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-params/jars/junit-jupiter-params-5.8.1-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-params/jars/junit-jupiter-params-5.8.1-sources.jar!/"/>
                 </SOURCES>
@@ -141,7 +173,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-engine/jars/junit-jupiter-engine-5.8.1.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-engine/jars/junit-jupiter-engine-5.8.1-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.jupiter/junit-jupiter-engine/jars/junit-jupiter-engine-5.8.1-sources.jar!/"/>
                 </SOURCES>
@@ -152,7 +186,9 @@
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.platform/junit-platform-engine/jars/junit-platform-engine-1.8.1.jar!/"/>
                 </CLASSES>
-                <JAVADOC/>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.platform/junit-platform-engine/jars/junit-platform-engine-1.8.1-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.junit.platform/junit-platform-engine/jars/junit-platform-engine-1.8.1-sources.jar!/"/>
                 </SOURCES>
@@ -161,11 +197,11 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://C:/Dev/ideaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core.jar!/"/>
+                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES>
-                    <root url="jar://C:/Dev/ideaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core-sources.jar!/"/>
+                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>
             </library>
         </orderEntry>

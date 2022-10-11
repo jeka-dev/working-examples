@@ -1,4 +1,4 @@
-import dev.jeka.core.api.depmanagement.JkPopularModules;
+import dev.jeka.core.api.depmanagement.JkPopularLibs;
 import dev.jeka.core.api.depmanagement.JkVersionProvider;
 import dev.jeka.core.api.java.JkJavaVersion;
 import dev.jeka.core.api.project.JkProject;
@@ -11,7 +11,7 @@ import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 public class BuildCommon extends JkBean {
 
     public static final JkVersionProvider VERSION_PROVIDER =
-            JkVersionProvider.of(JkPopularModules.GUAVA, "22.0");
+            JkVersionProvider.of(JkPopularLibs.GUAVA, "22.0");
 
     BuildCommon() {
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");

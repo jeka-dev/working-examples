@@ -22,19 +22,17 @@ class ExternalCompilerBuild extends JkBean {
             .configureCompileDeps(deps -> deps
                     .minus("org.apache.commons:commons-dbcp2"));  // Only needed at compile time (provided)
         if (useEclipseCompiler) {
-            project
-                .getConstruction()
-                    .getCompiler()
+            project.getCompiler()
                         .setCompileTool(new EclipseCompiler(), "-warn:nullDereference,unusedPrivate");
         }
     }
 
-    public void cleanPacko() {
+    public void cleanPack() {
         cleanOutput(); projectJkBean.pack();
     }
 
     public static void main(String[] args) {
-        JkInit.instanceOf(ExternalCompilerBuild.class, args).cleanPacko();
+        JkInit.instanceOf(ExternalCompilerBuild.class, args).cleanPack();
     }
 
 }

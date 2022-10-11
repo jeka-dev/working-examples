@@ -21,30 +21,31 @@ class Build extends JkBean {
      * fields have already been injected from command line.
      */
     private void configure(JkProject project) {
-        project.getConstruction()
-                .setJvmTargetVersion(JkJavaVersion.V8)
-                .getDependencyResolver()
-                    .getDefaultParams()
-                        .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT)
-                    .__
+        project
+            .setJvmTargetVersion(JkJavaVersion.V8)
+            .getDependencyResolver()
+                .getDefaultParams()
+                    .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT)
                 .__
-                .getCompilation()
-                    .configureDependencies(deps -> deps
-                        .and("com.google.api-client:google-api-client:1.30.7")
-                            .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict
-                        .and("com.google.guava:guava:28.0-jre")
-                        .and("org.codehaus.plexus:plexus-container-default:2.1.0")
-                    )
+            .__
+            .getCompilation()
+                .configureDependencies(deps -> deps
+                    .and("com.google.api-client:google-api-client:1.30.7")
+                        .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict
+                    .and("com.google.guava:guava:28.0-jre")
+                    .and("org.codehaus.plexus:plexus-container-default:2.1.0")
+                )
+            .__
+            .getTesting()
+                .getTestSelection()
+                    .addIncludeStandardPatterns()
+                    .addIncludePatterns(JkTestSelection.IT_INCLUDE_PATTERN)
                 .__
-                .getTesting()
-                    .getTestSelection()
-                        .addIncludeStandardPatterns()
-                        .addIncludePatterns(JkTestSelection.IT_INCLUDE_PATTERN)
-                    .__
-                    .getTestProcessor()
-                        .setForkingProcess(true)
-                        .getEngineBehavior()
-                            .setProgressDisplayer(JkTestProcessor.JkProgressOutputStyle.TREE);
+                .getTestProcessor()
+                    .setForkingProcess(true)
+                    .getEngineBehavior()
+                        .setProgressDisplayer(JkTestProcessor.JkProgressOutputStyle.TREE);
+        project.includeJavadocAndSources(false, false);
     }
 
     public void cleanPack() {

@@ -22,17 +22,17 @@ class SwingBuild extends JkBean {
 
     private void configure(JkProject project) {
 		project
-			.getConstruction()
+			.getPackaging()
 				.getManifest()
 					.addMainClass("swing.Main")
 				.__
-				.getCompilation()
-					.configureDependencies(deps -> deps
-						.and(coreBuild.projectJkBean.getProject().toDependency()))
-					.__
+			.__
+			.getCompilation()
+				.configureDependencies(deps -> deps
+					.and(coreBuild.projectJkBean.getProject().toDependency()))
 				.__
 			.getArtifactProducer()
-				.putMainArtifact(project.getConstruction()::createFatJar);
+				.putMainArtifact(project.getPackaging()::createFatJar);
     }
 
     public void cleanPack() {

@@ -31,16 +31,16 @@ class SpringbootBuild extends JkBean {
     }
 
     private void configure(JkProject project) {
-        project.simpleFacade()
+        project.flatFacade()
                 .applyOnProject(BuildCommon::setup)
-                .configureCompileDeps(deps -> deps
+                .configureCompileDependencies(deps -> deps
                     .and(Boot.STARTER_WEB)
                     .and(this.coreBuild.projectJkBean.getProject().toDependency()))
-                .configureTestDeps(deps -> deps
+                .configureTestDependencies(deps -> deps
                         .and(Boot.STARTER_TEST))
                 .getProject().getCompilation()
                     .getPostCompileActions()
-                        .append(this::npmBuild);
+                        .append("Web client buiild", this::npmBuild);
     }
 
     public void cleanPack() {

@@ -18,7 +18,7 @@ public class BuildCommon extends JkBean {
     }
 
     public static void setup(JkProject project) {
-        project.simpleFacade().setJvmTargetVersion(JkJavaVersion.V8);
+        project.flatFacade().setJvmTargetVersion(JkJavaVersion.V8);
     }
 
 }

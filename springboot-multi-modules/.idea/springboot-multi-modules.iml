@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
+<?xml version="1.0" encoding="UTF-8"?><module type="JAVA_MODULE" version="4">
     <component inherit-compileRunner-output="false" name="NewModuleRootManager">
         <output url="file://$MODULE_DIR$/.idea/output/production"/>
         <output-test url="file://$MODULE_DIR$/.idea/output/test"/>
@@ -12,10 +11,7 @@
         </content>
         <orderEntry type="inheritedJdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
-        <orderEntry exported=""
-            module-name="springboot-multi-modules.springbootapp"
-            scope="TEST" type="module"/>
-        <orderEntry exported=""
-            module-name="springboot-multi-modules.swingapp" scope="TEST" type="module"/>
+        <orderEntry exported="" module-name="springboot-multi-modules.springbootapp" scope="TEST" type="module"/>
+        <orderEntry exported="" module-name="springboot-multi-modules.swingapp" scope="TEST" type="module"/>
     </component>
 </module>

@@ -15,11 +15,11 @@ class ExternalCompilerBuild extends JkBean {
     public boolean useEclipseCompiler = true;
 
     private void configure(JkProject project) {
-        project.simpleFacade()
+        project.flatFacade()
             .setJvmTargetVersion(JkJavaVersion.V8)
-            .configureCompileDeps(deps -> deps
+            .configureCompileDependencies(deps -> deps
                     .and("org.apache.commons:commons-dbcp2:2.7.0"))
-            .configureCompileDeps(deps -> deps
+            .configureCompileDependencies(deps -> deps
                     .minus("org.apache.commons:commons-dbcp2"));  // Only needed at compile time (provided)
         if (useEclipseCompiler) {
             project.getCompiler()

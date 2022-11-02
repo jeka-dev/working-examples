@@ -16,11 +16,11 @@ class Build extends JkBean {
      * fields have already been injected from command line.
      */
     private void configure(JkProject project) {
-        project.simpleFacade()
+        project.flatFacade()
             .setJvmTargetVersion(JkJavaVersion.V8)
-            .configureCompileDeps(deps -> deps
+            .configureCompileDependencies(deps -> deps
                 .and("com.google.guava:guava:21.0"))
-            .configureTestDeps(deps -> deps
+            .configureTestDependencies(deps -> deps
                 .and("org.junit.jupiter:junit-jupiter:5.6.2"))
 
             // Only necessary if your project is published in a binary repository.
@@ -33,7 +33,7 @@ class Build extends JkBean {
     }
 
     public void printMigrationCode() {
-        maven.migrationCode();
+        maven.migrateToCode();
     }
 
     public static void main(String[] args) {

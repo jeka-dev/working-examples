@@ -1,0 +1,1 @@
+[dev.jeka:springboot-plugin:rework-text-deps-SNAPSHOT, dev.jeka:nodejs-plugin:rework-text-deps-SNAPSHOT]

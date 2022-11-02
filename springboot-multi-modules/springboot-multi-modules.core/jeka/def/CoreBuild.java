@@ -13,9 +13,9 @@ class CoreBuild extends JkBean {
 	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
 	private void configure(JkProject project) {
-		project.simpleFacade()
+		project.flatFacade()
 				.applyOnProject(BuildCommon::setup)
-				.configureCompileDeps(deps -> deps
+				.configureCompileDependencies(deps -> deps
 						.and(utilsBuild.projectJkBean.getProject().toDependency()));
 	}
 

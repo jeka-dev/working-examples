@@ -1,0 +1,9 @@
+dev.jeka.core.tool.builtins.git.GitJkBean
+dev.jeka.core.tool.builtins.ide.EclipseJkBean
+dev.jeka.core.tool.builtins.ide.IntellijJkBean
+dev.jeka.core.tool.builtins.maven.MavenJkBean
+dev.jeka.core.tool.builtins.project.ProjectJkBean
+dev.jeka.core.tool.builtins.repos.NexusJkBean
+dev.jeka.core.tool.builtins.scaffold.ScaffoldJkBean
+dev.jeka.plugins.nodejs.NodeJsJkBean
+dev.jeka.plugins.springboot.SpringbootJkBean

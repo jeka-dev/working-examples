@@ -13,13 +13,13 @@ class ClassicBuild extends JkBean {
     ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
     private void configure(JkProject project) {
-        project.simpleFacade()
+        project.flatFacade()
             .setJvmTargetVersion(JkJavaVersion.V8)
-            .configureCompileDeps(deps -> deps
+            .configureCompileDependencies(deps -> deps
                 .and("com.google.guava:guava:22.0")
                 .and("com.github.djeang:vincer-dom:1.4.0")
             )
-            .configureTestDeps(deps -> deps
+            .configureTestDependencies(deps -> deps
                 .and(JkPopularLibs.JUNIT_5.toCoordinate("5.8.1"))
             )
             .setPublishedModuleId("org.jerkar:examples-java-classic")

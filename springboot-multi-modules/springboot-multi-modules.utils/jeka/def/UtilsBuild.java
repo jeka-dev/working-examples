@@ -14,9 +14,9 @@ class UtilsBuild extends JkBean {
     final ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
     private void configure(JkProject project) {
-        project.simpleFacade()
+        project.flatFacade()
             .applyOnProject(BuildCommon::setup)
-            .configureCompileDeps(deps -> deps
+            .configureCompileDependencies(deps -> deps
                 .and("com.google.guava:guava")
                 .withVersionProvider(BuildCommon.VERSION_PROVIDER));
     }

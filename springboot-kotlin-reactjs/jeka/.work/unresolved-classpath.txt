@@ -1,1 +1,1 @@
-[dev.jeka:springboot-plugin:rework-text-deps-SNAPSHOT, dev.jeka:nodejs-plugin:rework-text-deps-SNAPSHOT]
+[dev.jeka:springboot-plugin:0.9.20.RC41, dev.jeka:nodejs-plugin:0.9.20.RC41]

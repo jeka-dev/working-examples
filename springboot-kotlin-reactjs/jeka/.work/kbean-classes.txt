@@ -7,3 +7,4 @@ dev.jeka.core.tool.builtins.repos.NexusJkBean
 dev.jeka.core.tool.builtins.scaffold.ScaffoldJkBean
 dev.jeka.plugins.nodejs.NodeJsJkBean
 dev.jeka.plugins.springboot.SpringbootJkBean
+springboot_kotlin_nodejs.Build

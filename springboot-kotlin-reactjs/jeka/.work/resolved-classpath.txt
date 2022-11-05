@@ -1,1 +1,1 @@
-/Users/jerome/.jeka/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-rework-text-deps-SNAPSHOT.jar:/Users/jerome/.jeka/cache/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-rework-text-deps-SNAPSHOT.jar
+/Users/jerome/.jeka/cache/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.9.20.RC41.jar:/Users/jerome/.jeka/cache/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-0.9.20.RC41.jar

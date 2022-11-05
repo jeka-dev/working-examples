@@ -57,6 +57,7 @@ class Build extends JkBean {
         }
         JkPathTree clientPathTree = JkPathTree.of(getBaseDir().resolve("client/build"));
         project.getCompilation().getPostCompileActions().append("client pack", () -> {
+            nodeJsBean.npx("yarn install");
             nodeJsBean.npm("run build");
             clientPathTree.copyTo(
                     project.getCompilation().getLayout().getClassDirPath().resolve("static"));

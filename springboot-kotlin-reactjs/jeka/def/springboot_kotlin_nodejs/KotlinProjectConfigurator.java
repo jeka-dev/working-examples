@@ -36,7 +36,6 @@ class KotlinProjectConfigurator {
     void configure(JkProject project) {
         JkProjectCompilation<?> prodCompile = project.getCompilation();
         JkProjectCompilation<?> testCompile = project.getTesting().getCompilation();
-        System.out.println("-------------------------------- i am configuring " + project);
         prodCompile
                 .getPreCompileActions()
                 .appendBefore(KOTLIN_JVM_SOURCES_COMPILE_ACTION, JAVA_SOURCES_COMPILE_ACTION,

@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/jeka-examples.iml" filepath="$PROJECT_DIR$/.idea/jeka-examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/migrate-from-maven/migrate-from-maven.iml" filepath="$PROJECT_DIR$/migrate-from-maven/migrate-from-maven.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" filepath="$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-lean/.idea/springboot-lean.iml" filepath="$PROJECT_DIR$/springboot-lean/.idea/springboot-lean.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml" />

@@ -6,6 +6,8 @@ import dev.jeka.core.api.file.JkPathTreeSet;
 import dev.jeka.core.api.java.JkJavaCompileSpec;
 import dev.jeka.core.api.java.JkJavaCompiler;
 import dev.jeka.core.api.java.JkManifest;
+import dev.jeka.core.api.project.JkCompileLayout;
+import dev.jeka.core.api.project.JkIdeSupport;
 import dev.jeka.core.api.testing.JkTestProcessor;
 import dev.jeka.core.api.testing.JkTestSelection;
 import dev.jeka.core.tool.JkBean;
@@ -17,7 +19,7 @@ import javax.swing.text.html.Option;
 import java.nio.file.Path;
 import java.util.Optional;
 
-class Tasks extends JkBean {
+class Tasks extends JkBean implements JkIdeSupport.JkSupplier {
 
 	Tasks() {
 		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
@@ -88,8 +90,15 @@ class Tasks extends JkBean {
 		cleanOutput(); compile(); junit(); jar();
 	}
 
-	public static void main(String[] args) {
-		JkInit.instanceOf(Tasks.class, args).build();
+	@Override
+	public JkIdeSupport getJavaIdeSupport() {
+		return JkIdeSupport.of(this.getBaseDir())
+				.setProdLayout(JkCompileLayout.of().setSources("src").mixResourcesAndSources())
+				.setTestLayout(JkCompileLayout.of().setSources("test").mixResourcesAndSources());
 	}
+
+
+
+
 
 }

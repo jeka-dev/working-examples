@@ -2,14 +2,21 @@ import dev.jeka.core.api.java.JkJavaVersion;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
+import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.maven.MavenJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
-class Build extends JkBean {
+import java.util.MissingFormatArgumentException;
+
+class MavenMigrateBuild extends JkBean {
 
     ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
 
     MavenJkBean maven = getBean(MavenJkBean.class);
+
+    MavenMigrateBuild() {
+        getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+    }
 
     /*
      * Configures plugins to be bound to this command class. When this method is called, option
@@ -37,7 +44,7 @@ class Build extends JkBean {
     }
 
     public static void main(String[] args) {
-        JkInit.instanceOf(Build.class, args).cleanPack();
+        JkInit.instanceOf(MavenMigrateBuild.class, args).cleanPack();
     }
 
 }

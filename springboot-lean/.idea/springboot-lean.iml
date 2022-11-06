@@ -582,21 +582,41 @@
                 <SOURCES/>
             </library>
         </orderEntry>
-        <orderEntry exported="" scope="TEST" type="module-library">
+        <orderEntry exported="" scope="PROVIDED" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.9.20.RC41/dev.jeka.jeka-core.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.projectlombok/lombok/jars/lombok-1.18.24.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="RUNTIME" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.postgresql/postgresql/jars/postgresql-42.3.7.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="RUNTIME" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.checkerframework/checker-qual/jars/checker-qual-3.5.0.jar!/"/>
+                </CLASSES>
+                <JAVADOC>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.checkerframework/checker-qual/jars/checker-qual-3.5.0-javadoc.jar!/"/>
+                </JAVADOC>
                 <SOURCES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.9.20.RC41/dev.jeka.jeka-core-sources.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.checkerframework/checker-qual/jars/checker-qual-3.5.0-sources.jar!/"/>
                 </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/jacoco-plugin/jars/jacoco-plugin-0.9.20.RC41.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/jacoco-plugin/jars/jacoco-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -605,7 +625,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/sonarqube-plugin/jars/sonarqube-plugin-0.9.20.RC41.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/sonarqube-plugin/jars/sonarqube-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -614,11 +634,12 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.9.20.RC41.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
             </library>
         </orderEntry>
+        <orderEntry exported="" module-name="wrapper-common" scope="TEST" type="module"/>
     </component>
 </module>

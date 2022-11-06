@@ -25,8 +25,5 @@ class UtilsBuild extends JkBean {
         cleanOutput(); projectJkBean.pack();
     }
 
-    public static void main(String[] args) {
-        JkInit.instanceOf(UtilsBuild.class).cleanPack();
-    }
- 
+
 }

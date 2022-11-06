@@ -38,8 +38,8 @@ class SpringbootBuild extends JkBean {
                     .and(this.coreBuild.projectJkBean.getProject().toDependency()))
                 .configureTestDependencies(deps -> deps
                         .and(Boot.STARTER_TEST))
-                .getProject().getCompilation()
-                    .getPostCompileActions()
+                .getProject().prodCompilation
+                    .postCompileActions
                         .append("Web client buiild", this::npmBuild);
     }
 
@@ -55,8 +55,8 @@ class SpringbootBuild extends JkBean {
         JkLog.startTask("Packing web project");
         Path webDir = getBaseDir().resolve("../web");
         Path webDist = webDir.resolve("dist");
-        Path staticDir = springboot.projectBean().getProject().getCompilation()
-                .getLayout().resolveClassDir().resolve("static");
+        Path staticDir = springboot.projectBean().getProject().prodCompilation
+                .layout.resolveClassDir().resolve("static");
 
         nodeJs.npm("install --loglevel=error");
         nodeJs.npm("run build");

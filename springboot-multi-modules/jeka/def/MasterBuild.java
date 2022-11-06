@@ -22,7 +22,9 @@ class MasterBuild extends JkBean {
 
 	public void build() {
 		clean();
+		JkLog.info("Packing springboot");
 		springbootBuild.springboot.projectBean().pack();
+		JkLog.info("Packing swing");
 		swingBuild.projectJkBean.pack();
 		copyJars();
 	}
@@ -39,8 +41,8 @@ class MasterBuild extends JkBean {
 
 	private void copyJars() {
 		JkPathTree.of(distribFolder)
-				.importFiles(springbootBuild.springboot.projectBean().getProject().getArtifactProducer().getMainArtifactPath())
-				.importFiles(swingBuild.projectJkBean.getProject().getArtifactProducer().getMainArtifactPath());
+				.importFiles(springbootBuild.springboot.projectBean().getProject().artifactProducer.getMainArtifactPath())
+				.importFiles(swingBuild.projectJkBean.getProject().artifactProducer.getMainArtifactPath());
 		JkLog.info("Distrib jar files copied in " + distribFolder);
 	}
 

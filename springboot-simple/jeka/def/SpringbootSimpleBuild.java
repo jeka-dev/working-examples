@@ -4,17 +4,16 @@ import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
-import dev.jeka.plugins.springboot.JkSpringModules;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 
 @JkInjectClasspath("dev.jeka:springboot-plugin")
-class Build extends JkBean {
+class SpringbootSimpleBuild extends JkBean {
 
     final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
     public boolean runIT = true;
 
-    Build() {
+    SpringbootSimpleBuild() {
         springboot.setSpringbootVersion("2.5.5");
         springboot.projectBean().configure(this::configure);
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
@@ -35,10 +34,6 @@ class Build extends JkBean {
     public void cleanPack() {
         cleanOutput();
         springboot.projectBean().pack();
-    }
-
-    public static void main(String[] args) {
-        JkInit.instanceOf(Build.class).cleanPack();
     }
 
 }

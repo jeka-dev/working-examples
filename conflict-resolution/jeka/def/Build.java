@@ -23,12 +23,12 @@ class Build extends JkBean {
     private void configure(JkProject project) {
         project
             .setJvmTargetVersion(JkJavaVersion.V8)
-            .getDependencyResolver()
+            .dependencyResolver
                 .getDefaultParams()
                     .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT)
                 .__
             .__
-            .getCompilation()
+            .prodCompilation
                 .configureDependencies(deps -> deps
                     .and("com.google.api-client:google-api-client:1.30.7")
                         .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict
@@ -36,28 +36,21 @@ class Build extends JkBean {
                     .and("org.codehaus.plexus:plexus-container-default:2.1.0")
                 )
             .__
-            .getTesting()
-                .getTestSelection()
+            .testing
+                .testSelection
                     .addIncludeStandardPatterns()
                     .addIncludePatterns(JkTestSelection.IT_INCLUDE_PATTERN)
                 .__
-                .getTestProcessor()
+                .testProcessor
                     .setForkingProcess(true)
-                    .getEngineBehavior()
+                    .engineBehavior
                         .setProgressDisplayer(JkTestProcessor.JkProgressOutputStyle.TREE);
         project.includeJavadocAndSources(false, false);
     }
 
     public void cleanPack() {
-        clean(); projectBean.pack();
+        projectBean.clean(); projectBean.pack();
     }
 
-    public void clean() {
-        super.cleanOutput();
-    }
-
-    public static void main(String[] args) {
-        JkInit.instanceOf(Build.class, args).cleanPack();
-    }
 
 }

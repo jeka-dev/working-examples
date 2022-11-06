@@ -8,6 +8,7 @@ import dev.jeka.core.api.system.JkProperties;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectClasspath;
+import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.plugins.nodejs.NodeJsJkBean;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 
@@ -36,13 +37,14 @@ class Build extends JkBean {
         springbootBean.projectBean().configure(this::configure);
         nodeJsBean.setWorkingDir("client");
         nodeJsBean.version = "18.12.0";
+        getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
     }
 
     private void configure(JkProject project) {
 
         // we don't need java src here
-        project.getCompilation().getLayout().emptySources();
-        project.getTesting().getCompilation().getLayout().emptySources();
+        project.prodCompilation.layout.emptySources();
+        project.testing.testCompilation.layout.emptySources();
 
         // Configure project to compile Kotlin
         JkProperties props = this.getRuntime().getProperties();
@@ -55,16 +57,16 @@ class Build extends JkBean {
         if (!packClient) {
             return;
         }
-        JkPathTree clientPathTree = JkPathTree.of(getBaseDir().resolve("client/build"));
-        project.getCompilation().getPostCompileActions().append("client pack", () -> {
+        JkPathTree clientBuildPathTree = JkPathTree.of(getBaseDir().resolve("client/build"));
+        project.prodCompilation.postCompileActions.append("client pack", () -> {
             nodeJsBean.npx("yarn install");
             nodeJsBean.npm("run build");
-            clientPathTree.copyTo(
-                    project.getCompilation().getLayout().getClassDirPath().resolve("static"));
+            clientBuildPathTree.copyTo(
+                    project.prodCompilation.layout.getClassDirPath().resolve("static"));
         });
         project.getCleanExtraActions().append(() -> {
-            JkLog.info("Clean dir " + clientPathTree.getRoot());
-            clientPathTree.deleteContent();
+            JkLog.info("Clean dir " + clientBuildPathTree.getRoot());
+            clientBuildPathTree.deleteContent();
         });
     }
 

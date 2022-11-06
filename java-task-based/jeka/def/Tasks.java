@@ -80,7 +80,7 @@ class Tasks extends JkBean implements JkIdeSupport.JkSupplier {
 		compileTest();
 		JkTestProcessor.of()
 			.setForkingProcess(forkTest)
-			.getEngineBehavior()
+			.engineBehavior
 				.setLegacyReportDir(reportDir).__
 			.launch(testClasspath().and(classDir).and(testClassDir),
 					JkTestSelection.of().addTestClassRoots(testClassDir));

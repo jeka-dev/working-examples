@@ -34,25 +34,25 @@ class KotlinProjectConfigurator {
     private JkKotlinCompiler kotlinCompiler;
 
     void configure(JkProject project) {
-        JkProjectCompilation<?> prodCompile = project.getCompilation();
-        JkProjectCompilation<?> testCompile = project.getTesting().getCompilation();
+        JkProjectCompilation<?> prodCompile = project.prodCompilation;
+        JkProjectCompilation<?> testCompile = project.testing.testCompilation;
         prodCompile
-                .getPreCompileActions()
-                .appendBefore(KOTLIN_JVM_SOURCES_COMPILE_ACTION, JAVA_SOURCES_COMPILE_ACTION,
-                        () -> compileKotlin(getKotlinCompiler(), project))
-                .__
+                .preCompileActions
+                    .appendBefore(KOTLIN_JVM_SOURCES_COMPILE_ACTION, JAVA_SOURCES_COMPILE_ACTION,
+                            () -> compileKotlin(getKotlinCompiler(), project))
+                    .__
                 .configureDependencies(deps -> deps.andVersionProvider(kotlinVersionProvider()));
         testCompile
-                .getPreCompileActions()
-                .appendBefore(KOTLIN_JVM_SOURCES_COMPILE_ACTION, JAVA_SOURCES_COMPILE_ACTION,
-                        () -> compileTestKotlin(getKotlinCompiler(), project))
-                .__
-                .getLayout()
-                .addSource(kotlinTestSourceDir);
+                .preCompileActions
+                    .appendBefore(KOTLIN_JVM_SOURCES_COMPILE_ACTION, JAVA_SOURCES_COMPILE_ACTION,
+                            () -> compileTestKotlin(getKotlinCompiler(), project))
+                    .__
+                .layout
+                    .addSource(kotlinTestSourceDir);
         JkPathTree javaInKotlinDir = JkPathTree.of(project.getBaseDir().resolve(kotlinSourceDir));
         JkPathTree javaInKotlinTestDir = JkPathTree.of(project.getBaseDir().resolve(kotlinTestSourceDir));
-        prodCompile.getLayout().setSources(javaInKotlinDir);
-        testCompile.getLayout().setSources(javaInKotlinTestDir);
+        prodCompile.layout.setSources(javaInKotlinDir);
+        testCompile.layout.setSources(javaInKotlinTestDir);
         if (addStdlib) {
             prodCompile.configureDependencies(this::addStdLibsToProdDeps);
             testCompile.configureDependencies(this::addStdLibsToTestDeps);
@@ -97,8 +97,8 @@ class KotlinProjectConfigurator {
     }
 
     private void compileKotlin(JkKotlinCompiler kotlinCompiler, JkProject javaProject) {
-        JkProjectCompilation compilation = javaProject.getCompilation();
-        JkPathTreeSet sources = compilation.getLayout().resolveSources()
+        JkProjectCompilation compilation = javaProject.prodCompilation;
+        JkPathTreeSet sources = compilation.layout.resolveSources()
                 .and(javaProject.getBaseDir().resolve(kotlinSourceDir));
         if (sources.count(1, false) == 0) {
             JkLog.info("No source to compile in " + sources);
@@ -106,15 +106,15 @@ class KotlinProjectConfigurator {
         }
         JkKotlinJvmCompileSpec compileSpec = JkKotlinJvmCompileSpec.of()
                 .setClasspath(compilation.resolveDependencies().getFiles())
-                .setOutputDir(compilation.getLayout().getOutputDir().resolve("classes"))
+                .setOutputDir(compilation.layout.getOutputDir().resolve("classes"))
                 .setTargetVersion(javaProject.getJvmTargetVersion())
                 .setSources(sources);
         kotlinCompiler.compile(compileSpec);
     }
 
     private void compileTestKotlin(JkKotlinCompiler kotlinCompiler, JkProject javaProject) {
-        JkProjectCompilation compilation = javaProject.getTesting().getCompilation();
-        JkPathTreeSet sources = compilation.getLayout().resolveSources();
+        JkProjectCompilation compilation = javaProject.testing.testCompilation;
+        JkPathTreeSet sources = compilation.layout.resolveSources();
         if (kotlinTestSourceDir == null) {
             sources = sources.and(javaProject.getBaseDir().resolve(kotlinTestSourceDir));
         }
@@ -123,11 +123,11 @@ class KotlinProjectConfigurator {
             return;
         }
         JkPathSequence classpath = compilation.resolveDependencies().getFiles()
-                .and(compilation.getLayout().getClassDirPath());
+                .and(compilation.layout.getClassDirPath());
         JkKotlinJvmCompileSpec compileSpec = JkKotlinJvmCompileSpec.of()
-                .setSources(compilation.getLayout().resolveSources())
+                .setSources(compilation.layout.resolveSources())
                 .setClasspath(classpath)
-                .setOutputDir(compilation.getLayout().getOutputDir().resolve("test-classes"))
+                .setOutputDir(compilation.layout.getOutputDir().resolve("test-classes"))
                 .setTargetVersion(javaProject.getJvmTargetVersion());
         kotlinCompiler.compile(compileSpec);
     }

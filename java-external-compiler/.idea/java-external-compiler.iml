@@ -18,17 +18,6 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.9.20.RC41/dev.jeka.jeka-core.jar!/"/>
-                </CLASSES>
-                <JAVADOC/>
-                <SOURCES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.9.20.RC41/dev.jeka.jeka-core-sources.jar!/"/>
-                </SOURCES>
-            </library>
-        </orderEntry>
-        <orderEntry exported="" scope="TEST" type="module-library">
-            <library>
-                <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.eclipse.jdt/ecj/jars/ecj-3.25.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC>
@@ -39,5 +28,6 @@
                 </SOURCES>
             </library>
         </orderEntry>
+        <orderEntry exported="" module-name="wrapper-common" scope="TEST" type="module"/>
     </component>
 </module>

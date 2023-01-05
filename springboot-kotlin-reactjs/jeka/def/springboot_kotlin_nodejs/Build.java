@@ -33,10 +33,7 @@ class Build extends JkBean {
 
 
     Build() {
-        springbootBean.setSpringbootVersion("2.7.4");
         springbootBean.projectBean().configure(this::configure);
-        nodeJsBean.setWorkingDir("client");
-        nodeJsBean.version = "18.12.0";
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
     }
 
@@ -57,7 +54,7 @@ class Build extends JkBean {
         if (!packClient) {
             return;
         }
-        JkPathTree clientBuildPathTree = JkPathTree.of(getBaseDir().resolve("client/build"));
+        JkPathTree clientBuildPathTree = JkPathTree.of(nodeJsBean.getWorkingDir().resolve("build"));
         project.prodCompilation.postCompileActions.append("client pack", () -> {
             nodeJsBean.npx("yarn install");
             nodeJsBean.npm("run build");
@@ -69,6 +66,7 @@ class Build extends JkBean {
             clientBuildPathTree.deleteContent();
         });
     }
+
 
 
 }

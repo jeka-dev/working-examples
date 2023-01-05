@@ -1,6 +1,9 @@
 @echo off
 setlocal enableDelayedExpansion
 
+@rem Change here the default JVM options
+@rem SET JEKA_OPTS == ""
+
 @rem set terminal encoding to utf-8
 chcp 65001 > nul
 
@@ -11,11 +14,8 @@ if not "%JEKA_JDK%" == "" (
     call :propJdkHome "." !version! result
     if not "!result!" == "" set JAVA_HOME=!result!
 )
-
 if "%JAVA_HOME%" == "" set "JAVA_CMD=java"
 if not "%JAVA_HOME%" == "" set "JAVA_CMD=%JAVA_HOME%\bin\java"
-
-
 
 set "COMMAND="%JAVA_CMD%" %JEKA_OPTS% -cp "%~dp0jeka\wrapper\*" dev.jeka.core.wrapper.Booter "%~dp0." %*"
 if not "%JEKA_ECHO_CMD%" == "" (

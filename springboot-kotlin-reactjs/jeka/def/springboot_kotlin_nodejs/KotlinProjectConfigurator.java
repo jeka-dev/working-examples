@@ -15,6 +15,8 @@ import dev.jeka.core.api.project.JkProjectCompilation;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.utils.JkUtilsString;
 
+import java.nio.file.Paths;
+
 import static dev.jeka.core.api.project.JkProjectCompilation.JAVA_SOURCES_COMPILE_ACTION;
 
 class KotlinProjectConfigurator {
@@ -57,6 +59,7 @@ class KotlinProjectConfigurator {
             prodCompile.configureDependencies(this::addStdLibsToProdDeps);
             testCompile.configureDependencies(this::addStdLibsToTestDeps);
         }
+        /*
         project.setJavaIdeSupport(ideSupport -> {
             ideSupport.getProdLayout().addSource(project.getBaseDir().resolve(kotlinSourceDir));
             if (kotlinTestSourceDir != null) {
@@ -64,6 +67,8 @@ class KotlinProjectConfigurator {
             }
             return ideSupport;
         });
+
+         */
     }
 
     private JkDependencySet addStdLibsToProdDeps(JkDependencySet deps) {
@@ -93,6 +98,10 @@ class KotlinProjectConfigurator {
             kotlinCompiler = JkKotlinCompiler.ofJvm(downloadRepos, kotlinVersion);
         }
         kotlinCompiler.setLogOutput(true);
+        kotlinCompiler
+                //.addPlugin(Paths.get(System.getenv("KOTLIN_HOME") + "/libexec/lib/allopen-compiler-plugin.jar"))
+                .addPlugin("org.jetbrains.kotlin:kotlin-allopen:" + kotlinVersion)
+                .addPluginOption("org.jetbrains.kotlin.allopen", "preset", "spring");
         return kotlinCompiler;
     }
 
@@ -131,6 +140,5 @@ class KotlinProjectConfigurator {
                 .setTargetVersion(javaProject.getJvmTargetVersion());
         kotlinCompiler.compile(compileSpec);
     }
-
 
 }

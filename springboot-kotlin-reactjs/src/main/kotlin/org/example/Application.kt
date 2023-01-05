@@ -6,7 +6,7 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
-open class Application {
+class Application {
 
         @Bean
         open fun run(repository: CoffeeShopRepository) = ApplicationRunner {

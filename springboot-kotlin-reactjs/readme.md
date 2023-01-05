@@ -13,13 +13,13 @@ It gives an idea about how to customise Jeka for integrating specific technology
 
 `jekaw :build` to make a clean build for production (a springboot jar file embedding the client)
 
-`jekaw :run` to run the jer built 
+`jekaw :run` to run the jar built with previous command
 
 Browse http://localhost:8080 to open the main page once the jar is running.
 
 ## Development time
 
-Client application has been scaffolded using ReactJs tool as mentioned in the tutorial mentioned below.
+Client application has been scaffolded using ReactJs tool according the tutorial mentioned below.
 
 ## Testimonial
 

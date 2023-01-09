@@ -25,7 +25,7 @@ class SpringbootBuild extends JkBean {
 
     SpringbootBuild() {
         springboot.setSpringbootVersion("2.7.3");
-        springboot.projectBean().configure(this::configure);
+        springboot.projectBean.configure(this::configure);
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
         nodeJs.setWorkingDir(getBaseDir().resolve("../web"));
     }
@@ -44,18 +44,18 @@ class SpringbootBuild extends JkBean {
     }
 
     public void cleanPack() {
-        cleanOutput(); springboot.projectBean().pack();
+        cleanOutput(); springboot.projectBean.pack();
     }
 
     public void run() {
-        this.springboot.projectBean().runJar();
+        this.springboot.projectBean.runJar();
     }
 
     private void npmBuild() {
         JkLog.startTask("Packing web project");
         Path webDir = getBaseDir().resolve("../web");
         Path webDist = webDir.resolve("dist");
-        Path staticDir = springboot.projectBean().getProject().prodCompilation
+        Path staticDir = springboot.projectBean.getProject().prodCompilation
                 .layout.resolveClassDir().resolve("static");
 
         nodeJs.npm("install --loglevel=error");

@@ -21,10 +21,8 @@ class Build : JkBean() {
 
     val kotlin = getBean(KotlinJvmJkBean::class.java)
 
-
     init {
         springboot.projectBean.configure(this::configure)
-        //configureKotlinCompiler(kotlin.compiler);
         kotlin.configureCompiler(this::configureKotlinCompiler)
     }
 
@@ -32,6 +30,7 @@ class Build : JkBean() {
         if (!packClient) {
             return
         }
+        // includes client build (via npm) into the main build
         val clientBuild: JkPathTree<*> = JkPathTree.of(nodejs.getWorkingDir().resolve("build"))
         val serverStatic = project.prodCompilation.layout.classDirPath.resolve("static")
         project.prodCompilation.postCompileActions.append("client pack") {
@@ -39,7 +38,6 @@ class Build : JkBean() {
             clientBuild.copyTo(serverStatic)
         }
         project.cleanExtraActions.append {
-            JkLog.info("Clean dir %s and %s" + clientBuild.root)
             clientBuild.deleteContent()
         }
     }
@@ -49,19 +47,10 @@ class Build : JkBean() {
         nodejs.npm("run build")
     }
 
-    fun browse() {
-        Desktop.getDesktop().browse(URI.create("http://localhost:8080"))
-    }
-
     fun configureKotlinCompiler(compiler : JkKotlinCompiler) {
         compiler
             .addPlugin("org.jetbrains.kotlin:kotlin-allopen")
             .addPluginOption("org.jetbrains.kotlin.allopen", "preset", "spring")
-    }
-
-    fun build() {
-        springboot.projectBean.clean();
-        springboot.projectBean.pack();
     }
 
 }

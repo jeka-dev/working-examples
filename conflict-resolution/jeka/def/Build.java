@@ -25,22 +25,22 @@ class Build extends JkBean {
             .setJvmTargetVersion(JkJavaVersion.V8)
             .dependencyResolver
                 .getDefaultParams()
-                    .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT)
-                .__
-            .__
+                    .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT);
+        project
             .prodCompilation
                 .configureDependencies(deps -> deps
                     .and("com.google.api-client:google-api-client:1.30.7")
                         .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict
                     .and("com.google.guava:guava:28.0-jre")
                     .and("org.codehaus.plexus:plexus-container-default:2.1.0")
-                )
-            .__
+                );
+        project
             .testing
                 .testSelection
                     .addIncludeStandardPatterns()
-                    .addIncludePatterns(JkTestSelection.IT_INCLUDE_PATTERN)
-                .__
+                    .addIncludePatterns(JkTestSelection.IT_INCLUDE_PATTERN);
+        project
+            .testing
                 .testProcessor
                     .setForkingProcess(true)
                     .engineBehavior

@@ -1,7 +1,6 @@
 import dev.jeka.core.api.java.JkJavaProcess;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
-import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
@@ -24,13 +23,13 @@ class SwingBuild extends JkBean {
 		project
 			.packaging
 				.manifest
-					.addMainClass("swing.Main")
-				.__
-			.__
+					.addMainClass("swing.Main");
+		project
 			.prodCompilation
 				.configureDependencies(deps -> deps
-					.and(coreBuild.projectJkBean.getProject().toDependency()))
-				.__
+					.and(coreBuild.projectJkBean.getProject().toDependency())
+				);
+		project
 			.artifactProducer
 				.putMainArtifact(project.packaging::createFatJar);
     }

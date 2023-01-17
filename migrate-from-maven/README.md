@@ -7,5 +7,8 @@ It is required that a *pom.xml* file exists at the root of the project.
 The plugin reads the pom to get dependencies declared in, 
 and generates jeka corresponding code on the console.
 
-To run, just execute : `./jekaw maven#migrationCode`.
+To run, just execute : 
+```shell
+./jekaw maven#migrateToCode
+```
 

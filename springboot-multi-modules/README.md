@@ -37,23 +37,33 @@ The formula computation is provided by _core_ modules that in turns depends on  
 
 ### Build all
 
-From _springboot-multi-modules_
-```
-jekaw build
+From _springboot-multi-modules_ :
+
+```shell
+./jekaw build
 ```
 
 ### Build springbootapp only
 
+Go to  *springboot-multi-modules.springbootapp* directory and execute :
+
+```shell
+./jekaw cleanPack
 ```
-cd springboot-multi-modules.springbootapp
-jekaw cleanPack
+
+To run the built instance : 
+```shell
+./jekaw run
 ```
-To run the built instance : `jekaw run`
 
 ### Build swingapp only
 
+Go to  *springboot-multi-modules.swingapp* directory and execute :
+
+```shell
+./jekaw cleanPack
 ```
-cd springboot-multi-modules.swingapp
-jekaw cleanPack
+To run the built instance : 
+```shell
+./jekaw run
 ```
-To run the built instance : `jekaw run`

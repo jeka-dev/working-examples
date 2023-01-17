@@ -8,9 +8,16 @@ Dependencies are declared in [project-dependencies.txt](./jeka/project-dependenc
 
 ## How to build
 
-`jekaw :build` to  create a bootable jar from scratch.
+To create a bootable jar from scratch, execute :
 
-`jekaw :build_quality` to  create a bootable jar from scratch and analysing code+coverage via Sonarqube.
+```shell
+./jekaw :build
+``` 
 
+To create a bootable jar from scratch and analysing code+coverage via Sonarqube, execute :
+
+```shell
+./jekaw :build_quality
+```
 
 

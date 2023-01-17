@@ -9,9 +9,21 @@ This project does not respect any layout convention. Its [build class](jeka/def/
 ## How to build
 
 ### From command line
-Open a shell at the root of the project execute `jekaw build`. <br/>
-If you want the junit test to be run in a forked process, execute `jekaw compile junit -forkTest=true `. <br/>
-If you want to only produce the jar without running tests, execute `jekaw compile jar`.
+
+If you want to only produce the jar without running tests, execute :
+```shell
+./jekaw compile jar
+```
+
+If you want the junit test to be run in a forked process, execute :
+```shell
+./jekaw compile junit -forkTest=true
+```
+
+To full build the project, execute
+```shell
+./jekaw build
+```
 
 ### From IDE
 Execute `Tasks` class found at [build/def/Tasks.java](jeka/def/Tasks.java) or <br/>

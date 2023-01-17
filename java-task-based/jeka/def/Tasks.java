@@ -78,10 +78,12 @@ class Tasks extends JkBean implements JkIdeSupport.JkSupplier {
 	
 	public void junit() {
 		compileTest();
-		JkTestProcessor.of()
+		JkTestProcessor testProcessor = JkTestProcessor.of();
+		testProcessor
 			.setForkingProcess(forkTest)
 			.engineBehavior
-				.setLegacyReportDir(reportDir).__
+				.setLegacyReportDir(reportDir);
+		testProcessor
 			.launch(testClasspath().and(classDir).and(testClassDir),
 					JkTestSelection.of().addTestClassRoots(testClassDir));
 	}

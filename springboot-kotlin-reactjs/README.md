@@ -11,9 +11,15 @@ It gives an idea about how to customise Jeka for integrating specific technology
 
 ## How to build
 
-`jekaw :build` to make a clean build for production (a springboot jar file embedding the client)
+To make a clean build for production (a springboot jar file embedding the client), execute :
+```shell
+./jekaw :build
+``` 
 
-`jekaw :run` to run the jar built with previous command
+To run the jar built with previous command :
+```shell
+./jekaw :run
+```
 
 Browse http://localhost:8080 to open the main page once the jar is running.
 

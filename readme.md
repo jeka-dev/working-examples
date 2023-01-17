@@ -6,6 +6,8 @@ This repository contains several independent projects built with Jeka.
 
 A single Jeka wrapper (hosted in _wrapper-common_ module) is used for all projects.
 
+Clone this entire repo into Intellij to have a better exploration experience.
+
 | Code Sample                                              | Description                                                                             |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | [Java Classic](./java-classic)                           | Simple Java project designed to be published as a library.                              |

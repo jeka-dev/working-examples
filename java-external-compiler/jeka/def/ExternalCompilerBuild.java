@@ -36,8 +36,4 @@ class ExternalCompilerBuild extends JkBean {
         cleanOutput(); projectJkBean.pack();
     }
 
-    public static void main(String[] args) {
-        JkInit.instanceOf(ExternalCompilerBuild.class, args).cleanPack();
-    }
-
 }

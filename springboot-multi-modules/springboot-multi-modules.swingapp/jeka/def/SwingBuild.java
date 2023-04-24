@@ -25,7 +25,7 @@ class SwingBuild extends JkBean {
 				.manifest
 					.addMainClass("swing.Main");
 		project
-			.prodCompilation
+			.compilation
 				.configureDependencies(deps -> deps
 					.and(coreBuild.projectJkBean.getProject().toDependency())
 				);

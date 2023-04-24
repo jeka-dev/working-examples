@@ -27,7 +27,7 @@ class Build extends JkBean {
                 .getDefaultParams()
                     .setConflictResolver(JkResolutionParameters.JkConflictResolver.STRICT);
         project
-            .prodCompilation
+            .compilation
                 .configureDependencies(deps -> deps
                     .and("com.google.api-client:google-api-client:1.30.7")
                         .withLocalExclusions("com.google.guava:guava")  // remove dependency to avoid conflict

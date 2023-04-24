@@ -1,3 +1,6 @@
+import dev.jeka.core.api.depmanagement.JkDependencySet;
+import dev.jeka.core.api.depmanagement.JkFileSystemDependency;
+import dev.jeka.core.api.depmanagement.JkQualifiedDependencySet;
 import dev.jeka.core.api.depmanagement.JkRepo;
 import dev.jeka.core.api.depmanagement.resolution.JkDependencyResolver;
 import dev.jeka.core.api.file.JkPathSequence;
@@ -96,11 +99,11 @@ class Tasks extends JkBean implements JkIdeSupport.JkSupplier {
 	public JkIdeSupport getJavaIdeSupport() {
 		return JkIdeSupport.of(this.getBaseDir())
 				.setProdLayout(JkCompileLayout.of().setSources("src").mixResourcesAndSources())
-				.setTestLayout(JkCompileLayout.of().setSources("test").mixResourcesAndSources());
+				.setTestLayout(JkCompileLayout.of().setSources("test").mixResourcesAndSources())
+				.setDependencies(JkQualifiedDependencySet.of()
+						.and("compile", JkFileSystemDependency.of(classpath()))
+						.and("test", JkFileSystemDependency.of(testClasspath()))
+				);
 	}
-
-
-
-
 
 }

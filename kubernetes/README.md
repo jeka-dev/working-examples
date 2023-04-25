@@ -98,7 +98,7 @@ from yaml static resources. This class proposes methods to :
 The model is based on an library which works with immutable object, making deep structure modification
 a little bit tedious. This is mitigated with the usage of setter methods to wrap common modifications.
 
-## The Patches to deal with multi-environment
+## The Patches to deal with multi environment
 
 Each patch instance describe the modifications to apply for a given environment.
 In this pattern, patches are defined relatively from another to minimize the the change description.
@@ -119,6 +119,8 @@ For example, the following command displays the k8s resources as they will be de
 ```shell
 ./jekaw kube#showResources kube#env=PROD
 ```
+
+In addition, the `Kube` KBean offers the `pipeline`method that does compile, test and deploy in a row.
 
 # Conclusion
 

@@ -20,15 +20,15 @@ import java.util.stream.Stream;
  */
 class Resources {
 
-    private Deployment appDeployment = parse(Deployment.class, "app-deployment.yaml");
+    Deployment appDeployment = parse(Deployment.class, "app-deployment.yaml");
 
-    private Service appService = parse(Service.class, "app-service.yaml");
+    Service appService = parse(Service.class, "app-service.yaml");
 
-    private Deployment dbDeployment = parse(Deployment.class, "app-deployment.yaml");
+    Deployment dbDeployment = parse(Deployment.class, "app-deployment.yaml");
 
-    private Service dbService = parse(Service.class, "db-service.yaml");
+    Service dbService = parse(Service.class, "db-service.yaml");
 
-    private PersistentVolumeClaim pvc = parse(PersistentVolumeClaim.class, "db-volumeClaim.yaml");
+    PersistentVolumeClaim pvc = parse(PersistentVolumeClaim.class, "db-volumeClaim.yaml");
 
     List<HasMetadata> mutableResources() {
         return List.of(appDeployment, appService, dbDeployment, dbService);

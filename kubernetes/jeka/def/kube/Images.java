@@ -5,8 +5,6 @@ import com.google.cloud.tools.jib.api.Jib;
 import com.google.cloud.tools.jib.api.JibContainerBuilder;
 import com.google.cloud.tools.jib.api.RegistryImage;
 import dev.jeka.core.api.project.JkProject;
-import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.tool.JkDoc;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 import lombok.SneakyThrows;
 import lombok.Value;
@@ -25,13 +23,10 @@ public class Images {
 
     String imageRegistry;
 
-    @JkDoc("Builds Springboot application image")
     @SneakyThrows
-    public void buildImage() {
-        JkLog.startTask("Build image");
+    void buildImage() {
         Containerizer containerizer = registryContainerizer(imageRegistry, true);
         springbootImage("openjdk:17", springbootBean).containerize(containerizer);
-        JkLog.endTask();
     }
 
     String imageName() {
@@ -44,7 +39,7 @@ public class Images {
     @SneakyThrows
     private static JibContainerBuilder springbootImage(String fromImage, SpringbootJkBean springbootBean) {
         JkProject project = springbootBean.projectBean.getProject();
-        return Jib.from("openjdk:17")
+        return Jib.from(fromImage)
                 .addLayer(project.packaging.resolveRuntimeDependencies().getFiles().getEntries(), "/app/libs")
                 .addLayer(singletonList(project.compilation.layout.resolveClassDir()), "/app")
                 .setEntrypoint("java", "-cp", "/app/classes:/app/libs/*", springbootBean.getMainClass());

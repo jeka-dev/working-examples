@@ -1,8 +1,3 @@
-##
-# This file declares some dependencies to be included to the project dependencies.
-#
-# More details : https://jeka-dev.github.io/jeka/reference-guide/build-library-project-build/#full-text-description
-##
 
 == COMPILE ==
 org.springframework.boot:spring-boot-starter-web
@@ -13,7 +8,6 @@ org.projectlombok:lombok:1.18.26
 == RUNTIME ==
 -org.projectlombok:lombok
 org.springframework.boot:spring-boot-starter-freemarker
-
 org.springframework.boot:spring-boot-starter-actuator
 
 == TEST ==

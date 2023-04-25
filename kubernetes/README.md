@@ -35,8 +35,8 @@ Execute :
 ```
 ./jekaw :image
 ```
-`:image` is a command shortcut defined in *local.properties* file. This actually clean, compile, test the
-application (`project#ctest`) prior to build the Docker image and publish it (`kube#buildImage`).
+`:image` is a command shortcut defined in [local.properties file](jeka/local.properties). This actually clean, compile, test the
+application (`project#test`) prior to build the Docker image and publish it (`kube#buildImage`).
 
 Go [here](http://localhost:5000/v2/knote-java/tags/list) to check that your image has been actually deployed on your registry.
 
@@ -67,4 +67,72 @@ it reflects the content of the `Kube` class.
 
 Now you can access to your local application by [clicking here](http://localhost:8080/)
 
-## Manage multiple environments
+## How does it work ?
+
+Jeka builds (compiles and tests) the Springboot application using [Jeka Springboot 
+plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/dev.jeka.plugins.springboot).
+
+A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact with command-line 
+or the IDE. This BBean delegates the tasks to following classes :
+- [Images](jeka/def/kube/Images.java) : Produces the container image.
+- [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
+- [Patch](jeka/def/kube/Patch.java) : Defines the variants to apply according deployment environment (K8s resources and container registry).
+
+## The image
+
+The image is built using *Jib* technology, so we don't need a local Docker deamon to build the image.
+
+The `Ìmages` class needs 2 parameters to build image :
+- The registry to deploy the build image. Note that it is also possible to build image as file (tarball) or  
+  to deploy it on a docker daemon but as k8s require a registry to fetch the image, this intermediate stage in not relevant.
+- The `SpringbootJkBean` that contains all info to actually bbuid the image (location of classes and libs, and the main class name).
+
+
+## The Kubernetes Resources
+
+Class `Resources`define an object model of the k8s resources to deploy. The model instance is construct 
+from yaml static resources. This class proposes methods to :
+- modify the model conveniently (setters)
+- render the model in yaml format
+
+The model is based on an library which works with immutable object, making deep structure modification
+a little bit tedious. This is mitigated with the usage of setter methods to wrap common modifications.
+
+## The Patches to deal with multi-environment
+
+Each patch instance describe the modifications to apply for a given environment.
+In this pattern, patches are defined relatively from another to minimize the the change description.
+
+For simplicity sake, here, we use a single k8s cluster but each environment deploys to a distinct namespace.
+
+In *local*, the application run on a single pod while in higher environment, it deploys on 2 replicas.
+
+## The Kube KBean
+
+The `Kube` KBean defines methods that :
+- Developers may need during development to set up the k8s resources properly.
+- CI/CD tool need to actually build and deploy resources.
+
+The target environment can be selected by mentioning the `kube#env=STATGING` option in the command line. 
+
+For example, the following command displays the k8s resources as they will be deployed in PROD environment.
+```shell
+./jekaw kube#showResources kube#env=PROD
+```
+
+# Conclusion
+
+This pattern allows a Java project to deal with Kubernetes, using simple Java technologies only.
+
+The benefit is that developers deal with a statically typed (yet simple) model, that they can easily edit and debug 
+with their familiar tools.
+
+
+
+
+
+
+
+
+
+

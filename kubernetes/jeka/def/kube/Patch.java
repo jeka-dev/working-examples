@@ -13,6 +13,15 @@ import java.util.function.Supplier;
  */
 class Patch {
 
+    String namespace = "default";
+
+    String imageRegistry = "localhost:5000";
+
+    int replicaCount = 1;
+
+    Consumer<Resources> configurator = res -> {
+    };
+
     static Patch stating() {
         Patch patch = new Patch();
         patch.imageRegistry = "my.staging.registry:5000";
@@ -33,15 +42,6 @@ class Patch {
         this.applyTo(resources);
         return resources;
     }
-
-    String namespace = "default";
-
-    String imageRegistry = "localhost:5000";
-
-    Integer replicaCount;
-
-    Consumer<Resources> configurator = res -> {
-    };
 
     void applyTo(Resources resources) {
         resources.setAppReplicaCount(replicaCount);

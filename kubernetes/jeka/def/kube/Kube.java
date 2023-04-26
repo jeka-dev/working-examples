@@ -15,8 +15,8 @@ import lombok.RequiredArgsConstructor;
 import java.util.function.Supplier;
 
 // see
-// - https://github.com/fabric8io/kubernetes-client
 // - https://learnk8s.io/spring-boot-kubernetes-guide
+// - https://github.com/fabric8io/kubernetes-client
 // - https://github.com/fabric8io/kubernetes-client/blob/master/doc/CHEATSHEET.md
 
 @JkInjectClasspath("com.google.cloud.tools:jib-core:0.23.0")
@@ -60,9 +60,7 @@ class Kube extends JkBean {
 
     @JkDoc("Displays the defined Kubernetes resources to deploy")
     public void showResources() {
-        Resources res = resources();
-        System.out.println(res.renderImmutableResources());
-        System.out.println(res.renderMutableResources());
+        System.out.println(resources().allResources());
     }
 
     @JkDoc("Removes the defined resources from the Kubernetes cluster")

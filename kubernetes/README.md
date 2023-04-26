@@ -1,4 +1,4 @@
-# A pringboot + mongoDb project deployed on Kubernetes
+# A Springboot + mongoDb project deployed on Kubernetes
 
 This demo is based on [this Kubernetes tutorial](https://learnk8s.io/spring-boot-kubernetes-guide),
 
@@ -7,7 +7,7 @@ It consists in a Springboot web app backed by a MongoDB database.
 This project showcases how we can automate Kubernetes deployment in multi-environments, using 
 pure Java technologies.
 
-## Prerequisite
+## prerequisite
 
 *You don't have to install Jeka on your machine thanks to the Jeka Wrapper. 
 Just clone this directory and execute the command line.

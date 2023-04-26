@@ -20,3 +20,4 @@ Clone this entire repo into Intellij to have a better exploration experience.
 | [Multi Modules](./springboot-multi-modules)              | How to deal with multi-module projects                                                  |
 | [Springboot Kotlin ReactJs](./springboot-kotlin-reactjs) | How to integrate Kotlin and NodeJs                                                      |
 | [Springboot Lean](./springboot-lean)                     | How to build a Springboot project without needing build code                            |
+| [Kubernetes](./kubernetes)                               | How to build a Springboot+MongoDb project and deploy it to Hubernetes                   |

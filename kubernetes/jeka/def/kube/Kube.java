@@ -39,7 +39,7 @@ class Kube extends JkBean {
     public Env env = Env.LOCAL;
 
     @JkDoc("Build and push the application container image. This assumes that application ahs already been built.")
-    public void buildImage() {
+    public void buildImage() throws Exception {
         images().buildImage();
     }
 
@@ -60,7 +60,8 @@ class Kube extends JkBean {
 
     @JkDoc("Displays the defined Kubernetes resources to deploy")
     public void showResources() {
-        System.out.println(resources().allResources());
+        System.out.println(resources().renderMutableResources());
+        System.out.println(resources().renderImmutableResources());
     }
 
     @JkDoc("Removes the defined resources from the Kubernetes cluster")
@@ -70,7 +71,7 @@ class Kube extends JkBean {
     }
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
-    public void pipeline()  {
+    public void pipeline() throws Exception {
         springboot.projectBean.clean();
         springboot.projectBean.test();
         buildImage();

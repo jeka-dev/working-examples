@@ -1,12 +1,9 @@
 package kube;
 
-import com.google.cloud.tools.jib.api.Containerizer;
-import com.google.cloud.tools.jib.api.Jib;
-import com.google.cloud.tools.jib.api.JibContainerBuilder;
-import com.google.cloud.tools.jib.api.RegistryImage;
+import com.google.cloud.tools.jib.api.*;
 import dev.jeka.core.api.project.JkProject;
+import dev.jeka.core.api.system.JkLog;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
-import lombok.SneakyThrows;
 import lombok.Value;
 
 import static java.util.Collections.singletonList;
@@ -23,8 +20,8 @@ public class Images {
 
     String imageRegistry;
 
-    @SneakyThrows
-    void buildImage() {
+    void buildImage() throws Exception {
+        JkLog.info("Building image " + imageName());
         Containerizer containerizer = registryContainerizer(imageRegistry, true);
         springbootImage("openjdk:17", springbootBean).containerize(containerizer);
     }
@@ -36,8 +33,7 @@ public class Images {
 
     // ---- helper methods that can be exported to a generic module ---
 
-    @SneakyThrows
-    private static JibContainerBuilder springbootImage(String fromImage, SpringbootJkBean springbootBean) {
+    private static JibContainerBuilder springbootImage(String fromImage, SpringbootJkBean springbootBean) throws Exception {
         JkProject project = springbootBean.projectBean.getProject();
         return Jib.from(fromImage)
                 .addLayer(project.packaging.resolveRuntimeDependencies().getFiles().getEntries(), "/app/libs")
@@ -45,9 +41,9 @@ public class Images {
                 .setEntrypoint("java", "-cp", "/app/classes:/app/libs/*", springbootBean.getMainClass());
     }
 
-    @SneakyThrows
-    private static Containerizer registryContainerizer(String imageName, boolean allowHttp) {
+    private static Containerizer registryContainerizer(String imageName, boolean allowHttp) throws InvalidImageReferenceException {
         RegistryImage image = RegistryImage.named(imageName);
-        return Containerizer.to(image).setAllowInsecureRegistries(true);
+        return Containerizer.to(image).setAllowInsecureRegistries(allowHttp);
     }
+
 }

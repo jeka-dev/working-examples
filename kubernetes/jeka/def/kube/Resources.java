@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.yaml.snakeyaml.Yaml;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -60,16 +61,26 @@ class Resources {
     // -------
 
     String renderMutableResources() {
-        StringBuilder sb = new StringBuilder();
-        mutableResources().forEach(res -> sb.append(Serialization.asYaml(res)));
-        return sb.toString();
+        return renderResources(mutableResources());
     }
 
     String renderImmutableResources() {
-        return Serialization.asYaml(immutableResources());
+        return renderResources(immutableResources());
     }
 
     private static <T> T parse(Class<T> targetClass, String resourceName) {
         return new Yaml().loadAs(Kube.class.getResourceAsStream(resourceName), targetClass);
+    }
+
+    private static List<EnvVar> envVars(Map<String, String> values) {
+        return values.entrySet().stream()
+                .map(entry -> new EnvVarBuilder().addToAdditionalProperties(entry.getKey(), entry.getValue()).build())
+                .collect(Collectors.toList());
+    }
+
+    private static String renderResources(List<?> resources) {
+        StringBuilder sb = new StringBuilder();
+        resources.forEach(res -> sb.append(Serialization.asYaml(res)));
+        return sb.toString();
     }
 }

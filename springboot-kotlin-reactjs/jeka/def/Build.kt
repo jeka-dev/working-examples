@@ -12,7 +12,7 @@ import dev.jeka.plugins.springboot.SpringbootJkBean
 
 @JkInjectClasspath("dev.jeka:kotlin-plugin")
 @JkInjectClasspath("dev.jeka:nodejs-plugin")
-@JkInjectClasspath("")
+@JkInjectClasspath("dev.jeka:springboot-plugin")
 class Build : JkBean() {
 
     @JkDoc("If true, Springboot jar will embed the client application")

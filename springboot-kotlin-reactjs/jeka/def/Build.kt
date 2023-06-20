@@ -1,6 +1,4 @@
-import com.fkorotkov.kubernetes.*
-import com.fkorotkov.kubernetes.apps.newDeployment
-import com.google.cloud.tools.jib.api.*
+import dev.jeka.core.api.depmanagement.JkDependencySet
 import dev.jeka.core.api.file.JkPathTree
 import dev.jeka.core.api.kotlin.JkKotlinCompiler
 import dev.jeka.core.api.project.JkProject
@@ -10,23 +8,15 @@ import dev.jeka.core.tool.JkInjectClasspath
 import dev.jeka.plugins.kotlin.KotlinJvmJkBean
 import dev.jeka.plugins.nodejs.NodeJsJkBean
 import dev.jeka.plugins.springboot.SpringbootJkBean
-import io.fabric8.kubernetes.api.model.Container
-import io.fabric8.kubernetes.api.model.ContainerBuilder
-import io.fabric8.kubernetes.api.model.ContainerFluent
-import io.fabric8.kubernetes.api.model.IntOrString
-import io.fabric8.kubernetes.api.model.apps.DeploymentBuilder
-import io.fabric8.kubernetes.client.KubernetesClientBuilder
 
-@JkInjectClasspath("com.google.cloud.tools:jib-core:0.23.0")
-@JkInjectClasspath("io.fabric8:kubernetes-client:6.5.1")
-@JkInjectClasspath("io.fabric8:kubernetes-client-api:6.5.1")
-@JkInjectClasspath("io.fabric8:kubernetes-httpclient-jdk:6.5.1")
-@JkInjectClasspath("io.fabric8:kubernetes-model:6.5.1")
-@JkInjectClasspath("com.github.fkorotkov:k8s-kotlin-dsl:3.2.0")
+
+@JkInjectClasspath("dev.jeka:kotlin-plugin")
+@JkInjectClasspath("dev.jeka:nodejs-plugin")
+@JkInjectClasspath("")
 class Build : JkBean() {
 
     @JkDoc("If true, Springboot jar will embed the client application")
-    var packClient = false
+    var packClient = true
 
     val springboot = getBean(SpringbootJkBean::class.java)
 
@@ -34,19 +24,22 @@ class Build : JkBean() {
 
     val kotlin = getBean(KotlinJvmJkBean::class.java)
 
-    private val imagePath = outputDir.resolve("image.tar");
-
-    private val imageRepository = "myhub/coffeeshop"
-
     init {
+        springboot.setSpringbootVersion("2.7.7")
         springboot.projectBean.configure(this::configure)
+        kotlin.configureProject = true;
         kotlin.configureCompiler(this::configureKotlinCompiler)
     }
 
     private fun configure(project: JkProject) {
+        project.flatFacade()
+            .configureCompileDependencies(this::compileDeps)
+            .configureRuntimeDependencies(this::runtimeDeps)
+            .configureTestDependencies(this::testDeps)
         if (!packClient) {
             return
         }
+
         // includes client build (via npm) into the main build
         val clientBuild: JkPathTree<*> = JkPathTree.of(nodejs.getWorkingDir().resolve("build"))
         val serverStatic = project.compilation.layout.classDirPath.resolve("static")
@@ -57,73 +50,33 @@ class Build : JkBean() {
         project.cleanExtraActions.append {
             clientBuild.deleteContent()
         }
+
     }
 
-    fun buildClient() {
+    private fun buildClient() {
         nodejs.npx("yarn install")
         nodejs.npm("run build")
     }
 
-    fun configureKotlinCompiler(compiler : JkKotlinCompiler) {
+    private fun configureKotlinCompiler(compiler : JkKotlinCompiler) {
         compiler
             .addPlugin("org.jetbrains.kotlin:kotlin-allopen")
             .addPluginOption("org.jetbrains.kotlin.allopen", "preset", "spring")
     }
 
-    fun makeImage() {
-        val project = springboot.projectBean.project;
-
-        //val image = DockerDaemonImage.named("my-jib-image");
-        val image: TarImage = TarImage.at(imagePath).named(imageRepository)
-        val containerizer = Containerizer.to(image).addEventHandler(LogEvent::class.java)
-            { logEvent: LogEvent ->
-                System.out.println(logEvent.level.toString() + ": " + logEvent.message)
-            }
-        Jib.from("openjdk:17")
-            .addLayer(project.packaging.resolveRuntimeDependencies().files.entries, "/app/libs")
-            .addLayer(listOf(project.compilation.layout.resolveClassDir()), "/app")
-            .setEntrypoint("java", "-cp", "/app/classes:/app/libs/*", "hellp.Application")
-            .containerize(containerizer)
+    private fun compileDeps(deps : JkDependencySet) : JkDependencySet {
+        return deps
+            .and("org.springframework.boot:spring-boot-starter-web")
+            .and("org.springframework.boot:spring-boot-starter-data-jpa")
+            .and("org.springframework.boot:spring-boot-starter-data-rest")
     }
 
-    fun pushImage() {
-        val tarImage = TarImage.at(imagePath);
-        val dockerDaemonImage = DockerDaemonImage.named(imageRepository);
-        Jib.from(tarImage)
-            .containerize(Containerizer.to(dockerDaemonImage));
-
+    private fun runtimeDeps(deps : JkDependencySet) : JkDependencySet {
+        return deps.and("com.h2database:h2:2.1.214")
     }
 
-    // see https://github.com/fabric8io/kubernetes-client
-    // https://learnk8s.io/spring-boot-kubernetes-guide
-    // https://github.com/fabric8io/kubernetes-client/blob/master/doc/CHEATSHEET.md
-    @Throws(Exception::class)
-    fun applyKube() {
-        val deployment1 = DeploymentBuilder()
-            .withNewMetadata()
-                .withName("deployment1")
-                .addToLabels("app", "coffeeshop")
-            .endMetadata()
-            .withNewSpec()
-                .withReplicas(1)
-                .withNewTemplate()
-                    .withNewMetadata()
-                        .addToLabels("app", "coffeeshop").endMetadata()
-                    .withNewSpec()
-                        .addNewContainer()
-                            .withName("app-coffeshop")
-                            .withImage(imageRepository + ":latest")
-                        .endContainer()
-                    .endSpec()
-                .endTemplate()
-                .withNewSelector()
-                    .addToMatchLabels("app", "coffeeshop")
-                .endSelector()
-            .endSpec()
-            .build()
-        println(deployment1)
-        val client = KubernetesClientBuilder().build()
-        client.apps().deployments().inNamespace("default").createOrReplace(deployment1)
+    private fun testDeps(deps : JkDependencySet) : JkDependencySet {
+        return deps.and("org.springframework.boot:spring-boot-starter-web")
     }
 
 }

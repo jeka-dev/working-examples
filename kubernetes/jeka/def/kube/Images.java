@@ -1,7 +1,6 @@
 package kube;
 
 import com.google.cloud.tools.jib.api.*;
-import com.google.cloud.tools.jib.event.events.ProgressEvent;
 import dev.jeka.core.api.depmanagement.JkVersion;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;

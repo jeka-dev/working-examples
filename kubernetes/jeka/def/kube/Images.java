@@ -1,8 +1,11 @@
 package kube;
 
 import com.google.cloud.tools.jib.api.*;
+import com.google.cloud.tools.jib.event.events.ProgressEvent;
+import dev.jeka.core.api.depmanagement.JkVersion;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
+import dev.jeka.core.api.utils.JkUtilsString;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 import lombok.Value;
 
@@ -22,13 +25,15 @@ public class Images {
 
     void buildImage() throws Exception {
         JkLog.info("Building image " + imageName());
-        Containerizer containerizer = registryContainerizer(imageRegistry, true);
+        Containerizer containerizer = registryContainerizer(imageName(), true);
+        handleEvents(containerizer);
         springbootImage("openjdk:17", springbootBean).containerize(containerizer);
     }
 
     String imageName() {
-        return imageRegistry + "/" + APP_IMAGE_REPO + ":" + springbootBean.projectBean.getProject()
-                .publication.getVersion().toString();
+        JkVersion version = springbootBean.projectBean.getProject().publication.getVersion();
+        String tag = version.isSnapshot() ? "latest" : version.toString();
+        return imageRegistry + "/" + APP_IMAGE_REPO + ":" + tag;
     }
 
     // ---- helper methods that can be exported to a generic module ---
@@ -44,6 +49,16 @@ public class Images {
     private static Containerizer registryContainerizer(String imageName, boolean allowHttp) throws InvalidImageReferenceException {
         RegistryImage image = RegistryImage.named(imageName);
         return Containerizer.to(image).setAllowInsecureRegistries(allowHttp);
+    }
+
+    private static Containerizer dockerDeamonContainerizer(String imageName) throws InvalidImageReferenceException {
+        DockerDaemonImage dockerDaemonImage = DockerDaemonImage.named(imageName);
+        return Containerizer.to(dockerDaemonImage);
+    }
+
+    private void handleEvents(Containerizer containerizer) {
+        containerizer.addEventHandler(LogEvent.class, event -> System.out.println
+                (JkUtilsString.padEnd(event.getLevel().name() ,  12, ' ') + ": " + event.getMessage()));
     }
 
 }

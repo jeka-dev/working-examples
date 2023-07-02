@@ -10,7 +10,7 @@ import java.util.MissingFormatArgumentException;
 
 class MavenMigrateBuild extends JkBean {
 
-    ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
+    ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).lately(this::configure);
 
     MavenJkBean maven = getBean(MavenJkBean.class);
 

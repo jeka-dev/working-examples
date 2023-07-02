@@ -11,7 +11,7 @@ import dev.jeka.core.tool.builtins.project.ProjectJkBean;
  */
 class ClassicBuild extends JkBean {
 
-    ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
+    ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).lately(this::configure);
 
     ClassicBuild() {
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");

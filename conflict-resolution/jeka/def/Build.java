@@ -1,16 +1,15 @@
 import dev.jeka.core.api.depmanagement.resolution.JkResolutionParameters;
 import dev.jeka.core.api.java.JkJavaVersion;
+import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.testing.JkTestProcessor;
 import dev.jeka.core.api.testing.JkTestSelection;
-import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
-import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.core.tool.builtins.project.ProjectJkBean;
 
 class Build extends JkBean {
 
-    ProjectJkBean projectBean = getBean(ProjectJkBean.class).configure(this::configure);
+    ProjectJkBean projectBean = getBean(ProjectJkBean.class).lately(this::configure);
 
     Build() {
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");

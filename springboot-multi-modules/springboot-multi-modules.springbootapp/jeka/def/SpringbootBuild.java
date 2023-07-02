@@ -25,7 +25,7 @@ class SpringbootBuild extends JkBean {
 
     SpringbootBuild() {
         springboot.setSpringbootVersion("2.7.3");
-        springboot.projectBean.configure(this::configure);
+        springboot.projectBean.lately(this::configure);
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
         nodeJs.setWorkingDir(getBaseDir().resolve("../web"));
     }

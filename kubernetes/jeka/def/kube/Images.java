@@ -26,7 +26,9 @@ public class Images {
         JkLog.info("Building image " + imageName());
         Containerizer containerizer = registryContainerizer(imageName(), true);
         handleEvents(containerizer);
-        springbootImage("openjdk:17", springbootBean).containerize(containerizer);
+        springbootImage("openjdk:17", springbootBean).containerize(containerizer);;
+        JkLog.info("Image pushed at " + imageName());
+
     }
 
     String imageName() {

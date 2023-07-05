@@ -24,7 +24,10 @@ you can get it by executing :
 docker run -d -p 5000:5000 --restart=always --name registry registry:2
 ```
 
-Also, Docker Desktop embeds a k8s cluster, so you can use it if you don't have one yet installed on your machine.
+Docker Desktop embeds a k8s cluster. You can enable it from the Docker Desktop *Settings* panel.
+
+This demo has been designed to run out-of-the-box with this cluster. 
+You may need extra configuration for running with another one as Minikube.
 
 ## Build the Docker image
 
@@ -32,7 +35,7 @@ The image is build using [jib](https://github.com/GoogleContainerTools/jib/tree/
 to have a Docker daemon installed on your machine.
 
 Execute :
-```
+```shell
 ./jekaw :image
 ```
 `:image` is a command shortcut defined in [local.properties file](jeka/local.properties). This actually clean, compile, test the
@@ -46,12 +49,12 @@ To build and interact with Kubernetes cluster, we use [Fabric8io Kubernetes Clie
 
 To deploy or update the cluster with the built resources, execute : 
 ```shell
-./jeka kube#apply
+./jekaw kube#apply
 ```
 
 You can also build the application and deploy it in a row using :
 ```shell
-./jekaw kube#pipeline
+./jekaw kube#buildAllAndApply
 ```
 
 Prior testing, you must forward the port from Kubernetes cluster to your local machine :

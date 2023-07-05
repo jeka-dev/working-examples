@@ -1,19 +1,15 @@
 package kube;
 
 import com.google.common.collect.Streams;
-import io.fabric8.kubernetes.api.builder.Builder;
 import io.fabric8.kubernetes.api.model.*;
 import io.fabric8.kubernetes.api.model.apps.Deployment;
 import io.fabric8.kubernetes.api.model.apps.DeploymentBuilder;
 import io.fabric8.kubernetes.client.utils.Serialization;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
 import org.yaml.snakeyaml.Yaml;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Model of the Kubernetes resources for this project.
@@ -25,7 +21,7 @@ class Resources {
 
     Service appService = parse(Service.class, "app-service.yaml");
 
-    Deployment dbDeployment = parse(Deployment.class, "app-deployment.yaml");
+    Deployment dbDeployment = parse(Deployment.class, "db-deployment.yaml");
 
     Service dbService = parse(Service.class, "db-service.yaml");
 
@@ -61,11 +57,11 @@ class Resources {
     // -------
 
     String renderMutableResources() {
-        return renderResources(mutableResources());
+        return render(mutableResources());
     }
 
     String renderImmutableResources() {
-        return renderResources(immutableResources());
+        return render(immutableResources());
     }
 
     private static <T> T parse(Class<T> targetClass, String resourceName) {
@@ -78,7 +74,7 @@ class Resources {
                 .collect(Collectors.toList());
     }
 
-    private static String renderResources(List<?> resources) {
+    static String render(List<?> resources) {
         StringBuilder sb = new StringBuilder();
         resources.forEach(res -> sb.append(Serialization.asYaml(res)));
         return sb.toString();

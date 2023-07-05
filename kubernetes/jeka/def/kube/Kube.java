@@ -4,7 +4,6 @@ import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
-import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 import io.fabric8.kubernetes.api.model.HasMetadata;
@@ -12,6 +11,7 @@ import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientBuilder;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 // see
@@ -46,15 +46,18 @@ class Kube extends JkBean {
     @JkDoc("Applies the defined resources to the Kubernetes cluster")
     public void apply()  {
         JkLog.startTask("Apply to kube");
+        KubernetesClient client = client();
         Resources res = resources();
+        Patch patch = env.patcher.get();
         for (HasMetadata immutableResource : res.immutableResources()) {
-            var serverRes = client().resource(immutableResource).inNamespace(patch().namespace);
+            var serverRes = client.resource(immutableResource).inNamespace(patch.namespace);
             if (serverRes.get() == null) {
                 serverRes.create();
             }
         }
-        System.out.println(res.renderMutableResources());
-        client().resourceList(res.mutableResources()).inNamespace(patch().namespace).createOrReplace();
+        List<HasMetadata> mutableResources = res.mutableResources();
+        System.out.println(res.render(mutableResources));
+        client().resourceList(mutableResources).inNamespace(patch.namespace).createOrReplace();
         JkLog.endTask();
     }
 
@@ -71,7 +74,7 @@ class Kube extends JkBean {
     }
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
-    public void pipeline() throws Exception {
+    public void buildAllAndApply() throws Exception {
         springboot.projectBean.clean();
         springboot.projectBean.test();
         buildImage();
@@ -97,12 +100,9 @@ class Kube extends JkBean {
     }
 
     private KubernetesClient client() {
-        return new KubernetesClientBuilder().build();
+        return new KubernetesClientBuilder()
+                .build();
     }
 
-    // Convenient if you don't have Jeka intellij plugin
-    public static void main(String[] args) {
-        JkInit.instanceOf(Kube.class).apply();
-    }
 
 }

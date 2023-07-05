@@ -36,9 +36,9 @@ to have a Docker daemon installed on your machine.
 
 Execute :
 ```shell
-./jekaw :image
+./jekaw :build
 ```
-`:image` is a command shortcut defined in [local.properties file](jeka/local.properties). This actually clean, compile, test the
+`:build` is a command shortcut defined in [local.properties file](jeka/local.properties). This actually clean, compile, test the
 application (`project#test`) prior to build the Docker image and publish it (`kube#buildImage`).
 
 Go [here](http://localhost:5000/v2/knote-java/tags/list) to check that your image has been actually deployed on your registry.
@@ -70,10 +70,20 @@ it reflects the content of the `Kube` class.
 
 Now you can access to your local application by [clicking here](http://localhost:8080/)
 
+## Deploy in staging and prod environment
+
+To deploy in a staging/prod cluster, execute :
+```
+./jekaw kube#apply kube#env=STAGING  
+```
+
 ## How does it work ?
 
 Jeka builds (compiles and tests) the Springboot application using [Jeka Springboot 
 plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/dev.jeka.plugins.springboot).
+
+The application build is specified in [local.properties file](jeka/local.properties) while
+[project-dependencies.txt](jeka/project-dependencies.txt) specifies dependencies.
 
 A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact with command-line 
 or the IDE. This BBean delegates the tasks to following classes :

@@ -16,7 +16,7 @@ public class Image {
 
     static final String APP_IMAGE_REGISTRY = "localhost:5000";
 
-    String version;
+    String appVersion;
 
     void build(SpringbootJkBean springbootBean) throws Exception {
         Containerizer containerizer = JibHelper.registryContainerizer(imageName());
@@ -29,7 +29,7 @@ public class Image {
     }
 
     String imageTag() {
-        return version == null ? "latest" : version;
+        return appVersion == null ? "latest" : appVersion;
     }
 
 }

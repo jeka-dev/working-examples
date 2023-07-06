@@ -36,7 +36,7 @@ to have a Docker daemon installed on your machine.
 
 Execute :
 ```shell
-./jekaw :build
+./jekaw #buildAndApply
 ```
 `:build` is a command shortcut defined in [local.properties file](jeka/local.properties). This actually clean, compile, test the
 application (`project#test`) prior to build the Docker image and publish it (`kube#buildImage`).
@@ -49,23 +49,23 @@ To build and interact with Kubernetes cluster, we use [Fabric8io Kubernetes Clie
 
 To deploy or update the cluster with the built resources, execute : 
 ```shell
-./jekaw kube#apply
+./jekaw #apply
 ```
 
 You can also build the application and deploy it in a row using :
 ```shell
-./jekaw kube#buildAllAndApply
+./jekaw #buildAllAndApply
 ```
 
 Prior testing, you must forward the port from Kubernetes cluster to your local machine :
 ```shell
-./jekaw kube#portForward
+./jekaw #portForward
 ```
 
 To display all methods/properties available on this project, execute the following command, 
 it reflects the content of the `Kube` class.
 ```shell
-./jekaw kube#help
+./jekaw #help
 ```
 
 Now you can access to your local application by [clicking here](http://localhost:8080/)
@@ -109,6 +109,9 @@ A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact wit
 or the IDE. This KBean delegates the tasks to following classes :
 - [Image](jeka/def/kube/Image.java) : Produces the container image.
 - [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
+- 2 generic helper classes that can be externalized in a lib/plugin. They provides simple convenient methods to deal with Jib and Fabric8 libs.
+
+
 
 
 ## The image

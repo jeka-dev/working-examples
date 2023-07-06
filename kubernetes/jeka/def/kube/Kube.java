@@ -17,6 +17,7 @@ import java.util.List;
 // - https://learnk8s.io/spring-boot-kubernetes-guide
 // - https://github.com/fabric8io/kubernetes-client
 // - https://github.com/fabric8io/kubernetes-client/blob/master/doc/CHEATSHEET.md
+// - https://github.com/GoogleContainerTools/jib/tree/master/jib-core
 
 @JkInjectClasspath("com.google.cloud.tools:jib-core:0.23.0")
 @JkInjectClasspath("io.fabric8:kubernetes-client:6.5.1")

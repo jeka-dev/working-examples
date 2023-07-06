@@ -70,12 +70,32 @@ it reflects the content of the `Kube` class.
 
 Now you can access to your local application by [clicking here](http://localhost:8080/)
 
-## Deploy in staging and prod environment
+## Build and deploy in multi-environment
 
-To deploy in a staging/prod cluster, execute :
+For simplicity's sake, we are managing only 3 environments sharing the same local Kubernetes cluster and Docker registry.
+Only k8s namespace, container environment variables and replica count diverges from one environment to another.
+- local: for development, only deployed from local machine
+- staging: build and deployed from aCI tool
+- prod: deployed from CI tool
+
+### Build and deploy in *staging* environment
+
+To build and deploy in *staging* enviroment, the CI tool, just need to execute 
+the following command, where `${BUIL_ID}` is an id generated from the CI tool, from where 
+we can retrieve orinial Git commit and branch.
 ```
-./jekaw kube#apply kube#env=STAGING  
+./jekaw #buildAndApply #target=STAGING #appVersion=${BUILD_ID}
 ```
+
+### Deploy in *prod* environment
+
+In the same pipeline, the CI tool may provide a step to deploy the already
+built application, in *prod* environment.
+
+```
+./jekaw #apply #target=PROD #appVersion=${BUILD_ID}
+```
+
 
 ## How does it work ?
 
@@ -86,39 +106,27 @@ The application build is specified in [local.properties file](jeka/local.propert
 [project-dependencies.txt](jeka/project-dependencies.txt) specifies dependencies.
 
 A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact with command-line 
-or the IDE. This BBean delegates the tasks to following classes :
-- [Images](jeka/def/kube/Images.java) : Produces the container image.
+or the IDE. This KBean delegates the tasks to following classes :
+- [Image](jeka/def/kube/Image.java) : Produces the container image.
 - [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
-- [Patch](jeka/def/kube/Patch.java) : Defines the variants to apply according deployment environment (K8s resources and container registry).
+
 
 ## The image
 
-The image is built using *Jib* technology, so we don't need a local Docker deamon to build the image.
+The image is built using *Jib* technology, so we don't need a local Docker daemon to build the image.
 
-The `Ìmages` class needs 2 parameters to build image :
-- The registry to deploy the build image. Note that it is also possible to build image as file (tarball) or  
-  to deploy it on a docker daemon but as k8s require a registry to fetch the image, this intermediate stage in not relevant.
+The `Ìmage` class needs 2 parameters to build image :
 - The `SpringbootJkBean` that contains all info to actually bbuid the image (location of classes and libs, and the main class name).
+- An optional version for tagging the image (default is *latest*)
 
 
 ## The Kubernetes Resources
 
-Class `Resources`define an object model of the k8s resources to deploy. The model instance is construct 
+Class `Resources` defines an object model of the k8s resources to deploy. The model instance is constructed
 from yaml static resources. This class proposes methods to :
 - modify the model conveniently (setters)
 - render the model in yaml format
-
-The model is based on an library which works with immutable object, making deep structure modification
-a little bit tedious. This is mitigated with the usage of setter methods to wrap common modifications.
-
-## The Patches to deal with multi environment
-
-Each patch instance describe the modifications to apply for a given environment.
-In this pattern, patches are defined relatively from another to minimize the the change description.
-
-For simplicity sake, here, we use a single k8s cluster but each environment deploys to a distinct namespace.
-
-In *local*, the application run on a single pod while in higher environment, it deploys on 2 replicas.
+- Factory methods for creating `Resources`objects customised for predefined environments
 
 ## The Kube KBean
 
@@ -126,14 +134,12 @@ The `Kube` KBean defines methods that :
 - Developers may need during development to set up the k8s resources properly.
 - CI/CD tool need to actually build and deploy resources.
 
-The target environment can be selected by mentioning the `kube#env=STATGING` option in the command line. 
+The target environment can be selected by mentioning the `kube#target=STATGING` option in the command line. 
 
 For example, the following command displays the k8s resources as they will be deployed in PROD environment.
 ```shell
-./jekaw kube#showResources kube#env=PROD
+./jekaw #render #target=PROD
 ```
-
-In addition, the `Kube` KBean offers the `pipeline`method that does compile, test and deploy in a row.
 
 # Conclusion
 

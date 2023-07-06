@@ -12,7 +12,6 @@ import io.fabric8.kubernetes.client.KubernetesClientBuilder;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 // see
 // - https://learnk8s.io/spring-boot-kubernetes-guide
@@ -27,9 +26,9 @@ import java.util.function.Supplier;
 class Kube extends JkBean {
 
     @RequiredArgsConstructor
-    enum Env {
+    enum Target {
 
-        LOCAL("default", Resources.ofDefault()),
+        LOCAL("default", Resources.ofLocal()),
         STAGING("staging", Resources.ofStaging()),
         PROD("prod", Resources.ofProd());
 
@@ -38,13 +37,18 @@ class Kube extends JkBean {
         final Resources resources;
     }
 
-    private final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
+    @JkDoc("Kubernetes environment to deploy application")
+    public Target target = Target.LOCAL;
 
-    public Env env = Env.LOCAL;
+    @JkDoc("The version of the application to build or deploy. " +
+            "This is supposed to be injected by the CI tool and contain information as calendar and build number.")
+    public String appVersion;
+
+    private final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
     @JkDoc("Build and push the application container image. This assumes that application ahs already been built.")
     public void buildImage() throws Exception {
-        images().buildImage();
+        appImage().build(springboot);
     }
 
     @JkDoc("Applies the defined resources to the Kubernetes cluster")
@@ -53,19 +57,19 @@ class Kube extends JkBean {
         KubernetesClient client = client();
         Resources res = resources();
         for (HasMetadata immutableResource : res.immutableResources()) {
-            var serverRes = client.resource(immutableResource).inNamespace(env.namespace);
+            var serverRes = client.resource(immutableResource).inNamespace(target.namespace);
             if (serverRes.get() == null) {
                 serverRes.create();
             }
         }
         List<HasMetadata> mutableResources = res.mutableResources();
-        System.out.println(res.render(mutableResources));
-        client().resourceList(mutableResources).inNamespace(env.namespace).createOrReplace();
+        JkLog.info(res.render(mutableResources));
+        client().resourceList(mutableResources).inNamespace(target.namespace).createOrReplace();
         JkLog.endTask();
     }
 
     @JkDoc("Displays the defined Kubernetes resources to deploy")
-    public void showResources() {
+    public void render() {
         System.out.println(resources().renderMutableResources());
         System.out.println(resources().renderImmutableResources());
     }
@@ -73,11 +77,11 @@ class Kube extends JkBean {
     @JkDoc("Removes the defined resources from the Kubernetes cluster")
     public void delete() {
         Resources res = resources();
-        client().resourceList(res.allResources()).inNamespace(env.namespace).delete();
+        client().resourceList(res.allResources()).inNamespace(target.namespace).delete();
     }
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
-    public void buildAllAndApply() throws Exception {
+    public void buildAndApply() throws Exception {
         springboot.projectBean.clean();
         springboot.projectBean.test();
         buildImage();
@@ -90,17 +94,15 @@ class Kube extends JkBean {
     }
 
     private Resources resources() {
-        return env.resources.setAppImageVersion(images().imageTag());
+        return target.resources.setAppImageTag(this.appVersion);
     }
 
-    private Images images() {
-        return new Images(this.springboot, env.resources.getImageRegistry());
+    private Image appImage() {
+        return new Image(this.appVersion);
     }
 
     private KubernetesClient client() {
-        return new KubernetesClientBuilder()
-                .build();
+        return new KubernetesClientBuilder().build();
     }
-
 
 }

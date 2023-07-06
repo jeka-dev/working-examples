@@ -1,39 +1,40 @@
 package kube;
 
 import com.google.common.collect.Streams;
-import dev.jeka.core.api.utils.JkUtilsString;
 import io.fabric8.kubernetes.api.model.*;
 import io.fabric8.kubernetes.api.model.apps.Deployment;
-import io.fabric8.kubernetes.api.model.apps.DeploymentBuilder;
 import io.fabric8.kubernetes.client.utils.Serialization;
+import kube.support.Fabric8Helper;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.yaml.snakeyaml.Yaml;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * Object model of the Kubernetes resources for this project.
- * The model segregates resources that are mutable (updatable) from the ones that can not be updayed.
+ * The model segregates resources that are mutable (updatable) from the ones that can not be updated.
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 class Resources {
 
-    static Resources ofDefault() {
-        return new Resources().setAppImageFullName("localhost:5000/" + Images.APP_IMAGE_REPO + ":latest");
+    static Resources ofLocal() {
+        Resources resources = new Resources();
+        resources.appContainer().setImage(Image.APP_IMAGE_REGISTRY + "/" + Image.APP_IMAGE_REPO + ":latest");
+        resources.springProfilesActive("local");
+        return resources;
     }
 
     static Resources ofStaging() {
-        Resources resources = ofDefault().setAppImageRegistry("my.official.registry:5000");
+        Resources resources = ofLocal();
         resources.appDeployment.getSpec().setReplicas(2);
+        resources.springProfilesActive("staging" );
         return resources;
     }
 
     static Resources ofProd() {
         Resources resources = ofStaging();
-        resources.appDeployment.getSpec().setReplicas(4);
+        resources.springProfilesActive("prod" );
         return resources;
     }
 
@@ -59,34 +60,10 @@ class Resources {
         return Streams.concat(immutableResources().stream(), mutableResources().stream()).toList();
     }
 
-    // --------- setters
-
-    private Resources setAppImageFullName(String imageFullName) {
-        appDeployment.getSpec().getTemplate().getSpec().getContainers().get(0).setImage(imageFullName);
+    Resources setAppImageTag(String tag) {
+        Fabric8Helper.changeImageTag(appContainer(), tag);
         return this;
     }
-
-    private String fullImageName() {
-        return appDeployment.getSpec().getTemplate().getSpec().getContainers().get(0).getImage();
-    }
-
-    private Resources setAppImageRegistry(String registry) {
-        String result = registry + "/" + JkUtilsString.substringAfterFirst(fullImageName(), "/");
-        appDeployment.getSpec().getTemplate().getSpec().getContainers().get(0).setImage(result);
-        return this;
-    }
-
-    Resources setAppImageVersion(String version) {
-        String result =  JkUtilsString.substringBeforeLast(fullImageName(), ":") + ":" + version;
-        appDeployment.getSpec().getTemplate().getSpec().getContainers().get(0).setImage(result);
-        return this;
-    }
-
-    String getImageRegistry() {
-      return JkUtilsString.substringBeforeFirst(fullImageName(), "/");
-    }
-
-    // -------
 
     String renderMutableResources() {
         return render(mutableResources());
@@ -96,20 +73,22 @@ class Resources {
         return render(immutableResources());
     }
 
-    private static <T> T parse(Class<T> targetClass, String resourceName) {
-        return new Yaml().loadAs(Kube.class.getResourceAsStream(resourceName), targetClass);
+    private Container appContainer() {
+        return appDeployment.getSpec().getTemplate().getSpec().getContainers().get(0);
     }
 
-    private static List<EnvVar> toEnvVars(Map<String, String> values) {
-        return values.entrySet().stream()
-                .map(entry -> new EnvVarBuilder().addToAdditionalProperties(entry.getKey(), entry.getValue()).build())
-                .collect(Collectors.toList());
+    private void springProfilesActive(String profiles) {
+        Fabric8Helper.setEnvVar(appContainer(), "SPRING_PROFILES_ACTIVE", profiles );
     }
 
     static String render(List<?> resources) {
         StringBuilder sb = new StringBuilder();
         resources.forEach(res -> sb.append(Serialization.asYaml(res)));
         return sb.toString();
+    }
+
+    private static <T> T parse(Class<T> targetClass, String resourceName) {
+        return new Yaml().loadAs(Kube.class.getResourceAsStream(resourceName), targetClass);
     }
 
 }

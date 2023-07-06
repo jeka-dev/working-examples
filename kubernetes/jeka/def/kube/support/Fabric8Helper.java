@@ -1,5 +1,6 @@
 package kube.support;
 
+import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.utils.JkUtilsString;
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.EnvVar;
@@ -73,7 +74,11 @@ public class Fabric8Helper {
 
     public static Namespace createNamespaceIfNotExist(KubernetesClient client, String namespace) {
         Namespace existing = client.namespaces().withName(namespace).get();
-        return existing != null ? existing : client.namespaces().create(new NamespaceBuilder()
+        if (existing != null) {
+            return existing;
+        }
+        JkLog.info("Create namespace %s", namespace);
+        return client.namespaces().create(new NamespaceBuilder()
                 .withNewMetadata()
                     .withName(namespace)
                 .endMetadata()

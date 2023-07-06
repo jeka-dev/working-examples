@@ -21,7 +21,7 @@ spec:
             - name: MONGO_URL
               value: mongodb://mongo:27017/dev
           imagePullPolicy: IfNotPresent
-          # readinessProbe:
-          #  httpGet:
-          #    path: /actuator/health
-          #    port: 8080
+          readinessProbe:
+            httpGet:
+             path: /actuator/health
+             port: 8080

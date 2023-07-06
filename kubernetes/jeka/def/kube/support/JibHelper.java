@@ -80,5 +80,4 @@ public class JibHelper {
             throw new IllegalArgumentException(e);
         }
     }
-
 }

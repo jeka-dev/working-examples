@@ -3,6 +3,9 @@ package kube.support;
 import dev.jeka.core.api.utils.JkUtilsString;
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.EnvVar;
+import io.fabric8.kubernetes.api.model.Namespace;
+import io.fabric8.kubernetes.api.model.NamespaceBuilder;
+import io.fabric8.kubernetes.client.KubernetesClient;
 
 import java.util.ListIterator;
 
@@ -66,5 +69,14 @@ public class Fabric8Helper {
         if (!found && value != null) {
             container.getEnv().add(new EnvVar(key, value, null));
         }
+    }
+
+    public static Namespace createNamespaceIfNotExist(KubernetesClient client, String namespace) {
+        Namespace existing = client.namespaces().withName(namespace).get();
+        return existing != null ? existing : client.namespaces().create(new NamespaceBuilder()
+                .withNewMetadata()
+                    .withName(namespace)
+                .endMetadata()
+                .build());
     }
 }

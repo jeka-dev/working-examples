@@ -5,7 +5,8 @@ This demo is based on [this Kubernetes tutorial](https://learnk8s.io/spring-boot
 It consists in a Springboot web app backed by a MongoDB database.
 
 This project showcases how we can automate Kubernetes deployment in multi-environments, using 
-pure Java technologies.
+pure Java technologies, meaning by setting up an object model of the infrastructure we want to build.
+
 
 ## prerequisite
 

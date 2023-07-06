@@ -9,6 +9,7 @@ import dev.jeka.plugins.springboot.SpringbootJkBean;
 import io.fabric8.kubernetes.api.model.HasMetadata;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientBuilder;
+import kube.support.Fabric8Helper;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -57,6 +58,7 @@ class Kube extends JkBean {
         JkLog.startTask("Apply to kube");
         KubernetesClient client = client();
         Resources res = resources();
+        Fabric8Helper.createNamespaceIfNotExist(client, target.namespace);
         for (HasMetadata immutableResource : res.immutableResources()) {
             var serverRes = client.resource(immutableResource).inNamespace(target.namespace);
             if (serverRes.get() == null) {

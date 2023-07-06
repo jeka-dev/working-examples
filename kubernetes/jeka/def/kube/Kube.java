@@ -29,9 +29,13 @@ class Kube extends JkBean {
     @RequiredArgsConstructor
     enum Env {
 
-        LOCAL(Patch::new), STAGING(Patch::stating), PROD(Patch::prod);
+        LOCAL("default", Resources.ofDefault()),
+        STAGING("staging", Resources.ofStaging()),
+        PROD("prod", Resources.ofProd());
 
-        final Supplier<Patch> patcher;
+        final String namespace;
+
+        final Resources resources;
     }
 
     private final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
@@ -48,16 +52,15 @@ class Kube extends JkBean {
         JkLog.startTask("Apply to kube");
         KubernetesClient client = client();
         Resources res = resources();
-        Patch patch = env.patcher.get();
         for (HasMetadata immutableResource : res.immutableResources()) {
-            var serverRes = client.resource(immutableResource).inNamespace(patch.namespace);
+            var serverRes = client.resource(immutableResource).inNamespace(env.namespace);
             if (serverRes.get() == null) {
                 serverRes.create();
             }
         }
         List<HasMetadata> mutableResources = res.mutableResources();
         System.out.println(res.render(mutableResources));
-        client().resourceList(mutableResources).inNamespace(patch.namespace).createOrReplace();
+        client().resourceList(mutableResources).inNamespace(env.namespace).createOrReplace();
         JkLog.endTask();
     }
 
@@ -70,7 +73,7 @@ class Kube extends JkBean {
     @JkDoc("Removes the defined resources from the Kubernetes cluster")
     public void delete() {
         Resources res = resources();
-        client().resourceList(res.allResources()).inNamespace(patch().namespace).delete();
+        client().resourceList(res.allResources()).inNamespace(env.namespace).delete();
     }
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
@@ -86,17 +89,12 @@ class Kube extends JkBean {
         JkProcess.of("kubectl", "port-forward", "deployment/knote", "8080:8080").exec();
     }
 
-    private Patch patch() {
-        return env.patcher.get();
-    }
-
     private Resources resources() {
-        return patch().resources()
-                .setAppImageName(images().imageName());
+        return env.resources.setAppImageVersion(images().imageTag());
     }
 
     private Images images() {
-        return new Images(this.springboot, patch().imageRegistry);
+        return new Images(this.springboot, env.resources.getImageRegistry());
     }
 
     private KubernetesClient client() {

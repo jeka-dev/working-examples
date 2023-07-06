@@ -32,9 +32,12 @@ public class Images {
     }
 
     String imageName() {
+        return imageRegistry + "/" + APP_IMAGE_REPO + ":" + imageTag();
+    }
+
+    String imageTag() {
         JkVersion version = springbootBean.projectBean.getProject().publication.getVersion();
-        String tag = version.isSnapshot() ? "latest" : version.toString();
-        return imageRegistry + "/" + APP_IMAGE_REPO + ":" + tag;
+        return version.isSnapshot() ? "latest" : version.toString();
     }
 
     // ---- helper methods that can be exported to a generic module ---

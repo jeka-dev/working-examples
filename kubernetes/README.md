@@ -124,11 +124,10 @@ The `Ìmage` class needs 2 parameters to build image :
 
 ## The Kubernetes Resources
 
-Class `Resources` defines an object model of the k8s resources to deploy. The model instance is constructed
-from yaml static resources. This class proposes methods to :
-- modify the model conveniently (setters)
-- render the model in yaml format
-- Factory methods for creating `Resources`objects customised for predefined environments
+Class `Resources` defines an object model using Fabric8 api and support of a generic helper class.
+`Resources` provides :
+- mactory methods for creating `Resources` objects customised for predefined environments
+- accessors to get Kubernetes mutable and immutable resources to deploy. 
 
 ## The Kube KBean
 

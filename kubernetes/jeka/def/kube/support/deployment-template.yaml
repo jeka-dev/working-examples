@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tofill
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tofill
+  template:
+    metadata:
+      labels:
+        app: tofill
+    spec:
+      containers:
+        - name: tofill
+          image: tofill
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+

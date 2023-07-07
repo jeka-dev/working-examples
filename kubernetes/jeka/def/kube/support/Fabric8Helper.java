@@ -2,15 +2,22 @@ package kube.support;
 
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.utils.JkUtilsString;
-import io.fabric8.kubernetes.api.model.Container;
-import io.fabric8.kubernetes.api.model.EnvVar;
-import io.fabric8.kubernetes.api.model.Namespace;
-import io.fabric8.kubernetes.api.model.NamespaceBuilder;
+import io.fabric8.kubernetes.api.model.*;
+import io.fabric8.kubernetes.api.model.apps.Deployment;
+import io.fabric8.kubernetes.api.model.apps.DeploymentSpec;
 import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.utils.Serialization;
+import org.yaml.snakeyaml.Yaml;
 
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
-
+/**
+ * Generic helper class to create or modifify Fabric8 objects conveniently;
+ */
 public class Fabric8Helper {
 
     /**
@@ -83,5 +90,138 @@ public class Fabric8Helper {
                     .withName(namespace)
                 .endMetadata()
                 .build());
+    }
+
+    public static Service serviceFor(Deployment deployment, int port) {
+        String metadataName = deployment.getMetadata().getName();
+        Map<String, String> matchLabels = deployment.getSpec().getSelector().getMatchLabels();
+        int targetPort = deployment.getSpec().getTemplate().getSpec().getContainers().get(0).getPorts().get(0).getContainerPort();
+        return new ServiceBuilder()
+                .withNewMetadata()
+                        .withName(metadataName)
+                .endMetadata()
+                .withNewSpec()
+                        .withSelector(matchLabels)
+                        .withPorts(new ServicePortBuilder()
+                                .withPort(port)
+                                .withTargetPort(new IntOrString(targetPort))
+                                .build())
+                        .withType("LoadBalancer")
+                .endSpec()
+                .build();
+    }
+
+    /**
+     * Creates a basic deployment with a unique container.
+     * @param name Name of the deployment. It is also used to name the container, and add a
+     *             label having 'app' key.
+     * @param image full name image used by the container
+     * @param containerPort port exposed by the container
+     * @param createAppNameLabels if true, creates a label 'app' = ${name} for <i>matchLabels</i> and <i>templateLabels</i>
+     */
+    public static Deployment basicDeployment(String name, String image, int containerPort, boolean createAppNameLabels) {
+        Deployment deployment = parse(Deployment.class,
+                Fabric8Helper.class.getResourceAsStream("deployment-template.yaml"));
+        Map<String, String> labels = new HashMap<>();
+        if (createAppNameLabels) {
+            labels.put("app", name);
+        }
+        deployment.getMetadata().setName(name);
+        DeploymentSpec spec = deployment.getSpec();
+        spec.getSelector().setMatchLabels(new HashMap<>(labels));
+        PodTemplateSpec template = spec.getTemplate();
+        template.getMetadata().setLabels(new HashMap<>(labels));
+        Container container = template.getSpec().getContainers().get(0);
+        container.setName(name);
+        container.setImage(image);
+        container.setImagePullPolicy("Always");
+        ContainerPort containerPort0 = container.getPorts().get(0);
+        containerPort0.setContainerPort(containerPort);
+        return deployment;
+    }
+
+    public static <T> T parse(Class<T> targetClass, InputStream inputStream) {
+        return new Yaml().loadAs(inputStream , targetClass);
+    }
+
+    /**
+     * Provides a yaml representation of the specified kubernetes resources.
+     * @param resources list of resources to render as a yaml string. This is the representation that will bbe
+     *                  sent to K8S api when deploying.
+     */
+    public static String render(List<?> resources) {
+        StringBuilder sb = new StringBuilder();
+        resources.forEach(res -> sb.append(Serialization.asYaml(res)));
+        return sb.toString();
+    }
+
+    /**
+     * Creates resources from the specified list if they are not existing in the target namespace.
+     * Resources are tested and created one by one.
+     */
+    public static void createResourcesIfNotExist(KubernetesClient client, String namespace, List<HasMetadata> resources) {
+        for (HasMetadata resource : resources) {
+            var serverRes = client.resource(resource).inNamespace(namespace);
+            if (serverRes.get() == null) {
+                System.out.println(render(List.of(resource)));
+                serverRes.create();
+            }
+        }
+    }
+
+    public static Probe addSpringbootActuatorReadiness(Container container) {
+        Probe probe = new ProbeBuilder()
+                        .editOrNewHttpGet()
+                            .withPath("/actuator/health/readiness")
+                            .withPort(new IntOrString(container.getPorts().get(0).getContainerPort()))
+                        .endHttpGet()
+                .build();
+        container.setReadinessProbe(probe);
+        return probe;
+    }
+
+    public static Probe addSpringbootActuatorLiveness(Container container) {
+        Probe probe = new ProbeBuilder()
+                .editOrNewHttpGet()
+                    .withPath("/actuator/health/liveness")
+                    .withPort(new IntOrString(container.getPorts().get(0).getContainerPort()))
+                .endHttpGet()
+                .build();
+        container.setReadinessProbe(probe);
+        return probe;
+    }
+
+    public static Container firstContainer(Deployment deployment) {
+        return deployment.getSpec().getTemplate().getSpec().getContainers().get(0);
+    }
+
+    public static VolumeMount volumeMount(String name, String mountPath) {
+        return new VolumeMountBuilder()
+                .withName("storage")
+                .withMountPath("/data/db").build();
+    }
+
+    public static Volume refToPersistentVolumeClaim(String name, HasMetadata claim) {
+        return new VolumeBuilder()
+                .withName(name)
+                .editOrNewPersistentVolumeClaim()
+                .withClaimName(claim.getMetadata().getName())
+                .endPersistentVolumeClaim()
+                .build();
+    }
+
+    public static PersistentVolumeClaim persistenceVolumeClaim(String name,
+                                                               Map<String, Quantity> requests, String... accessModes) {
+        return new PersistentVolumeClaimBuilder()
+                .editOrNewMetadata()
+                    .withName(name)
+                .endMetadata()
+                .editOrNewSpec()
+                    .withAccessModes(accessModes)
+                    .editOrNewResources()
+                        .withRequests(requests)
+                    .endResources()
+                .endSpec()
+                .build();
     }
 }

@@ -24,12 +24,16 @@ public class Image {
         JkLog.info("Image pushed at " + imageName());
     }
 
-    String imageName() {
-        return APP_IMAGE_REGISTRY + "/" + APP_IMAGE_REPO + ":" + imageTag();
+    private String imageName() {
+        return name()+ ":" + imageTag();
     }
 
-    String imageTag() {
+    private String imageTag() {
         return appVersion == null ? "latest" : appVersion;
+    }
+
+    static String name() {
+        return APP_IMAGE_REGISTRY + "/" + APP_IMAGE_REPO;
     }
 
 }

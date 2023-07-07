@@ -6,13 +6,10 @@ import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
-import io.fabric8.kubernetes.api.model.HasMetadata;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientBuilder;
 import kube.support.Fabric8Helper;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 // see
 // - https://learnk8s.io/spring-boot-kubernetes-guide
@@ -59,22 +56,16 @@ class Kube extends JkBean {
         KubernetesClient client = client();
         Resources res = resources();
         Fabric8Helper.createNamespaceIfNotExist(client, target.namespace);
-        for (HasMetadata immutableResource : res.immutableResources()) {
-            var serverRes = client.resource(immutableResource).inNamespace(target.namespace);
-            if (serverRes.get() == null) {
-                serverRes.create();
-            }
-        }
-        List<HasMetadata> mutableResources = res.mutableResources();
-        JkLog.info(res.render(mutableResources));
-        client().resourceList(mutableResources).inNamespace(target.namespace).createOrReplace();
+        Fabric8Helper.createResourcesIfNotExist(client, target.namespace, res.immutableResources());
+        JkLog.info(Fabric8Helper.render(res.mutableResources()));
+        client().resourceList(res.mutableResources()).inNamespace(target.namespace).createOrReplace();
         JkLog.endTask();
     }
 
     @JkDoc("Displays the defined Kubernetes resources to deploy")
     public void render() {
-        System.out.println(resources().renderMutableResources());
-        System.out.println(resources().renderImmutableResources());
+        System.out.println(Fabric8Helper.render(resources().mutableResources()));
+        System.out.println(Fabric8Helper.render(resources().immutableResources()));
     }
 
     @JkDoc("Removes the defined resources from the Kubernetes cluster")
@@ -93,7 +84,7 @@ class Kube extends JkBean {
 
     @JkDoc("Execute a port-forward in order the application is reachable from outside k8s.")
     public void portForward() {
-        JkProcess.of("kubectl", "port-forward", "deployment/knote", "8080:8080").exec();
+        JkProcess.of("kubectl", "port-forward", "service/knote", "8080:80").exec();
     }
 
     private Resources resources() {

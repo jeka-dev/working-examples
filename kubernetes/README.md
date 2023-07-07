@@ -1,11 +1,11 @@
 # A Springboot + mongoDb project deployed on Kubernetes
 
-This demo is based on [this Kubernetes tutorial](https://learnk8s.io/spring-boot-kubernetes-guide),
+This demo is based on [a Spring Boot Kubernetes tutorial](https://learnk8s.io/spring-boot-kubernetes-guide),
 
 It consists in a Springboot web app backed by a MongoDB database.
 
-This project showcases how we can automate Kubernetes deployment in multi-environments, using 
-pure Java technologies, meaning by setting up an object model of the infrastructure we want to build.
+This demo showcases how we can automate Kubernetes deployment in multi-environments using 
+pure Java technologies, by modeling the infrastructure with the Java object model paradigm.
 
 
 ## prerequisite
@@ -74,16 +74,16 @@ Now you can access to your local application by [clicking here](http://localhost
 ## Build and deploy in multi-environment
 
 For simplicity's sake, we are managing only 3 environments sharing the same local Kubernetes cluster and Docker registry.
-Only k8s namespace, container environment variables and replica count diverges from one environment to another.
+Only k8s namespace, environment variables, volume size and replica count diverges from one environment to another.
 - local: for development, only deployed from local machine
 - staging: build and deployed from aCI tool
 - prod: deployed from CI tool
 
 ### Build and deploy in *staging* environment
 
-To build and deploy in *staging* enviroment, the CI tool, just need to execute 
+To build and deploy in *staging* environment, the CI tool, just need to execute 
 the following command, where `${BUIL_ID}` is an id generated from the CI tool, from where 
-we can retrieve orinial Git commit and branch.
+we can retrieve original Git commit and branch.
 ```
 ./jekaw #buildAndApply #target=STAGING #appVersion=${BUILD_ID}
 ```
@@ -110,9 +110,7 @@ A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact wit
 or the IDE. This KBean delegates the tasks to following classes :
 - [Image](jeka/def/kube/Image.java) : Produces the container image.
 - [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
-- 2 generic helper classes that can be externalized in a lib/plugin. They provides simple convenient methods to deal with Jib and Fabric8 libs.
-
-
+- 2 generic helper classes that can be externalized in a lib/plugin. They provides simple convenient methods to deal with Jib and Fabric8 api.
 
 
 ## The image
@@ -120,7 +118,7 @@ or the IDE. This KBean delegates the tasks to following classes :
 The image is built using *Jib* technology, so we don't need a local Docker daemon to build the image.
 
 The `Ìmage` class needs 2 parameters to build image :
-- The `SpringbootJkBean` that contains all info to actually bbuid the image (location of classes and libs, and the main class name).
+- The `SpringbootJkBean` : this contains all info to actually build the image (location of classes/libs, and the main class name).
 - An optional version for tagging the image (default is *latest*)
 
 

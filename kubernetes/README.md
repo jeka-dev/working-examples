@@ -127,7 +127,8 @@ The `Ìmage` class needs 2 parameters to build image :
 Class `Resources` defines an object model using Fabric8 api and support of a generic helper class.
 `Resources` provides :
 - mactory methods for creating `Resources` objects customised for predefined environments
-- accessors to get Kubernetes mutable and immutable resources to deploy. 
+- accessors to get Kubernetes mutable and immutable resources to deploy
+- mutators to modify the Kubernetes resource conveniently, such as changing the image tag for the app container. 
 
 ## The Kube KBean
 

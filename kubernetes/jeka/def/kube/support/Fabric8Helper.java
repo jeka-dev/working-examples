@@ -92,21 +92,36 @@ public class Fabric8Helper {
                 .build());
     }
 
+    /**
+     * Creates a service to expose the port of the first container defined in the specified deployment.
+     * @see #serviceFor(Deployment, int, int, int)
+     */
     public static Service serviceFor(Deployment deployment, int port) {
+        return serviceFor(deployment, 0, 0, port);
+    }
+
+    /**
+     * Creates a service to expose a port of a container defined in the specified deployment.
+     * @param containerIndex The zero-based index to select which container within the specified deployment
+     * @param portIndex The zero-based index to select which port within the specified container
+     * @param port the port that will be visible for client. This is not the container port.
+     */
+    public static Service serviceFor(Deployment deployment, int containerIndex, int portIndex, int port) {
         String metadataName = deployment.getMetadata().getName();
         Map<String, String> matchLabels = deployment.getSpec().getSelector().getMatchLabels();
-        int targetPort = deployment.getSpec().getTemplate().getSpec().getContainers().get(0).getPorts().get(0).getContainerPort();
+        int targetPort = deployment.getSpec().getTemplate().getSpec().getContainers().get(containerIndex)
+                .getPorts().get(portIndex).getContainerPort();
         return new ServiceBuilder()
                 .withNewMetadata()
-                        .withName(metadataName)
+                .withName(metadataName)
                 .endMetadata()
                 .withNewSpec()
-                        .withSelector(matchLabels)
-                        .withPorts(new ServicePortBuilder()
-                                .withPort(port)
-                                .withTargetPort(new IntOrString(targetPort))
-                                .build())
-                        .withType("LoadBalancer")
+                .withSelector(matchLabels)
+                .withPorts(new ServicePortBuilder()
+                        .withPort(port)
+                        .withTargetPort(new IntOrString(targetPort))
+                        .build())
+                .withType("LoadBalancer")
                 .endSpec()
                 .build();
     }

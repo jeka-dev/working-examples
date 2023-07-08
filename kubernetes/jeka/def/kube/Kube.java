@@ -1,5 +1,6 @@
 package kube;
 
+import dev.jeka.core.api.java.JkManifest;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.tool.JkBean;
@@ -45,6 +46,11 @@ class Kube extends JkBean {
 
     private final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
+    Kube() {
+         springboot.projectBean.lately(project ->
+                 project.packaging.manifest.addMainAttribute(JkManifest.IMPLEMENTATION_VERSION, appVersion));
+    }
+
     @JkDoc("Build and push the application container image. This assumes that application ahs already been built.")
     public void buildImage() throws Exception {
         appImage().build(springboot);
@@ -76,8 +82,7 @@ class Kube extends JkBean {
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
     public void buildAndApply() throws Exception {
-        springboot.projectBean.clean();
-        springboot.projectBean.test();
+        springboot.projectBean.cleanPack();
         buildImage();
         apply();
     }

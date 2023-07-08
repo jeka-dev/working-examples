@@ -32,7 +32,6 @@ class Resources {
         appDeployment = Fabric8Helper.basicDeployment("knote", Image.name(), 8080, true );
         Probe readinessProbe = Fabric8Helper.addSpringbootActuatorReadiness(appContainer());
         readinessProbe.setPeriodSeconds(3);
-        Fabric8Helper.setEnvVar(appContainer(), "MONGO_URL", "mongodb://mongo:27017/dev");
 
         appService = Fabric8Helper.serviceFor(appDeployment, 80);
 

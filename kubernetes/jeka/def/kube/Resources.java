@@ -55,14 +55,14 @@ class Resources {
     static Resources ofStaging() {
         Resources resources = ofLocal();
         resources.appDeployment.getSpec().setReplicas(2);
-        resources.springProfilesActive("staging" );
+        resources.springProfilesActive("staging");
         resources.storageQuantity("512Mi");
         return resources;
     }
 
     static Resources ofProd() {
         Resources resources = ofStaging();
-        resources.springProfilesActive("prod" );
+        resources.springProfilesActive("prod");
         resources.storageQuantity("4Gi");
         return resources;
     }
@@ -78,6 +78,10 @@ class Resources {
 
     List<HasMetadata> allResources() {
         return Streams.concat(immutableResources().stream(), mutableResources().stream()).toList();
+    }
+
+    int appPort() {
+        return appService.getSpec().getPorts().get(0).getPort();
     }
 
     Resources setAppImageTag(String tag) {

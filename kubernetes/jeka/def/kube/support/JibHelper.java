@@ -5,13 +5,11 @@ import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.utils.JkUtilsString;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
-import io.fabric8.kubernetes.api.model.*;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Map;
 
 import static java.util.Collections.singletonList;
 

@@ -1,6 +1,5 @@
 package kube;
 
-import dev.jeka.core.api.java.JkManifest;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.tool.JkBean;
@@ -46,11 +45,6 @@ class Kube extends JkBean {
 
     private final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
-    Kube() {
-         springboot.projectBean.lately(project ->
-                 project.packaging.manifest.addMainAttribute(JkManifest.IMPLEMENTATION_VERSION, appVersion));
-    }
-
     @JkDoc("Build and push the application container image. This assumes that application ahs already been built.")
     public void buildImage() throws Exception {
         appImage().build(springboot);
@@ -89,7 +83,7 @@ class Kube extends JkBean {
 
     @JkDoc("Execute a port-forward in order the application is reachable from outside k8s.")
     public void portForward() {
-        JkProcess.of("kubectl", "port-forward", "service/knote", "8080:80").exec();
+        JkProcess.of("kubectl", "port-forward", "service/knote", "8080:" + resources().appPort());
     }
 
     private Resources resources() {

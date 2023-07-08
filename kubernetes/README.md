@@ -110,7 +110,7 @@ A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact wit
 or the IDE. This KBean delegates the tasks to following classes :
 - [Image](jeka/def/kube/Image.java) : Produces the container image.
 - [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
-- 2 generic helper classes that can be externalized in a lib/plugin. They provides simple convenient methods to deal with Jib and Fabric8 api.
+- [2 generic helper classes](jeka/def/kube/support) that can be externalized in a lib/plugin. They provide simple convenient methods to deal with Jib and Fabric8 api.
 
 
 ## The image

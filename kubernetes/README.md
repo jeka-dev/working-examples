@@ -1,14 +1,64 @@
 # A Springboot-mongoDb application deployed on Kubernetes
 
-This demo is based on [a Spring Boot Kubernetes tutorial](https://learnk8s.io/spring-boot-kubernetes-guide),
+This demo is based on a Spring Boot Kubernetes tutorial available at https://learnk8s.io/spring-boot-kubernetes-guide.
 
-It consists in a Springboot web app backed by a MongoDB database.
+It showcases a Spring Boot web application that utilizes a MongoDB database as its backend.
 
-This demo showcases how we can automate Kubernetes deployment in multi-environments using 
-pure Java technologies, by modeling the infrastructure with the Java object model paradigm.
+The main objective of this demo is to demonstrate the automation of Kubernetes deployment across multiple environments using pure Java technologies. 
+The following libraries are used for this purpose:
+
+- [jib core library](https://github.com/GoogleContainerTools/jib/tree/master/jib-core) for building container images
+- [Fabric8io Kubernetes Client](https://github.com/fabric8io/kubernetes-client) Fabric8io Kubernetes Client for specifying and deploying Kubernetes resources
+
+## How does it work ?
+
+Jeka builds (compiles and tests) the Springboot application using [Jeka Springboot
+plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/dev.jeka.plugins.springboot).
+
+The application build is specified in [local.properties file](jeka/local.properties) while
+[project-dependencies.txt](jeka/project-dependencies.txt) specifies dependencies.
+
+A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact with command-line
+or the IDE. This KBean delegates the tasks to following classes :
+- [Image](jeka/def/kube/Image.java) : Produces the container image.
+- [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
+- [2 generic helper classes](jeka/def/kube/support) that can be externalized in a lib/plugin. They provide simple convenient methods to deal with Jib and Fabric8 api.
 
 
-## prerequisite
+### The image
+
+The image is built using Jib technology, which eliminates the need for a local Docker daemon to build the image. To build the image, you need to provide the following inputs:
+
+- The SpringbootJkBean: This contains all the necessary information to build the image, such as the location of classes/libs and the main class name.
+- An optional version for tagging the image (the default is latest).
+
+
+### The Kubernetes Resources
+
+The `Resources` class defines an object model using the Fabric8 API, which provides the following functionalities:
+
+- Factory methods for creating `Resources` objects customized for predefined environments.
+- Accessors to retrieve Kubernetes mutable and immutable resources for deployment.
+- Mutators to conveniently modify Kubernetes resources, such as changing the image tag for the application container.
+
+### The Kube KBean
+
+The `Kube` KBean defines methods that serve two purposes:
+
+1. Developers may need these methods during development to properly set up the Kubernetes resources.
+2. CI/CD tools utilize these methods for building and deploying resources.
+
+The target environment can be specified by using the `kube#target=STAGING` option in the command line.
+
+For instance, the following command displays the Kubernetes resources as they will be deployed in the PROD environment.
+```shell
+./jekaw #render #target=PROD
+```
+
+## Running the demo 
+
+
+### prerequisite
 
 *You don't have to install Jeka on your machine thanks to the Jeka Wrapper. 
 Just clone this directory and execute the command line.
@@ -30,7 +80,10 @@ Docker Desktop embeds a k8s cluster. You can enable it from the Docker Desktop *
 This demo has been designed to run out-of-the-box with this cluster. 
 You may need extra configuration for running with another one as Minikube.
 
-## Build the Docker image
+
+
+
+### Build the Docker image
 
 The image is build using [jib](https://github.com/GoogleContainerTools/jib/tree/master/jib-core), and does not require 
 to have a Docker daemon installed on your machine.
@@ -44,7 +97,7 @@ application (`project#test`) prior to build the Docker image and publish it (`ku
 
 Go [here](http://localhost:5000/v2/knote-java/tags/list) to check that your image has been actually deployed on your registry.
 
-## Deploy on your local Kubernetes cluster
+### Deploy on your local Kubernetes cluster
 
 To build and interact with Kubernetes cluster, we use [Fabric8io Kubernetes Client](https://github.com/fabric8io/kubernetes-client).
 
@@ -71,7 +124,7 @@ it reflects the content of the `Kube` class.
 
 Now you can access to your local application by [clicking here](http://localhost:8080/)
 
-## Build and deploy in multi-environment
+### Build and deploy in multi-environment
 
 For simplicity's sake, we are managing only 3 environments sharing the same local Kubernetes cluster and Docker registry.
 Only k8s namespace, environment variables, volume size and replica count diverges from one environment to another.
@@ -79,7 +132,7 @@ Only k8s namespace, environment variables, volume size and replica count diverge
 - staging: build and deployed from aCI tool
 - prod: deployed from CI tool
 
-### Build and deploy in *staging* environment
+#### Build and deploy in *staging* environment
 
 To build and deploy in *staging* environment, the CI tool, just need to execute 
 the following command, where `${BUIL_ID}` is an id generated from the CI tool, from where 
@@ -88,7 +141,7 @@ we can retrieve original Git commit and branch.
 ./jekaw #buildAndApply #target=STAGING #appVersion=${BUILD_ID}
 ```
 
-### Deploy in *prod* environment
+#### Deploy in *prod* environment
 
 In the same pipeline, the CI tool may provide a step to deploy the already
 built application, in *prod* environment.
@@ -98,57 +151,7 @@ built application, in *prod* environment.
 ```
 
 
-## How does it work ?
 
-Jeka builds (compiles and tests) the Springboot application using [Jeka Springboot 
-plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/dev.jeka.plugins.springboot).
-
-The application build is specified in [local.properties file](jeka/local.properties) while
-[project-dependencies.txt](jeka/project-dependencies.txt) specifies dependencies.
-
-A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact with command-line 
-or the IDE. This KBean delegates the tasks to following classes :
-- [Image](jeka/def/kube/Image.java) : Produces the container image.
-- [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
-- [2 generic helper classes](jeka/def/kube/support) that can be externalized in a lib/plugin. They provide simple convenient methods to deal with Jib and Fabric8 api.
-
-
-## The image
-
-The image is built using *Jib* technology, so we don't need a local Docker daemon to build the image.
-
-The `Ìmage` class needs 2 parameters to build image :
-- The `SpringbootJkBean` : this contains all info to actually build the image (location of classes/libs, and the main class name).
-- An optional version for tagging the image (default is *latest*)
-
-
-## The Kubernetes Resources
-
-Class `Resources` defines an object model using Fabric8 api and support of a generic helper class.
-`Resources` provides :
-- mactory methods for creating `Resources` objects customised for predefined environments
-- accessors to get Kubernetes mutable and immutable resources to deploy
-- mutators to modify the Kubernetes resource conveniently, such as changing the image tag for the app container. 
-
-## The Kube KBean
-
-The `Kube` KBean defines methods that :
-- Developers may need during development to set up the k8s resources properly.
-- CI/CD tool need to actually build and deploy resources.
-
-The target environment can be selected by mentioning the `kube#target=STATGING` option in the command line. 
-
-For example, the following command displays the k8s resources as they will be deployed in PROD environment.
-```shell
-./jekaw #render #target=PROD
-```
-
-# Conclusion
-
-This pattern allows a Java project to deal with Kubernetes, using simple Java technologies only.
-
-The benefit is that developers deal with a statically typed (yet simple) model, that they can easily edit and debug 
-with their familiar tools.
 
 
 

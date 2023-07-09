@@ -1,4 +1,4 @@
-# A Springboot + mongoDb project deployed on Kubernetes
+# A Springboot-mongoDb application deployed on Kubernetes
 
 This demo is based on [a Spring Boot Kubernetes tutorial](https://learnk8s.io/spring-boot-kubernetes-guide),
 

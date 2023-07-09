@@ -55,101 +55,87 @@ For instance, the following command displays the Kubernetes resources as they wi
 ./jekaw #render #target=PROD
 ```
 
-## Running the demo 
+## Running the demo
 
+### Prerequisites
 
-### prerequisite
+To build and deploy this application, you will need the following:
 
-*You don't have to install Jeka on your machine thanks to the Jeka Wrapper. 
-Just clone this directory and execute the command line.
-Nevertheless, for a better experience it recommended to install the [Jeka Plugin](https://plugins.jetbrains.com/plugin/13489-jeka) 
-if you use Intellij.*
+- A Docker registry to deploy the Docker image of the application.
+- A functional Kubernetes cluster.
 
-For building and deploying this application, you need two things :
-- A docker registry to deploy the docker image of the application.
-- A workable Kubernetes cluster.
+Both requirements can be fulfilled by using Docker Desktop. If you don't have a private registry deployed locally, you can obtain one by running the following command:
 
-Both can be provided by Docker Desktop. If you haven't yet a private registry deployed locally, 
-you can get it by executing :
 ```shell
 docker run -d -p 5000:5000 --restart=always --name registry registry:2
 ```
 
-Docker Desktop embeds a k8s cluster. You can enable it from the Docker Desktop *Settings* panel.
+Docker Desktop includes a built-in Kubernetes cluster that can be enabled from the Docker Desktop Settings panel.
 
-This demo has been designed to run out-of-the-box with this cluster. 
-You may need extra configuration for running with another one as Minikube.
+This demo is designed to run seamlessly with this cluster, but additional configuration may be required for running it with a different cluster like Minikube.
 
+### Building the Docker image
 
+The application image is built using [Jib](https://github.com/GoogleContainerTools/jib/tree/master/jib-core), eliminating the need for a Docker daemon on your local machine.
 
-
-### Build the Docker image
-
-The image is build using [jib](https://github.com/GoogleContainerTools/jib/tree/master/jib-core), and does not require 
-to have a Docker daemon installed on your machine.
-
-Execute :
+Execute the following command:
 ```shell
 ./jekaw #buildAndApply
 ```
-`:build` is a command shortcut defined in [local.properties file](jeka/local.properties). This actually clean, compile, test the
-application (`project#test`) prior to build the Docker image and publish it (`kube#buildImage`).
 
-Go [here](http://localhost:5000/v2/knote-java/tags/list) to check that your image has been actually deployed on your registry.
+The `:build` command shortcut defined in the [local.properties](jeka/local.properties) file will clean, compile, and test the application (`project#test`) before building and publishing the Docker image (`kube#buildImage`).
 
-### Deploy on your local Kubernetes cluster
+You can check that the image has been successfully deployed to your registry by visiting [http://localhost:5000/v2/knote-java/tags/list](http://localhost:5000/v2/knote-java/tags/list).
 
-To build and interact with Kubernetes cluster, we use [Fabric8io Kubernetes Client](https://github.com/fabric8io/kubernetes-client).
+### Deploying on your local Kubernetes cluster
 
-To deploy or update the cluster with the built resources, execute : 
+To interact with the Kubernetes cluster and deploy or update resources, the [Fabric8io Kubernetes Client](https://github.com/fabric8io/kubernetes-client) is used.
+
+To deploy or update the cluster with the built resources, execute the following command:
 ```shell
 ./jekaw #apply
 ```
 
-You can also build the application and deploy it in a row using :
+You can also build the application and deploy it in a single command by running:
 ```shell
 ./jekaw #buildAllAndApply
 ```
 
-Prior testing, you must forward the port from Kubernetes cluster to your local machine :
+Before testing, you need to forward the port from the Kubernetes cluster to your local machine:
 ```shell
 ./jekaw #portForward
 ```
 
-To display all methods/properties available on this project, execute the following command, 
-it reflects the content of the `Kube` class.
+To display all the available methods and properties for this project, execute the following command, which reflects the content of the `Kube` class:
 ```shell
 ./jekaw #help
 ```
 
-Now you can access to your local application by [clicking here](http://localhost:8080/)
+You can now access your local application by clicking [here](http://localhost:8080/).
 
-### Build and deploy in multi-environment
+### Building and deploying in multi-environment
 
-For simplicity's sake, we are managing only 3 environments sharing the same local Kubernetes cluster and Docker registry.
-Only k8s namespace, environment variables, volume size and replica count diverges from one environment to another.
-- local: for development, only deployed from local machine
-- staging: build and deployed from aCI tool
-- prod: deployed from CI tool
+For simplicity, this demo manages only three environments that share the same local Kubernetes cluster and Docker registry. Each environment may differ in the Kubernetes namespace, environment variables, volume size, and replica count.
 
-#### Build and deploy in *staging* environment
+- **local**: Used for development purposes and only deployed from the local machine.
+- **staging**: Built and deployed from a CI tool.
+- **prod**: Deployed from a CI tool.
 
-To build and deploy in *staging* environment, the CI tool, just need to execute 
-the following command, where `${BUIL_ID}` is an id generated from the CI tool, from where 
-we can retrieve original Git commit and branch.
-```
+#### Building and deploying in the *staging* environment
+
+To build and deploy in the *staging* environment from a CI tool, execute the following command, where `${BUILD_ID}` is an ID generated by the CI tool that allows you to retrieve the original Git commit and branch information:
+
+```shell
 ./jekaw #buildAndApply #target=STAGING #appVersion=${BUILD_ID}
 ```
 
-#### Deploy in *prod* environment
+#### Deploying in the *prod* environment
 
-In the same pipeline, the CI tool may provide a step to deploy the already
-built application, in *prod* environment.
+In the same pipeline, the CI tool may include a step to deploy the already built application in the *prod* environment:
 
-```
+```shell
 ./jekaw #apply #target=PROD #appVersion=${BUILD_ID}
 ```
-
 
 
 

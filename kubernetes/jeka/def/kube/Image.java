@@ -1,6 +1,7 @@
 package kube;
 
 import com.google.cloud.tools.jib.api.*;
+import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 import kube.support.JibHelper;
@@ -18,9 +19,9 @@ public class Image {
 
     String appVersion;
 
-    void build(SpringbootJkBean springbootBean) throws Exception {
+    void build(JkProject project) throws Exception {
         Containerizer containerizer = JibHelper.registryContainerizer(imageName());
-        JibHelper.javaImage("openjdk:17", springbootBean).containerize(containerizer);;
+        JibHelper.javaImage("openjdk:17", project).containerize(containerizer);;
         JkLog.info("Image pushed at " + imageName());
     }
 

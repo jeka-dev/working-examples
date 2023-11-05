@@ -9,7 +9,6 @@ import dev.jeka.plugins.kotlin.KotlinJvmJkBean
 import dev.jeka.plugins.nodejs.NodeJsJkBean
 import dev.jeka.plugins.springboot.SpringbootJkBean
 
-
 @JkInjectClasspath("dev.jeka:kotlin-plugin")
 @JkInjectClasspath("dev.jeka:nodejs-plugin")
 @JkInjectClasspath("dev.jeka:springboot-plugin")

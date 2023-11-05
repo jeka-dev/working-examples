@@ -1,0 +1,124 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html, #root {
+  background-color: #282c34;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+a.app-link {
+   color: #d3d8e3;
+}
+
+a.app-link:hover {
+  color: #a2a9b8;
+  text-decoration: none;
+}
+
+.container-fluid {
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.flex-container {
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.container {
+  color: white;
+  text-align: left;
+  padding-top: 40px;
+}
+
+.coffee-shops-title {
+  color: white;
+}
+
+.coffeeshop-container {
+  width: 400px;
+  min-width: 300px;
+  background-color: #e9edf7;
+  border-radius: 10px;
+  color: #282c34;
+  font-size: calc(10px + 1.0vmin);
+}
+
+.coffeeshop-container h3 {
+  font-size: calc(10px + 2vmin);
+}
+
+.subtitle-container {
+  font-size: calc(10px + 0.8vmin);
+  color: #596273;
+  margin-bottom: 10px;
+}
+
+.coffeeshop-body {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.coffeeshop-footer {
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #282c34;
+}
+
+.coffeeshop-footer .btn {
+  margin: 5px 5px;
+}
+
+@media only screen and (max-width: 992px) {
+  .coffeeshop-container {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .coffeeshop-container {
+    width: 80%;
+  }
+}
+

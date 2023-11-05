@@ -43,11 +43,11 @@ class Kube extends JkBean {
             "This is supposed to be injected by the CI tool and contain information as calendar and build number.")
     public String appVersion;
 
-    private final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
+    private final SpringbootJkBean springbootKBean = getBean(SpringbootJkBean.class);
 
     @JkDoc("Build and push the application container image. This assumes that application ahs already been built.")
     public void buildImage() throws Exception {
-        appImage().build(springboot);
+        appImage().build(springbootKBean.projectBean.getProject());
     }
 
     @JkDoc("Applies the defined resources to the Kubernetes cluster")
@@ -76,7 +76,7 @@ class Kube extends JkBean {
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
     public void buildAndApply() throws Exception {
-        springboot.projectBean.cleanPack();
+        springbootKBean.projectBean.cleanPack();
         buildImage();
         apply();
     }

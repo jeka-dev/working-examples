@@ -4,6 +4,7 @@ import com.google.cloud.tools.jib.api.*;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.utils.JkUtilsString;
+import dev.jeka.plugins.springboot.JkSpringbootProjectAdapter;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
 
 import java.io.IOException;
@@ -15,8 +16,8 @@ import static java.util.Collections.singletonList;
 
 public class JibHelper {
 
-    public static JibContainerBuilder javaImage(String fromImage, SpringbootJkBean springbootJkBean) {
-        return javaImage(fromImage, springbootJkBean.projectBean.getProject(), springbootJkBean.getMainClass());
+    public static JibContainerBuilder javaImage(String fromImage, JkProject project) {
+        return javaImage(fromImage, project, JkSpringbootProjectAdapter.getMainClass(project));
     }
 
     public static JibContainerBuilder javaImage(String fromImage, JkProject javaProject, String mainClass) {
@@ -59,6 +60,9 @@ public class JibHelper {
         return handleEvents(Containerizer.to(dockerDaemonImage));
     }
 
+    /**
+     * Logs events emitted by the specified containerizer..
+     */
     public static Containerizer handleEvents(Containerizer containerizer) {
         containerizer.addEventHandler(LogEvent.class, event -> System.out.println
                 (JkUtilsString.padEnd(event.getLevel().name() ,  12, ' ') + ": " + event.getMessage()));

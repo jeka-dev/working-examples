@@ -19,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-simple/.idea/springboot-simple.iml" filepath="$PROJECT_DIR$/springboot-simple/.idea/springboot-simple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/templated/.idea/templated.iml" filepath="$PROJECT_DIR$/templated/.idea/templated.iml" />
       <module fileurl="file://$PROJECT_DIR$/wrapper-common/wrapper-common.iml" filepath="$PROJECT_DIR$/wrapper-common/wrapper-common.iml" />
     </modules>
   </component>

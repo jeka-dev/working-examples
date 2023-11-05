@@ -1,7 +1,6 @@
 
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkBean;
-import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
 import dev.jeka.plugins.springboot.SpringbootJkBean;

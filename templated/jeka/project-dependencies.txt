@@ -1,0 +1,10 @@
+== COMPILE ==
+org.springframework.boot:spring-boot-starter-web
+
+== RUNTIME ==
+
+== TEST ==
+org.springframework.boot:spring-boot-starter-test
+
+
+

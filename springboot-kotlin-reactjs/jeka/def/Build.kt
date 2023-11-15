@@ -6,7 +6,7 @@ import dev.jeka.core.tool.JkBean
 import dev.jeka.core.tool.JkDoc
 import dev.jeka.core.tool.JkInjectClasspath
 import dev.jeka.plugins.kotlin.KotlinJvmJkBean
-import dev.jeka.plugins.nodejs.NodeJsJkBean
+import dev.jeka.plugins.nodejs.JkNodeJs
 import dev.jeka.plugins.springboot.SpringbootJkBean
 
 @JkInjectClasspath("dev.jeka:kotlin-plugin")
@@ -19,7 +19,7 @@ class Build : JkBean() {
 
     val springboot = getBean(SpringbootJkBean::class.java)
 
-    val nodejs = getBean(NodeJsJkBean::class.java)
+    val nodejs = JkNodeJs.ofVersion("18.12.0");
 
     val kotlin = getBean(KotlinJvmJkBean::class.java)
 
@@ -27,7 +27,8 @@ class Build : JkBean() {
         springboot.setSpringbootVersion("2.7.7")
         springboot.projectBean.configure(this::configure)
         kotlin.configureProject = true;
-        kotlin.configureCompiler(this::configureKotlinCompiler)
+        kotlin.latelyConfigureCompiler(this::configureKotlinCompiler)
+        nodejs.setWorkingDir(baseDir.resolve("client"))
     }
 
     private fun configure(project: JkProject) {
@@ -40,7 +41,7 @@ class Build : JkBean() {
         }
 
         // includes client build (via npm) into the main build
-        val clientBuild: JkPathTree<*> = JkPathTree.of(nodejs.getWorkingDir().resolve("build"))
+        val clientBuild: JkPathTree<*> = JkPathTree.of(baseDir.resolve("client/build"))
         val serverStatic = project.compilation.layout.classDirPath.resolve("static")
         project.compilation.postCompileActions.append("client pack") {
             buildClient()

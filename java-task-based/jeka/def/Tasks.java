@@ -11,6 +11,7 @@ import dev.jeka.core.api.java.JkJavaCompiler;
 import dev.jeka.core.api.java.JkManifest;
 import dev.jeka.core.api.project.JkCompileLayout;
 import dev.jeka.core.api.project.JkIdeSupport;
+import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.testing.JkTestProcessor;
 import dev.jeka.core.api.testing.JkTestSelection;
 import dev.jeka.core.tool.JkBean;
@@ -22,7 +23,7 @@ import javax.swing.text.html.Option;
 import java.nio.file.Path;
 import java.util.Optional;
 
-class Tasks extends JkBean implements JkIdeSupport.JkSupplier {
+class Tasks extends JkBean implements JkIdeSupportSupplier {
 
 	Tasks() {
 		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");

@@ -1,7 +1,9 @@
 == COMPILE ==
 org.springframework.boot:spring-boot-starter-web
+org.projectlombok:lombok:1.18.30
 
 == RUNTIME ==
+- org.projectlombok:lombok
 
 == TEST ==
 org.springframework.boot:spring-boot-starter-test

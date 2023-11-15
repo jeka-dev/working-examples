@@ -13,7 +13,7 @@
             <excludeFolder url="file://$MODULE_DIR$/jeka/.work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
-        <orderEntry type="inheritedJdk"/>
+        <orderEntry jdkName="corretto-17" jdkType="JavaSDK" type="jdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
@@ -781,12 +781,21 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.10.39/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES>
-                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka/output/distrib/dev.jeka.jeka-core-sources.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.10.39/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.10.39.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="TEST" type="module-library">
@@ -1345,15 +1354,6 @@
             <library>
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-simple/jars/slf4j-simple-2.0.7.jar!/"/>
-                </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
-            </library>
-        </orderEntry>
-        <orderEntry exported="" scope="TEST" type="module-library">
-            <library>
-                <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

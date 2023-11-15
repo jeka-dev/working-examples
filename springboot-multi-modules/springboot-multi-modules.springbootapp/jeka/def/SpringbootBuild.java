@@ -5,6 +5,7 @@ import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.JkInjectProject;
 import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
+import dev.jeka.plugins.nodejs.JkNodeJs;
 import dev.jeka.plugins.nodejs.NodeJsJkBean;
 import dev.jeka.plugins.springboot.JkSpringModules.Boot;
 import dev.jeka.plugins.springboot.SpringbootJkBean;
@@ -18,7 +19,7 @@ class SpringbootBuild extends JkBean {
 
     final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
-    final NodeJsJkBean nodeJs = getBean(NodeJsJkBean.class);
+    final JkNodeJs nodeJs;
 
     @JkInjectProject("../springboot-multi-modules.core")
     private CoreBuild coreBuild;
@@ -27,7 +28,7 @@ class SpringbootBuild extends JkBean {
         springboot.setSpringbootVersion("2.7.3");
         springboot.projectBean.lately(this::configure);
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
-        nodeJs.setWorkingDir(getBaseDir().resolve("../web"));
+        nodeJs = JkNodeJs.ofVersion("18.12.0").setWorkingDir(getBaseDir().resolve("../web"));
     }
 
     private void configure(JkProject project) {

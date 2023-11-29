@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><module type="JAVA_MODULE" version="4">
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
     <component inherit-compileRunner-output="false" name="NewModuleRootManager">
         <output url="file://$MODULE_DIR$/.idea/output/production"/>
         <output-test url="file://$MODULE_DIR$/.idea/output/test"/>
@@ -13,7 +14,7 @@
             <excludeFolder url="file://$MODULE_DIR$/jeka/.work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
-        <orderEntry jdkName="corretto-11" jdkType="JavaSDK" type="jdk"/>
+        <orderEntry jdkName="11" jdkType="JavaSDK" type="jdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
@@ -76,6 +77,8 @@
                 </SOURCES>
             </library>
         </orderEntry>
-        <orderEntry exported="" module-name="springboot-multi-modules.build-commons" scope="TEST" type="module"/>
+        <orderEntry exported=""
+            module-name="springboot-multi-modules.build-commons"
+            scope="TEST" type="module"/>
     </component>
 </module>

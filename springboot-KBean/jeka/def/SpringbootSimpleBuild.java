@@ -10,29 +10,20 @@ class SpringbootSimpleBuild extends JkBean {
 
     final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
 
-    public boolean runIT = true;
-
     SpringbootSimpleBuild() {
-        springboot.setSpringbootVersion("2.5.5");
+        springboot.setSpringbootVersion("3.2.0");
         springboot.projectBean.lately(this::configure);
         getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
     }
 
     private void configure(JkProject project) {
         project.flatFacade()
-            .configureCompileDependencies(deps -> deps
-                .and("org.springframework.boot:spring-boot-starter-web")
-            )
-            .configureTestDependencies(deps -> deps
-                .and("org.springframework.boot:spring-boot-starter-test")
-                    .withLocalExclusions("org.junit.vintage:junit-vintage-engine")
-            )
-            .addTestExcludeFilterSuffixedBy("IT", !runIT);
-    }
-
-    public void cleanPack() {
-        cleanOutput();
-        springboot.projectBean.pack();
+                .addCompileDeps(
+                        "org.springframework.boot:spring-boot-starter-web"
+                )
+                .addTestDeps(
+                        "org.springframework.boot:spring-boot-starter-test"
+                );
     }
 
 }

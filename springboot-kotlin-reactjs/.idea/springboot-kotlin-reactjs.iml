@@ -713,7 +713,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/kotlin-plugin/jars/kotlin-plugin-0.10.42.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/kotlin-plugin/jars/kotlin-plugin-0.10.45.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -722,7 +722,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-0.10.42.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-0.10.45.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -731,7 +731,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.10.42.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.10.45.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

@@ -8,16 +8,16 @@ import dev.jeka.plugins.jacoco.JkJacoco;
 import dev.jeka.plugins.sonarqube.JkSonarqube;
 import dev.jeka.plugins.springboot.JkSpringboot;
 
-@JkInjectClasspath("dev.jeka:springboot-plugin")
-@JkInjectClasspath("dev.jeka:jacoco-plugin")
-@JkInjectClasspath("dev.jeka:sonarqube-plugin")
+@JkInjectClasspath("dev.jeka:jacoco-plugin")      // These plugins are fetched from a Maven repo (Maven Central)
+@JkInjectClasspath("dev.jeka:springboot-plugin")  // Versions are not specified as JeKA will pick the right one
+@JkInjectClasspath("dev.jeka:sonarqube-plugin")   // according its running version.
 class Build extends JkBean implements JkIdeSupportSupplier {
 
     @JkDoc("Clean output directory then compile, test, create jar, and launch sSonarQube analysis")
     public void cleanPack() {
         project().clean().pack();
         JkSonarqube.ofVersion("5.0.1.3006")
-                .setProperties(getRuntime().getProperties())
+                .setProperties(getRuntime().getProperties())  // Take Sonar properties from local.properties and System.getProperties()
                 .configureFor(project())
                 .run();
     }
@@ -51,7 +51,8 @@ class Build extends JkBean implements JkIdeSupportSupplier {
                 .configureForAndApplyTo(project);
         project.flatFacade()
                 .addCompileDeps(
-                        "org.springframework.boot:spring-boot-starter-web"
+                        "org.springframework.boot:spring-boot-starter-web",
+                        "org.springframework.boot:spring-boot-starter-logging"
                 )
                 .addCompileOnlyDeps(
                         "org.projectlombok:lombok:1.18.30"

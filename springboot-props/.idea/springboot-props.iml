@@ -11,7 +11,7 @@
             <excludeFolder url="file://$MODULE_DIR$/jeka/.work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
-        <orderEntry type="inheritedJdk"/>
+        <orderEntry jdkName="corretto-21" jdkType="JavaSDK" type="jdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
@@ -136,7 +136,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-api/jars/slf4j-api-2.0.9.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-api/jars/slf4j-api-2.0.9-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -621,18 +623,18 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.10.45/dev.jeka.jeka-core.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.10.49/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.10.45/dev.jeka.jeka-core-sources.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.10.49/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.10.45.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.10.49.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -641,7 +643,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/jacoco-plugin/jars/jacoco-plugin-0.10.45.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/jacoco-plugin/jars/jacoco-plugin-0.10.49.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -650,7 +652,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/sonarqube-plugin/jars/sonarqube-plugin-0.10.45.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/sonarqube-plugin/jars/sonarqube-plugin-0.10.49.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

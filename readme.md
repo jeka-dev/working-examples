@@ -15,6 +15,7 @@ Clone this entire repo into Intellij to have a better exploration experience.
 | [Maven Migration](./migrate-from-maven)                  | How to migrate from a Maven project                                   |
 | [SpringBoot KBean](./springboot-KBean)                   | How to build a SpringBoot project using KBean and Code                |
 | [Springboot Props](./springboot-props)                   | How to build a Springboot project using props config only             |
+| [Springboot Super Compact](./springboot-super-compact)   | How to write a Springboot Application as a script                     |
 | [Springboot Kotlin ReactJs](./springboot-kotlin-reactjs) | How to integrate Kotlin and NodeJs                                    |
 | [Multi Modules](./springboot-multi-modules)              | How to deal with multi-module projects                                |
 | [Kubernetes](./kubernetes)                               | How to build a Springboot+MongoDb project and deploy it to Hubernetes |

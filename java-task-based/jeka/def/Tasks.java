@@ -24,12 +24,13 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	@JkDoc("Run test in a forked process if true.")
 	boolean forkTest;
 
-    JkPathTree baseTree = JkPathTree.of(getBaseDir());
-
-    JkDependencyResolver dependencyResolver = JkDependencyResolver.of().addRepos(JkRepo.ofMavenCentral());
+	// The dependency resolver to fetch dependencies
+    JkDependencyResolver dependencyResolver = JkDependencyResolver.of()
+			.addRepos(JkRepo.ofMavenCentral());
 
 	// Prod layout
-	JkPathTree src = baseTree.goTo("src");
+	JkPathTree baseTree = JkPathTree.of(getBaseDir());
+	JkPathTree src = JkPathTree.of(getBaseDir().resolve("src"));
 	Path classDir = getOutputDir().resolve("classes");
 	Path jarFile = getOutputDir().resolve("capitalizer.jar");
 
@@ -48,10 +49,11 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	@JkDoc("Compile production source code")
 	public void compile() {
 		JkJavaCompilerToolChain.of().compile(
-				JkJavaCompileSpec.of().of()
+				JkJavaCompileSpec.of()
 						.setClasspath(classpath())
 						.setSources(src.toSet())
-						.setOutputDir(classDir));
+						.setOutputDir(classDir)
+		);
 		src.andMatching(false,"**/*.java").copyTo(classDir);  /// copy resources
 	}
 

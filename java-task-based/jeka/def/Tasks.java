@@ -20,39 +20,32 @@ import dev.jeka.core.tool.builtins.ide.IntellijKBean;
 import java.nio.file.Path;
 
 class Tasks extends KBean implements JkIdeSupportSupplier {
+	
+	@JkDoc("Run test in a forked process if true.")
+	boolean forkTest;
+
+    JkPathTree baseTree = JkPathTree.of(getBaseDir());
+
+    JkDependencyResolver dependencyResolver = JkDependencyResolver.of().addRepos(JkRepo.ofMavenCentral());
+
+	// Prod layout
+	JkPathTree src = baseTree.goTo("src");
+	Path classDir = getOutputDir().resolve("classes");
+	Path jarFile = getOutputDir().resolve("capitalizer.jar");
+
+	// Test layout
+	Path testSrc = getBaseDir().resolve("test");
+	Path testClassDir = getOutputDir().resolve("test-classes");
+	Path reportDir = getOutputDir().resolve("junitRreport");
+
+	// cached test classpath
+	JkPathSequence cachedTestClasspath;
 
 	Tasks() {
 		load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
 	}
-	
-	@JkDoc("Run test in a forked process if true.")
-	boolean forkTest;
-    JkPathTree baseTree = JkPathTree.of(getBaseDir());
-    JkDependencyResolver dependencyResolver = JkDependencyResolver.of().addRepos(JkRepo.ofMavenCentral());
-	private JkPathTree src = baseTree.goTo("src");
-	private Path classDir = getOutputDir().resolve("classes");
-	private Path jarFile = getOutputDir().resolve("capitalizer.jar");
 
-	private Path testSrc = getBaseDir().resolve("test");
-	private Path testClassDir = getOutputDir().resolve("test-classes");
-	private Path reportDir = getOutputDir().resolve("junitRreport");
-
-	private JkPathSequence classpath() {
-		return JkPathSequence.of(baseTree.andMatching("libs/compile/**.jar").getFiles());
-	}
-
-	private JkPathSequence cachedTestClasspath;
-
-	private JkPathSequence testClasspath() {
-		if (cachedTestClasspath == null) {
-			cachedTestClasspath = classpath()
-					.and(dependencyResolver.resolve("org.junit.jupiter:junit-jupiter:5.8.1").getFiles()
-					.and(classDir)
-					.and(baseTree.andMatching("libs/test/*.jar").getFiles()));
-		}
-		return cachedTestClasspath;
-	}
-
+	@JkDoc("Compile production source code")
 	public void compile() {
 		JkJavaCompilerToolChain.of().compile(
 				JkJavaCompileSpec.of().of()
@@ -62,11 +55,13 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 		src.andMatching(false,"**/*.java").copyTo(classDir);  /// copy resources
 	}
 
+	@JkDoc("Jars the compiled classes into a JAR file.")
 	public void jar() {
 		JkManifest.of().addMainClass("org.jerkar.samples.RunClass").writeToStandardLocation(classDir);
 		JkPathTree.of(classDir).zipTo(jarFile);
 	}
-	
+
+	@JkDoc("Compile test source code")
 	private void compileTest() {
 		JkJavaCompilerToolChain.of().compile(
 				JkJavaCompileSpec.of()
@@ -75,7 +70,8 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 						.setOutputDir(testClassDir));
 		src.andMatching(false,"**/*.java").copyTo(testClassDir);  /// copy test resources
 	}
-	
+
+	@JkDoc("Run tests")
 	public void junit() {
 		compileTest();
 		JkTestProcessor testProcessor = JkTestProcessor.of();
@@ -88,6 +84,7 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 					JkTestSelection.of().addTestClassRoots(testClassDir));
 	}
 
+	@JkDoc("Clean, compile, test and jar")
 	public void build() {
 		cleanOutput(); compile(); junit(); jar();
 	}
@@ -101,6 +98,20 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 						.and("compile", JkFileSystemDependency.of(classpath()))
 						.and("test", JkFileSystemDependency.of(testClasspath()))
 				);
+	}
+
+	private JkPathSequence classpath() {
+		return JkPathSequence.of(baseTree.andMatching("libs/compile/**.jar").getFiles());
+	}
+
+	private JkPathSequence testClasspath() {
+		if (cachedTestClasspath == null) {
+			cachedTestClasspath = classpath()
+					.and(dependencyResolver.resolve("org.junit.jupiter:junit-jupiter:5.8.1").getFiles()
+							.and(classDir)
+							.and(baseTree.andMatching("libs/test/*.jar").getFiles()));
+		}
+		return cachedTestClasspath;
 	}
 
 }

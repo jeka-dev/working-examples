@@ -1,4 +1,3 @@
-import dev.jeka.core.api.depmanagement.JkDependencySet;
 import dev.jeka.core.api.depmanagement.JkFileSystemDependency;
 import dev.jeka.core.api.depmanagement.JkQualifiedDependencySet;
 import dev.jeka.core.api.depmanagement.JkRepo;
@@ -7,26 +6,23 @@ import dev.jeka.core.api.file.JkPathSequence;
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.file.JkPathTreeSet;
 import dev.jeka.core.api.java.JkJavaCompileSpec;
-import dev.jeka.core.api.java.JkJavaCompiler;
+import dev.jeka.core.api.java.JkJavaCompilerToolChain;
 import dev.jeka.core.api.java.JkManifest;
 import dev.jeka.core.api.project.JkCompileLayout;
 import dev.jeka.core.api.project.JkIdeSupport;
 import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.testing.JkTestProcessor;
 import dev.jeka.core.api.testing.JkTestSelection;
-import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
-import dev.jeka.core.tool.JkInit;
-import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
+import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.ide.IntellijKBean;
 
-import javax.swing.text.html.Option;
 import java.nio.file.Path;
-import java.util.Optional;
 
-class Tasks extends JkBean implements JkIdeSupportSupplier {
+class Tasks extends KBean implements JkIdeSupportSupplier {
 
 	Tasks() {
-		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+		load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
 	}
 	
 	@JkDoc("Run test in a forked process if true.")
@@ -58,7 +54,7 @@ class Tasks extends JkBean implements JkIdeSupportSupplier {
 	}
 
 	public void compile() {
-		JkJavaCompiler.of().compile(
+		JkJavaCompilerToolChain.of().compile(
 				JkJavaCompileSpec.of().of()
 						.setClasspath(classpath())
 						.setSources(src.toSet())
@@ -72,7 +68,7 @@ class Tasks extends JkBean implements JkIdeSupportSupplier {
 	}
 	
 	private void compileTest() {
-		JkJavaCompiler.of().compile(
+		JkJavaCompilerToolChain.of().compile(
 				JkJavaCompileSpec.of()
 						.setClasspath(testClasspath())
 						.setSources(JkPathTreeSet.ofRoots(testSrc))

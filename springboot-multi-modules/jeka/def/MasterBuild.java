@@ -1,15 +1,12 @@
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.tool.JkBean;
+import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectProject;
-import dev.jeka.core.tool.builtins.project.ProjectJkBean;
+import dev.jeka.core.tool.KBean;
 
 import java.nio.file.Path;
 
-/**
- * @formatter:off
- */
-class MasterBuild extends JkBean {
+class MasterBuild extends KBean {
 
 	@JkInjectProject("springboot-multi-modules.springbootapp")
 	private SpringbootBuild springbootBuild;
@@ -19,32 +16,33 @@ class MasterBuild extends JkBean {
 
 	Path distribFolder = getOutputDir();
 
-	public void build() {
-		clean();
-		JkLog.info("Packing springboot");
-		springbootBuild.springboot.projectBean.pack();
-		JkLog.info("Packing swing");
-		swingBuild.projectJkBean.pack();
+	@JkDoc("Clean and package distribution (server app + Swing client)")
+	public void cleanPack() {
+		cleanAll();
+		JkLog.info("============== Packing Springboot ==================");
+		springbootBuild.project.pack();
+		JkLog.info("================= Packing Swing ====================");
+		swingBuild.project.pack();
 		copyJars();
 	}
 
-	public void clean() {
+	@JkDoc("Clean all sub-projects")
+	public void cleanAll() {
 		super.cleanOutput();
-		this.getImportedBeans().get(true).stream()
-				.map(JkBean::getRuntime)
-				.distinct()
-				.map(runtime -> runtime.getBean(ProjectJkBean.class))
-				.map(ProjectJkBean.class::cast)
-				.forEach(ProjectJkBean::clean);
+		this.getImportedKBeans().get(true).forEach(KBean::cleanOutput);
+	}
+
+	@JkDoc("Launch both server and Swing applications.")
+	public void run() {
+		swingBuild.project.prepareRunJar(false).execAsync();
+		springbootBuild.project.prepareRunJar(false).setInheritIO(true).exec();
 	}
 
 	private void copyJars() {
 		JkPathTree.of(distribFolder)
-				.importFiles(springbootBuild.springboot.projectBean.getProject().artifactProducer.getMainArtifactPath())
-				.importFiles(swingBuild.projectJkBean.getProject().artifactProducer.getMainArtifactPath());
+				.importFiles(springbootBuild.project.artifactLocator.getMainArtifactPath())
+				.importFiles(swingBuild.project.artifactLocator.getMainArtifactPath());
 		JkLog.info("Distrib jar files copied in " + distribFolder);
 	}
-
-
 
 }

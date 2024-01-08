@@ -1,64 +1,60 @@
 import dev.jeka.core.api.file.JkPathTree;
+import dev.jeka.core.api.project.JkIdeSupport;
+import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.JkInjectProject;
-import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
+import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.ide.IntellijKBean;
+import dev.jeka.core.tool.builtins.project.ProjectKBean;
 import dev.jeka.plugins.nodejs.JkNodeJs;
-import dev.jeka.plugins.nodejs.NodeJsJkBean;
 import dev.jeka.plugins.springboot.JkSpringModules.Boot;
-import dev.jeka.plugins.springboot.SpringbootJkBean;
+import dev.jeka.plugins.springboot.JkSpringbootProject;
 
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
 @JkInjectClasspath("dev.jeka:springboot-plugin")
 @JkInjectClasspath("dev.jeka:nodejs-plugin")
-class SpringbootBuild extends JkBean {
+class SpringbootBuild extends KBean {
 
-    final SpringbootJkBean springboot = getBean(SpringbootJkBean.class);
+    private final ProjectKBean projectKBean = load(ProjectKBean.class);
 
-    final JkNodeJs nodeJs;
+    final JkProject project = projectKBean.project;
+
+    final JkNodeJs nodeJs = JkNodeJs.ofVersion("18.12.0")
+            .setWorkingDir(getBaseDir().resolve("web"));
 
     @JkInjectProject("../springboot-multi-modules.core")
     private CoreBuild coreBuild;
 
     SpringbootBuild() {
-        springboot.setSpringbootVersion("2.7.3");
-        springboot.projectBean.lately(this::configure);
-        getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
-        nodeJs = JkNodeJs.ofVersion("18.12.0").setWorkingDir(getBaseDir().resolve("../web"));
+        load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
     }
 
-    private void configure(JkProject project) {
+    @Override
+    protected void init() {
         project.flatFacade()
-                .applyOnProject(BuildCommon::setup)
                 .configureCompileDependencies(deps -> deps
                     .and(Boot.STARTER_WEB)
-                    .and(this.coreBuild.projectJkBean.getProject().toDependency()))
+                    .and(this.coreBuild.project.toDependency()))
                 .configureTestDependencies(deps -> deps
-                        .and(Boot.STARTER_TEST))
-                .getProject().compilation.postCompileActions.append("Web client buiild", this::npmBuild);
-    }
-
-    public void cleanPack() {
-        cleanOutput(); springboot.projectBean.pack();
-    }
-
-    public void run() {
-        this.springboot.projectBean.runJar();
+                        .and(Boot.STARTER_TEST));
+        project.compilation.postCompileActions.append("Web client build", this::npmBuild);
+        JkSpringbootProject.of(project)
+                .includeParentBom("3.2.1")
+                .configure();
     }
 
     private void npmBuild() {
         JkLog.startTask("Packing web project");
-        Path webDir = getBaseDir().resolve("../web");
-        Path webDist = webDir.resolve("dist");
-        Path staticDir = springboot.projectBean.getProject().compilation
-                .layout.resolveClassDir().resolve("static");
-
+        Path webDist = nodeJs.getWorkingDir().resolve("dist");
         nodeJs.npm("install --loglevel=error");
         nodeJs.npm("run build");
+
+        // Copy the result of npm build into /static dir of the server
+        Path staticDir = project.compilation.layout.resolveClassDir().resolve("static");
         JkPathTree.of(webDist).createIfNotExist().copyTo(staticDir, StandardCopyOption.REPLACE_EXISTING);
         JkLog.endTask();
     }

@@ -4,7 +4,8 @@ import com.google.cloud.tools.jib.api.*;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.utils.JkUtilsString;
-import dev.jeka.plugins.springboot.JkSpringboot;
+import dev.jeka.plugins.springboot.JkSpringModules;
+
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -16,7 +17,7 @@ import static java.util.Collections.singletonList;
 public class JibHelper {
 
     public static JibContainerBuilder javaImage(String fromImage, JkProject project) {
-        return javaImage(fromImage, project, JkSpringboot.getMainClass(project));
+        return javaImage(fromImage, project, JkSpring.getMainClass(project));
     }
 
     public static JibContainerBuilder javaImage(String fromImage, JkProject javaProject, String mainClass) {

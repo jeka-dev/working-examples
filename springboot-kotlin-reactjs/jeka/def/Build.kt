@@ -2,32 +2,33 @@ import dev.jeka.core.api.depmanagement.JkDependencySet
 import dev.jeka.core.api.file.JkPathTree
 import dev.jeka.core.api.kotlin.JkKotlinCompiler
 import dev.jeka.core.api.project.JkProject
-import dev.jeka.core.tool.JkBean
 import dev.jeka.core.tool.JkDoc
 import dev.jeka.core.tool.JkInjectClasspath
-import dev.jeka.plugins.kotlin.KotlinJvmJkBean
+import dev.jeka.core.tool.KBean
+import dev.jeka.core.tool.builtins.project.ProjectKBean
+import dev.jeka.plugins.kotlin.KotlinJvmKBean
 import dev.jeka.plugins.nodejs.JkNodeJs
-import dev.jeka.plugins.springboot.SpringbootJkBean
+import dev.jeka.plugins.springboot.SpringbootKBean
 
 @JkInjectClasspath("dev.jeka:kotlin-plugin")
 @JkInjectClasspath("dev.jeka:nodejs-plugin")
 @JkInjectClasspath("dev.jeka:springboot-plugin")
-class Build : JkBean() {
+class Build : KBean() {
 
     @JkDoc("If true, Springboot jar will embed the client application")
     var packClient = true
 
-    val springboot = getBean(SpringbootJkBean::class.java)
+    val springbootKBean = load(SpringbootKBean::class.java)
+
+    val projectKBean = load(ProjectKBean::class.java)
 
     val nodejs = JkNodeJs.ofVersion("18.12.0");
 
-    val kotlin = getBean(KotlinJvmJkBean::class.java)
+    val kotlinKBean = load(KotlinJvmKBean::class.java)
 
-    init {
-        springboot.setSpringbootVersion("2.7.7")
-        springboot.projectBean.configure(this::configure)
-        kotlin.configureProject = true;
-        kotlin.latelyConfigureCompiler(this::configureKotlinCompiler)
+    override fun init() {
+        configure(projectKBean.project)
+        configureKotlinCompiler(kotlinKBean.compiler)
         nodejs.setWorkingDir(baseDir.resolve("client"))
     }
 
@@ -41,15 +42,15 @@ class Build : JkBean() {
         }
 
         // includes client build (via npm) into the main build
-        val clientBuild: JkPathTree<*> = JkPathTree.of(baseDir.resolve("client/build"))
+        val clientBuild: JkPathTree = JkPathTree.of(baseDir.resolve("client/build"))
         val serverStatic = project.compilation.layout.classDirPath.resolve("static")
         project.compilation.postCompileActions.append("client pack") {
             buildClient()
             clientBuild.copyTo(serverStatic)
         }
-        project.cleanExtraActions.append {
+        project.cleanExtraActions.append ({
             clientBuild.deleteContent()
-        }
+        })
 
     }
 

@@ -1,29 +1,21 @@
 import dev.jeka.core.api.project.JkProject;
-import dev.jeka.core.tool.JkBean;
-import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
-import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
-import dev.jeka.core.tool.builtins.project.ProjectJkBean;
+import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.project.ProjectKBean;
 
-/**
- * @formatter:off
- */
 @JkInjectProject("../springboot-multi-modules.build-commons")
-class UtilsBuild extends JkBean {
+class UtilsBuild extends KBean {
 
-    final ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).configure(this::configure);
+    private ProjectKBean projectKBean = load(ProjectKBean.class);
 
-    private void configure(JkProject project) {
+    final JkProject project = projectKBean.project;
+
+    @Override
+    protected void init() {
         project.flatFacade()
-            .applyOnProject(BuildCommon::setup)
             .configureCompileDependencies(deps -> deps
                 .and("com.google.guava:guava")
                 .withVersionProvider(BuildCommon.VERSION_PROVIDER));
     }
-
-    public void cleanPack() {
-        cleanOutput(); projectJkBean.pack();
-    }
-
 
 }

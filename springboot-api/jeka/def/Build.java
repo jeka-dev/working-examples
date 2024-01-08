@@ -1,17 +1,17 @@
 import dev.jeka.core.api.project.JkIdeSupport;
 import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.project.JkProject;
-import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectClasspath;
+import dev.jeka.core.tool.KBean;
 import dev.jeka.plugins.jacoco.JkJacoco;
 import dev.jeka.plugins.sonarqube.JkSonarqube;
-import dev.jeka.plugins.springboot.JkSpringboot;
+import dev.jeka.plugins.springboot.JkSpringbootProject;
 
 @JkInjectClasspath("dev.jeka:jacoco-plugin")      // These plugins are fetched from a Maven repo (Maven Central)
 @JkInjectClasspath("dev.jeka:springboot-plugin")  // Versions are not specified as JeKA will pick the right one
 @JkInjectClasspath("dev.jeka:sonarqube-plugin")   // according its running version.
-class Build extends JkBean implements JkIdeSupportSupplier {
+class Build extends KBean implements JkIdeSupportSupplier {
 
     @JkDoc("Clean output directory then compile, test, create jar, and launch sSonarQube analysis")
     public void cleanPack() {
@@ -24,7 +24,7 @@ class Build extends JkBean implements JkIdeSupportSupplier {
 
     @JkDoc("Runs the built bootable jar")
     public void runJar() {
-        project().runMainJar(false, "", "");
+        project().prepareRunJar(false, "", "").exec();
     }
 
     @JkDoc("Display project info on console")
@@ -44,9 +44,9 @@ class Build extends JkBean implements JkIdeSupportSupplier {
 
     private JkProject project() {
         JkProject project = JkProject.of();
-        JkSpringboot.of()
-                .setSpringbootVersion("3.2.0")
-                .configure(project);
+        JkSpringbootProject.of(project)
+                .includeParentBom("3.2.0")
+                .configure();
         JkJacoco.ofVersion("0.8.11")
                 .configureForAndApplyTo(project);
         project.flatFacade()
@@ -60,7 +60,7 @@ class Build extends JkBean implements JkIdeSupportSupplier {
                 .addTestDeps(
                         "org.springframework.boot:spring-boot-starter-test"
                 )
-                .setPublishedVersionFromGitTag();  // Infer version from Git
+                .setVersionFromGitTag();  // Infer version from Git
         return project;
     }
 

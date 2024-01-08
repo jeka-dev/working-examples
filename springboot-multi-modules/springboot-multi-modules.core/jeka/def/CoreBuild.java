@@ -1,31 +1,24 @@
+import dev.jeka.core.api.project.JkIdeSupport;
+import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.project.JkProject;
-import dev.jeka.core.tool.JkBean;
-import dev.jeka.core.tool.JkInit;
 import dev.jeka.core.tool.JkInjectProject;
-import dev.jeka.core.tool.builtins.project.ProjectJkBean;
+import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.project.ProjectKBean;
 
-class CoreBuild extends JkBean {
+class CoreBuild extends KBean {
 	
 	@JkInjectProject("../springboot-multi-modules.utils")
 	private UtilsBuild utilsBuild;
 
-	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).lately(this::configure);
+	private final ProjectKBean projectKBean = load(ProjectKBean.class);
 
-	private void configure(JkProject project) {
+	final JkProject project = projectKBean.project;
+
+	@Override
+	protected void init() {
 		project.flatFacade()
-				.applyOnProject(BuildCommon::setup)
 				.configureCompileDependencies(deps -> deps
-						.and(utilsBuild.projectJkBean.getProject().toDependency()));
-	}
-
-	public void cleanPack() {
-		cleanOutput(); projectJkBean.pack();
-	}
-
-	public static void main(String[] args) {
-		CoreBuild coreBuild = JkInit.instanceOf(CoreBuild.class);
-		coreBuild.cleanPack();
-		System.out.println("Hello Word");
+						.and(utilsBuild.project.toDependency()));
 	}
 
 }

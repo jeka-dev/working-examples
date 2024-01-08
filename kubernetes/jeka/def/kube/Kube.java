@@ -2,10 +2,11 @@ package kube;
 
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
-import dev.jeka.core.tool.JkBean;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectClasspath;
-import dev.jeka.plugins.springboot.SpringbootJkBean;
+import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.project.ProjectKBean;
+import dev.jeka.plugins.springboot.SpringbootKBean;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientBuilder;
 import kube.support.Fabric8Helper;
@@ -22,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @JkInjectClasspath("io.fabric8:kubernetes-client-api:6.5.1")
 @JkInjectClasspath("org.slf4j:slf4j-simple:2.0.7")
 @JkInjectClasspath("org.projectlombok:lombok:1.18.26")
-class Kube extends JkBean {
+class Kube extends KBean {
 
     @RequiredArgsConstructor
     enum Target {
@@ -36,6 +37,10 @@ class Kube extends JkBean {
         final Resources resources;
     }
 
+    private final SpringbootKBean springbootKBean = load(SpringbootKBean.class);
+
+    private final ProjectKBean projectKBean = load(ProjectKBean.class);
+
     @JkDoc("Kubernetes environment to deploy application")
     public Target target = Target.LOCAL;
 
@@ -43,11 +48,9 @@ class Kube extends JkBean {
             "This is supposed to be injected by the CI tool and contain information as calendar and build number.")
     public String appVersion;
 
-    private final SpringbootJkBean springbootKBean = getBean(SpringbootJkBean.class);
-
     @JkDoc("Build and push the application container image. This assumes that application ahs already been built.")
     public void buildImage() throws Exception {
-        appImage().build(springbootKBean.projectBean.getProject());
+        appImage().build(projectKBean.project);
     }
 
     @JkDoc("Applies the defined resources to the Kubernetes cluster")
@@ -76,7 +79,7 @@ class Kube extends JkBean {
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
     public void buildAndApply() throws Exception {
-        springbootKBean.projectBean.cleanPack();
+        projectKBean.cleanPack();
         buildImage();
         apply();
     }

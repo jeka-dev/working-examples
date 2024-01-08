@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/jeka-examples.iml" filepath="$PROJECT_DIR$/.idea/jeka-examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml" filepath="$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml" />
       <module fileurl="file://$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml" filepath="$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-KBean/.idea/springboot-KBean.iml" filepath="$PROJECT_DIR$/springboot-KBean/.idea/springboot-KBean.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml" filepath="$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" filepath="$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" />

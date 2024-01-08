@@ -1,46 +1,34 @@
-import dev.jeka.core.api.java.JkJavaProcess;
+import dev.jeka.core.api.project.JkIdeSupport;
 import dev.jeka.core.api.project.JkProject;
-import dev.jeka.core.tool.JkBean;
+import dev.jeka.core.api.project.JkProjectPackaging;
 import dev.jeka.core.tool.JkInjectProject;
-import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
-import dev.jeka.core.tool.builtins.project.ProjectJkBean;
+import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.ide.IntellijKBean;
+import dev.jeka.core.tool.builtins.project.ProjectKBean;
 
-/**
- * @formatter:off
- */
-class SwingBuild extends JkBean {
+class SwingBuild extends KBean {
 
-	ProjectJkBean projectJkBean = getBean(ProjectJkBean.class).lately(this::configure);
+	private final ProjectKBean projectKBean = load(ProjectKBean.class);
+
+	final JkProject project = projectKBean.project;
 
 	@JkInjectProject("../springboot-multi-modules.core")
 	private CoreBuild coreBuild;
 
-	{
-		getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
+	SwingBuild() {
+		load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
 	}
 
-    private void configure(JkProject project) {
+	@Override
+    protected void init() {
 		project
 			.packaging
 				.manifest
 					.addMainClass("swing.Main");
 		project
 			.compilation
-				.configureDependencies(deps -> deps
-					.and(coreBuild.projectJkBean.getProject().toDependency())
-				);
-		project
-			.artifactProducer
-				.putMainArtifact(project.packaging::createFatJar);
+				.configureDependencies(deps -> deps.and(coreBuild.project.toDependency()));
+		project.flatFacade().setMainArtifactJarType(JkProjectPackaging.JarType.FAT);
     }
-
-    public void cleanPack() {
-		cleanOutput(); projectJkBean.pack();
-	}
-
-    public void run() {
-		JkJavaProcess.ofJavaJar(projectJkBean.getProject().artifactProducer.getMainArtifactPath(), null)
-				.exec();
-	}
 
 }

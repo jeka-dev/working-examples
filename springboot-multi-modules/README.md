@@ -40,30 +40,22 @@ The formula computation is provided by _core_ modules that in turns depends on  
 From _springboot-multi-modules_ :
 
 ```shell
-./jekaw build
+./jekaw #cleanPack
 ```
 
-### Build springbootapp only
+### Run all
 
-Go to  *springboot-multi-modules.springbootapp* directory and execute :
+From _springboot-multi-modules_ :
 
 ```shell
-./jekaw cleanPack
+./jekaw #run
 ```
+This will launch both Springboot and Swing application.
 
-To run the built instance : 
-```shell
-./jekaw run
-```
+You can request a formula computation via [rest API](http://localhost:8080/formula?input=17).
 
-### Build swingapp only
+You can also display in browser the [Hello World Javascript application](http://localhost:8080).
 
-Go to  *springboot-multi-modules.swingapp* directory and execute :
 
-```shell
-./jekaw cleanPack
-```
-To run the built instance : 
-```shell
-./jekaw run
-```
+
+

@@ -13,7 +13,7 @@
             <excludeFolder url="file://$MODULE_DIR$/jeka/.work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
-        <orderEntry jdkName="11" jdkType="JavaSDK" type="jdk"/>
+        <orderEntry type="inheritedJdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
@@ -74,6 +74,15 @@
                 <SOURCES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.codehaus.mojo/animal-sniffer-annotations/jars/animal-sniffer-annotations-1.14-sources.jar!/"/>
                 </SOURCES>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file://$MODULE_DIR$/jeka/.work/def-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
             </library>
         </orderEntry>
         <orderEntry exported="" module-name="springboot-multi-modules.build-commons" scope="TEST" type="module"/>

@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 function component() {
   const element = document.createElement('div');
-  element.innerHTML = _.join(['Hello', 'World'], ' ');
+  element.innerHTML = _.join(['Hello', 'World', 'I am a Javascript application.'], ' ');
   return element;
 }
 

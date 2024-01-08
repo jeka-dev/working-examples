@@ -1,9 +1,8 @@
 package kube;
 
-import com.google.cloud.tools.jib.api.*;
+import com.google.cloud.tools.jib.api.Containerizer;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.plugins.springboot.SpringbootJkBean;
 import kube.support.JibHelper;
 import lombok.Value;
 

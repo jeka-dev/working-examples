@@ -1,24 +1,18 @@
 import dev.jeka.core.api.depmanagement.JkPopularLibs;
 import dev.jeka.core.api.depmanagement.JkVersionProvider;
-import dev.jeka.core.api.java.JkJavaVersion;
-import dev.jeka.core.api.project.JkProject;
-import dev.jeka.core.tool.JkBean;
-import dev.jeka.core.tool.builtins.ide.IntellijJkBean;
+import dev.jeka.core.tool.KBean;
+import dev.jeka.core.tool.builtins.ide.IntellijKBean;
 
 /*
  * This class is reusable in any Jeka project def importing this project
  */
-public class BuildCommon extends JkBean {
+public class BuildCommon extends KBean {
 
     public static final JkVersionProvider VERSION_PROVIDER =
             JkVersionProvider.of(JkPopularLibs.GUAVA, "22.0");
 
     BuildCommon() {
-        getBean(IntellijJkBean.class).useJekaDefinedInModule("wrapper-common");
-    }
-
-    public static void setup(JkProject project) {
-        project.flatFacade().setJvmTargetVersion(JkJavaVersion.V8);
+        load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
     }
 
 }

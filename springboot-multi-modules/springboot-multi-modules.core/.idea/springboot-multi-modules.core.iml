@@ -13,8 +13,17 @@
             <excludeFolder url="file://$MODULE_DIR$/jeka/.work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
-        <orderEntry jdkName="11" jdkType="JavaSDK" type="jdk"/>
+        <orderEntry type="inheritedJdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
         <orderEntry exported="" module-name="springboot-multi-modules.utils" scope="COMPILE" type="module"/>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file://$MODULE_DIR$/jeka/.work/def-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
     </component>
 </module>

@@ -9,6 +9,11 @@ To create a bootable jar, execute :
 ./jekaw project#pack
 ```
 
+Launch Sonarqube analysis, execute :
+```
+./jekaw #sonarqube
+```
+
 To run the bootable jar built by `project#pack`, execute :
 ```shell
 ./jekaw project#runJar

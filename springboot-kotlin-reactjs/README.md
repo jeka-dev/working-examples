@@ -13,12 +13,12 @@ It gives an idea about how to customise Jeka for integrating specific technology
 
 To make a clean build for production (a springboot jar file embedding the client), execute :
 ```shell
-./jekaw :build
+./jekaw project#cleanPack
 ``` 
 
 To run the jar built with previous command :
 ```shell
-./jekaw :run
+./jekaw projec#runJar
 ```
 
 Browse http://localhost:8080 to open the main page once the jar is running.

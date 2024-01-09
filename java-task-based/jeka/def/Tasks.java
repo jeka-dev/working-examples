@@ -43,17 +43,17 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	JkPathSequence cachedTestClasspath;
 
 	Tasks() {
+		// Use shared wrapper
 		load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
 	}
 
 	@JkDoc("Compile production source code")
 	public void compile() {
-		JkJavaCompilerToolChain.of().compile(
-				JkJavaCompileSpec.of()
-						.setClasspath(classpath())
-						.setSources(src.toSet())
-						.setOutputDir(classDir)
-		);
+		JkJavaCompileSpec compileSpec = JkJavaCompileSpec.of()
+				.setClasspath(classpath())
+				.setSources(src.toSet())
+				.setOutputDir(classDir);
+		JkJavaCompilerToolChain.of().compile(compileSpec);
 		src.andMatching(false,"**/*.java").copyTo(classDir);  /// copy resources
 	}
 
@@ -103,6 +103,8 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	}
 
 	private JkPathSequence classpath() {
+
+		// The production dependencies are stored locally
 		return JkPathSequence.of(baseTree.andMatching("libs/compile/**.jar").getFiles());
 	}
 

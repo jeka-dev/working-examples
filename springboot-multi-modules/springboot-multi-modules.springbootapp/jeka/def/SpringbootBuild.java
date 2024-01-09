@@ -19,9 +19,7 @@ import java.nio.file.StandardCopyOption;
 @JkInjectClasspath("dev.jeka:nodejs-plugin")
 class SpringbootBuild extends KBean {
 
-    private final ProjectKBean projectKBean = load(ProjectKBean.class);
-
-    final JkProject project = projectKBean.project;
+    final JkProject project = load(ProjectKBean.class).project;
 
     final JkNodeJs nodeJs = JkNodeJs.ofVersion("18.12.0")
             .setWorkingDir(getBaseDir().resolve("web"));

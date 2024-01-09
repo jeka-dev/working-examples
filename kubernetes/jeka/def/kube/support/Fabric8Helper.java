@@ -16,7 +16,7 @@ import java.util.ListIterator;
 import java.util.Map;
 
 /**
- * Generic helper class to create or modifify Fabric8 objects conveniently;
+ * Generic helper class to create or modify Fabric8 objects conveniently;
  */
 public class Fabric8Helper {
 

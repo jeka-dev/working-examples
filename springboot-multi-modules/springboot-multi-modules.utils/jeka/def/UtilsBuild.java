@@ -6,9 +6,7 @@ import dev.jeka.core.tool.builtins.project.ProjectKBean;
 @JkInjectProject("../springboot-multi-modules.build-commons")
 class UtilsBuild extends KBean {
 
-    private ProjectKBean projectKBean = load(ProjectKBean.class);
-
-    final JkProject project = projectKBean.project;
+    final JkProject project = load(ProjectKBean.class).project;
 
     @Override
     protected void init() {

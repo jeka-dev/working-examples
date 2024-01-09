@@ -5,6 +5,8 @@ import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.utils.JkUtilsString;
 import dev.jeka.plugins.springboot.JkSpringModules;
+import dev.jeka.plugins.springboot.JkSpringbootJars;
+import dev.jeka.plugins.springboot.JkSpringbootProject;
 
 
 import java.io.IOException;
@@ -17,7 +19,7 @@ import static java.util.Collections.singletonList;
 public class JibHelper {
 
     public static JibContainerBuilder javaImage(String fromImage, JkProject project) {
-        return javaImage(fromImage, project, JkSpring.getMainClass(project));
+        return javaImage(fromImage, project, JkSpringbootProject.of(project).f);
     }
 
     public static JibContainerBuilder javaImage(String fromImage, JkProject javaProject, String mainClass) {

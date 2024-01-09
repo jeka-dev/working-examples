@@ -11,7 +11,7 @@ Dependencies are declared in [project-dependencies.txt](./jeka/project-dependenc
 
 To create a bootable jar from scratch, execute :
 ```shell
-./jekaw :pack
+./jekaw project#cleanPack
 ``` 
 
 To create a bootable jar from scratch and analysing code+coverage via Sonarqube, execute :
@@ -19,4 +19,8 @@ To create a bootable jar from scratch and analysing code+coverage via Sonarqube,
 ./jekaw :packQuality
 ```
 
+## How to run
 
+```shell
+./jekaw project#runJar
+```

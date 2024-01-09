@@ -8,9 +8,7 @@ import dev.jeka.core.tool.builtins.project.ProjectKBean;
 
 class SwingBuild extends KBean {
 
-	private final ProjectKBean projectKBean = load(ProjectKBean.class);
-
-	final JkProject project = projectKBean.project;
+	final JkProject project = load(ProjectKBean.class).project;
 
 	@JkInjectProject("../springboot-multi-modules.core")
 	private CoreBuild coreBuild;

@@ -1,5 +1,3 @@
-import dev.jeka.core.api.project.JkIdeSupport;
-import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.tool.JkInjectProject;
 import dev.jeka.core.tool.KBean;
@@ -10,9 +8,7 @@ class CoreBuild extends KBean {
 	@JkInjectProject("../springboot-multi-modules.utils")
 	private UtilsBuild utilsBuild;
 
-	private final ProjectKBean projectKBean = load(ProjectKBean.class);
-
-	final JkProject project = projectKBean.project;
+	final JkProject project = load(ProjectKBean.class).project;
 
 	@Override
 	protected void init() {

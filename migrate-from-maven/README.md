@@ -9,6 +9,6 @@ and generates jeka corresponding code on the console.
 
 To run, just execute : 
 ```shell
-./jekaw maven#migrateToCode
+./jekaw mavenLigration#migrateToCode
 ```
 

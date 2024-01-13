@@ -1,12 +1,13 @@
 package kube;
 
+import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.api.system.JkProcess;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.KBean;
 import dev.jeka.core.tool.builtins.project.ProjectKBean;
-import dev.jeka.plugins.springboot.SpringbootKBean;
+import dev.jeka.plugins.springboot.JkSpringbootProject;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClientBuilder;
 import kube.support.Fabric8Helper;
@@ -18,11 +19,14 @@ import lombok.RequiredArgsConstructor;
 // - https://github.com/fabric8io/kubernetes-client/blob/master/doc/CHEATSHEET.md
 // - https://github.com/GoogleContainerTools/jib/tree/master/jib-core
 
+@JkInjectClasspath("org.projectlombok:lombok:1.18.26")
+
 @JkInjectClasspath("com.google.cloud.tools:jib-core:0.23.0")
 @JkInjectClasspath("io.fabric8:kubernetes-client:6.5.1")
 @JkInjectClasspath("io.fabric8:kubernetes-client-api:6.5.1")
 @JkInjectClasspath("org.slf4j:slf4j-simple:2.0.7")
-@JkInjectClasspath("org.projectlombok:lombok:1.18.26")
+
+@JkInjectClasspath("dev.jeka:springboot-plugin")
 class Kube extends KBean {
 
     @RequiredArgsConstructor
@@ -37,9 +41,7 @@ class Kube extends KBean {
         final Resources resources;
     }
 
-    private final SpringbootKBean springbootKBean = load(SpringbootKBean.class);
-
-    private final ProjectKBean projectKBean = load(ProjectKBean.class);
+    private final JkProject project = load(ProjectKBean.class).project;
 
     @JkDoc("Kubernetes environment to deploy application")
     public Target target = Target.LOCAL;
@@ -48,9 +50,17 @@ class Kube extends KBean {
             "This is supposed to be injected by the CI tool and contain information as calendar and build number.")
     public String appVersion;
 
+    @Override
+    protected void init() {
+        JkSpringbootProject.of(project)
+                .includeParentBom("3.2.1")
+                .configure();
+        project.compilation.addJavaCompilerOptions("-parameters");
+    }
+
     @JkDoc("Build and push the application container image. This assumes that application ahs already been built.")
     public void buildImage() throws Exception {
-        appImage().build(projectKBean.project);
+        appImage().build(project);
     }
 
     @JkDoc("Applies the defined resources to the Kubernetes cluster")
@@ -79,7 +89,7 @@ class Kube extends KBean {
 
     @JkDoc("Builds the application + container image + apply to the Kubernetes cluster.")
     public void buildAndApply() throws Exception {
-        projectKBean.cleanPack();
+        project.clean().pack();
         buildImage();
         apply();
     }

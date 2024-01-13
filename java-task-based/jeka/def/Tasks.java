@@ -15,7 +15,7 @@ import dev.jeka.core.api.testing.JkTestProcessor;
 import dev.jeka.core.api.testing.JkTestSelection;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.KBean;
-import dev.jeka.core.tool.builtins.ide.IntellijKBean;
+import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
 
 import java.nio.file.Path;
 

@@ -1,10 +1,10 @@
-import dev.jeka.core.api.project.JkIdeSupport;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.project.JkProjectPackaging;
 import dev.jeka.core.tool.JkInjectProject;
 import dev.jeka.core.tool.KBean;
-import dev.jeka.core.tool.builtins.ide.IntellijKBean;
+
 import dev.jeka.core.tool.builtins.project.ProjectKBean;
+import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
 
 class SwingBuild extends KBean {
 
@@ -19,10 +19,6 @@ class SwingBuild extends KBean {
 
 	@Override
     protected void init() {
-		project
-			.packaging
-				.manifest
-					.addMainClass("swing.Main");
 		project
 			.compilation
 				.configureDependencies(deps -> deps.and(coreBuild.project.toDependency()));

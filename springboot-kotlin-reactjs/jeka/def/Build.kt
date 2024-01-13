@@ -9,7 +9,7 @@ class Build : KBean() {
     override fun init() {
 
         // configure kotlin compiler
-        load(KotlinJvmKBean::class.java).kotlinJvmProject.kotlinCompiler
+        load(KotlinJvmKBean::class.java).kotlinJvm.kotlinCompiler
             .addPlugin("org.jetbrains.kotlin:kotlin-allopen")
             .addPluginOption("org.jetbrains.kotlin.allopen", "preset", "spring")
     }

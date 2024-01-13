@@ -1,13 +1,11 @@
 import dev.jeka.core.api.file.JkPathTree;
-import dev.jeka.core.api.project.JkIdeSupport;
-import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.JkInjectProject;
 import dev.jeka.core.tool.KBean;
-import dev.jeka.core.tool.builtins.ide.IntellijKBean;
 import dev.jeka.core.tool.builtins.project.ProjectKBean;
+import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
 import dev.jeka.plugins.nodejs.JkNodeJs;
 import dev.jeka.plugins.springboot.JkSpringModules.Boot;
 import dev.jeka.plugins.springboot.JkSpringbootProject;

@@ -1,7 +1,7 @@
 import dev.jeka.core.api.depmanagement.JkPopularLibs;
 import dev.jeka.core.api.depmanagement.JkVersionProvider;
 import dev.jeka.core.tool.KBean;
-import dev.jeka.core.tool.builtins.ide.IntellijKBean;
+import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
 
 /*
  * This class is reusable in any Jeka project def importing this project

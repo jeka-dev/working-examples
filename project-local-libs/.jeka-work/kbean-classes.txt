@@ -1,9 +1,0 @@
-dev.jeka.core.tool.builtins.project.ProjectKBean
-dev.jeka.core.tool.builtins.scaffold.ScaffoldKBean
-dev.jeka.core.tool.builtins.tooling.docker.DockerKBean
-dev.jeka.core.tool.builtins.tooling.git.GitKBean
-dev.jeka.core.tool.builtins.tooling.ide.EclipseKBean
-dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean
-dev.jeka.core.tool.builtins.tooling.maven.MavenMigrationKBean
-dev.jeka.core.tool.builtins.tooling.maven.MavenPublicationKBean
-dev.jeka.core.tool.builtins.tooling.nexus.NexusKBean

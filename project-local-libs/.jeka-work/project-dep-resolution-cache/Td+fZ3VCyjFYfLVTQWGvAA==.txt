@@ -1,1 +1,0 @@
-project-libs/test/junit-platform-commons-1.9.0.jar:project-libs/test/junit-platform-engine-1.9.0.jar:project-libs/test/junit-platform-launcher-1.9.0.jar:project-libs/test/junit-jupiter-engine-5.9.0.jar:project-libs/test/junit-jupiter-api-5.9.0.jar:project-libs/test/apiguardian-api-1.1.2.jar:project-libs/test/opentest4j-1.2.0.jar:project-libs/compile/guava-18.0.jar

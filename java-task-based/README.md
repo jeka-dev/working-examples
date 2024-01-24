@@ -12,17 +12,17 @@ This project does not respect any layout convention. Its [build class](jeka/def/
 
 If you want to only produce the jar without running tests, execute :
 ```shell
-./jekaw compile jar
+jeka #compile #jar
 ```
 
 If you want the junit test to be run in a forked process, execute :
 ```shell
-./jekaw compile junit -forkTest=true
+jeka #compile #junit -forkTest=true
 ```
 
 To full build the project, execute
 ```shell
-./jekaw build
+jeka build
 ```
 
 ### From IDE

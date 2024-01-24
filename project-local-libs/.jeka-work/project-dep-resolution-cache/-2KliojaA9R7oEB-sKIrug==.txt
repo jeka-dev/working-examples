@@ -1,0 +1,1 @@
+project-libs/regular/guava-18.0.jar

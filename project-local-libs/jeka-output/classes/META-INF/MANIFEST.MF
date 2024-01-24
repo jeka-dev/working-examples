@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Implementation-Version: 0.0.1
+Built-By: jerome
+Build-Time: 2024-01-24T23:45:29.943+01:00[Europe/Brussels]
+Created-By: JeKa 0.11.x-SNAPSHOT
+Build-Jdk: Temurin 1.8.0_402
+

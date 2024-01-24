@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compileRunner-output="false">
+    <output url="file://$MODULE_DIR$/.idea/output/production" />
+    <output-test url="file://$MODULE_DIR$/.idea/output/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/.././project-local-libs">
+      <sourceFolder url="file://$MODULE_DIR$/.././project-local-libs/jeka-src" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/.././project-local-libs/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.././project-local-libs/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/.././project-local-libs/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/.././project-local-libs/src/test/resources" type="java-test-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/jeka-output" />
+      <excludeFolder url="file://$MODULE_DIR$/.jeka-work" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/output" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/compile/guava-18.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/test/junit-platform-commons-1.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/test/junit-platform-engine-1.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/test/junit-platform-launcher-1.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/test/junit-jupiter-engine-5.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/test/junit-jupiter-api-5.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/test/apiguardian-api-1.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/project-libs/test/opentest4j-1.2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

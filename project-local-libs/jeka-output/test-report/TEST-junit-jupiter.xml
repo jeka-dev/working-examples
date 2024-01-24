@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="1" skipped="0" failures="0" errors="0" time="0.085" hostname="MacBook-Pro-de-jerome.local" timestamp="2024-01-25T00:02:39">
+<properties>
+<property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.encoding.pkg" value="sun.io"/>
+<property name="file.separator" value="/"/>
+<property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="gopherProxySet" value="false"/>
+<property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+<property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+<property name="java.class.path" value="jeka-output/test-classes:project-libs/test/junit-platform-commons-1.9.0.jar:project-libs/test/junit-platform-engine-1.9.0.jar:project-libs/test/junit-platform-launcher-1.9.0.jar:project-libs/test/junit-jupiter-engine-5.9.0.jar:project-libs/test/junit-jupiter-api-5.9.0.jar:project-libs/test/apiguardian-api-1.1.2.jar:project-libs/test/opentest4j-1.2.0.jar:project-libs/compile/guava-18.0.jar:jeka-output/classes:/Users/jerome/.jeka/cache/repo/org.junit.platform/junit-platform-reporting/jars/junit-platform-reporting-1.8.2.jar:/Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka-output/distrib/dev.jeka.jeka-core.jar:/Users/jerome/.jeka/cache/url-content/jeka-embedded-3acf5445ee8b16270117db9422f157ba.jar:/Users/jerome/.jeka/cache/repo/io.github.classgraph/classgraph/jars/classgraph-4.8.162.jar"/>
+<property name="java.class.version" value="52.0"/>
+<property name="java.endorsed.dirs" value="/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/endorsed"/>
+<property name="java.ext.dirs" value="/Users/jerome/Library/Java/Extensions:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+<property name="java.home" value="/Users/jerome/.jeka/cache/jdks/temurin-8/jre"/>
+<property name="java.io.tmpdir" value="/var/folders/ld/xq1qbfv928z7r1qq587rtn9c0000gn/T/"/>
+<property name="java.library.path" value="/Users/jerome/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+<property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+<property name="java.runtime.version" value="1.8.0_402-b06"/>
+<property name="java.specification.maintenance.version" value="5"/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="1.8"/>
+<property name="java.vendor" value="Temurin"/>
+<property name="java.vendor.url" value="https://adoptium.net/"/>
+<property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+<property name="java.version" value="1.8.0_402"/>
+<property name="java.vm.info" value="mixed mode"/>
+<property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="1.8"/>
+<property name="java.vm.vendor" value="Temurin"/>
+<property name="java.vm.version" value="25.402-b06"/>
+<property name="line.separator" value="
+"/>
+<property name="os.arch" value="x86_64"/>
+<property name="os.name" value="Mac OS X"/>
+<property name="os.version" value="13.6.3"/>
+<property name="path.separator" value=":"/>
+<property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.boot.class.path" value="/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/resources.jar:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/rt.jar:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/sunrsasign.jar:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/jsse.jar:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/jce.jar:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/charsets.jar:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib/jfr.jar:/Users/jerome/.jeka/cache/jdks/temurin-8/jre/classes"/>
+<property name="sun.boot.library.path" value="/Users/jerome/.jeka/cache/jdks/temurin-8/jre/lib"/>
+<property name="sun.cpu.endian" value="little"/>
+<property name="sun.cpu.isalist" value=""/>
+<property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+<property name="sun.java.command" value="dev.jeka.core.api.testing.JkTestProcessor /var/folders/ld/xq1qbfv928z7r1qq587rtn9c0000gn/T/testArgs-5344885133097243387.ser"/>
+<property name="sun.java.launcher" value="SUN_STANDARD"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<property name="sun.os.patch.level" value="unknown"/>
+<property name="user.country" value="BE"/>
+<property name="user.dir" value="/Users/jerome/IdeaProjects/working-examples/java-full-conventional"/>
+<property name="user.home" value="/Users/jerome"/>
+<property name="user.language" value="fr"/>
+<property name="user.name" value="jerome"/>
+<property name="user.timezone" value="Europe/Brussels"/>
+</properties>
+<testcase name="test()" classname="org.jerkar.examples.capitalizer.CapitalizerTest" time="0.04">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:org.jerkar.examples.capitalizer.CapitalizerTest]/[method:test()]
+display-name: test()
+]]></system-out>
+</testcase>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>

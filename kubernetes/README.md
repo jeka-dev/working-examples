@@ -15,7 +15,7 @@ The following libraries are used for this purpose:
 Jeka builds (compiles and tests) the Springboot application using [Jeka Springboot
 plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/dev.jeka.plugins.springboot).
 
-The application build is specified in [local.properties file](local.properties) while
+The application build is specified in [jeka.properties file](jeka.properties) while
 [project-dependencies.txt](project-dependencies.txt) specifies dependencies.
 
 A [Kube KBean](jeka/def/kube/Kube.java) defines the entry points to interact with command-line

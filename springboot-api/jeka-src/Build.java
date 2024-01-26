@@ -17,7 +17,7 @@ class Build extends KBean {
     @JkDoc("Launch sonarQube analysis.#")
     public void sonarqube() {
         JkSonarqube.ofVersion("5.0.1.3006")
-                .setProperties(getRuntime().getProperties())  // Take Sonar properties from local.properties and System.getProperties()
+                .setProperties(getRunbase().getProperties())  // Take Sonar properties from local.properties and System.getProperties()
                 .configureFor(project)
                 .run();
     }

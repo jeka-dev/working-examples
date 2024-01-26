@@ -44,6 +44,7 @@ public class Application {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor(onConstructor = @__(@PersistenceConstructor))
+    static
     class Note {
 
         @Id
@@ -66,9 +67,9 @@ public class Application {
         @Autowired
         private KnoteProperties properties;
 
-        private Parser parser = Parser.builder().build();
+        private final Parser parser = Parser.builder().build();
 
-        private HtmlRenderer renderer = HtmlRenderer.builder().build();
+        private final HtmlRenderer renderer = HtmlRenderer.builder().build();
 
         @GetMapping("/")
         public String index(Model model) {

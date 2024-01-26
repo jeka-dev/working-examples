@@ -32,10 +32,10 @@ class SpringbootBuild extends KBean {
     @Override
     protected void init() {
         project.flatFacade()
-                .configureCompileDependencies(deps -> deps
+                .customizeCompileDeps(deps -> deps
                     .and(Boot.STARTER_WEB)
                     .and(this.coreBuild.project.toDependency()))
-                .configureTestDependencies(deps -> deps
+                .customizeTestDeps(deps -> deps
                         .and(Boot.STARTER_TEST));
         project.compilation.postCompileActions.append("Web client build", this::npmBuild);
         JkSpringbootProject.of(project)

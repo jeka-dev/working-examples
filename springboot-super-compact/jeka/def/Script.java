@@ -1,8 +1,6 @@
-import dev.jeka.core.tool.builtins.self.SelfAppKBean;
+import dev.jeka.core.tool.builtins.self.SelfKBean;
 
-class Script extends SelfAppKBean {
-
-
+class Script extends SelfKBean {
 
 
 }

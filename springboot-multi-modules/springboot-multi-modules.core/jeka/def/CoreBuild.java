@@ -13,7 +13,7 @@ class CoreBuild extends KBean {
 	@Override
 	protected void init() {
 		project.flatFacade()
-				.configureCompileDependencies(deps -> deps
+				.customizeCompileDeps(deps -> deps
 						.and(utilsBuild.project.toDependency()));
 	}
 

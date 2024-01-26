@@ -42,11 +42,6 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	// cached test classpath
 	JkPathSequence cachedTestClasspath;
 
-	Tasks() {
-		// Use shared wrapper
-		load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
-	}
-
 	@JkDoc("Compile production source code")
 	public void compile() {
 		JkJavaCompileSpec compileSpec = JkJavaCompileSpec.of()
@@ -116,6 +111,10 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 							.and(baseTree.andMatching("libs/test/*.jar").getFiles()));
 		}
 		return cachedTestClasspath;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("\u2714 existing");
 	}
 
 }

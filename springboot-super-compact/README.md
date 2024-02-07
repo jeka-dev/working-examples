@@ -1,28 +1,42 @@
-# Spring-Boot Application as script
+# Spring-Boot Application hosted in jeka-src
 
 Run a Spring-Boot application from sources.
 
-The idea is too code the [Spring-Boot application](./jeka/def/app) as a regular JeKa script, so it can 
-be executed from sources, without needing to be explicitly built.
-Users just need a JDK 17+ installed on host machine.
+The idea is to code the [Spring-Boot application](jeka-src/app) entirely is *jeke-src*.
 
-The [Application](./jeka/def/app/Application.java) class declares the dependencies needed to run the application.
+Everything, concerning non-prod (build, tests) are located under *_dev* package and won't be shipped with the application.
 
- `./jekaw #run` executes the application from [sources](./jeka/def/app), passing by a compilation test behind the scene.
-The compilation result is cached for faster execution on subsequent runs.
+## Setup IDE
 
-`./jekaw #test` executes the tests defined in [test dir](./jeka/def/test)
+```shell
+jeka intellij#iml
+```
 
-Production and test classpath are not segregated, which is ok for project with small-medium testing requirements.
+Execute app :
+ ```shell
+ jeka #runJar
+ ```
+
+Execute Test :
+```shell
+jeka #test
+```
 
 ## Docker
 
-Additionally, the [script](./jeka/def/Script.java) includes methods to build, run and stop a Docker image of the application.
+Additionally, the [script](jeka-src/Script.java) includes methods to build, run and stop a Docker image of the application.
 This requires to have a Docker daemon running on the host machine.
 
-`./jekaw #buildImage` to build the Docker image using Docker daemon.
+Build Image :
+```shell
+jeka docker#build
+```
 
-`./jekaw #runImage` to run the Docker image in a container.
+Run the Image :
+```shell
+jeka docker#run
+```
 
-`./jekaw #runImage` to stop the container launched in previous step.
+
+
 

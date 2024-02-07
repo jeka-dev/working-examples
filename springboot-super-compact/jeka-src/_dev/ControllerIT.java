@@ -1,4 +1,4 @@
-package test;
+package _dev;
 
 import app.Application;
 import dev.jeka.core.tool.JkInjectClasspath;

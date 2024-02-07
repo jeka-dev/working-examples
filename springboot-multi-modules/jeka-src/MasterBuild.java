@@ -1,17 +1,17 @@
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.tool.JkDoc;
-import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.JkInjectRunbase;
 import dev.jeka.core.tool.KBean;
 
 import java.nio.file.Path;
 
 class MasterBuild extends KBean {
 
-	@JkInjectProject("springboot-multi-modules.springbootapp")
+	@JkInjectRunbase("springboot-multi-modules.springbootapp")
 	private SpringbootBuild springbootBuild;
 
-	@JkInjectProject("springboot-multi-modules.swingapp")
+	@JkInjectRunbase("springboot-multi-modules.swingapp")
 	private SwingBuild swingBuild;
 
 	Path distribFolder = getOutputDir();

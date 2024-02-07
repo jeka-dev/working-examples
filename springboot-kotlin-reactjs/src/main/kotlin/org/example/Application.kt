@@ -1,12 +1,14 @@
 package org.example;
 
+import jakarta.annotation.PostConstruct
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.boot.ApplicationRunner
+import org.springframework.boot.CommandLineRunner
 import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
-open class Application {
+open class Application : CommandLineRunner {
 
         @Bean
         open fun run(repository: CoffeeShopRepository) = ApplicationRunner {
@@ -26,6 +28,10 @@ open class Application {
                         powerAccessible = true,
                         internetReliability = 3
                 ))
+        }
+
+        override fun run(vararg args: String?) {
+                println("Open me http://localhost:8080")
         }
 }
 

@@ -2,10 +2,9 @@ import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.tool.JkInjectClasspath;
-import dev.jeka.core.tool.JkInjectProject;
+import dev.jeka.core.tool.JkInjectRunbase;
 import dev.jeka.core.tool.KBean;
 import dev.jeka.core.tool.builtins.project.ProjectKBean;
-import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
 import dev.jeka.plugins.nodejs.JkNodeJs;
 import dev.jeka.plugins.springboot.JkSpringModules.Boot;
 import dev.jeka.plugins.springboot.JkSpringbootProject;
@@ -22,12 +21,8 @@ class SpringbootBuild extends KBean {
     final JkNodeJs nodeJs = JkNodeJs.ofVersion("18.12.0")
             .setWorkingDir(getBaseDir().resolve("web"));
 
-    @JkInjectProject("../springboot-multi-modules.core")
+    @JkInjectRunbase("../springboot-multi-modules.core")
     private CoreBuild coreBuild;
-
-    SpringbootBuild() {
-        load(IntellijKBean.class).useJekaDefinedInModule("wrapper-common");
-    }
 
     @Override
     protected void init() {

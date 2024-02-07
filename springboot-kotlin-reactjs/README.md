@@ -9,6 +9,12 @@ No installation of node-js is required : Jeka install required node versions tra
 Kotlin support is still experimental, so Kotlin compilation has been entirely coded within build classes. 
 It gives an idea about how to customise Jeka for integrating specific technology. 
 
+## Setup IDE
+
+```shell
+jeka intellij#iml
+```
+
 ## How to build
 
 To make a clean build for production (a springboot jar file embedding the client), execute :

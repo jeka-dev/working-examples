@@ -4,13 +4,13 @@
         <output-test url="file://$MODULE_DIR$/.idea/output/test"/>
         <exclude-output/>
         <content url="file://$MODULE_DIR$">
-            <sourceFolder isTestSource="true" url="file://$MODULE_DIR$/jeka/def"/>
+            <sourceFolder isTestSource="true" url="file://$MODULE_DIR$/jeka-src"/>
             <sourceFolder url="file://$MODULE_DIR$/src/main/java"/>
             <sourceFolder type="java-resource" url="file://$MODULE_DIR$/src/main/resources"/>
             <sourceFolder isTestSource="true" url="file://$MODULE_DIR$/src/test/java"/>
             <sourceFolder type="java-test-resource" url="file://$MODULE_DIR$/src/test/resources"/>
-            <excludeFolder url="file://$MODULE_DIR$/jeka/output"/>
-            <excludeFolder url="file://$MODULE_DIR$/jeka/.work"/>
+            <excludeFolder url="file://$MODULE_DIR$/jeka-output"/>
+            <excludeFolder url="file://$MODULE_DIR$/.jeka-work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
         <orderEntry type="inheritedJdk"/>
@@ -79,12 +79,31 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="file://$MODULE_DIR$/jeka/.work/def-classes"/>
+                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka-output/distrib/dev.jeka.jeka-core.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES>
+                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka-output/distrib/dev.jeka.jeka-core-sources.jar!/"/>
+                </SOURCES>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file:///Users/jerome/IdeaProjects/working-examples/springboot-multi-modules/springboot-multi-modules.build-commons/.jeka-work/jeka-src-classes"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
             </library>
         </orderEntry>
-        <orderEntry exported="" module-name="springboot-multi-modules.build-commons" scope="TEST" type="module"/>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file:///Users/jerome/IdeaProjects/working-examples/springboot-multi-modules/springboot-multi-modules.utils/.jeka-work/jeka-src-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
     </component>
 </module>

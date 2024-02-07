@@ -10,6 +10,12 @@ The following libraries are used for this purpose:
 - [jib core library](https://github.com/GoogleContainerTools/jib/tree/master/jib-core) for building container images
 - [Fabric8io Kubernetes Client](https://github.com/fabric8io/kubernetes-client) Fabric8io Kubernetes Client for specifying and deploying Kubernetes resources
 
+## Setup IDE
+
+```shell
+jeka intellij#iml
+```
+
 ## How does it work ?
 
 Jeka builds (compiles and tests) the Springboot application using [Jeka Springboot

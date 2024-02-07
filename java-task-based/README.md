@@ -6,6 +6,12 @@ The project has a dependency on *Guava* and on *Junit4* for testing.
 
 This project does not respect any layout convention. Its [build class](jeka/def/Tasks.java) explicitly describes the whole build as we do with ANT.
 
+## Setup IDE
+
+```shell
+jeka intellij#iml
+```
+
 ## How to build
 
 ### From command line

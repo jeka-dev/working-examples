@@ -33,14 +33,12 @@ The formula computation is provided by _core_ modules that in turns depends on  
 
 ## How to build
 
-**Note :** _Node.js + npm_ must be installed on the hosting machine in order to build [web](./web) module.
-
 ### Build all
 
 From _springboot-multi-modules_ :
 
 ```shell
-./jekaw #cleanPack
+jeka #cleanPack
 ```
 
 ### Run all
@@ -48,7 +46,7 @@ From _springboot-multi-modules_ :
 From _springboot-multi-modules_ :
 
 ```shell
-./jekaw #run
+jeka #run
 ```
 This will launch both Springboot and Swing application.
 

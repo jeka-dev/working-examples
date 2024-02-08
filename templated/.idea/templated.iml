@@ -614,7 +614,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.11.x-SNAPSHOT.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-0.11.x-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -623,7 +623,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-0.11.x-SNAPSHOT.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/sonarqube-plugin/jars/sonarqube-plugin-0.11.x-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -641,7 +641,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/sonarqube-plugin/jars/sonarqube-plugin-0.11.x-SNAPSHOT.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.11.x-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

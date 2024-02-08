@@ -32,6 +32,27 @@ jeka project#pack
 
 To run the bootable jar built in previous step, execute :
 ```shell
-jeka #runJar
+jeka project#runJar
 ```
 
+Launch Sonarqube analysis :
+```shell
+jeka #runSonarqube
+```
+
+## Display Info
+
+Help on template KBean :
+```shell
+jeka #help
+```
+
+Help on Project KBean
+```shell
+jeka project#help
+```
+
+Java project info :
+```shell
+jeka project#info
+```

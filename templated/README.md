@@ -11,9 +11,14 @@ This includes tests with coverage, Sonarqube analysis, ReactJs packaging (if pre
 For this, the project has to define only what is specific (application name, dependencies, Spting-Boot and Java version),
 the build template will handle all the remaining parts.
 
-The whole build definition lies in [local.properties file](./jeka/local.properties) 
-and in [project-dependencies.txt](./jeka/project-dependencies.txt) for application dependencies.
+The whole build definition lies in [local.properties file](local.properties) 
+and in [project-dependencies.txt](project-dependencies.txt) for application dependencies.
 
+## Setup IDE
+
+```shell
+jeka intellij#iml
+```
 
 ## Build
 
@@ -22,11 +27,11 @@ and [JeKa NodeJs plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/de
 
 To create a bootable jar, containing the client app, and execute SonarQube analysis on both java and js, execute :
 ```shell
-./jekaw #packQuality
+jeka project#pack
 ```
 
 To run the bootable jar built in previous step, execute :
 ```shell
-./jekaw #runJar
+jeka #runJar
 ```
 

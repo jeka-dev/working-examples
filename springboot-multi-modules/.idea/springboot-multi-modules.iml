@@ -25,6 +25,69 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.11.x-SNAPSHOT.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-0.11.x-SNAPSHOT.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file://$MODULE_DIR$/springboot-multi-modules.build-commons/.jeka-work/jeka-src-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file://$MODULE_DIR$/springboot-multi-modules.utils/.jeka-work/jeka-src-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file://$MODULE_DIR$/springboot-multi-modules.core/.jeka-work/jeka-src-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file://$MODULE_DIR$/springboot-multi-modules.springbootapp/.jeka-work/jeka-src-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="file://$MODULE_DIR$/springboot-multi-modules.swingapp/.jeka-work/jeka-src-classes"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="TEST" type="module-library">
+            <library>
+                <CLASSES>
                     <root url="file://$MODULE_DIR$/.jeka-work/jeka-src-classes"/>
                 </CLASSES>
                 <JAVADOC/>

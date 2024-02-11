@@ -1,4 +1,5 @@
 import dev.jeka.core.api.project.JkProject;
+import dev.jeka.core.api.testing.JkTestProcessor;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.KBean;
@@ -28,7 +29,7 @@ class Build extends KBean {
                 .includeParentBom("3.2.0")
                 .configure();
         JkJacoco.ofVersion("0.8.11")
-                .configureForAndApplyTo(project);
+                .configureAndApplyTo(project);
         project.flatFacade()
                 .addCompileDeps(
                         "org.springframework.boot:spring-boot-starter-web",
@@ -41,6 +42,10 @@ class Build extends KBean {
                         "org.springframework.boot:spring-boot-starter-test"
                 )
                 .setVersionFromGitTag();  // Infer version from Git
+        project.compilation.addJavaCompilerOptions("-Xlint:-options");
+        project.testing.compilation.addJavaCompilerOptions("-Xlint:-options");
+        project.testing.testProcessor.engineBehavior
+                .setProgressDisplayer(JkTestProcessor.JkProgressOutputStyle.BAR);
     }
 
 }

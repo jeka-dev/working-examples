@@ -7,6 +7,12 @@ Both commands and properties are defined in [local.properties](local.properties)
 
 Dependencies are declared in [project-dependencies.txt](project-dependencies.txt) file.
 
+## Setup IDE
+
+```shell
+jeka intellij#iml
+```
+
 ## How to build
 
 To create a bootable jar from scratch, execute :

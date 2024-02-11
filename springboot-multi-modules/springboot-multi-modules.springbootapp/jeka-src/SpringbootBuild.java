@@ -32,14 +32,14 @@ class SpringbootBuild extends KBean {
                     .and(this.coreBuild.project.toDependency()))
                 .customizeTestDeps(deps -> deps
                         .and(Boot.STARTER_TEST));
-        project.compilation.postCompileActions.append("Web client build", this::npmBuild);
+        project.compilation.postCompileActions.append("build-web-client", this::npmBuild);
         JkSpringbootProject.of(project)
                 .includeParentBom("3.2.1")
                 .configure();
     }
 
     private void npmBuild() {
-        JkLog.startTask("Packing web project");
+        JkLog.startTask("pack-web-project");
         Path webDist = nodeJs.getWorkingDir().resolve("dist");
         nodeJs.npm("install --loglevel=error");
         nodeJs.npm("run build");

@@ -9,6 +9,28 @@ __Note__ : This is not the only way to organize multi-module projects :
 * It's possible to have a "master" module at the same level than the other modules.
 * It's not necessary to have a 'build-common' module. It's possible to define the common builds into  module 'utils' for example.
 
+## Commands
+
+Setup IDE
+```shell
+jeka intellij#allIml
+```
+
+Build all :
+```shell
+jeka #cleanPack
+```
+
+Run :
+```shell
+jeka #run
+```
+
+You can request a formula computation via [rest API](http://localhost:8080/formula?input=17).
+
+You can also display in browser the [Hello World Javascript application](http://localhost:8080).
+
+
 ## What is inside ?
 
 This project contains two applications providing the same functionality : compute a magic formula according an input number.
@@ -31,28 +53,10 @@ The formula computation is provided by _core_ modules that in turns depends on  
 * __build-common__ : Contains common build code used by all other modules. Note that this could have also been included in the _utils_ module, which is the most downstream module, instead of inside a specific one. 
 
 
-## How to build
 
-### Build all
 
-From _springboot-multi-modules_ :
 
-```shell
-jeka #cleanPack
-```
 
-### Run all
-
-From _springboot-multi-modules_ :
-
-```shell
-jeka #run
-```
-This will launch both Springboot and Swing application.
-
-You can request a formula computation via [rest API](http://localhost:8080/formula?input=17).
-
-You can also display in browser the [Hello World Javascript application](http://localhost:8080).
 
 
 

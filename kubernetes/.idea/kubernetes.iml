@@ -5,10 +5,6 @@
         <exclude-output/>
         <content url="file://$MODULE_DIR$">
             <sourceFolder isTestSource="true" url="file://$MODULE_DIR$/jeka-src"/>
-            <sourceFolder url="file://$MODULE_DIR$/src/main/java"/>
-            <sourceFolder type="java-resource" url="file://$MODULE_DIR$/src/main/resources"/>
-            <sourceFolder isTestSource="true" url="file://$MODULE_DIR$/src/test/java"/>
-            <sourceFolder type="java-test-resource" url="file://$MODULE_DIR$/src/test/resources"/>
             <excludeFolder url="file://$MODULE_DIR$/jeka-output"/>
             <excludeFolder url="file://$MODULE_DIR$/.jeka-work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
@@ -626,7 +622,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="file:///Users/jerome/IdeaProjects/working-examples/kubernetes/.jeka-work/jeka-src-classes"/>
+                    <root url="file://$MODULE_DIR$/.jeka-work/jeka-src-classes"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

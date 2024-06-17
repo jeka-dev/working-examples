@@ -5,6 +5,7 @@
 ##
 
 ==== COMPILE ====
+org.springframework.boot:spring-boot-dependencies::pom:3.2.4
 org.springframework.boot:spring-boot-starter-web
 org.projectlombok:lombok:1.18.24
 

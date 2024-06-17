@@ -8,16 +8,16 @@ Third party libraries are stored locally in dedicated folder according their sco
 ### From command line
 To build the project, execute :
 ```shell
-jeka project#cleanPack
+jeka project: pack -c
 ```
 
 If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute :
 ```shell
-jeka +dev.jeka:jacoco-plugin jacoco# project#test  
+jeka -cp=dev.jeka:jacoco-plugin jacoco: project: test  
 ```
 If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute :
 ```shell
-jeka +dev.jeka:jacoco-plugin +dev.jeka:sonarqube-plugin project#test jacoco# sonarqube#run
+jeka -cp=dev.jeka:jacoco-plugin,dev.jeka:sonarqube-plugin project: test jacoco: sonarqube: run
 ```
 
 ### From IDE

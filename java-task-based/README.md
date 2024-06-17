@@ -9,7 +9,7 @@ This project does not respect any layout convention. Its [build class](jeka/def/
 ## Setup IDE
 
 ```shell
-jeka intellij#iml
+jeka intellij: iml
 ```
 
 ## How to build
@@ -18,12 +18,12 @@ jeka intellij#iml
 
 If you want to only produce the jar without running tests, execute :
 ```shell
-jeka #compile #jar
+jeka compile jar
 ```
 
 If you want the junit test to be run in a forked process, execute :
 ```shell
-jeka #compile #junit -forkTest=true
+jeka compile junit forkTest=true
 ```
 
 To full build the project, execute

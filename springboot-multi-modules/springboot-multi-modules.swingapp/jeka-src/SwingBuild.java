@@ -3,7 +3,6 @@ import dev.jeka.core.api.project.JkProjectPackaging;
 import dev.jeka.core.tool.JkInjectRunbase;
 import dev.jeka.core.tool.KBean;
 import dev.jeka.core.tool.builtins.project.ProjectKBean;
-import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
 
 class SwingBuild extends KBean {
 
@@ -13,8 +12,14 @@ class SwingBuild extends KBean {
 	private CoreBuild coreBuild;
 
 	SwingBuild() {
-		load(IntellijKBean.class).replaceLibByModule("springboot-multi-modules.core/.jeka-work/jeka-src-classes",
-				"springboot-multi-modules.core");
+		/*
+		load(IntellijKBean.class)
+				.replaceLibByModule("springboot-multi-modules.core/.jeka-work/jeka-src-classes", "springboot-multi-modules.core")
+				.replaceLibByModule("springboot-multi-modules.utils/.jeka-work/jeka-src-classes", "springboot-multi-modules.utils")
+				.replaceLibByModule("springboot-multi-modules.build-commons/.jeka-work/jeka-src-classes", "springboot-multi-modules.build-commons")
+				.setModuleAttributes("springboot-multi-modules.core", JkIml.Scope.COMPILE, false);
+
+		 */
 	}
 
 	@Override

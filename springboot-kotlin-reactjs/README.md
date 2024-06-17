@@ -12,19 +12,21 @@ It gives an idea about how to customise Jeka for integrating specific technology
 ## Setup IDE
 
 ```shell
-jeka intellij#iml
+jeka intellij: iml --force
 ```
+
+Generates iml
 
 ## How to build
 
 To make a clean build for production (a springboot jar file embedding the client), execute :
 ```shell
-jeka project#cleanPack
+jeka -c project: pack
 ``` 
 
 To run the jar built with previous command :
 ```shell
-jeka project#runJar
+jeka project: runJar
 ```
 
 Browse http://localhost:8080 to open the main page once the jar is running.

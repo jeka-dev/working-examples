@@ -13,7 +13,7 @@ The following libraries are used for this purpose:
 ## Setup IDE
 
 ```shell
-jeka intellij#iml
+jeka intellij: iml
 ```
 
 ## How does it work ?
@@ -58,7 +58,7 @@ The target environment can be specified by using the `kube#target=STAGING` optio
 
 For instance, the following command displays the Kubernetes resources as they will be deployed in the PROD environment.
 ```shell
-jeka #render #target=PROD
+jeka render target=PROD
 ```
 
 ## Running the demo
@@ -86,7 +86,7 @@ The application image is built using [Jib](https://github.com/GoogleContainerToo
 
 Execute the following command:
 ```shell
-jeka #buildAndApply
+jeka buildAndApply
 ```
 
 The `:build` command shortcut defined in the [local.properties](local.properties) file will clean, compile, and test the application (`project#test`) before building and publishing the Docker image (`kube#buildImage`).
@@ -99,22 +99,22 @@ To interact with the Kubernetes cluster and deploy or update resources, the [Fab
 
 To deploy or update the cluster with the built resources, execute the following command:
 ```shell
-jeka #apply
+jeka apply
 ```
 
 You can also build the application and deploy it in a single command by running:
 ```shell
-jeka #buildAllAndApply
+jeka buildAllAndApply
 ```
 
 Before testing, you need to forward the port from the Kubernetes cluster to your local machine:
 ```shell
-jeka #portForward
+jeka portForward
 ```
 
 To display all the available methods and properties for this project, execute the following command, which reflects the content of the `Kube` class:
 ```shell
-jeka #help
+jeka -cmd
 ```
 
 You can now access your local application by clicking [here](http://localhost:8080/).

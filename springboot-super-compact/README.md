@@ -5,27 +5,27 @@ Run a Spring-Boot application from sources.
 ## Setup IDE
 
 ```shell
-jeka intellij#iml
+jeka intellij: iml
 ```
 
 Execute app :
  ```shell
- jeka #runJar
+ jeka runJar
  ```
 
 Execute Test :
 ```shell
-jeka #test
+jeka test
 ```
 
 Build Docker Image :
 ```shell
-jeka docker#build
+jeka docker: build
 ```
 
 Run Docker Image :
 ```shell
-jeka docker#run
+jeka docker: run
 ```
 
 The idea is to code the [Spring-Boot application](jeka-src/app) entirely is *jeke-src*.
@@ -33,20 +33,6 @@ The idea is to code the [Spring-Boot application](jeka-src/app) entirely is *jek
 Everything, concerning non-prod (build, tests) are located under *_dev* package and won't be shipped with the application.
 
 
-## Docker
-
-Additionally, the [script](jeka-src/Script.java) includes methods to build, run and stop a Docker image of the application.
-This requires to have a Docker daemon running on the host machine.
-
-Build Image :
-```shell
-jeka docker#build
-```
-
-Run the Image :
-```shell
-jeka docker#run
-```
 
 
 

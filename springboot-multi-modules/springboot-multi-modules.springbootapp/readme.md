@@ -1,3 +1,9 @@
-Build : `jeka cleanPack`
+Build : 
+```shell
+jeka project: pack -c
+```
 
-Run : `jeka project#run`
+Run : 
+```shell
+jeka project: runJar
+```

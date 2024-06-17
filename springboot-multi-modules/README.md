@@ -11,19 +11,16 @@ __Note__ : This is not the only way to organize multi-module projects :
 
 ## Commands
 
-Setup IDE
-```shell
-jeka intellij#allIml
-```
+
 
 Build all :
 ```shell
-jeka #cleanPack
+jeka cleanPack
 ```
 
 Run :
 ```shell
-jeka #run
+jeka run
 ```
 
 You can request a formula computation via [rest API](http://localhost:8080/formula?input=17).

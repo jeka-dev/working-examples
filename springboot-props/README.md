@@ -10,14 +10,14 @@ Dependencies are declared in [project-dependencies.txt](project-dependencies.txt
 ## Setup IDE
 
 ```shell
-jeka intellij#iml
+jeka intellij: iml
 ```
 
 ## How to build
 
 To create a bootable jar from scratch, execute :
 ```shell
-jeka project#cleanPack
+jeka project: pack -c
 ``` 
 
 To create a bootable jar from scratch and analysing code+coverage via Sonarqube, execute :
@@ -28,5 +28,5 @@ jeka :packQuality
 ## How to run
 
 ```shell
-jeka project#runJar
+jeka runJar
 ```

@@ -15,7 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-props/.idea/springboot-props.iml" filepath="$PROJECT_DIR$/springboot-props/.idea/springboot-props.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-super-compact/.idea/springboot-super-compact.iml" filepath="$PROJECT_DIR$/springboot-super-compact/.idea/springboot-super-compact.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml" filepath="$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/templated/.idea/templated.iml" filepath="$PROJECT_DIR$/templated/.idea/templated.iml" />
     </modules>
   </component>

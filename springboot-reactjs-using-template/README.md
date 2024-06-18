@@ -8,7 +8,7 @@ jeka intellij: iml
 
 ## Build
 
-This springboot project is built using [JeKa](https://jeka.dev), [JeKa Springboot plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/dev.jeka.plugins.springboot)
+This springboot project is built using [JeKa](https://jeka.dev) with this [build template](https://github.com/jeka-dev/demo-build-templates/blob/master/src/dev/jeka/demo/templates/SpringBootTemplateBuild.java)
 
 Help on template KBean :
 ```shell
@@ -44,6 +44,6 @@ This includes tests with coverage, Sonarqube analysis, ReactJs packaging (if pre
 For this, the project has to define only what is specific (application name, dependencies, Spring-Boot and Java version),
 the build template will handle all the remaining parts.
 
-The whole build definition lies in [jeka.properties file](local.properties) 
+The whole build definition lies in [jeka.properties file](jeka.properties) 
 
 

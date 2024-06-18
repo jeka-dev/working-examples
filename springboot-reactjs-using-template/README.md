@@ -1,4 +1,4 @@
-# Templated Project
+# Springboot+reactjs project built using an external template
 
 ## Setup IDE
 

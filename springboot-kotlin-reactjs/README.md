@@ -24,14 +24,25 @@ To make a clean build for production (a springboot jar file embedding the client
 jeka -c project: pack
 ``` 
 
-To run the jar built with previous command :
+To run the jar built with previous command:
 ```shell
 jeka project: runJar
 ```
 
 Browse http://localhost:8080 to open the main page once the jar is running.
 
-## Development time
+Build a native Docker image:
+```shell
+jeka docker: buildNative
+```
+
+Execute the image:
+```shell
+docker run --rm -p 8080:8080 native-springboot-kotlin-reactjs:latest 
+```
+
+______________
+## Development
 
 Client application has been scaffolded using ReactJs tool according the tutorial mentioned below.
 

@@ -17,12 +17,12 @@ jeka intellij: iml
 
 To create a bootable jar from scratch, execute :
 ```shell
-jeka project: pack -c
+jeka pack
 ``` 
 
 To create a bootable jar from scratch and analysing code+coverage via Sonarqube, execute :
 ```shell
-jeka :packQuality
+jeka ::packQuality
 ```
 
 ## How to run

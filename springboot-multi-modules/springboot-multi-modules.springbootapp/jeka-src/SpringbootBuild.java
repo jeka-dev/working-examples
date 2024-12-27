@@ -26,12 +26,11 @@ class SpringbootBuild extends KBean {
 
     @Override
     protected void init() {
-        project.flatFacade()
-                .customizeCompileDeps(deps -> deps
-                    .and(Boot.STARTER_WEB)
-                    .and(this.coreBuild.project.toDependency()))
-                .customizeTestDeps(deps -> deps
-                        .and(Boot.STARTER_TEST));
+        project.flatFacade.compileDependencies
+                .add(Boot.STARTER_WEB.toCoordinate())
+                .add(this.coreBuild.project.toDependency());
+        project.flatFacade.testDependencies
+                .add(Boot.STARTER_TEST.toCoordinate());
         project.compilation.postCompileActions.append("build-web-client", this::npmBuild);
         JkSpringbootProject.of(project)
                 .includeParentBom("3.2.1")

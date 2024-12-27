@@ -30,18 +30,13 @@ class Build extends KBean {
                 .configure();
         JkJacoco.ofVersion("0.8.11")
                 .configureAndApplyTo(project);
-        project.flatFacade()
-                .addCompileDeps(
-                        "org.springframework.boot:spring-boot-starter-web",
-                        "org.springframework.boot:spring-boot-starter-logging"
-                )
-                .addCompileOnlyDeps(
-                        "org.projectlombok:lombok:1.18.30"
-                )
-                .addTestDeps(
-                        "org.springframework.boot:spring-boot-starter-test"
-                )
-                .setVersionFromGitTag();  // Infer version from Git
+        project.compilation.dependencies
+                .add("org.springframework.boot:spring-boot-starter-web")
+                .add("org.springframework.boot:spring-boot-starter-logging");
+        project.flatFacade.addCompileOnlyDeps("org.projectlombok:lombok:1.18.30");
+        project.testing.compilation.dependencies
+                .add( "org.springframework.boot:spring-boot-starter-test");
+        project.flatFacade.setVersionFromGitTag();  // Infer version from Git
         project.compilation.addJavaCompilerOptions("-Xlint:-options");
         project.testing.compilation.addJavaCompilerOptions("-Xlint:-options");
         project.testing.testProcessor.engineBehavior

@@ -10,10 +10,9 @@ class UtilsBuild extends KBean {
 
     @Override
     protected void init() {
-        project.flatFacade()
-            .customizeCompileDeps(deps -> deps
-                .and("com.google.guava:guava")
-                .withVersionProvider(BuildCommon.VERSION_PROVIDER));
+        project.compilation.dependencies
+                .add("com.google.guava:guava")
+                .addVersionProvider(BuildCommon.VERSION_PROVIDER));
     }
 
 }

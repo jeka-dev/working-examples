@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml" filepath="$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml" />
       <module fileurl="file://$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml" filepath="$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml" />
       <module fileurl="file://$PROJECT_DIR$/project-local-libs/.idea/project-local-libs.iml" filepath="$PROJECT_DIR$/project-local-libs/.idea/project-local-libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-simple/.idea/project-simple.iml" filepath="$PROJECT_DIR$/project-simple/.idea/project-simple.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml" filepath="$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml" filepath="$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" filepath="$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" />

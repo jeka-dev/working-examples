@@ -135,6 +135,7 @@ public class Fabric8Helper {
      * @param createAppNameLabels if true, creates a label 'app' = ${name} for <i>matchLabels</i> and <i>templateLabels</i>
      */
     public static Deployment basicDeployment(String name, String image, int containerPort, boolean createAppNameLabels) {
+        System.out.println("__________________________________________");
         Deployment deployment = parse(Deployment.class,
                 Fabric8Helper.class.getResourceAsStream("deployment-template.yaml"));
         Map<String, String> labels = new HashMap<>();

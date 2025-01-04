@@ -24,10 +24,11 @@ class SwingBuild extends KBean {
 
 	@Override
     protected void init() {
+		project.packaging.setDetectMainClass(true);
 		project.flatFacade
-				.setMainClass(JkProject.AUTO_FIND_MAIN_CLASS)
 				.setMainArtifactJarType(JkProjectPackaging.JarType.FAT)
-				.compileDependencies.add(coreBuild.project.toDependency()))
+				.dependencies.compile
+					.add(coreBuild.project.toDependency());
 
     }
 

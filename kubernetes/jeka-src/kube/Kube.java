@@ -22,8 +22,8 @@ import lombok.RequiredArgsConstructor;
 @JkInjectClasspath("org.projectlombok:lombok:1.18.26")
 
 @JkInjectClasspath("com.google.cloud.tools:jib-core:0.23.0")
-@JkInjectClasspath("io.fabric8:kubernetes-client:6.5.1")
-@JkInjectClasspath("io.fabric8:kubernetes-client-api:6.5.1")
+@JkInjectClasspath("io.fabric8:kubernetes-client:6.13.4")
+@JkInjectClasspath("io.fabric8:kubernetes-client-api:6.13.4")
 @JkInjectClasspath("org.slf4j:slf4j-simple:2.0.7")
 
 @JkInjectClasspath("dev.jeka:springboot-plugin")

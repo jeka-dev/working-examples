@@ -1,4 +1,5 @@
 import dev.jeka.core.api.file.JkPathTree;
+import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInjectRunbase;
@@ -34,8 +35,8 @@ class MasterBuild extends KBean {
 
 	@JkDoc("Launch both server and Swing applications.")
 	public void run() {
-		swingBuild.project.prepareRunJar(false).execAsync();
-		springbootBuild.project.prepareRunJar(false).setInheritIO(true).exec();
+		swingBuild.project.prepareRunJar(JkProject.RuntimeDeps.EXCLUDE).execAsync();
+		springbootBuild.project.prepareRunJar(JkProject.RuntimeDeps.EXCLUDE).setInheritIO(true).exec();
 	}
 
 	private void copyJars() {

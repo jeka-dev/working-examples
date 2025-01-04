@@ -12,7 +12,7 @@ class UtilsBuild extends KBean {
     protected void init() {
         project.compilation.dependencies
                 .add("com.google.guava:guava")
-                .addVersionProvider(BuildCommon.VERSION_PROVIDER));
+                .addVersionProvider(BuildCommon.VERSION_PROVIDER);
     }
 
 }

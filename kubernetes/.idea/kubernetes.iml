@@ -878,7 +878,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/commons-logging/commons-logging/jars/commons-logging-1.2.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/commons-logging/commons-logging/jars/commons-logging-1.2-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="TEST" type="module-library">
@@ -992,7 +994,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-client/jars/kubernetes-client-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-client/jars/kubernetes-client-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1010,7 +1012,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.14.2.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.17.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1019,7 +1021,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.14.2.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.17.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1028,7 +1030,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-httpclient-okhttp/jars/kubernetes-httpclient-okhttp-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-httpclient-okhttp/jars/kubernetes-httpclient-okhttp-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1046,7 +1048,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.squareup.okio/okio/jars/okio-1.15.0.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.squareup.okio/okio/jars/okio-1.17.6.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1064,7 +1066,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-client-api/jars/kubernetes-client-api-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-client-api/jars/kubernetes-client-api-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1073,7 +1075,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-core/bundles/kubernetes-model-core-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-core/bundles/kubernetes-model-core-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1082,7 +1084,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.14.2.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.17.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1091,7 +1093,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-common/bundles/kubernetes-model-common-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-common/bundles/kubernetes-model-common-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1100,7 +1102,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-gatewayapi/bundles/kubernetes-model-gatewayapi-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-api/jars/slf4j-api-2.0.13.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1109,7 +1111,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-resource/bundles/kubernetes-model-resource-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-gatewayapi/bundles/kubernetes-model-gatewayapi-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1118,7 +1120,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-rbac/bundles/kubernetes-model-rbac-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-resource/bundles/kubernetes-model-resource-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1127,7 +1129,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-admissionregistration/bundles/kubernetes-model-admissionregistration-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-rbac/bundles/kubernetes-model-rbac-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1136,7 +1138,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-apps/bundles/kubernetes-model-apps-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-admissionregistration/bundles/kubernetes-model-admissionregistration-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1145,7 +1147,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-autoscaling/bundles/kubernetes-model-autoscaling-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-apps/bundles/kubernetes-model-apps-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1154,7 +1156,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-apiextensions/bundles/kubernetes-model-apiextensions-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-autoscaling/bundles/kubernetes-model-autoscaling-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1163,7 +1165,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-batch/bundles/kubernetes-model-batch-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-apiextensions/bundles/kubernetes-model-apiextensions-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1172,7 +1174,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-certificates/bundles/kubernetes-model-certificates-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-batch/bundles/kubernetes-model-batch-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1181,7 +1183,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-coordination/bundles/kubernetes-model-coordination-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-certificates/bundles/kubernetes-model-certificates-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1190,7 +1192,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-discovery/bundles/kubernetes-model-discovery-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-coordination/bundles/kubernetes-model-coordination-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1199,7 +1201,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-events/bundles/kubernetes-model-events-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-discovery/bundles/kubernetes-model-discovery-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1208,7 +1210,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-extensions/bundles/kubernetes-model-extensions-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-events/bundles/kubernetes-model-events-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1217,7 +1219,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-flowcontrol/bundles/kubernetes-model-flowcontrol-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-extensions/bundles/kubernetes-model-extensions-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1226,7 +1228,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-networking/bundles/kubernetes-model-networking-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-flowcontrol/bundles/kubernetes-model-flowcontrol-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1235,7 +1237,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-metrics/bundles/kubernetes-model-metrics-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-networking/bundles/kubernetes-model-networking-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1244,7 +1246,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-policy/bundles/kubernetes-model-policy-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-metrics/bundles/kubernetes-model-metrics-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1253,7 +1255,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-scheduling/bundles/kubernetes-model-scheduling-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-policy/bundles/kubernetes-model-policy-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1262,7 +1264,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-storageclass/bundles/kubernetes-model-storageclass-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-scheduling/bundles/kubernetes-model-scheduling-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1271,7 +1273,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-node/bundles/kubernetes-model-node-6.5.1.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-storageclass/bundles/kubernetes-model-storageclass-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1280,7 +1282,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.snakeyaml/snakeyaml-engine/bundles/snakeyaml-engine-2.6.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.fabric8/kubernetes-model-node/bundles/kubernetes-model-node-6.13.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1289,7 +1291,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/bundles/jackson-dataformat-yaml-2.14.2.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.snakeyaml/snakeyaml-engine/bundles/snakeyaml-engine-2.7.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1298,7 +1300,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.yaml/snakeyaml/bundles/snakeyaml-1.33.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/jars/jackson-dataformat-yaml-2.17.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1307,7 +1309,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/bundles/jackson-datatype-jsr310-2.14.2.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/bundles/jackson-datatype-jsr310-2.17.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -1317,15 +1319,6 @@
             <library>
                 <CLASSES>
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-simple/jars/slf4j-simple-2.0.7.jar!/"/>
-                </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
-            </library>
-        </orderEntry>
-        <orderEntry exported="" scope="TEST" type="module-library">
-            <library>
-                <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-api/jars/slf4j-api-2.0.7.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>

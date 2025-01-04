@@ -27,33 +27,6 @@
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$MODULE_DIR$/libs/test/apiguardian-api-1.1.2.jar!/"/>
-                </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
-            </library>
-        </orderEntry>
-        <orderEntry exported="" scope="COMPILE" type="module-library">
-            <library>
-                <CLASSES>
-                    <root url="jar://$MODULE_DIR$/libs/test/junit-jupiter-api-5.9.0.jar!/"/>
-                </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
-            </library>
-        </orderEntry>
-        <orderEntry exported="" scope="COMPILE" type="module-library">
-            <library>
-                <CLASSES>
-                    <root url="jar://$MODULE_DIR$/libs/test/junit-jupiter-engine-5.9.0.jar!/"/>
-                </CLASSES>
-                <JAVADOC/>
-                <SOURCES/>
-            </library>
-        </orderEntry>
-        <orderEntry exported="" scope="COMPILE" type="module-library">
-            <library>
-                <CLASSES>
                     <root url="jar://$MODULE_DIR$/libs/test/junit-platform-commons-1.9.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
@@ -81,6 +54,33 @@
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
                 <CLASSES>
+                    <root url="jar://$MODULE_DIR$/libs/test/junit-jupiter-engine-5.9.0.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="COMPILE" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="jar://$MODULE_DIR$/libs/test/junit-jupiter-api-5.9.0.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="COMPILE" type="module-library">
+            <library>
+                <CLASSES>
+                    <root url="jar://$MODULE_DIR$/libs/test/apiguardian-api-1.1.2.jar!/"/>
+                </CLASSES>
+                <JAVADOC/>
+                <SOURCES/>
+            </library>
+        </orderEntry>
+        <orderEntry exported="" scope="COMPILE" type="module-library">
+            <library>
+                <CLASSES>
                     <root url="jar://$MODULE_DIR$/libs/test/opentest4j-1.2.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
@@ -90,11 +90,11 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.11.8/bin/dev.jeka.jeka-core.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.11.11/bin/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.11.8/bin/dev.jeka.jeka-core-sources.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.11.11/bin/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>
             </library>
         </orderEntry>

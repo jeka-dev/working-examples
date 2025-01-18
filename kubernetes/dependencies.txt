@@ -1,0 +1,14 @@
+
+== COMPILE ==
+org.springframework.boot:spring-boot-starter-web
+org.springframework.boot:spring-boot-starter-data-mongodb
+com.atlassian.commonmark:commonmark:0.12.1   # does not work with higher versions
+org.projectlombok:lombok:1.18.26
+
+== RUNTIME ==
+-org.projectlombok:lombok
+org.springframework.boot:spring-boot-starter-freemarker
+org.springframework.boot:spring-boot-starter-actuator
+
+== TEST ==
+org.springframework.boot:spring-boot-starter-test

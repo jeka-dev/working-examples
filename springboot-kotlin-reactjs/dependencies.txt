@@ -1,0 +1,12 @@
+==== COMPILE ====
+org.springframework.boot:spring-boot-dependencies::pom:3.2.4
+org.springframework.boot:spring-boot-starter-web
+org.springframework.boot:spring-boot-starter-data-jpa
+org.springframework.boot:spring-boot-starter-data-rest
+
+==== RUNTIME ====
+com.h2database:h2:2.1.214
+
+==== TEST ====
+org.springframework.boot:spring-boot-starter-web
+

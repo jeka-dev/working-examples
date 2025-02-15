@@ -88,8 +88,8 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	@Override
 	public JkIdeSupport getJavaIdeSupport() {
 		return JkIdeSupport.of(this.getBaseDir())
-				.setProdLayout(JkCompileLayout.of().setSources("src").mixResourcesAndSources())
-				.setTestLayout(JkCompileLayout.of().setSources("test").mixResourcesAndSources())
+				.setProdLayout(JkCompileLayout.of().setSources("src").setMixResourcesAndSources())
+				.setTestLayout(JkCompileLayout.of().setSources("test").setMixResourcesAndSources())
 				.setDependencies(JkQualifiedDependencySet.of()
 						.and("compile", JkFileSystemDependency.of(classpath()))
 						.and("test", JkFileSystemDependency.of(testClasspath()))

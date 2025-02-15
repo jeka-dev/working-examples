@@ -13,7 +13,7 @@
             <excludeFolder url="file://$MODULE_DIR$/.jeka-work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
-        <orderEntry jdkName="jeka-temurin-17" jdkType="JavaSDK" type="jdk"/>
+        <orderEntry type="inheritedJdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
         <orderEntry exported="" scope="COMPILE" type="module-library">
             <library>
@@ -21,7 +21,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-web/jars/spring-boot-starter-web-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-web/jars/spring-boot-starter-web-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -30,7 +32,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter/jars/spring-boot-starter-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter/jars/spring-boot-starter-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -39,7 +43,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot/jars/spring-boot-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot/jars/spring-boot-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -48,7 +54,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-core/jars/spring-core-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-core/jars/spring-core-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -57,7 +65,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-jcl/jars/spring-jcl-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-jcl/jars/spring-jcl-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -66,7 +76,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-context/jars/spring-context-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-context/jars/spring-context-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -75,7 +87,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-aop/jars/spring-aop-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-aop/jars/spring-aop-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -84,7 +98,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-beans/jars/spring-beans-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-beans/jars/spring-beans-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -93,7 +109,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-expression/jars/spring-expression-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-expression/jars/spring-expression-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -102,7 +120,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/io.micrometer/micrometer-observation/jars/micrometer-observation-1.12.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.micrometer/micrometer-observation/jars/micrometer-observation-1.12.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -111,7 +131,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/io.micrometer/micrometer-commons/jars/micrometer-commons-1.12.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/io.micrometer/micrometer-commons/jars/micrometer-commons-1.12.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -120,7 +142,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-autoconfigure/jars/spring-boot-autoconfigure-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-autoconfigure/jars/spring-boot-autoconfigure-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -129,7 +153,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-logging/jars/spring-boot-starter-logging-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-logging/jars/spring-boot-starter-logging-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -138,7 +164,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/ch.qos.logback/logback-classic/jars/logback-classic-1.4.14.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/ch.qos.logback/logback-classic/jars/logback-classic-1.4.14-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -147,7 +175,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/ch.qos.logback/logback-core/jars/logback-core-1.4.14.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/ch.qos.logback/logback-core/jars/logback-core-1.4.14-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -156,7 +186,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-api/jars/slf4j-api-2.0.12.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/slf4j-api/jars/slf4j-api-2.0.12-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -165,7 +197,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.logging.log4j/log4j-to-slf4j/jars/log4j-to-slf4j-2.21.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.logging.log4j/log4j-to-slf4j/jars/log4j-to-slf4j-2.21.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -174,7 +208,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.logging.log4j/log4j-api/jars/log4j-api-2.21.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.logging.log4j/log4j-api/jars/log4j-api-2.21.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -183,7 +219,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-2.0.12.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-2.0.12-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -192,7 +230,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.annotation/jakarta.annotation-api/jars/jakarta.annotation-api-2.1.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.annotation/jakarta.annotation-api/jars/jakarta.annotation-api-2.1.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -210,7 +250,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-json/jars/spring-boot-starter-json-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-json/jars/spring-boot-starter-json-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -219,7 +261,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-web/jars/spring-web-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-web/jars/spring-web-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -228,7 +272,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.15.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-databind/jars/jackson-databind-2.15.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -237,7 +283,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.15.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-annotations/jars/jackson-annotations-2.15.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -246,7 +294,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.15.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.fasterxml.jackson.core/jackson-core/jars/jackson-core-2.15.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -282,7 +332,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-tomcat/jars/spring-boot-starter-tomcat-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-tomcat/jars/spring-boot-starter-tomcat-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -291,7 +343,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-10.1.19.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-10.1.19-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -300,7 +354,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.tomcat.embed/tomcat-embed-el/jars/tomcat-embed-el-10.1.19.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.tomcat.embed/tomcat-embed-el/jars/tomcat-embed-el-10.1.19-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -309,7 +365,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.tomcat.embed/tomcat-embed-websocket/jars/tomcat-embed-websocket-10.1.19.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.apache.tomcat.embed/tomcat-embed-websocket/jars/tomcat-embed-websocket-10.1.19-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -318,7 +376,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-webmvc/jars/spring-webmvc-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-webmvc/jars/spring-webmvc-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -327,7 +387,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-data-jpa/jars/spring-boot-starter-data-jpa-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-data-jpa/jars/spring-boot-starter-data-jpa-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -336,7 +398,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-aop/jars/spring-boot-starter-aop-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-aop/jars/spring-boot-starter-aop-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -345,7 +409,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.aspectj/aspectjweaver/jars/aspectjweaver-1.9.21.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.aspectj/aspectjweaver/jars/aspectjweaver-1.9.21-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -354,7 +420,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-jdbc/jars/spring-boot-starter-jdbc-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-jdbc/jars/spring-boot-starter-jdbc-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -372,7 +440,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-jdbc/jars/spring-jdbc-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-jdbc/jars/spring-jdbc-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -381,7 +451,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-tx/jars/spring-tx-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-tx/jars/spring-tx-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -390,7 +462,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.hibernate.orm/hibernate-core/jars/hibernate-core-6.4.4.Final.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.hibernate.orm/hibernate-core/jars/hibernate-core-6.4.4.Final-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -399,7 +473,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.persistence/jakarta.persistence-api/jars/jakarta.persistence-api-3.1.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.persistence/jakarta.persistence-api/jars/jakarta.persistence-api-3.1.0-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -408,7 +484,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.transaction/jakarta.transaction-api/jars/jakarta.transaction-api-2.0.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.transaction/jakarta.transaction-api/jars/jakarta.transaction-api-2.0.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -417,7 +495,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.antlr/antlr4-runtime/jars/antlr4-runtime-4.13.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.antlr/antlr4-runtime/jars/antlr4-runtime-4.13.0-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -426,7 +506,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.jboss.logging/jboss-logging/jars/jboss-logging-3.5.3.Final.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.jboss.logging/jboss-logging/jars/jboss-logging-3.5.3.Final-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -435,7 +517,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.hibernate.common/hibernate-commons-annotations/jars/hibernate-commons-annotations-6.0.6.Final.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.hibernate.common/hibernate-commons-annotations/jars/hibernate-commons-annotations-6.0.6.Final-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -462,7 +546,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/net.bytebuddy/byte-buddy/jars/byte-buddy-1.14.12.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/net.bytebuddy/byte-buddy/jars/byte-buddy-1.14.12-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -471,7 +557,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.xml.bind/jakarta.xml.bind-api/jars/jakarta.xml.bind-api-4.0.2.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.xml.bind/jakarta.xml.bind-api/jars/jakarta.xml.bind-api-4.0.2-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -480,7 +568,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.activation/jakarta.activation-api/jars/jakarta.activation-api-2.1.3.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.activation/jakarta.activation-api/jars/jakarta.activation-api-2.1.3-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -489,7 +579,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.glassfish.jaxb/jaxb-runtime/jars/jaxb-runtime-4.0.2.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.glassfish.jaxb/jaxb-runtime/jars/jaxb-runtime-4.0.2-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -498,7 +590,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.glassfish.jaxb/jaxb-core/jars/jaxb-core-4.0.2.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.glassfish.jaxb/jaxb-core/jars/jaxb-core-4.0.2-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -507,7 +601,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.glassfish.jaxb/txw2/jars/txw2-4.0.2.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.glassfish.jaxb/txw2/jars/txw2-4.0.2-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -516,7 +612,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.sun.istack/istack-commons-runtime/jars/istack-commons-runtime-4.1.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.sun.istack/istack-commons-runtime/jars/istack-commons-runtime-4.1.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -525,7 +623,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.eclipse.angus/angus-activation/jars/angus-activation-2.0.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.eclipse.angus/angus-activation/jars/angus-activation-2.0.0-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -534,7 +634,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.inject/jakarta.inject-api/jars/jakarta.inject-api-2.0.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/jakarta.inject/jakarta.inject-api/jars/jakarta.inject-api-2.0.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -543,7 +645,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-jpa/jars/spring-data-jpa-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-jpa/jars/spring-data-jpa-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -552,7 +656,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-commons/jars/spring-data-commons-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-commons/jars/spring-data-commons-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -561,7 +667,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-orm/jars/spring-orm-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-orm/jars/spring-orm-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -570,7 +678,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-aspects/jars/spring-aspects-6.1.5.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework/spring-aspects/jars/spring-aspects-6.1.5-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -579,7 +689,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-data-rest/jars/spring-boot-starter-data-rest-3.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.boot/spring-boot-starter-data-rest/jars/spring-boot-starter-data-rest-3.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -588,7 +700,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-rest-webmvc/jars/spring-data-rest-webmvc-4.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-rest-webmvc/jars/spring-data-rest-webmvc-4.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -597,7 +711,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-rest-core/jars/spring-data-rest-core-4.2.4.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.data/spring-data-rest-core/jars/spring-data-rest-core-4.2.4-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -606,7 +722,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.hateoas/spring-hateoas/jars/spring-hateoas-2.2.1.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.hateoas/spring-hateoas/jars/spring-hateoas-2.2.1-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -615,7 +733,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.plugin/spring-plugin-core/jars/spring-plugin-core-3.0.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.springframework.plugin/spring-plugin-core/jars/spring-plugin-core-3.0.0-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -624,7 +744,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.jayway.jsonpath/json-path/jars/json-path-2.9.0.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.jayway.jsonpath/json-path/jars/json-path-2.9.0-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -651,7 +773,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.ow2.asm/asm/jars/asm-9.3.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.ow2.asm/asm/jars/asm-9.3-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -660,7 +784,9 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/org.atteo/evo-inflector/jars/evo-inflector-1.3.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/org.atteo/evo-inflector/jars/evo-inflector-1.3-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="COMPILE" type="module-library">
@@ -714,13 +840,15 @@
                     <root url="jar://$JEKA_CACHE_DIR$/repo/com.h2database/h2/jars/h2-2.1.214.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
-                <SOURCES/>
+                <SOURCES>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/com.h2database/h2/jars/h2-2.1.214-sources.jar!/"/>
+                </SOURCES>
             </library>
         </orderEntry>
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/kotlin-plugin/jars/kotlin-plugin-0.11.11.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/kotlin-plugin/jars/kotlin-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -729,7 +857,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-0.11.11.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/nodejs-plugin/jars/nodejs-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -738,7 +866,7 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-0.11.11.jar!/"/>
+                    <root url="jar://$JEKA_CACHE_DIR$/repo/dev.jeka/springboot-plugin/jars/springboot-plugin-master-SNAPSHOT.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES/>
@@ -747,11 +875,11 @@
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
                 <CLASSES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.11.11/bin/dev.jeka.jeka-core.jar!/"/>
+                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka-output/distrib/bin/dev.jeka.jeka-core.jar!/"/>
                 </CLASSES>
                 <JAVADOC/>
                 <SOURCES>
-                    <root url="jar://$JEKA_CACHE_DIR$/distributions/0.11.11/bin/dev.jeka.jeka-core-sources.jar!/"/>
+                    <root url="jar:///Users/jerome/IdeaProjects/jeka/dev.jeka.core/jeka-output/distrib/bin/dev.jeka.jeka-core-sources.jar!/"/>
                 </SOURCES>
             </library>
         </orderEntry>

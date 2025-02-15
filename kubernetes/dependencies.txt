@@ -1,5 +1,6 @@
 
 == COMPILE ==
+org.springframework.boot:spring-boot-dependencies::pom:3.4.2
 org.springframework.boot:spring-boot-starter-web
 org.springframework.boot:spring-boot-starter-data-mongodb
 com.atlassian.commonmark:commonmark:0.12.1   # does not work with higher versions

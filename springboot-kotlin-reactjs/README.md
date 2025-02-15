@@ -21,12 +21,12 @@ Generates iml
 
 To make a clean build for production (a springboot jar file embedding the client), execute :
 ```shell
-jeka -c project: pack
+jeka pack
 ``` 
 
 To run the jar built with previous command:
 ```shell
-jeka project: runJar
+jeka runJar
 ```
 
 Browse http://localhost:8080 to open the main page once the jar is running.

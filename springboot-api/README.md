@@ -6,7 +6,7 @@ This springboot project is built using [JeKa](https://jeka.dev) and its [Springb
 
 To create a bootable jar, execute :
 ```shell
-jeka project: pack -c
+jeka pack -c
 ```
 
 Launch Sonarqube analysis, execute :
@@ -16,6 +16,6 @@ jeka sonarqube: run
 
 To run the bootable jar built by `project#pack`, execute :
 ```shell
-jeka project: runJar
+jeka runJar
 ```
 

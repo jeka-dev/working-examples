@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" filepath="$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml" filepath="$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml" filepath="$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-local-libs/.idea/project-local-libs.iml" filepath="$PROJECT_DIR$/project-local-libs/.idea/project-local-libs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-simple/.idea/project-simple.iml" filepath="$PROJECT_DIR$/project-simple/.idea/project-simple.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml" filepath="$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml" filepath="$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" filepath="$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/.idea/springboot-multi-modules.springbootapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/.idea/springboot-multi-modules.springbootapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-props/.idea/springboot-props.iml" filepath="$PROJECT_DIR$/springboot-props/.idea/springboot-props.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-reactjs-using-template/.idea/springboot-reactjs-using-template.iml" filepath="$PROJECT_DIR$/springboot-reactjs-using-template/.idea/springboot-reactjs-using-template.iml" />
-    </modules>
-  </component>
+    <component name="ProjectModuleManager">
+        <modules>
+            <module
+                filepath="$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml" fileurl="file://$PROJECT_DIR$/java-task-based/.idea/java-task-based.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml" fileurl="file://$PROJECT_DIR$/kubernetes/.idea/kubernetes.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml" fileurl="file://$PROJECT_DIR$/migrate-from-maven/.idea/migrate-from-maven.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/project-local-libs/.idea/project-local-libs.iml" fileurl="file://$PROJECT_DIR$/project-local-libs/.idea/project-local-libs.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/project-simple/.idea/project-simple.iml" fileurl="file://$PROJECT_DIR$/project-simple/.idea/project-simple.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml" fileurl="file://$PROJECT_DIR$/springboot-api/.idea/springboot-api.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml" fileurl="file://$PROJECT_DIR$/springboot-base/.idea/springboot-base.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml" fileurl="file://$PROJECT_DIR$/springboot-kotlin-reactjs/.idea/springboot-kotlin-reactjs.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml" fileurl="file://$PROJECT_DIR$/springboot-multi-modules/.idea/springboot-multi-modules.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml" fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.build-commons/.idea/springboot-multi-modules.build-commons.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml" fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.core/.idea/springboot-multi-modules.core.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/.idea/springboot-multi-modules.springbootapp.iml" fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.springbootapp/.idea/springboot-multi-modules.springbootapp.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml" fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.swingapp/.idea/springboot-multi-modules.swingapp.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml" fileurl="file://$PROJECT_DIR$/springboot-multi-modules/springboot-multi-modules.utils/.idea/springboot-multi-modules.utils.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-props/.idea/springboot-props.iml" fileurl="file://$PROJECT_DIR$/springboot-props/.idea/springboot-props.iml"/>
+            <module
+                filepath="$PROJECT_DIR$/springboot-reactjs-using-template/.idea/springboot-reactjs-using-template.iml" fileurl="file://$PROJECT_DIR$/springboot-reactjs-using-template/.idea/springboot-reactjs-using-template.iml"/>
+            <module filepath="$PROJECT_DIR$/.idea/working-examples.iml" fileurl="file://$PROJECT_DIR$/.idea/working-examples.iml"/>
+        </modules>
+    </component>
 </project>

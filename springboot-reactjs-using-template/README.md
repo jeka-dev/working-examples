@@ -1,49 +1,54 @@
 # Springboot+reactjs project built using an external template
 
-## Setup IDE
+### Setup IDE
 
 ```shell
-jeka intellij: iml
+jeka intellij: sync
 ```
 
-## Build
+### Build
 
-This springboot project is built using [JeKa](https://jeka.dev) with this [build template](https://github.com/jeka-dev/demo-build-templates/blob/master/src/dev/jeka/demo/templates/SpringBootTemplateBuild.java)
-
-Help on template KBean :
+Help on template KBean:
 ```shell
-jeka --doc
+jeka template: --doc
 ```
 
-To create a bootable jar, containing the client app, and execute SonarQube analysis on both java and js, execute :
+Create a bootable jar, containing the client app,:
 ```shell
 jeka pack
 ```
 
-Same but passing by sonarqube quality checks, execute :
+Deploy the application in Docker then run end-to-end tests:
 ```shell
-jeka packQuality
+jeka template: e2e
 ```
 
-To run the bootable jar built in previous step, execute :
+Run Sonarqube analysis, on both Java and JS:
+```shell
+jeka template: sonar
+```
+
+Run the bootable jar:
 ```shell
 jeka runJar
 ```
 
+Create a Docker image:
+```shell
+jeka docker: build
+```
 
-## Purpose
+Create a Spring-Boot native Docker image:
+```shell
+jeka docker: buildNative
+```
 
-This project showcases, how we can easily re-use build definition across several projects.
+Once the image is built built, we can run end-to-end tests on the Docker image
+```shell
+jeka template: e2e
+```
 
-Here, we reuse a build definition (we call it a *template*) defined in an [external project](https://github.com/jeka-dev/demo-build-templates/blob/master/src/dev/jeka/demo/templates/SpringBootTemplateBuild.java).
+For CI/CD, we can run `jeka pack template: e2e sonar` for instance.
 
-The template is designed to build Spring-Boot project, optionally containing a ReactJs nodejs project.
-
-This includes tests with coverage, Sonarqube analysis, ReactJs packaging (if present) and bootable jar creation.
-
-For this, the project has to define only what is specific (application name, dependencies, Spring-Boot and Java version),
-the build template will handle all the remaining parts.
-
-The whole build definition lies in [jeka.properties file](jeka.properties) 
 
 

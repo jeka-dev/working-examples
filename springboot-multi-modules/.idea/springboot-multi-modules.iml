@@ -9,7 +9,7 @@
             <excludeFolder url="file://$MODULE_DIR$/.jeka-work"/>
             <excludeFolder url="file://$MODULE_DIR$/.idea/output"/>
         </content>
-        <orderEntry type="inheritedJdk"/>
+        <orderEntry jdkName="jeka-temurin-17" jdkType="JavaSDK" type="jdk"/>
         <orderEntry forTests="false" type="sourceFolder"/>
         <orderEntry exported="" scope="TEST" type="module-library">
             <library>
@@ -40,5 +40,7 @@
                 <SOURCES/>
             </library>
         </orderEntry>
+        <orderEntry exported="" module-name="springboot-multi-modules.springbootapp" scope="TEST" type="module"/>
+        <orderEntry exported="" module-name="springboot-multi-modules.swingapp" scope="TEST" type="module"/>
     </component>
 </module>

@@ -3,9 +3,9 @@
 JeKa can build projects without using any build code, if there is no too specific tasks. 
 Here, we build a Springboot project with SonarQube analysis and Jacoco coverage.
 
-Both commands and properties are defined in [local.properties](local.properties) file.
+Both commands and properties are defined in [jeka.properties](jeka.properties) file.
 
-Dependencies are declared in [project-dependencies.txt](project-dependencies.txt) file.
+Dependencies are declared in [jeka.project.deps](jeka.project.deps) file.
 
 ## Setup IDE
 

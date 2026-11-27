@@ -1,4 +1,9 @@
-# Springboot+reactjs project built using an external template
+# Springboot+reactjs project built using an external build convention
+
+The build logic comes from a convention KBean published on Maven Central, defined in
+[demo-build-conventions](https://github.com/jeka-dev/demo-build-conventions). [jeka.properties](jeka.properties)
+only adds it to the classpath and activates it. A complete example is
+[demo-build-conventions-consumer](https://github.com/jeka-dev/demo-build-conventions-consumer).
 
 ### Setup IDE
 
@@ -8,47 +13,17 @@ jeka intellij: sync
 
 ### Build
 
-Help on template KBean:
+Help on the convention KBean:
 ```shell
-jeka template: --doc
+jeka convention: --doc
 ```
 
-Create a bootable jar, containing the client app,:
+Run the tests and create a bootable jar, containing the client app:
 ```shell
-jeka pack
+jeka test pack
 ```
 
-Deploy the application in Docker then run end-to-end tests:
-```shell
-jeka template: e2e
-```
-
-Run Sonarqube analysis, on both Java and JS:
-```shell
-jeka template: sonar
-```
-
-Run the bootable jar:
+Run the bootable jar, then open http://localhost:8080:
 ```shell
 jeka runJar
 ```
-
-Create a Docker image:
-```shell
-jeka docker: build
-```
-
-Create a Spring-Boot native Docker image:
-```shell
-jeka docker: buildNative
-```
-
-Once the image is built built, we can run end-to-end tests on the Docker image
-```shell
-jeka template: e2e
-```
-
-For CI/CD, we can run `jeka pack template: e2e sonar` for instance.
-
-
-

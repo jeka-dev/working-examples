@@ -12,11 +12,11 @@ import dev.jeka.core.api.project.JkCompileLayout;
 import dev.jeka.core.api.project.JkIdeSupport;
 import dev.jeka.core.api.project.JkIdeSupportSupplier;
 import dev.jeka.core.api.testing.JkTestProcessor;
-import dev.jeka.core.api.testing.JkTestSelection;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.KBean;
 
 import java.nio.file.Path;
+import java.util.List;
 
 class Tasks extends KBean implements JkIdeSupportSupplier {
 	
@@ -70,14 +70,13 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	@JkDoc("Run tests")
 	public void junit() {
 		compileTest();
-		JkTestProcessor testProcessor = JkTestProcessor.of();
+		JkTestProcessor testProcessor = JkTestProcessor.of(
+				testClasspath().and(classDir).and(testClassDir), List.of(testClassDir));
 		testProcessor
 			.setForkingProcess(forkTest)
 			.engineBehavior
 				.setLegacyReportDir(reportDir);
-		testProcessor
-			.launch(testClasspath().and(classDir).and(testClassDir),
-					JkTestSelection.of().addTestClassRoots(testClassDir));
+		testProcessor.run().assertSuccess();
 	}
 
 	@JkDoc("Clean, compile, test and jar")
@@ -105,7 +104,7 @@ class Tasks extends KBean implements JkIdeSupportSupplier {
 	private JkPathSequence testClasspath() {
 		if (cachedTestClasspath == null) {
 			cachedTestClasspath = classpath()
-					.and(dependencyResolver.resolve("org.junit.jupiter:junit-jupiter:5.8.1").getFiles()
+					.and(dependencyResolver.resolve("org.junit.vintage:junit-vintage-engine:6.1.3").getFiles()
 							.and(classDir)
 							.and(baseTree.andMatching("libs/test/*.jar").getFiles()));
 		}

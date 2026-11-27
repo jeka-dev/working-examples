@@ -1,0 +1,14 @@
+[version]
+org.springframework.boot:spring-boot-dependencies:3.5.16@pom
+
+[compile]
+org.springframework.boot:spring-boot-starter-web
+
+[compile-only]
+org.projectlombok:lombok:1.18.48
+
+[runtime]
+org.postgresql:postgresql:42.7.15
+
+[test]
+org.springframework.boot:spring-boot-starter-test

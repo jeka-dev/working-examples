@@ -23,12 +23,12 @@ Build Docker Image :
 jeka docker: build
 ```
 
-Run Docker Image :
+Run Docker Image, then open http://localhost:8080 :
 ```shell
-jeka docker: run
+docker run --rm -p 8080:8080 springboot-base:latest
 ```
 
-The idea is to code the [Spring-Boot application](jeka-src/app) entirely is *jeke-src*.
+The idea is to code the [Spring-Boot application](jeka-src/app) entirely in *jeka-src*.
 
 Everything, concerning non-prod (build, tests) are located under *_dev* package and won't be shipped with the application.
 

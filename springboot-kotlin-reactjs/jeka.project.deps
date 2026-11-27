@@ -1,0 +1,10 @@
+[version]
+org.springframework.boot:spring-boot-dependencies:3.5.16@pom
+
+[compile]
+org.springframework.boot:spring-boot-starter-web
+org.springframework.boot:spring-boot-starter-data-jpa
+org.springframework.boot:spring-boot-starter-data-rest
+
+[runtime]
+com.h2database:h2:2.5.252

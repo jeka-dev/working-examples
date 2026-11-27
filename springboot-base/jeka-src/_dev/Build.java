@@ -1,7 +1,6 @@
 package _dev;
 
 import dev.jeka.core.tool.JkDep;
-import dev.jeka.core.tool.JkInjectClasspath;
 import dev.jeka.core.tool.JkPostInit;
 import dev.jeka.core.tool.KBean;
 import dev.jeka.core.tool.builtins.base.BaseKBean;

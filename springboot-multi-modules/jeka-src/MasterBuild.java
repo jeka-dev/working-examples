@@ -1,7 +1,7 @@
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.api.tooling.intellij.JkIml;
+import dev.jeka.core.api.tooling.intellij.JkIntellijIml;
 import dev.jeka.core.tool.JkDoc;
 import dev.jeka.core.tool.JkInject;
 import dev.jeka.core.tool.JkPostInit;
@@ -34,14 +34,15 @@ class MasterBuild extends KBean {
 	@JkDoc("Clean all sub-projects")
 	public void cleanAll() {
 		super.cleanOutput();
-		this.getImportedKBeans().get(true).forEach(KBean::cleanOutput);
+		springbootappProjectKBean.cleanOutput();
+		swingProjectKBean.cleanOutput();
 	}
 
 	@JkPostInit
 	private void postInit(IntellijKBean intellijKBean) {
 		intellijKBean
-				.addModule("springboot-multi-modules.springbootapp", JkIml.Scope.TEST)
-				.addModule("springboot-multi-modules.swingapp", JkIml.Scope.TEST);
+				.addModule("springboot-multi-modules.springbootapp", JkIntellijIml.Scope.TEST)
+				.addModule("springboot-multi-modules.swingapp", JkIntellijIml.Scope.TEST);
 	}
 
 	private void copyJars() {

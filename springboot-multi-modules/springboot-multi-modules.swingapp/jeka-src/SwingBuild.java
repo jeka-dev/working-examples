@@ -1,6 +1,6 @@
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.project.JkProjectPackaging;
-import dev.jeka.core.api.tooling.intellij.JkIml;
+import dev.jeka.core.api.tooling.intellij.JkIntellijIml;
 import dev.jeka.core.tool.JkInject;
 import dev.jeka.core.tool.JkInjectRunbase;
 import dev.jeka.core.tool.JkPostInit;

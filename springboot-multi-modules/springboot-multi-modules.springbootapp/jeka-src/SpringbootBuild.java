@@ -1,7 +1,7 @@
 import dev.jeka.core.api.file.JkPathTree;
 import dev.jeka.core.api.project.JkProject;
 import dev.jeka.core.api.system.JkLog;
-import dev.jeka.core.api.tooling.intellij.JkIml;
+import dev.jeka.core.api.tooling.intellij.JkIntellijIml;
 import dev.jeka.core.tool.*;
 import dev.jeka.core.tool.builtins.project.ProjectKBean;
 import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
@@ -16,7 +16,7 @@ import java.nio.file.StandardCopyOption;
 @JkDep("dev.jeka:nodejs-plugin")
 class SpringbootBuild extends KBean {
 
-    final JkNodeJs nodeJs = JkNodeJs.ofVersion("18.12.0")
+    final JkNodeJs nodeJs = JkNodeJs.ofVersion("26.13.1")
             .setWorkingDir(getBaseDir().resolve("web"));
 
     @JkInject("../springboot-multi-modules.core")
@@ -32,7 +32,7 @@ class SpringbootBuild extends KBean {
                 .add(Boot.STARTER_TEST.toCoordinate());
         project.compilation.postCompileActions.append("build-web-client", () -> npmBuild(project));
         JkSpringbootProject.of(project)
-                .includeParentBom("3.2.1")
+                .includeParentBom("3.5.16")
                 .configure();
     }
 

@@ -22,20 +22,20 @@ class Build extends KBean {
     @JkPreInit
     private static void preInit(ProjectKBean projectKBean) {
         projectKBean.compilation.compilerOptions = "-Xlint:-options";
-        projectKBean.tests.progress = JkTestProcessor.JkProgressStyle.STEP;
+        projectKBean.test.progress = JkTestProcessor.JkProgressStyle.STEP;
         projectKBean.gitVersioning.enable = true;
     }
 
     @JkPostInit(required = true)
     private void postInit(ProjectKBean projectKBean) {
         JkProject project = projectKBean.project;
-        project.testing.compilation.addJavaCompilerOptions("-Xlint:-options");
+        project.test.compilation.addJavaCompilerOptions("-Xlint:-options");
         project.flatFacade.dependencies.compile
-                .add("org.springframework.boot:spring-boot-dependencies::pom:3.4.2")
+                .add("org.springframework.boot:spring-boot-dependencies::pom:3.5.16")
                 .add("org.springframework.boot:spring-boot-starter-web")
                 .add("org.springframework.boot:spring-boot-starter-logging");
         project.flatFacade.addCompileOnlyDeps(
-                "org.projectlombok:lombok:1.18.30");
+                "org.projectlombok:lombok:1.18.48");
         project.flatFacade.dependencies.test
                 .add( "org.springframework.boot:spring-boot-starter-test");
     }

@@ -17,7 +17,7 @@ class ControllerIT {
 
     @Test
     void helloWorld() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/"))
+        mvc.perform(MockMvcRequestBuilders.get("/api"))
                 .andExpect(MockMvcResultMatchers.status().is(200));
     }
 

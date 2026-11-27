@@ -130,7 +130,7 @@ public class Application {
     }
 
     @ConfigurationProperties(prefix = "knote")
-    class KnoteProperties {
+    static class KnoteProperties {
 
         @Value("${uploadDir:/tmp/uploads/}")
         @Getter

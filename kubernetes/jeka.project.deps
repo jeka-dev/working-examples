@@ -1,15 +1,21 @@
+[version]
+org.springframework.boot:spring-boot-dependencies:3.5.16@pom
 
-== COMPILE ==
-org.springframework.boot:spring-boot-dependencies::pom:3.4.2
+[compile]
 org.springframework.boot:spring-boot-starter-web
 org.springframework.boot:spring-boot-starter-data-mongodb
-com.atlassian.commonmark:commonmark:0.12.1   # does not work with higher versions
-org.projectlombok:lombok:1.18.26
+# does not work with higher versions
+com.atlassian.commonmark:commonmark:0.12.1
 
-== RUNTIME ==
--org.projectlombok:lombok
+[compile-only]
+org.projectlombok:lombok:1.18.48
+
+[processor]
+org.projectlombok:lombok:1.18.48
+
+[runtime]
 org.springframework.boot:spring-boot-starter-freemarker
 org.springframework.boot:spring-boot-starter-actuator
 
-== TEST ==
+[test]
 org.springframework.boot:spring-boot-starter-test

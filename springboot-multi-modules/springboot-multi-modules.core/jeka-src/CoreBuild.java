@@ -1,4 +1,4 @@
-import dev.jeka.core.api.tooling.intellij.JkIml;
+import dev.jeka.core.api.tooling.intellij.JkIntellijIml;
 import dev.jeka.core.tool.JkInject;
 import dev.jeka.core.tool.JkPostInit;
 import dev.jeka.core.tool.KBean;

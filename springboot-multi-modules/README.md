@@ -18,9 +18,10 @@ Build all :
 jeka cleanPack
 ```
 
-Run :
+Run the Spring Boot application :
 ```shell
-jeka run
+cd springboot-multi-modules.springbootapp
+jeka project: runJar
 ```
 
 You can request a formula computation via [rest API](http://localhost:8080/formula?input=17).

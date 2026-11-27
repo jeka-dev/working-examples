@@ -8,6 +8,6 @@ import dev.jeka.core.tool.KBean;
 public class BuildCommon extends KBean {
 
     public static final JkVersionProvider VERSION_PROVIDER =
-            JkVersionProvider.of(JkPopularLibs.GUAVA, "22.0");
+            JkVersionProvider.of(JkPopularLibs.GUAVA, "33.8.0-jre");
 
 }

@@ -2,9 +2,9 @@
 
 This project aims at providing a jar file library that capitalize entire strings (all word of the input string are capitalized).
 
-The project has a dependency on *Guava* and on *Junit4* for testing.
+The project has a dependency on *Guava* and on *JUnit 4* for testing (run with the JUnit Vintage engine).
 
-This project does not respect any layout convention. Its [build class](jeka/def/Tasks.java) explicitly describes the whole build as we do with ANT.
+This project does not respect any layout convention. Its [build class](jeka-src/Tasks.java) explicitly describes the whole build as we do with ANT.
 
 ## Setup IDE
 
@@ -32,5 +32,5 @@ jeka build
 ```
 
 ### From IDE
-Execute `Tasks` class found at [build/def/Tasks.java](jeka/def/Tasks.java) or <br/>
+Execute `Tasks` class found at [jeka-src/Tasks.java](jeka-src/Tasks.java) or <br/>
 

@@ -5,7 +5,7 @@ org.springframework.boot:spring-boot-dependencies:3.5.16@pom
 org.springframework.boot:spring-boot-starter-web
 org.springframework.boot:spring-boot-starter-data-mongodb
 # does not work with higher versions
-com.atlassian.commonmark:commonmark:0.12.1
+org.commonmark:commonmark:0.33.0
 
 [compile-only]
 org.projectlombok:lombok:1.18.48

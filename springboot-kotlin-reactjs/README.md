@@ -6,8 +6,8 @@ Jeka builds both server and client application.
 
 No installation of node-js is required : Jeka install required node versions transparently.
 
-Kotlin support is still experimental, so Kotlin compilation has been entirely coded within build classes. 
-It gives an idea about how to customise Jeka for integrating specific technology. 
+The whole build is configured in [jeka.properties](jeka.properties): the `kotlin`, `nodeJs` and `springboot` plugins.
+The `SPRING` preset of the `kotlin` KBean adds the Kotlin *allopen* compiler plugin, needed by Spring.
 
 ## Setup IDE
 

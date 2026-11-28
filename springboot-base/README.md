@@ -32,8 +32,5 @@ The idea is to code the [Spring-Boot application](jeka-src/app) entirely in *jek
 
 Everything, concerning non-prod (build, tests) are located under *_dev* package and won't be shipped with the application.
 
-
-
-
-
-
+[_dev/Build.java](jeka-src/_dev/Build.java) adds the Spring Boot plugin and requires its KBean, so that `jeka pack`
+creates a bootable jar. `@build=on`, in [jeka.properties](jeka.properties), makes JeKa initialize this `Build` KBean.

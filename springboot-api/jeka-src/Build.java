@@ -31,13 +31,13 @@ class Build extends KBean {
         JkProject project = projectKBean.project;
         project.test.compilation.addJavaCompilerOptions("-Xlint:-options");
         project.flatFacade.dependencies.compile
-                .add("org.springframework.boot:spring-boot-dependencies::pom:3.5.16")
-                .add("org.springframework.boot:spring-boot-starter-web")
+                .add("org.springframework.boot:spring-boot-dependencies::pom:4.2.0")
+                .add("org.springframework.boot:spring-boot-starter-webmvc")
                 .add("org.springframework.boot:spring-boot-starter-logging");
         project.flatFacade.addCompileOnlyDeps(
                 "org.projectlombok:lombok:1.18.48");
         project.flatFacade.dependencies.test
-                .add( "org.springframework.boot:spring-boot-starter-test");
+                .add( "org.springframework.boot:spring-boot-starter-webmvc-test");
     }
 
     @JkPostInit(required = true)

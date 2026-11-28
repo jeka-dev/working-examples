@@ -1,27 +1,27 @@
-# Simple Java project with build class based on template.
+# Project depending on local libraries
 
-This project demonstrates how to build a project without any configuration/code.<br/>
-Third party libraries are stored locally in dedicated folder according their scope.
+This project shows how JeKa builds a project whose third-party jars are stored in the repository, with no build code.
+The jars lie in [libs](libs), one folder per scope: `libs/compile` for the code, `libs/test` for the tests.
+JeKa adds them to the matching classpath. [jeka.properties](jeka.properties) only activates the `project` KBean (`@project=`).
 
 ## How to build
 
-### From command line
-To build the project, execute :
+Build the jar in `jeka-output/`, after cleaning it:
 ```shell
 jeka project: pack -c
 ```
 
-If you want to produce test coverage analysis with [Jacoco](http://eclemma.org/jacoco/), execute :
+Run the tests with [JaCoCo](https://www.jacoco.org/jacoco/) coverage (report in `jeka-output/jacoco`):
 ```shell
-jeka -cp=dev.jeka:jacoco-plugin jacoco: project: test  
+jeka -cp=dev.jeka:jacoco-plugin jacoco: project: test
 ```
-If you want to produce test coverage and sonarQube analysis [SonarQube](http://www.sonarqube.org/), execute :
+
+Add a [SonarQube](https://www.sonarsource.com/products/sonarqube/) analysis (needs a SonarQube server):
 ```shell
 jeka -cp=dev.jeka:jacoco-plugin,dev.jeka:sonarqube-plugin project: test jacoco: sonarqube: run
 ```
 
-### From IDE
+## Links
 
-Expand the Jeka Tool Window to **java-full-conventional | Classpath KBeans | project | pack...**
-
-
+- [Build projects](https://jeka-dev.github.io/jeka/tutorials/build-projects/)
+- [project KBean](https://jeka-dev.github.io/jeka/reference/kbeans-project/)

@@ -19,7 +19,7 @@ jeka intellij: iml
 ## How does it work ?
 
 Jeka builds (compiles and tests) the Springboot application using [Jeka Springboot
-plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/dev.jeka.plugins.springboot).
+plugin](https://github.com/jeka-dev/jeka/tree/master/plugins/plugins.springboot).
 
 The application build is specified in [jeka.properties file](jeka.properties) while
 [jeka.project.deps](jeka.project.deps) specifies dependencies.
@@ -27,7 +27,7 @@ The application build is specified in [jeka.properties file](jeka.properties) wh
 A [Kube KBean](jeka-src/kube/Kube.java) defines the entry points to interact with command-line
 or the IDE. This KBean delegates the tasks to following classes :
 - [Image](jeka-src/kube/Image.java) : Produces the container image.
-- [Resources](jeka//def/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
+- [Resources](jeka-src/kube/Resources.java) : Defines an object model of the Kubernetes resources to deploy.
 - [2 generic helper classes](jeka-src/kube/support) that can be externalized in a lib/plugin. They provide simple convenient methods to deal with Jib and Fabric8 api.
 
 
@@ -89,7 +89,7 @@ Execute the following command:
 jeka buildAndApply
 ```
 
-The `:build` command shortcut defined in the [local.properties](local.properties) file will clean, compile, and test the application (`project#test`) before building and publishing the Docker image (`kube#buildImage`).
+`buildAndApply` cleans the output and packs the application (tests included), then builds and pushes the image (`buildImage`), and applies the resources to the cluster (`apply`).
 
 You can check that the image has been successfully deployed to your registry by visiting [http://localhost:5000/v2/knote-java/tags/list](http://localhost:5000/v2/knote-java/tags/list).
 
@@ -102,11 +102,6 @@ To deploy or update the cluster with the built resources, execute the following 
 jeka apply
 ```
 
-You can also build the application and deploy it in a single command by running:
-```shell
-jeka buildAllAndApply
-```
-
 Before testing, you need to forward the port from the Kubernetes cluster to your local machine:
 ```shell
 jeka portForward
@@ -114,7 +109,7 @@ jeka portForward
 
 To display all the available methods and properties for this project, execute the following command, which reflects the content of the `Kube` class:
 ```shell
-jeka -cmd
+jeka --doc
 ```
 
 You can now access your local application by clicking [here](http://localhost:8080/).
@@ -140,17 +135,5 @@ jeka buildAndApply target=STAGING appVersion=${BUILD_ID}
 In the same pipeline, the CI tool may include a step to deploy the already built application in the *prod* environment:
 
 ```shell
-jeka #apply #target=PROD #appVersion=${BUILD_ID}
+jeka apply target=PROD appVersion=${BUILD_ID}
 ```
-
-
-
-
-
-
-
-
-
-
-
-

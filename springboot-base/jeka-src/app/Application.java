@@ -4,8 +4,8 @@ import dev.jeka.core.tool.JkDep;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@JkDep("org.springframework.boot:spring-boot-dependencies::pom:3.5.16") // declare BOM
-@JkDep("org.springframework.boot:spring-boot-starter-web")
+@JkDep("org.springframework.boot:spring-boot-dependencies::pom:4.2.0") // declare BOM
+@JkDep("org.springframework.boot:spring-boot-starter-webmvc")
 
 @SpringBootApplication
 public class Application {

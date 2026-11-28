@@ -6,7 +6,6 @@ import dev.jeka.core.tool.*;
 import dev.jeka.core.tool.builtins.project.ProjectKBean;
 import dev.jeka.core.tool.builtins.tooling.ide.IntellijKBean;
 import dev.jeka.plugins.nodejs.JkNodeJs;
-import dev.jeka.plugins.springboot.JkSpringModules.Boot;
 import dev.jeka.plugins.springboot.JkSpringbootProject;
 
 import java.nio.file.Path;
@@ -26,13 +25,13 @@ class SpringbootBuild extends KBean {
     protected void postInit(ProjectKBean projectKBean) {
         JkProject project = projectKBean.project;
         project.flatFacade.dependencies.compile
-                .add(Boot.STARTER_WEB.toCoordinate())
+                .add("org.springframework.boot:spring-boot-starter-webmvc")
                 .add(coreProjectKBean.project.toDependency());
         project.flatFacade.dependencies.test
-                .add(Boot.STARTER_TEST.toCoordinate());
+                .add("org.springframework.boot:spring-boot-starter-webmvc-test");
         project.compilation.postCompileActions.append("build-web-client", () -> npmBuild(project));
         JkSpringbootProject.of(project)
-                .includeParentBom("3.5.16")
+                .includeParentBom("4.2.0")
                 .configure();
     }
 

@@ -20,8 +20,9 @@ import lombok.RequiredArgsConstructor;
 @JkDep("org.projectlombok:lombok:1.18.48")
 
 @JkDep("com.google.cloud.tools:jib-core:0.28.2")
-@JkDep("io.fabric8:kubernetes-client:6.14.0")
-@JkDep("io.fabric8:kubernetes-client-api:6.14.0")
+@JkDep("io.fabric8:kubernetes-client:8.0.0")
+@JkDep("io.fabric8:kubernetes-client-api:8.0.0")
+@JkDep("org.yaml:snakeyaml:2.7")
 @JkDep("org.slf4j:slf4j-simple:2.0.20")
 
 @JkDep("dev.jeka:springboot-plugin")

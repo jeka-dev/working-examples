@@ -1,8 +1,8 @@
 [version]
-org.springframework.boot:spring-boot-dependencies:3.5.16@pom
+org.springframework.boot:spring-boot-dependencies:4.2.0@pom
 
 [compile]
-org.springframework.boot:spring-boot-starter-web
+org.springframework.boot:spring-boot-starter-webmvc
 
 [compile-only]
 org.projectlombok:lombok:1.18.48
@@ -11,4 +11,4 @@ org.projectlombok:lombok:1.18.48
 org.postgresql:postgresql:42.7.15
 
 [test]
-org.springframework.boot:spring-boot-starter-test
+org.springframework.boot:spring-boot-starter-webmvc-test

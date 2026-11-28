@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.PersistenceConstructor;
+import org.springframework.data.annotation.PersistenceCreator;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +43,7 @@ public class Application {
     @Setter
     @Getter
     @NoArgsConstructor
-    @AllArgsConstructor(onConstructor = @__(@PersistenceConstructor))
+    @AllArgsConstructor(onConstructor = @__(@PersistenceCreator))
     static
     class Note {
 

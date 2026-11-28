@@ -42,20 +42,10 @@ The formula computation is provided by _core_ modules that in turns depends on  
 
 * __swingapp__ : Standalone swing application exposing _magic formula_. Jeka produces a fat jar containing all needed dependencies.
 
-* __springbootapp__ : Springboot application exposing _magic formula_. Jeka triggers client part ([web](./web)) build to include it in _springbootapp.jar_ 
+* __springbootapp__ : Springboot application exposing _magic formula_. Jeka triggers client part ([web](springboot-multi-modules.springbootapp/web)) build to include it in _springbootapp.jar_ 
 
 * __web__ : Web graphical interface embedded in _springbootapp_. This is a pure web project, built with _node.js/npm/webpack_ without any trace of Jeka.
 
-* __build-master__ : Contains only Jeka commands to trigger overall build.
+* [jeka-src/MasterBuild.java](jeka-src/MasterBuild.java) : Contains only the JeKa commands that drive the overall build (`cleanPack`).
 
-* __build-common__ : Contains common build code used by all other modules. Note that this could have also been included in the _utils_ module, which is the most downstream module, instead of inside a specific one. 
-
-
-
-
-
-
-
-
-
-
+* __build-common__ : Contains common build code used by all other modules. Note that this could have also been included in the _utils_ module, which is the most downstream module, instead of inside a specific one.

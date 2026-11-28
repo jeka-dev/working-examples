@@ -30,7 +30,7 @@ open class Application : CommandLineRunner {
                 ))
         }
 
-        override fun run(vararg args: String?) {
+        override fun run(vararg args: String) {
                 println("Open me http://localhost:8080")
         }
 }

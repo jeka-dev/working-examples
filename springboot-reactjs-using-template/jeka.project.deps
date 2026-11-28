@@ -1,8 +1,8 @@
 [version]
-org.springframework.boot:spring-boot-dependencies:3.5.16@pom
+org.springframework.boot:spring-boot-dependencies:4.2.0@pom
 
 [compile]
-org.springframework.boot:spring-boot-starter-web
+org.springframework.boot:spring-boot-starter-webmvc
 org.springframework.boot:spring-boot-starter-data-jpa
 org.springframework.boot:spring-boot-starter-data-rest
 
@@ -10,4 +10,4 @@ org.springframework.boot:spring-boot-starter-data-rest
 com.h2database:h2:2.5.252
 
 [test]
-org.springframework.boot:spring-boot-starter-test
+org.springframework.boot:spring-boot-starter-webmvc-test
